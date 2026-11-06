@@ -125,11 +125,11 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 124,IV,Organizacja i działanie,0,0,1,do_oceny,nie_rozpoczęto,,
 125,IV,Referendum,5,0,1,procedura;próg;kompetencja;odesłanie;ocenne,częściowo,Konstytucja/Procedury/Referendum.lean;Konstytucja/Procedury/ZmianaKonstytucji.lean;Konstytucja/Twierdzenia/Referendum.lean,ujęte wiersze: 4 z 5
 126,V,,3,0,1,do_oceny,nie_rozpoczęto,,
-127,V,,7,0,1,procedura;próg;termin;kompetencja;odesłanie,nie_rozpoczęto,,
-128,V,,2,0,1,procedura;termin;kompetencja,nie_rozpoczęto,,
-129,V,,3,0,1,procedura;kompetencja;odesłanie,nie_rozpoczęto,,
-130,V,,0,0,1,ocenne,nie_rozpoczęto,,
-131,V,,4,5,1,procedura;próg;termin;kompetencja;wyliczenie,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 9
+127,V,,7,0,1,procedura;próg;termin;kompetencja;odesłanie,częściowo,Konstytucja/Procedury/WybórPrezydenta.lean;Konstytucja/Twierdzenia/WybórPrezydenta.lean,ujęte wiersze: 5 z 7
+128,V,,2,0,1,procedura;termin;kompetencja,częściowo,Konstytucja/Procedury/WybórPrezydenta.lean;Konstytucja/Twierdzenia/WybórPrezydenta.lean,ujęte wiersze: 1 z 2
+129,V,,3,0,1,procedura;kompetencja;odesłanie,częściowo,Konstytucja/Procedury/UrządPrezydenta.lean;Konstytucja/Procedury/WybórPrezydenta.lean;Konstytucja/Twierdzenia/UrządPrezydenta.lean,ujęte wiersze: 2 z 3
+130,V,,0,0,1,ocenne,częściowo,Konstytucja/Procedury/UrządPrezydenta.lean;Konstytucja/Procedury/WybórPrezydenta.lean;Konstytucja/Twierdzenia/UrządPrezydenta.lean,ujęte wiersze: 1 z 1
+131,V,,4,5,1,procedura;próg;termin;kompetencja;wyliczenie,częściowo,Konstytucja/Procedury/UrządPrezydenta.lean;Konstytucja/Twierdzenia/Kolizje.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/UrządPrezydenta.lean,ujęte wiersze: 8 z 9
 132,V,,0,0,1,kompetencja,nie_rozpoczęto,,
 133,V,,3,3,1,kompetencja;wyliczenie,nie_rozpoczęto,,
 134,V,,6,0,1,termin;kompetencja;odesłanie,nie_rozpoczęto,,
@@ -143,7 +143,7 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 142,V,,2,0,1,kompetencja,nie_rozpoczęto,,
 143,V,,0,0,1,kompetencja,nie_rozpoczęto,,
 144,V,,3,30,1,termin;kompetencja;wyliczenie,nie_rozpoczęto,,
-145,V,,3,0,1,procedura;próg;kompetencja,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 3
+145,V,,3,0,1,procedura;próg;kompetencja,częściowo,Konstytucja/Procedury/UrządPrezydenta.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/UrządPrezydenta.lean,ujęte wiersze: 2 z 3
 146,VI,,4,12,1,kompetencja;ocenne;wyliczenie,nie_rozpoczęto,,
 147,VI,,4,0,1,odesłanie,nie_rozpoczęto,,
 148,VI,,0,7,1,kompetencja;wyliczenie,nie_rozpoczęto,,

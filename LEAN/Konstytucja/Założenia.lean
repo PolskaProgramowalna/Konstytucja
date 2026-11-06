@@ -82,6 +82,22 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
 * Q5. Zakaz z art. 228 ust. 7 dotyczy przeprowadzenia, a nie zarządzenia referendum.
 * Q6. Model obejmuje jedno referendum. Art. 90 ust. 3 i referendum lokalne (art. 170)
   są poza zakresem.
+* W1. Końcówka art. 128 ust. 2 („wyznaczając datę ... na dzień wolny od pracy ... w ciągu
+  60 dni”) dotyczy obu trybów wyborów. Składnia zdania tego nie przesądza.
+* W2. Art. 127 ust. 2 „ponownie wybrany tylko raz” liczymy łącznie, nie tylko
+  dla kadencji następujących po sobie.
+* W3. Wyniki tur są parametrem scenariusza (`głosyI`, `głosyII`).
+* W4. Przy wycofaniu kandydata model nie sprawdza kolejności zapasowych kandydatów, a
+  liczbę możliwych zastąpień ogranicza `zapas`. Art. 127 ust. 5 mówi o kolejnym kandydacie.
+* W5. Termin 14 dni na zarządzenie i 60 dni na wybory liczymy także po stwierdzeniu
+  nieważności wyboru (art. 129 ust. 3).
+* W6. Art. 228 ust. 7 zakazuje głosowania, ale automat nie przesuwa daty. Tekst
+  przedłuża kadencje, a nie opisuje nowego wyznaczenia daty.
+* W7. Tekst nie opisuje powrotu po przejściowej niemożności. Przyjmujemy, że Prezydent
+  może wrócić do sprawowania urzędu.
+* W8. Art. 145 ust. 3 każe stosować art. 131 odpowiednio: zawieszony Prezydent ma zastępcę.
+* W9. Art. 131 ust. 3 nie mówi, co gdy obaj Marszałkowie nie mogą działać. Model ma
+  dwa wyjścia (`marszałekSejmuMoże`) i nie opisuje dalszego zastępstwa.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3
   nie są jeszcze modelowane.
 * A2. Art. 87 traktujemy jako zamknięty katalog źródeł powszechnie obowiązujących,

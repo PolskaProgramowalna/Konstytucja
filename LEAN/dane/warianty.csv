@@ -25,3 +25,7 @@ Q3,sprawa o szczególnym znaczeniu,Założenia.szczególneZnaczenie,roboczy,poj�
 Q3,sprawa bez szczególnego znaczenia,Założenia.szczególneZnaczenie,roboczy,pojęcie ocenne
 Q4,brak limitu,Założenia.limit,roboczy,odpowiada tekstowi art. 125
 Q4,limit L dni,Założenia.limit,roboczy,założenie spoza tekstu
+W1,końcówka art. 128 ust. 2 dotyczy obu trybów,terminZarządzenia,roboczy,składnia nie przesądza; wariantu drugiego nie modelowano
+W2,dwie kadencje łącznie,dopuszczalny,roboczy,wariant kadencji następujących po sobie niemodelowany
+W9,zastępca Marszałek Sejmu,Założenia.marszałekSejmuMoże,roboczy,art. 131 ust. 3
+W9,zastępca Marszałek Senatu,Założenia.marszałekSejmuMoże,roboczy,art. 131 ust. 3

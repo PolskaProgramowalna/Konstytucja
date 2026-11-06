@@ -155,3 +155,37 @@ z już zarządzonym (okres_ochronny_blokuje). Model nie zawiera odwołania ani p
 L34. Brak terminów w art. 125
 Tekst nie podaje terminu zgody Senatu, głosowania ani stwierdzenia ważności.
 Zasady i tryb odsyła do ustawy (art. 125 ust. 5), której model nie zawiera.
+
+L35. Remis w ponownym głosowaniu (art. 127 ust. 6)
+Przepis rozstrzyga tylko "więcej głosów". Przy remisie i braku zapasu automat staje
+(remis_blokuje, remis_w_scenariuszu).
+
+L36. Jedyny kandydat (art. 127 ust. 4-5)
+Przepisy zakładają co najmniej dwóch kandydatów do ponownego głosowania. Jedyny kandydat
+bez większości zatrzymuje automat (jeden_kandydat_bez_większości).
+
+L37. Wycofanie bez zapasowego kandydata (art. 127 ust. 5)
+Tekst zakłada istnienie kolejnego kandydata. Model nie ma przejścia po wyczerpaniu zapasu
+(brak_zapasu_nie_zastępuje), a liczbę zastąpień ogranicza założenie W4.
+
+L38. Wybory a okres ochronny (art. 128 ust. 2 i art. 228 ust. 7)
+Termin 14 i 60 dni po opróżnieniu koliduje z zakazem wyborów. Art. 228 ust. 7 przedłuża
+kadencje, ale opróżnienie urzędu nie jest upływem kadencji. Automat staje na dacie
+w okresie ochronnym (okres_ochronny_blokuje_turę).
+
+L39. Obowiązek skrócenia kadencji w czasie zastępstwa (art. 155 ust. 2 i art. 131 ust. 4)
+Jeśli nakaz przechodzi na osobę wykonującą obowiązki, koliduje z zakazem z art. 131 ust. 4
+(kolizja_art155_art131). Jeśli nie przechodzi, art. 155 ust. 2 nie ma kto wykonać.
+
+L40. Obaj Marszałkowie nie mogą działać (art. 131 ust. 3)
+Przepis kończy się na Marszałku Senatu. Model nie opisuje dalszego zastępstwa (W9).
+
+L41. Zawieszenie bez terminu (art. 145 ust. 3)
+Art. 145 nie podaje terminu Trybunałowi Stanu, więc Prezydent może pozostawać zawieszony
+bez końca (brak_orzeczenia_stanu_blokuje).
+
+L42. Powrót po przejściowej niemożności (art. 131 ust. 1)
+Tekst nie opisuje powrotu ani tego, kto go stwierdza. Model przyjmuje założenie W7.
+
+L43. Zakres końcówki art. 128 ust. 2
+Nie jest jasne, czy 60 dni i dzień wolny dotyczą też wyborów zwykłych (W1).

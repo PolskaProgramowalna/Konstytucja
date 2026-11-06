@@ -116,6 +116,17 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
   stanu wojennego. Tekst nie opisuje skutku odmowy zatwierdzenia.
 * S8. Art. 233 ust. 2 modeluje tylko motyw ograniczenia. Art. 228 ust. 5 (odpowiedniość)
   jest pojęciem ocennym i nie wchodzi do katalogów.
+* K1. Art. 144 ust. 3 pkt 6 mówi o odmowie podpisania. To, czy obejmuje wniosek o ponowne
+  rozpatrzenie z art. 122 ust. 5, jest wariantem `wetoWolneOdKontrasygnaty`.
+* K2. Akt spoza art. 144 ust. 3 wymaga kontrasygnaty. Katalog traktujemy jako zamknięty,
+  a model nie rozstrzyga, które czynności są aktami urzędowymi z art. 144 ust. 1.
+* K3. Automaty procedur nie sprawdzają kontrasygnaty. Art. 229 i art. 230 ją wymagają,
+  ale przejścia zakładają akt ważny.
+* K4. Skargę z art. 188 pkt 5 wnosi tylko podmiot z art. 79, choć art. 191 ust. 1 pkt 1
+  mówi ogólnie o sprawach z art. 188.
+* K5. Rozporządzenie z mocą ustawy (art. 234) badamy tylko względem Konstytucji.
+* K6. Podmioty z art. 191 ust. 1 pkt 3–5 składają wniosek tylko w sprawach aktów
+  normatywnych, a sprawa partii politycznej z art. 188 pkt 4 nimi nie jest.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3
   nie są jeszcze modelowane.
 * A2. Art. 87 traktujemy jako zamknięty katalog źródeł powszechnie obowiązujących,

@@ -35,3 +35,7 @@ S5,zakończenie stanu przed terminem dozwolone,Krok.koniec,roboczy,tekst milczy
 S7,kadencja do pierwszego dnia po okresie,przedłużonaKadencja,roboczy,"tekst mówi o odpowiednim przedłużeniu, a kadencja może trwać dłużej do wyborów"
 S9,stan wygasa przed decyzją Sejmu,Krok.wygaśnięcieUSejmu,roboczy,art. 230 nie opisuje tej sytuacji
 U9,bierność Sejmu po stanowisku Senatu,Założenia.sejmRozpatruje,roboczy,art. 121 ust. 3 nie podaje terminu
+K1,weto wolne od kontrasygnaty,wymagaKontrasygnaty,roboczy,art. 144 ust. 3 pkt 6 mówi o odmowie podpisania
+K1,weto wymaga kontrasygnaty,wymagaKontrasygnaty,roboczy,art. 144 ust. 3 pkt 6 mówi o odmowie podpisania
+K4,skarga tylko z art. 79,możeWystąpić,roboczy,art. 191 ust. 1 pkt 1 mówi ogólnie o sprawach z art. 188
+K5,art. 234 tylko względem Konstytucji,kontrolowalny,roboczy,art. 188 pkt 3 nie wymienia tych rozporządzeń osobno

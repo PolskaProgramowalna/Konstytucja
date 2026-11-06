@@ -1,0 +1,132 @@
+import Konstytucja.Podstawy.Akty
+
+/-! # Art. 79, art. 186 i art. 188–193: właściwość Trybunału Konstytucyjnego
+
+Założenia K4–K6 opisuje `Konstytucja/Założenia.lean`.
+-/
+
+namespace Konstytucja.Trybunał
+
+/-- Art. 79, art. 188, art. 189, a także art. 122 ust. 3, art. 131 ust. 1 i art. 133 ust. 2. -/
+inductive Sprawa where
+  /-- Art. 188 pkt 1. -/
+  | zgodnośćZKonstytucją
+  /-- Art. 188 pkt 2. -/
+  | zgodnośćZUmową
+  /-- Art. 188 pkt 3. -/
+  | przepisyCentralne
+  /-- Art. 188 pkt 4. -/
+  | partiaPolityczna
+  /-- Art. 188 pkt 5. -/
+  | skarga
+  /-- Art. 189. -/
+  | sporKompetencyjny
+  /-- Art. 122 ust. 3. -/
+  | ustawaPrzedPodpisaniem
+  /-- Art. 133 ust. 2. -/
+  | umowaPrzedRatyfikacją
+  /-- Art. 131 ust. 1. -/
+  | przeszkodaWSprawowaniuUrzędu
+  deriving DecidableEq, Repr
+
+/-- Art. 188 pkt 1–3. -/
+def Sprawa.aktNormatywny : Sprawa → Bool
+  | .zgodnośćZKonstytucją | .zgodnośćZUmową | .przepisyCentralne => true
+  | _ => false
+
+inductive Podmiot where
+  | prezydent
+  | marszałekSejmu
+  | marszałekSenatu
+  | prezesRadyMinistrów
+  | posłowie (liczba : Nat)
+  | senatorowie (liczba : Nat)
+  | pierwszyPrezesSN
+  | prezesNSA
+  | prokuratorGeneralny
+  | prezesNIK
+  | rzecznikPrawObywatelskich
+  /-- Art. 191 ust. 1 pkt 2. -/
+  | krajowaRadaSądownictwa
+  /-- Art. 191 ust. 1 pkt 3. -/
+  | organSamorządu
+  /-- Art. 191 ust. 1 pkt 4. -/
+  | związekZawodowy
+  | organizacjaPracodawców
+  | organizacjaZawodowa
+  /-- Art. 191 ust. 1 pkt 5. -/
+  | kościół
+  /-- Art. 79 ust. 1: każdy. -/
+  | osoba
+  /-- Art. 193. -/
+  | sąd
+  | inny
+  deriving DecidableEq, Repr
+
+/-- Okoliczności wniosku potrzebne do oceny uprawnienia. -/
+structure Okoliczności where
+  /-- Art. 191 ust. 2. -/
+  zakresDziałania : Bool
+  /-- Art. 186 ust. 2. -/
+  niezależnośćSądów : Bool
+  /-- Art. 79 ust. 1: naruszone wolności lub prawa. -/
+  naruszenie : Bool
+  /-- Art. 79 ust. 1: ostateczne orzeczenie. -/
+  orzeczenieOstateczne : Bool
+  /-- Art. 79 ust. 2. -/
+  prawoZArt56 : Bool
+  deriving DecidableEq, Repr
+
+/-- Art. 191 ust. 1 pkt 1. -/
+def Podmiot.ogólny : Podmiot → Bool
+  | .prezydent | .marszałekSejmu | .marszałekSenatu | .prezesRadyMinistrów
+  | .pierwszyPrezesSN | .prezesNSA | .prokuratorGeneralny | .prezesNIK
+  | .rzecznikPrawObywatelskich => true
+  | .posłowie n => decide (n ≥ 50)
+  | .senatorowie n => decide (n ≥ 30)
+  | _ => false
+
+/-- Art. 191 ust. 1 pkt 3–5. -/
+def Podmiot.szczególny : Podmiot → Bool
+  | .organSamorządu | .związekZawodowy | .organizacjaPracodawców
+  | .organizacjaZawodowa | .kościół => true
+  | _ => false
+
+/-- Art. 192. -/
+def Podmiot.wSporze : Podmiot → Bool
+  | .prezydent | .marszałekSejmu | .marszałekSenatu | .prezesRadyMinistrów
+  | .pierwszyPrezesSN | .prezesNSA | .prezesNIK => true
+  | _ => false
+
+/-- Czy podmiot może wystąpić do Trybunału w danej sprawie. -/
+def możeWystąpić (p : Podmiot) (s : Sprawa) (o : Okoliczności) : Bool :=
+  match s with
+  | .sporKompetencyjny => p.wSporze
+  | .ustawaPrzedPodpisaniem | .umowaPrzedRatyfikacją => p == .prezydent
+  | .przeszkodaWSprawowaniuUrzędu => p == .marszałekSejmu
+  | .skarga => p == .osoba && o.naruszenie && o.orzeczenieOstateczne && !o.prawoZArt56
+  | .partiaPolityczna => p.ogólny
+  | _ =>
+    p.ogólny || (p == .krajowaRadaSądownictwa && o.niezależnośćSądów) ||
+      (p.szczególny && o.zakresDziałania)
+
+/-- Art. 193: pytanie prawne. -/
+def pytanieDopuszczalne (p : Podmiot) (odOdpowiedziZależy : Bool) : Bool :=
+  p == .sąd && odOdpowiedziZależy
+
+open RodzajAktu
+
+/-- Czy `wzorzec` może być podstawą kontroli aktu `a` (art. 188 pkt 1–3, założenie K5). -/
+def kontrolowalny : RodzajAktu → RodzajAktu → Bool
+  | ustawa, konstytucja | umowaZaZgodą, konstytucja | umowaBezZgody, konstytucja => true
+  | ustawa, umowaZaZgodą => true
+  | rozporządzenieZMocąUstawy, konstytucja => true
+  | rozporządzenie, konstytucja | rozporządzenie, ustawa
+  | rozporządzenie, umowaZaZgodą | rozporządzenie, umowaBezZgody => true
+  | zarządzenie, konstytucja | zarządzenie, ustawa
+  | zarządzenie, umowaZaZgodą | zarządzenie, umowaBezZgody => true
+  | uchwałaRadyMinistrów, konstytucja | uchwałaRadyMinistrów, ustawa
+  | uchwałaRadyMinistrów, umowaZaZgodą | uchwałaRadyMinistrów, umowaBezZgody => true
+  | _, _ => false
+
+end Konstytucja.Trybunał

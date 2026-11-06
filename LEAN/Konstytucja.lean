@@ -11,6 +11,7 @@ import Konstytucja.Twierdzenia.Referendum
 import Konstytucja.Twierdzenia.WybórPrezydenta
 import Konstytucja.Twierdzenia.UrządPrezydenta
 import Konstytucja.Twierdzenia.StanyNadzwyczajne
+import Konstytucja.Twierdzenia.Kompetencje
 import Konstytucja.Modele.Kalendarz30
 import Konstytucja.Modele.Procedury
 import Konstytucja.Modele.Wybory

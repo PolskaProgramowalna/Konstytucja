@@ -28,7 +28,7 @@ się wstrzymają. Wynika to z założeń G1 i G3, czyli wyniku teoretycznego.
 
 L6. Brak górnej granicy stanu klęski żywiołowej (art. 232)
 Art. 230 ogranicza stan wyjątkowy do 150 dni. Art. 232 pozwala przedłużać stan
-klęski za zgodą Sejmu bez podania limitu. Tej różnicy jeszcze nie sformalizowano.
+klęski za zgodą Sejmu bez podania limitu. Formalizację zawiera L46.
 
 L7. Brak terminu w art. 154 ust. 3 zd. 2
 Prezydent powołuje rząd wybrany przez Sejm, ale tekst nie podaje liczby dni.
@@ -229,3 +229,31 @@ Sejm odmówi lub się nie zbierze. Model ma tylko przejście zatwierdzające (S1
 L52. Upływ terminu stanu przed decyzją Sejmu (art. 231 i art. 230)
 Krótki stan może wygasnąć, zanim Sejm rozpatrzy rozporządzenie
 (wygaśnięcie_przed_decyzją). Tekst nie opisuje tej sytuacji (S9).
+
+L53. Weto a art. 144 ust. 3 pkt 6
+Katalog prerogatyw mówi o podpisywaniu albo odmowie podpisania. Wniosek o ponowne
+rozpatrzenie z art. 122 ust. 5 nie jest wymieniony osobno. Model ma wariant K1.
+
+L54. Pojęcie aktu urzędowego (art. 144 ust. 1)
+Art. 144 ust. 3 wylicza wyjątki, ale tekst nie określa, które czynności Prezydenta są
+aktami urzędowymi. Model traktuje katalog jako zamknięty (K2) i nie rozstrzyga tego pojęcia.
+
+L55. Odmowa kontrasygnaty
+Akt bez podpisu Prezesa Rady Ministrów jest nieważny (art. 144 ust. 2), ale automaty stanów
+nadzwyczajnych tego nie sprawdzają (K3). Tekst nie opisuje skutku odmowy podpisu.
+
+L56. Art. 191 ust. 1 pkt 1 a skarga konstytucyjna
+Przepis mówi ogólnie o sprawach z art. 188, także z pkt 5. Model przyjmuje, że skargę wnosi
+tylko podmiot z art. 79 (K4).
+
+L57. Kontrola rozporządzeń z art. 234
+Mają one moc ustawy, ale art. 188 nie wymienia ich osobno. Model przyjmuje kontrolę tylko
+względem Konstytucji (K5).
+
+L58. Akty poza art. 188
+Akty prawa miejscowego nie są przepisami centralnymi, a prawo organizacji międzynarodowej
+nie jest wymienione. Model nie ma dla nich drogi do Trybunału.
+
+L59. Zakres kompetencji osoby wykonującej obowiązki Prezydenta
+Art. 131 ust. 4 zakazuje tylko skrócenia kadencji. Tekst nie mówi wprost, czy zastępca ma
+pozostałe prerogatywy z art. 144 ust. 3. Model tego jeszcze nie opisuje.

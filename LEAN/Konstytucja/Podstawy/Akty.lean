@@ -44,6 +44,10 @@ inductive MaPierwszeństwo : RodzajAktu → RodzajAktu → Prop where
   | ustawaPrzedUchwałą : MaPierwszeństwo ustawa uchwałaRadyMinistrów
   /-- Art. 188 pkt 3. -/
   | umowaPrzedRozporządzeniem : MaPierwszeństwo umowaBezZgody rozporządzenie
+  /-- Art. 188 pkt 3. -/
+  | umowaPrzedZarządzeniem : MaPierwszeństwo umowaBezZgody zarządzenie
+  /-- Art. 188 pkt 3. -/
+  | umowaPrzedUchwałą : MaPierwszeństwo umowaBezZgody uchwałaRadyMinistrów
 
 /-- Pierwszeństwo pośrednie: domknięcie przechodnie. -/
 inductive Wyższy : RodzajAktu → RodzajAktu → Prop where

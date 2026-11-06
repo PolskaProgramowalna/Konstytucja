@@ -77,7 +77,7 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 76,II,"Wolności i prawa ekonomiczne, socjalne i kulturalne",0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
 77,II,Środki ochrony wolności i praw,2,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
 78,II,Środki ochrony wolności i praw,0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
-79,II,Środki ochrony wolności i praw,2,0,3,procedura;odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
+79,II,Środki ochrony wolności i praw,2,0,3,procedura;odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 2 z 2
 80,II,Środki ochrony wolności i praw,0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
 81,II,Środki ochrony wolności i praw,0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
 82,II,Obowiązki,0,0,3,ocenne;prawo_lub_zasada,nie_rozpoczęto,,
@@ -120,7 +120,7 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 119,IV,Organizacja i działanie,4,0,1,procedura;kompetencja,częściowo,Konstytucja/Procedury/Ustawodawstwo.lean;Konstytucja/Twierdzenia/Ustawodawstwo.lean,ujęte wiersze: 1 z 4
 120,IV,Organizacja i działanie,0,0,1,procedura;próg,częściowo,Konstytucja/Procedury/Ustawodawstwo.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/Ustawodawstwo.lean,ujęte wiersze: 1 z 1
 121,IV,Organizacja i działanie,3,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Procedury/Ustawodawstwo.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/Ustawodawstwo.lean,ujęte wiersze: 3 z 3
-122,IV,Organizacja i działanie,6,0,1,procedura;próg;termin;kompetencja;ocenne,częściowo,Konstytucja/Procedury/Ustawodawstwo.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/Ustawodawstwo.lean,ujęte wiersze: 6 z 6
+122,IV,Organizacja i działanie,6,0,1,procedura;próg;termin;kompetencja;ocenne,częściowo,Konstytucja/Procedury/Ustawodawstwo.lean;Konstytucja/Twierdzenia/Kompetencje.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/Ustawodawstwo.lean,ujęte wiersze: 6 z 6
 123,IV,Organizacja i działanie,3,0,1,procedura;termin;kompetencja;odesłanie,częściowo,Konstytucja/Procedury/Ustawodawstwo.lean;Konstytucja/Twierdzenia/Ustawodawstwo.lean,ujęte wiersze: 2 z 3
 124,IV,Organizacja i działanie,0,0,1,do_oceny,nie_rozpoczęto,,
 125,IV,Referendum,5,0,1,procedura;próg;kompetencja;odesłanie;ocenne,częściowo,Konstytucja/Procedury/Referendum.lean;Konstytucja/Procedury/ZmianaKonstytucji.lean;Konstytucja/Twierdzenia/Referendum.lean,ujęte wiersze: 4 z 5
@@ -129,9 +129,9 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 128,V,,2,0,1,procedura;termin;kompetencja,częściowo,Konstytucja/Procedury/WybórPrezydenta.lean;Konstytucja/Twierdzenia/WybórPrezydenta.lean,ujęte wiersze: 1 z 2
 129,V,,3,0,1,procedura;kompetencja;odesłanie,częściowo,Konstytucja/Procedury/UrządPrezydenta.lean;Konstytucja/Procedury/WybórPrezydenta.lean;Konstytucja/Twierdzenia/UrządPrezydenta.lean,ujęte wiersze: 2 z 3
 130,V,,0,0,1,ocenne,częściowo,Konstytucja/Procedury/UrządPrezydenta.lean;Konstytucja/Procedury/WybórPrezydenta.lean;Konstytucja/Twierdzenia/UrządPrezydenta.lean,ujęte wiersze: 1 z 1
-131,V,,4,5,1,procedura;próg;termin;kompetencja;wyliczenie,częściowo,Konstytucja/Procedury/UrządPrezydenta.lean;Konstytucja/Twierdzenia/Kolizje.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/UrządPrezydenta.lean,ujęte wiersze: 8 z 9
+131,V,,4,5,1,procedura;próg;termin;kompetencja;wyliczenie,częściowo,Konstytucja/Procedury/UrządPrezydenta.lean;Konstytucja/Twierdzenia/Kolizje.lean;Konstytucja/Twierdzenia/Kompetencje.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/UrządPrezydenta.lean,ujęte wiersze: 8 z 9
 132,V,,0,0,1,kompetencja,nie_rozpoczęto,,
-133,V,,3,3,1,kompetencja;wyliczenie,nie_rozpoczęto,,
+133,V,,3,3,1,kompetencja;wyliczenie,częściowo,Konstytucja/Kompetencje/Kontrasygnata.lean;Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 3 z 6
 134,V,,6,0,1,termin;kompetencja;odesłanie,nie_rozpoczęto,,
 135,V,,0,0,1,do_oceny,nie_rozpoczęto,,
 136,V,,0,0,1,kompetencja,nie_rozpoczęto,,
@@ -140,9 +140,9 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 139,V,,0,0,1,do_oceny,nie_rozpoczęto,,
 140,V,,0,0,1,kompetencja,nie_rozpoczęto,,
 141,V,,2,0,1,kompetencja;ocenne,nie_rozpoczęto,,
-142,V,,2,0,1,kompetencja,nie_rozpoczęto,,
+142,V,,2,0,1,kompetencja,częściowo,Konstytucja/Kompetencje/Kontrasygnata.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 1 z 2
 143,V,,0,0,1,kompetencja,nie_rozpoczęto,,
-144,V,,3,30,1,termin;kompetencja;wyliczenie,nie_rozpoczęto,,
+144,V,,3,30,1,termin;kompetencja;wyliczenie,częściowo,Konstytucja/Kompetencje/Kontrasygnata.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 32 z 33
 145,V,,3,0,1,procedura;próg;kompetencja,częściowo,Konstytucja/Procedury/UrządPrezydenta.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/UrządPrezydenta.lean,ujęte wiersze: 2 z 3
 146,VI,,4,12,1,kompetencja;ocenne;wyliczenie,nie_rozpoczęto,,
 147,VI,,4,0,1,odesłanie,nie_rozpoczęto,,
@@ -184,14 +184,14 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 183,VIII,Sądy,3,0,2,termin;kompetencja,nie_rozpoczęto,,
 184,VIII,Sądy,0,0,2,kompetencja;odesłanie,nie_rozpoczęto,,
 185,VIII,Sądy,0,0,2,termin;kompetencja,nie_rozpoczęto,,
-186,VIII,Sądy,2,0,2,kompetencja,nie_rozpoczęto,,
+186,VIII,Sądy,2,0,2,kompetencja,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 1 z 2
 187,VIII,Sądy,4,3,2,odesłanie;wyliczenie,częściowo,Konstytucja/Podstawy/Organy.lean,ujęte wiersze: 3 z 7
-188,VIII,Trybunał Konstytucyjny,0,5,2,kompetencja;wyliczenie,częściowo,Konstytucja/Podstawy/Akty.lean,ujęte wiersze: 1 z 6
-189,VIII,Trybunał Konstytucyjny,0,0,2,kompetencja,nie_rozpoczęto,,
+188,VIII,Trybunał Konstytucyjny,0,5,2,kompetencja;wyliczenie,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Podstawy/Akty.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 5 z 6
+189,VIII,Trybunał Konstytucyjny,0,0,2,kompetencja,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 1 z 1
 190,VIII,Trybunał Konstytucyjny,5,0,2,procedura;próg;kompetencja;odesłanie,nie_rozpoczęto,,
-191,VIII,Trybunał Konstytucyjny,2,6,2,procedura;wyliczenie,nie_rozpoczęto,,
-192,VIII,Trybunał Konstytucyjny,0,0,2,do_oceny,nie_rozpoczęto,,
-193,VIII,Trybunał Konstytucyjny,0,0,2,procedura;kompetencja,nie_rozpoczęto,,
+191,VIII,Trybunał Konstytucyjny,2,6,2,procedura;wyliczenie,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 7 z 8
+192,VIII,Trybunał Konstytucyjny,0,0,2,do_oceny,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 1 z 1
+193,VIII,Trybunał Konstytucyjny,0,0,2,procedura;kompetencja,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 1 z 1
 194,VIII,Trybunał Konstytucyjny,2,0,2,próg;termin;kompetencja,częściowo,Konstytucja/Podstawy/Organy.lean,ujęte wiersze: 1 z 2
 195,VIII,Trybunał Konstytucyjny,3,0,2,ocenne,nie_rozpoczęto,,
 196,VIII,Trybunał Konstytucyjny,0,0,2,termin;kompetencja;ocenne,nie_rozpoczęto,,

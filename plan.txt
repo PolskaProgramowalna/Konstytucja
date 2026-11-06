@@ -175,6 +175,8 @@ Etap 4. Kompetencje i ich granice
 - art. 233: katalogi praw, których nie wolno ograniczać
 Gotowe, gdy: rozstrzygalne są pytania typu "czy ten akt wymaga
 kontrasygnaty" i "czy ten podmiot może złożyć wniosek".
+Stan 2026-11-06: wykonane dla tych pytań. Art. 233 był już ujęty w etapie 3.
+Automaty nie sprawdzają jeszcze kontrasygnaty (K3).
 
 Etap 5. Prawa i zasady
 - Szkielet art. 31 ust. 3 z parametrami "konieczne" i "istota prawa".
@@ -264,5 +266,5 @@ D5. Czy projekt ma być publiczny i na jakiej licencji?
 9. NAJBLIŻSZE KROKI
 
 1. Zatwierdzić i wypchnąć zmiany razem z .github/, żeby uruchomić CI.
-2. Ocenić wszystkie założenia oraz luki L1-L52.
-3. Przejść do etapu 4: kompetencje i ich granice.
+2. Ocenić wszystkie założenia oraz luki L1-L59.
+3. Przejść do etapu 5: prawa i zasady.

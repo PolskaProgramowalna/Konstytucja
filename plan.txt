@@ -263,6 +263,7 @@ R6. Twierdzenia sprawdzają model, a nie zgodność modelu z tekstem. Pomaga
 Podjęte:
 D1. Tekst wzorcowy: Sejm/D19970483Lj.pdf.
 D2. Identyfikatory zawsze z polskimi znakami.
+D5. Licencje: Apache 2.0 dla kodu, CC BY 4.0 dla dokumentów i danych (LICENCJE.md).
 
 Otwarte:
 D6. Który mianownik przyjąć dla większości ułamkowych (założenie G2)?
@@ -271,7 +272,7 @@ D6. Który mianownik przyjąć dla większości ułamkowych (założenie G2)?
 D3. Czy oprócz Konstytucji modelujemy także regulaminy Sejmu i Senatu?
     Dałoby to konkretne definicje większości, ale poszerzyłoby zakres.
 D4. Kto recenzuje model od strony prawnej?
-D5. Czy projekt ma być publiczny i na jakiej licencji?
+D7. Czy i kiedy projekt ma być publiczny?
 
 
 9. NAJBLIŻSZE KROKI

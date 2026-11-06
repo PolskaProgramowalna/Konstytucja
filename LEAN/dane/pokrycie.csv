@@ -188,7 +188,7 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 187,VIII,Sądy,4,3,2,odesłanie;wyliczenie,częściowo,Konstytucja/Podstawy/Organy.lean,ujęte wiersze: 3 z 7
 188,VIII,Trybunał Konstytucyjny,0,5,2,kompetencja;wyliczenie,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Podstawy/Akty.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 5 z 6
 189,VIII,Trybunał Konstytucyjny,0,0,2,kompetencja,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 1 z 1
-190,VIII,Trybunał Konstytucyjny,5,0,2,procedura;próg;kompetencja;odesłanie,nie_rozpoczęto,,
+190,VIII,Trybunał Konstytucyjny,5,0,2,procedura;próg;kompetencja;odesłanie,częściowo,Konstytucja/Analiza/Własności.lean;Konstytucja/Procedury/OgłoszenieOrzeczenia.lean;Konstytucja/Twierdzenia/OgłoszenieOrzeczenia.lean,ujęte wiersze: 2 z 5
 191,VIII,Trybunał Konstytucyjny,2,6,2,procedura;wyliczenie,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 7 z 8
 192,VIII,Trybunał Konstytucyjny,0,0,2,do_oceny,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 1 z 1
 193,VIII,Trybunał Konstytucyjny,0,0,2,procedura;kompetencja,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 1 z 1
@@ -223,7 +223,7 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 222,X,,0,0,2,procedura;termin,nie_rozpoczęto,,
 223,X,,0,0,2,procedura;termin;kompetencja,nie_rozpoczęto,,
 224,X,,2,0,2,procedura;termin;kompetencja,nie_rozpoczęto,,
-225,X,,0,0,2,procedura;termin;kompetencja,nie_rozpoczęto,,
+225,X,,0,0,2,procedura;termin;kompetencja,częściowo,Konstytucja/Analiza/SystemNorm.lean;Konstytucja/Twierdzenia/SystemNorm.lean,ujęte wiersze: 1 z 1
 226,X,,2,0,2,procedura;termin,nie_rozpoczęto,,
 227,X,,7,0,2,termin;kompetencja;odesłanie;ocenne,nie_rozpoczęto,,
 228,XI,,7,0,1,procedura;termin;kompetencja;odesłanie;ocenne,częściowo,Konstytucja/Modele/StanyNadzwyczajne.lean;Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Procedury/TworzenieRządu.lean;Konstytucja/Procedury/ZmianaKonstytucji.lean;Konstytucja/Twierdzenia/Kolizje.lean;Konstytucja/Twierdzenia/Prawa.lean;Konstytucja/Twierdzenia/Referendum.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/TworzenieRządu.lean;Konstytucja/Twierdzenia/ZmianaKonstytucji.lean,ujęte wiersze: 4 z 7

@@ -48,3 +48,5 @@ E3,art. 31 ust. 3 obowiązuje w stanie nadzwyczajnym,dopuszczalneWStanie,roboczy
 E3,art. 31 ust. 3 nie obowiązuje w stanie nadzwyczajnym,dopuszczalneWStanie,roboczy,art. 228 i 233 regulują tę sytuację osobno
 E7,zakazy i klauzule spoza art. 233 ust. 1 obowiązują w stanie nadzwyczajnym,RegułyStanu.klauzule,roboczy,niezależne od E3
 E7,zakazy i klauzule spoza art. 233 ust. 1 nie obowiązują w stanie nadzwyczajnym,RegułyStanu.klauzule,roboczy,niezależne od E3
+F2,reguła pierwszeństwa zakazów,zakazyPierwsze,roboczy,tekst nie podaje reguły
+F2,reguła pierwszeństwa nakazów,nakazyPierwsze,roboczy,tekst nie podaje reguły

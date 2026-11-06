@@ -12,6 +12,9 @@ import Konstytucja.Twierdzenia.UrządPrezydenta
 import Konstytucja.Twierdzenia.StanyNadzwyczajne
 import Konstytucja.Twierdzenia.Kompetencje
 import Konstytucja.Twierdzenia.Prawa
+import Konstytucja.Twierdzenia.OgłoszenieOrzeczenia
+import Konstytucja.Twierdzenia.SystemNorm
+import Konstytucja.Analiza.Własności
 import Konstytucja.Modele.Kalendarz30
 import Konstytucja.Modele.Procedury
 import Konstytucja.Modele.Wybory

@@ -299,3 +299,14 @@ L69. Kilka norm w jednym ustępie
 Art. 45 ust. 1, art. 53 ust. 2, art. 54 ust. 2 i art. 64 zawierają różne normy. Model rozróżnia
 wybrane czynności (E8). Inne ustępy mogą wymagać tego samego. Art. 53 ust. 1-2 rozdziela też
 sferę wewnętrzną i uzewnętrznianie religii, czego model nie opisuje poza art. 53 ust. 5.
+
+L70. Brak skutku nieogłoszenia orzeczenia (art. 190 ust. 2-3)
+Orzeczenie wchodzi w życie z dniem ogłoszenia, a tekst nie mówi, co gdy nie zostanie ogłoszone
+(nieogłoszenie_blokuje). "Niezwłocznie" pozostaje parametrem (F3).
+
+L71. Kolizja bez niewykonalności (art. 225 i art. 228 ust. 7)
+Dozwolenie skrócenia kadencji koliduje z zakazem, ale obu przepisów można przestrzegać, nie
+skracając kadencji (dozwolenie_nie_blokuje). Odróżnia to tę parę od pięciu par nakaz i zakaz.
+
+L72. Ograniczony zakres analizy
+Wynik wykonalności dotyczy tylko 10 norm (F1). Nie dowodzi wykonalności całej Konstytucji.

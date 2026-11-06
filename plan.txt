@@ -162,7 +162,9 @@ z art. 154-155. Dla art. 158-162 zakończenie dotyczy spraw w toku, bo
 urzędowanie rządu nie ma końca. Art. 125 gotowy; art. 90 ust. 3 i art. 170
 poza zakresem. Art. 127-131 i art. 145 gotowe jako dwa złożone automaty;
 twierdzenie o zakończeniu dotyczy jednej procedury wyborczej, a powtórne
-wybory po nieważności opisuje złożenie. Otwarte art. 228-234.
+wybory po nieważności opisuje złożenie. Art. 228-234 gotowe, a okres ochronny
+pochodzi ze wspólnej historii stanów. Wszystkie procedury z listy mają
+automaty; etap 3 kończy ich zakres częściowy, nie całe przepisy.
 
 Etap 4. Kompetencje i ich granice
 - art. 144 ust. 3: 30 prerogatyw jako typ wyliczeniowy
@@ -259,5 +261,5 @@ D5. Czy projekt ma być publiczny i na jakiej licencji?
 9. NAJBLIŻSZE KROKI
 
 1. Zatwierdzić i wypchnąć zmiany razem z .github/, żeby uruchomić CI.
-2. Ocenić założenia U1-U7, V1-V9, R1-R7, Q1-Q6 i W1-W9 oraz luki L12-L43.
-3. Wykonać etap 3 dla art. 228-234.
+2. Ocenić wszystkie założenia oraz luki L1-L50.
+3. Przejść do etapu 4: kompetencje i ich granice.

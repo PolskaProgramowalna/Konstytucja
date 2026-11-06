@@ -189,3 +189,33 @@ Tekst nie opisuje powrotu ani tego, kto go stwierdza. Model przyjmuje założeni
 
 L43. Zakres końcówki art. 128 ust. 2
 Nie jest jasne, czy 60 dni i dzień wolny dotyczą też wyborów zwykłych (W1).
+
+L44. Brak skutku przekroczenia 48 godzin (art. 231)
+Tekst nie mówi, co dzieje się z rozporządzeniem nieprzedstawionym Sejmowi w terminie.
+Automat staje po 48 godzinach (po_48_godzinach_brak_kroku, nieprzedstawienie_blokuje).
+Stan formalnie trwa od podpisania, ale model nie ma etapu wygaśnięcia.
+
+L45. Stan wojenny bez limitu i bez trybu zakończenia (art. 229)
+Art. 229 nie podaje czasu trwania, a przepisy nie opisują odwołania stanu. Model przyjmuje
+S5, a bez działania Prezydenta stan nie wygasa (wojenny_nie_wygasa).
+
+L46. Przedłużanie stanu klęski bez limitu (art. 232)
+Przepis mówi tylko o zgodzie Sejmu, inaczej niż art. 230 ust. 2. Przedłużanie może trwać
+bez końca (klęska_bez_końca). To rozwija L6.
+
+L47. Tryb wprowadzenia a czas pracy Sejmu
+Art. 231 opisuje tylko stan wojenny i wyjątkowy. Stan klęski nie podlega przedstawieniu ani
+uchyleniu przez Sejm, a jego czas ogranicza tylko zgoda na przedłużenie.
+
+L48. Okres po zakończeniu stanu (art. 228 ust. 6 i 7)
+Przez 90 dni po stanie można już zmienić Konstytucję, ale nie można przeprowadzić
+referendum, wyborów ani skrócić kadencji (okres_przejściowy). Ustawa zmieniająca rozdział
+I, II lub XII może więc czekać na referendum, jeśli zakaz je obejmuje (L18).
+
+L49. Znaczenie "odpowiedniego przedłużenia" kadencji (art. 228 ust. 7)
+Tekst nie podaje długości przedłużenia. Model przyjmuje pierwszy dzień po okresie
+ochronnym (S7), choć w praktyce potrzebny byłby też czas na wybory.
+
+L50. Lokalny zasięg a zakaz wyborów (art. 228 ust. 7 zd. 2)
+Wybory samorządowe są możliwe tam, gdzie nie wprowadzono stanu. Stany dotyczą części
+albo całego terytorium (art. 229, 230, 232), a model nie ma pojęcia terytorium.

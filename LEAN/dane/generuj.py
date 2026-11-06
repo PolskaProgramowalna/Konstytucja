@@ -195,7 +195,7 @@ def deklaracje():
         tekst = plik.read_text(encoding="utf8")
         ns = re.search(r"(?m)^namespace (\S+)", tekst)
         przedrostek = ns.group(1).split(".")[-1] if ns else ""
-        for m in re.finditer(r"(?m)^(?:private )?(?:def|theorem|structure|inductive)\s+([^\s:({\[]+)", tekst):
+        for m in re.finditer(r"(?m)^(?:private )?(?:def|theorem|structure|inductive|abbrev)\s+([^\s:({\[]+)", tekst):
             ścieżka = str(plik.relative_to(TU.parent))
             wynik[m.group(1)].add(ścieżka)
             wynik[f"{przedrostek}.{m.group(1)}"].add(ścieżka)

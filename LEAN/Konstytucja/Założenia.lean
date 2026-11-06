@@ -98,6 +98,17 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
 * W8. Art. 145 ust. 3 każe stosować art. 131 odpowiednio: zawieszony Prezydent ma zastępcę.
 * W9. Art. 131 ust. 3 nie mówi, co gdy obaj Marszałkowie nie mogą działać. Model ma
   dwa wyjścia (`marszałekSejmuMoże`) i nie opisuje dalszego zastępstwa.
+* S1. Automat liczy chwile w godzinach, a dobę jako 24 godziny, bo art. 231 podaje termin
+  w godzinach. Historia dla innych procedur jest podana w dniach.
+* S2. Przesłanki z art. 228 ust. 1 i art. 229–230 są ocenne i są parametrami.
+* S3. Prezydent może nie uwzględnić wniosku Rady Ministrów, bo art. 229 i 230 mówią „może”.
+* S4. Zgodę Sejmu na przedłużenie liczymy zwykłą większością z art. 120.
+* S5. Tekst nie mówi, jak kończy się stan wojenny, ani nie wyklucza wcześniejszego
+  zakończenia pozostałych stanów. Przejście do `poStanie` ujmuje każde zakończenie.
+* S6. Okres ochronny obejmuje dzień zakończenia i 90 kolejnych dni.
+* S7. Kadencja kończąca się w okresie ochronnym trwa do pierwszego dnia po nim.
+* S8. Art. 233 ust. 2 modeluje tylko motyw ograniczenia. Art. 228 ust. 5 (odpowiedniość)
+  jest pojęciem ocennym i nie wchodzi do katalogów.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3
   nie są jeszcze modelowane.
 * A2. Art. 87 traktujemy jako zamknięty katalog źródeł powszechnie obowiązujących,

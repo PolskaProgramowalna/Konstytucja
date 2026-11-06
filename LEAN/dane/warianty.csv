@@ -29,3 +29,7 @@ W1,końcówka art. 128 ust. 2 dotyczy obu trybów,terminZarządzenia,roboczy,sk�
 W2,dwie kadencje łącznie,dopuszczalny,roboczy,wariant kadencji następujących po sobie niemodelowany
 W9,zastępca Marszałek Sejmu,Założenia.marszałekSejmuMoże,roboczy,art. 131 ust. 3
 W9,zastępca Marszałek Senatu,Założenia.marszałekSejmuMoże,roboczy,art. 131 ust. 3
+S2,przesłanki spełnione,Założenia.środkiNiewystarczające,roboczy,pojęcie ocenne
+S2,przesłanki niespełnione,Założenia.środkiNiewystarczające,roboczy,pojęcie ocenne
+S5,zakończenie stanu przed terminem dozwolone,Krok.koniec,roboczy,tekst milczy
+S7,kadencja do pierwszego dnia po okresie,przedłużonaKadencja,roboczy,"tekst mówi o odpowiednim przedłużeniu, a kadencja może trwać dłużej do wyborów"

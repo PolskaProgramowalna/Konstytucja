@@ -226,13 +226,13 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 225,X,,0,0,2,procedura;termin;kompetencja,nie_rozpoczęto,,
 226,X,,2,0,2,procedura;termin,nie_rozpoczęto,,
 227,X,,7,0,2,termin;kompetencja;odesłanie;ocenne,nie_rozpoczęto,,
-228,XI,,7,0,1,procedura;termin;kompetencja;odesłanie;ocenne,częściowo,Konstytucja/Procedury/TworzenieRządu.lean;Konstytucja/Procedury/ZmianaKonstytucji.lean;Konstytucja/Twierdzenia/Kolizje.lean;Konstytucja/Twierdzenia/Referendum.lean;Konstytucja/Twierdzenia/TworzenieRządu.lean;Konstytucja/Twierdzenia/ZmianaKonstytucji.lean,ujęte wiersze: 2 z 7
-229,XI,,0,0,1,procedura;kompetencja,nie_rozpoczęto,,
-230,XI,,2,0,1,procedura;termin;kompetencja,częściowo,Konstytucja/Podstawy/Czas.lean;Konstytucja/Twierdzenia/Terminy.lean,ujęte wiersze: 2 z 2
-231,XI,,0,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Podstawy/Czas.lean;Konstytucja/Twierdzenia/Terminy.lean,ujęte wiersze: 1 z 1
-232,XI,,0,0,1,procedura;termin;kompetencja,nie_rozpoczęto,,
-233,XI,,3,0,1,odesłanie;ocenne,nie_rozpoczęto,,
-234,XI,,2,0,1,procedura;kompetencja,częściowo,Konstytucja/Podstawy/Akty.lean,ujęte wiersze: 1 z 2
+228,XI,,7,0,1,procedura;termin;kompetencja;odesłanie;ocenne,częściowo,Konstytucja/Modele/StanyNadzwyczajne.lean;Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Procedury/TworzenieRządu.lean;Konstytucja/Procedury/ZmianaKonstytucji.lean;Konstytucja/Twierdzenia/Kolizje.lean;Konstytucja/Twierdzenia/Referendum.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/TworzenieRządu.lean;Konstytucja/Twierdzenia/ZmianaKonstytucji.lean,ujęte wiersze: 3 z 7
+229,XI,,0,0,1,procedura;kompetencja,częściowo,Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean,ujęte wiersze: 1 z 1
+230,XI,,2,0,1,procedura;termin;kompetencja,częściowo,Konstytucja/Podstawy/Czas.lean;Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/Terminy.lean,ujęte wiersze: 2 z 2
+231,XI,,0,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Podstawy/Czas.lean;Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/Terminy.lean,ujęte wiersze: 1 z 1
+232,XI,,0,0,1,procedura;termin;kompetencja,częściowo,Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean,ujęte wiersze: 1 z 1
+233,XI,,3,0,1,odesłanie;ocenne,częściowo,Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean,ujęte wiersze: 3 z 3
+234,XI,,2,0,1,procedura;kompetencja,częściowo,Konstytucja/Podstawy/Akty.lean;Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean,ujęte wiersze: 2 z 2
 235,XII,,7,0,1,procedura;próg;termin;kompetencja;odesłanie,częściowo,Konstytucja/Procedury/ZmianaKonstytucji.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/ZmianaKonstytucji.lean,ujęte wiersze: 7 z 7
 236,XIII,,2,0,0,przepis_przejściowy,nie_rozpoczęto,,
 237,XIII,,2,0,0,przepis_przejściowy,nie_rozpoczęto,,

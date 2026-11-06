@@ -159,7 +159,8 @@ o bezczynności organów, także ograniczenia spoza danej procedury.
 Stan 2026-11-06: gotowe art. 154-155, art. 118-123 (zwykła ustawa i tryb
 pilny; art. 224 poza zakresem), art. 235 i art. 158-162 wraz ze złożeniem
 z art. 154-155. Dla art. 158-162 zakończenie dotyczy spraw w toku, bo
-urzędowanie rządu nie ma końca. Pozostałe procedury otwarte.
+urzędowanie rządu nie ma końca. Art. 125 gotowy; art. 90 ust. 3 i art. 170
+poza zakresem. Pozostałe procedury otwarte.
 
 Etap 4. Kompetencje i ich granice
 - art. 144 ust. 3: 30 prerogatyw jako typ wyliczeniowy
@@ -256,5 +257,5 @@ D5. Czy projekt ma być publiczny i na jakiej licencji?
 9. NAJBLIŻSZE KROKI
 
 1. Zatwierdzić i wypchnąć zmiany razem z .github/, żeby uruchomić CI.
-2. Ocenić założenia U1-U7, V1-V9 i R1-R7 oraz luki L12-L29.
-3. Wykonać etap 3 dla art. 125.
+2. Ocenić założenia U1-U7, V1-V9, R1-R7 i Q1-Q6 oraz luki L12-L34.
+3. Wykonać etap 3 dla art. 127-131.

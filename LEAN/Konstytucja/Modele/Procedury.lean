@@ -2,6 +2,7 @@ import Konstytucja.Twierdzenia.TworzenieRządu
 import Konstytucja.Twierdzenia.Ustawodawstwo
 import Konstytucja.Twierdzenia.ZmianaKonstytucji
 import Konstytucja.Twierdzenia.OdpowiedzialnośćRządu
+import Konstytucja.Twierdzenia.Referendum
 import Konstytucja.Modele.Kalendarz30
 
 /-! # Instancje założeń procedur
@@ -178,5 +179,46 @@ theorem dymisja_w_modelu (t) :
       (.inl ⟨.dymisjaPrzyjęta, t, none, none, 0⟩) (.inr u) ∧
       (u.etap = .rząd ∨ u.etap = .kadencjaSkrócona) :=
   OdpowiedzialnośćRządu.dymisja_prowadzi_do_wyniku warunki_zakończenia_spełnialne t _ _ _
+
+/-- Referendum w sprawie o szczególnym znaczeniu, bez okresu ochronnego. -/
+def referendumWedługTekstu : Referendum.Założenia where
+  szczególneZnaczenie := true
+  mianownik := .wszyscyGłosujący
+  sejmDziała := true
+  senatDziała := true
+  prezydentDziała := true
+  sądDziała := true
+  okresOchronny := fun _ => false
+  limit := none
+
+def referendumWOkresieOchronnym : Referendum.Założenia :=
+  { referendumWedługTekstu with okresOchronny := fun _ => true }
+
+def referendumBezZnaczenia : Referendum.Założenia :=
+  { referendumWedługTekstu with szczególneZnaczenie := false }
+
+def referendumZLimitem : Referendum.Założenia :=
+  { referendumWedługTekstu with limit := some 30 }
+
+theorem warunki_referendum_spełnialne :
+    Referendum.WarunkiZakończenia referendumWedługTekstu := ⟨rfl, rfl, fun _ => rfl⟩
+
+/-- Udział 60 na 100 uprawnionych. -/
+def wynikWiążący : Referendum.Wynik := ⟨100, 60, 40, 20, by decide, by decide⟩
+
+theorem referendum_wiążące :
+    Referendum.Osiągalny referendumWedługTekstu ⟨.wiążące wynikWiążący, 0⟩ :=
+  Referendum.wynik_wiążący_osiągalny rfl rfl rfl rfl _ (by simp [Referendum.wiąże, wynikWiążący])
+
+example := Referendum.okres_ochronny_blokuje
+  (Z := referendumWOkresieOchronnym) rfl rfl (fun _ => rfl)
+
+theorem bez_znaczenia_w_modelu {s} (h : Referendum.Osiągalny referendumBezZnaczenia s) :
+    s.etap = .sprawa ∨ s.etap = .niezarządzone :=
+  Referendum.bez_znaczenia_brak_zarządzenia rfl h
+
+theorem limit_daje_granicę_referendum {s} (h : Referendum.Osiągalny referendumZLimitem s) :
+    s.dzień ≤ 120 :=
+  Referendum.granica_czasu (L := 30) rfl h
 
 end Konstytucja.Modele

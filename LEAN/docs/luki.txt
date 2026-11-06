@@ -134,3 +134,24 @@ przy obejmowaniu urzędu (R5).
 L29. Bierność Sejmu wobec wniosku
 Tekst nie opisuje skutku niepoddania wniosku pod głosowanie. W modelu wniosek czeka,
 a stan z bezczynnym Sejmem nie ma wyjścia.
+
+L30. Która większość rozstrzyga w referendum (art. 125 ust. 3)
+Przepis mówi tylko o udziale ponad połowy uprawnionych. Nie określa większości ani
+skutku remisu. Model przyjmuje założenie Q1, które nie ma wpływu na samo przejście
+do stanu wiążącego.
+
+L31. Skutek wyniku niewiążącego i nieważnego
+Tekst nie opisuje skutków. Model kończy procedurę stanem niewiążącym albo nieważnym.
+
+L32. Różne warunki referendum (art. 125 ust. 3 i art. 235 ust. 6)
+Referendum zatwierdzające nie ma progu frekwencji, więc ten sam wynik może zatwierdzić
+zmianę Konstytucji, a w trybie art. 125 nie byłby wiążący
+(art235_łagodniejszy_od_art125). Trzeba ocenić, czy to celowa różnica.
+
+L33. Zarządzone referendum a stan nadzwyczajny
+Art. 228 ust. 7 zakazuje przeprowadzenia referendum, ale nie mówi, co dzieje się
+z już zarządzonym (okres_ochronny_blokuje). Model nie zawiera odwołania ani przesunięcia.
+
+L34. Brak terminów w art. 125
+Tekst nie podaje terminu zgody Senatu, głosowania ani stwierdzenia ważności.
+Zasady i tryb odsyła do ustawy (art. 125 ust. 5), której model nie zawiera.

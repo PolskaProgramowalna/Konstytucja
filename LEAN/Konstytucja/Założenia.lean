@@ -73,6 +73,15 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
 * R6. Dzień dymisji przyjętej jest dniem początkowym z art. 154 ust. 1.
 * R7. Art. 161 (zmiany w składzie) nie jest modelowany, a art. 157 jest tylko podstawą
   odpowiedzialności, którą realizują procedury z art. 158–159.
+* Q1. Art. 125 nie mówi, jaka większość rozstrzyga. Przyjmujemy więcej głosów „za” niż
+  „przeciw” wśród ważnych, a remis nie rozstrzyga.
+* Q2. Udział w głosowaniu to liczba biorących udział, także z głosem nieważnym.
+* Q3. „Sprawa o szczególnym znaczeniu dla państwa” jest pojęciem ocennym i parametrem.
+* Q4. Tekst nie podaje terminów ani skutku nieważności, a wynik niewiążący nie ma
+  opisanych skutków. Terminy ujmuje parametr `limit`.
+* Q5. Zakaz z art. 228 ust. 7 dotyczy przeprowadzenia, a nie zarządzenia referendum.
+* Q6. Model obejmuje jedno referendum. Art. 90 ust. 3 i referendum lokalne (art. 170)
+  są poza zakresem.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3
   nie są jeszcze modelowane.
 * A2. Art. 87 traktujemy jako zamknięty katalog źródeł powszechnie obowiązujących,

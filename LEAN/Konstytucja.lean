@@ -7,5 +7,6 @@ import Konstytucja.Twierdzenia.TworzenieRządu
 import Konstytucja.Twierdzenia.Ustawodawstwo
 import Konstytucja.Twierdzenia.ZmianaKonstytucji
 import Konstytucja.Twierdzenia.OdpowiedzialnośćRządu
+import Konstytucja.Twierdzenia.Referendum
 import Konstytucja.Modele.Kalendarz30
 import Konstytucja.Modele.Procedury

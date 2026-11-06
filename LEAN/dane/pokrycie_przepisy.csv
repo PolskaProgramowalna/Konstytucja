@@ -277,10 +277,10 @@ art,ust,pkt,status,definicje,twierdzenia
 123,2,0,nie_rozpoczęto,,
 123,3,0,częściowo,terminSenatu;terminPodpisu,terminy_pilne
 124,0,0,nie_rozpoczęto,,
-125,1,0,nie_rozpoczęto,,
-125,2,0,nie_rozpoczęto,,
-125,3,0,nie_rozpoczęto,,
-125,4,0,częściowo,ZmianaKonstytucji.Krok,
+125,1,0,częściowo,Referendum.Krok,bez_znaczenia_brak_zarządzenia
+125,2,0,częściowo,zarządzenieSejmu;zgodaSenatu;Referendum.Krok,min_sejm;min_senat;ze_sprawy_tylko_sejm;z_wniosku_tylko_zgoda_senatu;zarządzone_przez_sejm;zarządzone_przez_prezydenta;senat_może_odmówić;sejm_może_nie_zarządzić;bierność_senatu_blokuje
+125,3,0,częściowo,wiąże;rozstrzyga;Wynik,połowa_nie_wiąże;remis_nie_rozstrzyga;wiążące_jednym_głosem;art235_łagodniejszy_od_art125;wynik_wiążący_osiągalny;wynik_niewiążący_osiągalny
+125,4,0,częściowo,ZmianaKonstytucji.Krok;Referendum.Krok,wiążące_wymaga_udziału;bierność_sądu_blokuje;nieważne_osiągalne
 125,5,0,nie_rozpoczęto,,
 126,1,0,nie_rozpoczęto,,
 126,2,0,nie_rozpoczęto,,
@@ -583,7 +583,7 @@ art,ust,pkt,status,definicje,twierdzenia
 228,4,0,nie_rozpoczęto,,
 228,5,0,nie_rozpoczęto,,
 228,6,0,częściowo,ZmianaKonstytucji.Krok,podpis_poza_stanem;stan_nadzwyczajny_blokuje_podpis
-228,7,0,częściowo,zakazArt228;skrócenieDozwolone,kolizja_art155_art228;skrócenie_poza_okresem_ochronnym;trwały_okres_ochronny_blokuje;okres_ochronny_blokuje_referendum;bez_zakazu_referendum_możliwe
+228,7,0,częściowo,zakazArt228;skrócenieDozwolone,kolizja_art155_art228;skrócenie_poza_okresem_ochronnym;trwały_okres_ochronny_blokuje;okres_ochronny_blokuje_referendum;bez_zakazu_referendum_możliwe;głosowanie_poza_okresem;okres_ochronny_blokuje
 229,0,0,nie_rozpoczęto,,
 230,1,0,częściowo,StanWyjątkowy,stan_wyjątkowy_max;stan_wyjątkowy_150
 230,2,0,częściowo,StanWyjątkowy,stan_wyjątkowy_max;stan_wyjątkowy_150

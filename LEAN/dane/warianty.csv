@@ -21,3 +21,7 @@ R1,brak limitu,Założenia.limit,roboczy,odpowiada tekstowi art. 158-162
 R1,limit L dni,Założenia.limit,roboczy,założenie spoza tekstu
 R2,próg 115 posłów dla ministra,Założenia.prógPowtórnyMinistra,roboczy,art. 159 ust. 1 mówi tylko o stosowaniu odpowiednim
 R2,inny próg dla ministra,Założenia.prógPowtórnyMinistra,roboczy,art. 159 ust. 1 mówi tylko o stosowaniu odpowiednim
+Q3,sprawa o szczególnym znaczeniu,Założenia.szczególneZnaczenie,roboczy,pojęcie ocenne
+Q3,sprawa bez szczególnego znaczenia,Założenia.szczególneZnaczenie,roboczy,pojęcie ocenne
+Q4,brak limitu,Założenia.limit,roboczy,odpowiada tekstowi art. 125
+Q4,limit L dni,Założenia.limit,roboczy,założenie spoza tekstu

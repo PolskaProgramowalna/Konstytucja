@@ -58,7 +58,7 @@ Z7. Niesprzeczność założeń potwierdza skonstruowany model (instancja),
 Z8. Nie używamy Mathlib, dopóki biblioteka standardowa wystarcza.
 
 
-4. STRUKTURA PROJEKTU (propozycja)
+4. STRUKTURA PROJEKTU (propozycja, w katalogu LEAN/)
 
 lean-toolchain                 przypięta wersja Lean
 lakefile.toml                  konfiguracja projektu
@@ -84,11 +84,11 @@ docs/
 5. ETAPY
 
 Etap 0. Przygotowanie
-- Zainstalować toolchain i przypiąć wersję. Na razie instalacja nie
-  została potwierdzona, a użytkownik uruchamia ją sam.
+- Toolchain zainstalowany: Lean v4.35.0 (aarch64). Przypiąć tę wersję
+  w lean-toolchain.
 - Założyć projekt Lake, skompilować pierwszy plik.
-- Potwierdzić kompilację identyfikatorów z polskimi znakami (decyzja D2).
-- Poprawić i skompilować istniejący szkic Demo.lean.
+- Kompilacja identyfikatorów z polskimi znakami potwierdzona (decyzja D2).
+- Szkic LEAN/Demo.lean skompilowany; włączyć go do projektu.
 Gotowe, gdy: `lake build` przechodzi bez błędów.
 
 Etap 1. Tekst źródłowy
@@ -162,7 +162,10 @@ Etap 7. Publikacja i utrzymanie
 
 6. PIERWSZE TWIERDZENIA DO SPRAWDZENIA
 
-Wartości poniżej policzono ręcznie, nie są jeszcze sprawdzone w Lean.
+Sprawdzone w szkicu Demo.lean na Lean v4.35.0, bez `sorry` i bez własnych
+aksjomatów. T2-T5 zależą od przyjętych w szkicu definicji głosowania.
+T6 to sprawdzenie małej tabeli przypadków, bez terminów i bez bezczynności
+organów; pełny model powstanie w etapie 3.
 
 T1. Większość bezwzględna spełnia też warunek większości zwykłej.
 T2. Wotum nieufności wymaga co najmniej 231 głosów (art. 158 ust. 1).
@@ -207,7 +210,6 @@ D5. Czy projekt ma być publiczny i na jakiej licencji?
 
 9. NAJBLIŻSZE KROKI
 
-1. Potwierdzić instalację toolchaina Lean 4.
-2. Założyć projekt Lake i skompilować poprawiony szkic.
-3. Dokończyć etap 1: dane/artykuly.txt i dane/pokrycie.csv.
-4. Wykonać etap 2 i sprawdzić twierdzenia T1-T4.
+1. Założyć projekt Lake w LEAN/ i włączyć do niego szkic LEAN/Demo.lean.
+2. Dokończyć etap 1: dane/artykuly.txt i dane/pokrycie.csv.
+3. Wykonać etap 2 i przenieść twierdzenia T1-T4 do docelowych definicji.

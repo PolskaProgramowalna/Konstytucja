@@ -141,6 +141,10 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
 * E5. Przypisanie klauzul przepisom jest robocze i obejmuje tylko wymienione przepisy.
   Pozostałe przepisy rozdziału II mają tryb ogólny z art. 31 ust. 3.
 * E6. Lista pojęć ocennych nie jest wyczerpująca. Każde pojęcie jest parametrem bez definicji.
+* E7. To, czy zakazy i klauzule spoza art. 233 ust. 1 obowiązują w stanie nadzwyczajnym,
+  jest wariantem niezależnym od E3.
+* E8. Jeden ustęp może zawierać kilka norm, więc klauzule zależą od czynności. Art. 59 ust. 4
+  obejmuje też prawo do rokowań i strajk jako inne wolności związkowe.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3
   nie są jeszcze modelowane.
 * A2. Art. 87 traktujemy jako zamknięty katalog źródeł powszechnie obowiązujących,

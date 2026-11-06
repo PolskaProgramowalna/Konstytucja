@@ -269,13 +269,13 @@ Art. 22, art. 45 ust. 2, art. 53 ust. 5, art. 59, art. 61 ust. 3 i art. 64 ust. 
 warunki. Wynik zależy od wariantu (tryb_zmienia_wynik_art22, art61_interes_gospodarczy).
 
 L62. Zakazy spoza art. 233 ust. 1
-Art. 52 ust. 4 i art. 54 ust. 2 nie są wymienione w art. 233 ust. 1. Bez art. 31 ust. 3
-ustawa o stanie wojennym lub wyjątkowym mogłaby formalnie je objąć (zakazy_poza_art233,
-wariant_E3_zmienia_wynik).
+Art. 52 ust. 4 i art. 54 ust. 2 nie są wymienione w art. 233 ust. 1. O ich losie w stanie
+nadzwyczajnym decyduje pytanie, czy same zakazy tam obowiązują (E7), a nie art. 31 ust. 3,
+którego warunek może być spełniony (wariant_E7_izoluje_zakaz).
 
 L63. Art. 31 ust. 3 w stanach nadzwyczajnych
 Art. 228 ust. 3 i art. 233 tworzą odrębny reżim. Tekst nie mówi, czy art. 31 ust. 3 obowiązuje
-obok nich (E3).
+obok nich (E3). Różnicę widać przy celu spoza art. 31 ust. 3 (wariant_E3_izoluje_art31).
 
 L64. Art. 81 a skarga konstytucyjna
 Art. 81 ogranicza dochodzenie praw do granic ustawy. Tekst nie mówi wprost, jak ma się to
@@ -290,3 +290,12 @@ wspólne i sprawiedliwość społeczna, nie wpływa dziś na żaden wynik modelu
 
 L67. Wyjątki dla cudzoziemców (art. 37 ust. 2)
 Art. 37 ust. 2 odsyła do ustawy, a model nie rozróżnia podmiotów praw.
+
+L68. Zakres art. 59 ust. 4
+Model stosuje warunek umów do art. 59 ust. 1-3, także do prawa do rokowań i strajku jako
+innych wolności związkowych (E8). Przepis nie wymienia organizacji rolników z ust. 1.
+
+L69. Kilka norm w jednym ustępie
+Art. 45 ust. 1, art. 53 ust. 2, art. 54 ust. 2 i art. 64 zawierają różne normy. Model rozróżnia
+wybrane czynności (E8). Inne ustępy mogą wymagać tego samego. Art. 53 ust. 1-2 rozdziela też
+sferę wewnętrzną i uzewnętrznianie religii, czego model nie opisuje poza art. 53 ust. 5.

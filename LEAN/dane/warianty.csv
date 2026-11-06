@@ -46,3 +46,5 @@ E1,klauzula szczególna zamiast art. 31 ust. 3,Tryb.klauzulaZamiast,roboczy,teks
 E2,zakazy bez wyjątku,klauzula,roboczy,art. 31 ust. 3 mówi ogólnie o wolnościach i prawach
 E3,art. 31 ust. 3 obowiązuje w stanie nadzwyczajnym,dopuszczalneWStanie,roboczy,art. 228 i 233 regulują tę sytuację osobno
 E3,art. 31 ust. 3 nie obowiązuje w stanie nadzwyczajnym,dopuszczalneWStanie,roboczy,art. 228 i 233 regulują tę sytuację osobno
+E7,zakazy i klauzule spoza art. 233 ust. 1 obowiązują w stanie nadzwyczajnym,RegułyStanu.klauzule,roboczy,niezależne od E3
+E7,zakazy i klauzule spoza art. 233 ust. 1 nie obowiązują w stanie nadzwyczajnym,RegułyStanu.klauzule,roboczy,niezależne od E3

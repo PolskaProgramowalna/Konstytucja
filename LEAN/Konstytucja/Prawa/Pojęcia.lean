@@ -24,6 +24,23 @@ inductive Cel where
   | inny
   deriving DecidableEq, Repr
 
+/-- Czynność wewnątrz ustępu, gdy jeden ustęp zawiera kilka norm (założenie E8). -/
+inductive Czynność where
+  | ogólna
+  /-- Art. 45 ust. 1–2. -/
+  | jawnośćRozprawy
+  /-- Art. 53 ust. 2 i 5. -/
+  | uzewnętrznianieReligii
+  /-- Art. 54 ust. 2 zd. 1. -/
+  | cenzuraPrewencyjna
+  /-- Art. 54 ust. 2 zd. 1. -/
+  | koncesjonowaniePrasy
+  /-- Art. 54 ust. 2 zd. 2. -/
+  | koncesjaRadiowoTelewizyjna
+  /-- Art. 64 ust. 3. -/
+  | własność
+  deriving DecidableEq, Repr
+
 /-- Ograniczenie korzystania z wolności lub prawa. -/
 structure Ograniczenie where
   /-- Przepis, którego dotyczy ograniczenie. -/
@@ -31,6 +48,7 @@ structure Ograniczenie where
   /-- Czy ustanowiono je w ustawie. -/
   wUstawie : Bool
   cel : Cel
+  czynność : Czynność
   deriving DecidableEq, Repr
 
 inductive Pojęcie where

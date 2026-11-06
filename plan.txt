@@ -184,8 +184,9 @@ Etap 5. Prawa i zasady
 - Pokazanie na parach instancji, gdzie wynik zależy od interpretacji.
 Gotowe, gdy: każde pojęcie ocenne jest parametrem z opisem, a twierdzenia
 wskazują, od których parametrów zależą.
-Stan 2026-11-06: wykonane dla 16 pojęć z dane/pojecia.csv i 25 klauzul
-z dane/klauzule.csv. Pełna lista pojęć pozostaje otwarta (L66).
+Stan 2026-11-06: wykonane dla 16 pojęć z dane/pojecia.csv i 26 wpisów
+z dane/klauzule.csv. Do przepisu i czynności należy lista warunków.
+Pełna lista pojęć i norm w ustępach pozostaje otwarta (L66, L69).
 
 Etap 6. Niesprzeczność i analiza luk
 Sprawdzać osobno i nazywać w wynikach cztery własności:
@@ -268,5 +269,5 @@ D5. Czy projekt ma być publiczny i na jakiej licencji?
 9. NAJBLIŻSZE KROKI
 
 1. Zatwierdzić i wypchnąć zmiany razem z .github/, żeby uruchomić CI.
-2. Ocenić wszystkie założenia oraz luki L1-L67.
+2. Ocenić wszystkie założenia oraz luki L1-L69.
 3. Przejść do etapu 6: niesprzeczność i analiza luk.

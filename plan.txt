@@ -204,9 +204,11 @@ d) brak zablokowanych procedur: stan niekońcowy ma następnika.
 Gotowe, gdy: własności a)-d) mają wyniki dla sformalizowanej części,
 a docs/luki.txt jest po recenzji.
 Stan 2026-11-06: część formalna wykonana. a) i d) są w Analiza/Własności.lean,
-b) i c) w Twierdzenia/SystemNorm.lean. Wykonalność dotyczy systemu 10 norm.
-Tekst nie rozstrzyga 5 par nakaz i zakaz. Recenzja prawnika pozostaje otwarta,
-więc etap 6 nie jest zakończony.
+b) i c) w Twierdzenia/SystemNorm.lean, a terminy w Twierdzenia/Terminowość.lean.
+Wykonalność statyczna dotyczy systemu 10 norm i 7 par kolizji: 5 par nakaz
+i zakaz oraz 2 pary z dozwoleniem. Obowiązki z terminem są niewykonalne tylko
+przy zakazie na całe okno. Recenzja prawnika pozostaje otwarta, więc etap 6
+nie jest zakończony.
 
 Etap 7. Publikacja i utrzymanie
 - CI: LEAN/sprawdź.sh i .github/workflows/lean.yml uruchamiają `lake build`,
@@ -275,5 +277,5 @@ D5. Czy projekt ma być publiczny i na jakiej licencji?
 9. NAJBLIŻSZE KROKI
 
 1. Zatwierdzić i wypchnąć zmiany razem z .github/, żeby uruchomić CI.
-2. Recenzja prawnika: wszystkie założenia oraz luki L1-L72.
+2. Recenzja prawnika: wszystkie założenia oraz luki L1-L73.
 3. Po recenzji: decyzja o wariantach i ewentualne poprawki, potem etap 7.

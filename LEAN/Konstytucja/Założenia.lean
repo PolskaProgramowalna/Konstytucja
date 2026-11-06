@@ -61,6 +61,18 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
   a wniosek do Trybunału jest parametrem `trybunałPrzedPodpisem`.
 * V9. Terminy bez wartości liczbowej ujmuje parametr `limit`. Dla czynności z minimalnym
   odstępem liczy się on od pierwszego dozwolonego dnia.
+* R1. Art. 158 ust. 2 podaje 7 dni od zgłoszenia, ale nie termin końcowy. Górną granicę
+  głosowań ujmuje parametr `limit`, liczony od pierwszego dozwolonego dnia.
+* R2. Art. 159 ust. 1 stosuje art. 158 ust. 2 „odpowiednio”. Tekst nie mówi, czy próg
+  powtórnego wniosku dla ministra to 115 posłów, więc jest to parametr
+  `prógPowtórnyMinistra`.
+* R3. Model śledzi jednego ministra. Ograniczenie powtórnego wniosku dotyczy tego ministra.
+* R4. Przy wotum nieufności z art. 158 ust. 1 dymisję i powołanie ujmuje jedno przejście.
+  Art. 162 ust. 2 pkt 2 nie jest osobnym etapem.
+* R5. Nowy rząd zaczyna bez historii wniosków z art. 158 ust. 2. Tekst tego nie rozstrzyga.
+* R6. Dzień dymisji przyjętej jest dniem początkowym z art. 154 ust. 1.
+* R7. Art. 161 (zmiany w składzie) nie jest modelowany, a art. 157 jest tylko podstawą
+  odpowiedzialności, którą realizują procedury z art. 158–159.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3
   nie są jeszcze modelowane.
 * A2. Art. 87 traktujemy jako zamknięty katalog źródeł powszechnie obowiązujących,

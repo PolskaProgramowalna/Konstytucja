@@ -112,3 +112,25 @@ L24. Górna granica przed Sejmem
 Art. 235 ust. 3 i 5 podają tylko najwcześniejsze dni, a nie najpóźniejsze.
 Bez limitu procedura może trwać dowolnie długo (ZmianaKonstytucji.brak_górnej_granicy).
 Senat ma natomiast twardy limit 60 dni.
+
+L25. Brak terminu powołania po wotum nieufności (art. 158 ust. 1)
+Prezydent przyjmuje dymisję i powołuje wybranego Prezesa, ale tekst nie podaje terminu
+ani skutku bezczynności (bezczynność_blokuje_powołanie). Tak samo przy odwołaniu
+ministra (art. 159 ust. 2) i przyjęciu dymisji (art. 162 ust. 3).
+
+L26. "Odpowiednie" stosowanie art. 158 ust. 2 do ministra
+Art. 159 ust. 1 nie mówi, czy powtórny wniosek przed upływem 3 miesięcy wymaga
+115 posłów, czy innej liczby. Model ma to jako parametr R2. Nie mówi też, czy limit
+liczy się dla danego ministra, czy ogólnie (R3).
+
+L27. Brak górnej granicy głosowania nad wnioskiem
+Art. 158 ust. 2 podaje tylko najwcześniejszy dzień głosowania. Bez limitu wniosek może
+czekać dowolnie długo.
+
+L28. Czy limit 3 miesięcy przechodzi na nowy rząd
+Art. 158 ust. 2 mówi o "poprzednim wniosku", nie o rządzie. Model zeruje historię
+przy obejmowaniu urzędu (R5).
+
+L29. Bierność Sejmu wobec wniosku
+Tekst nie opisuje skutku niepoddania wniosku pod głosowanie. W modelu wniosek czeka,
+a stan z bezczynnym Sejmem nie ma wyjścia.

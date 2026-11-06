@@ -152,15 +152,15 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 151,VI,,0,0,1,do_oceny,nie_rozpoczęto,,
 152,VI,,2,0,1,odesłanie,nie_rozpoczęto,,
 153,VI,,2,0,1,ocenne,nie_rozpoczęto,,
-154,VI,,3,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Procedury/TworzenieRządu.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/TworzenieRządu.lean,ujęte wiersze: 3 z 3
+154,VI,,3,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Procedury/TworzenieRządu.lean;Konstytucja/Twierdzenia/OdpowiedzialnośćRządu.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/TworzenieRządu.lean,ujęte wiersze: 3 z 3
 155,VI,,2,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Procedury/TworzenieRządu.lean;Konstytucja/Twierdzenia/Kolizje.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/TworzenieRządu.lean,ujęte wiersze: 2 z 2
 156,VI,,2,0,1,procedura;próg,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 2
 157,VI,,2,0,1,kompetencja,nie_rozpoczęto,,
-158,VI,,2,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 2
-159,VI,,2,0,1,procedura;próg;kompetencja,nie_rozpoczęto,,
-160,VI,,0,0,1,procedura;próg;kompetencja,nie_rozpoczęto,,
+158,VI,,2,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Procedury/OdpowiedzialnośćRządu.lean;Konstytucja/Twierdzenia/OdpowiedzialnośćRządu.lean;Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 2 z 2
+159,VI,,2,0,1,procedura;próg;kompetencja,częściowo,Konstytucja/Procedury/OdpowiedzialnośćRządu.lean;Konstytucja/Twierdzenia/OdpowiedzialnośćRządu.lean,ujęte wiersze: 2 z 2
+160,VI,,0,0,1,procedura;próg;kompetencja,częściowo,Konstytucja/Procedury/OdpowiedzialnośćRządu.lean;Konstytucja/Twierdzenia/OdpowiedzialnośćRządu.lean,ujęte wiersze: 1 z 1
 161,VI,,0,0,1,procedura,nie_rozpoczęto,,
-162,VI,,4,3,1,procedura;wyliczenie,nie_rozpoczęto,,
+162,VI,,4,3,1,procedura;wyliczenie,częściowo,Konstytucja/Procedury/OdpowiedzialnośćRządu.lean;Konstytucja/Twierdzenia/OdpowiedzialnośćRządu.lean,ujęte wiersze: 6 z 7
 163,VII,,0,0,2,do_oceny,nie_rozpoczęto,,
 164,VII,,3,0,2,odesłanie,nie_rozpoczęto,,
 165,VII,,2,0,2,do_oceny,nie_rozpoczęto,,

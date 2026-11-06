@@ -1,6 +1,8 @@
 import Konstytucja.Twierdzenia.TworzenieRządu
 import Konstytucja.Twierdzenia.Ustawodawstwo
 import Konstytucja.Twierdzenia.ZmianaKonstytucji
+import Konstytucja.Twierdzenia.OdpowiedzialnośćRządu
+import Konstytucja.Modele.Kalendarz30
 
 /-! # Instancje założeń procedur
 
@@ -146,5 +148,35 @@ example := ZmianaKonstytucji.okres_ochronny_blokuje_referendum
 theorem zakaz_nie_obejmuje_referendum :
     ∃ u, ZmianaKonstytucji.Osiągalny zmianaBezZakazu u ∧ u.etap = .ważność :=
   ZmianaKonstytucji.bez_zakazu_referendum_możliwe rfl rfl rfl
+
+/-- Odpowiedzialność rządu w uproszczonym kalendarzu, organy działają. -/
+def odpowiedzialnośćWedługTekstu : OdpowiedzialnośćRządu.Założenia where
+  kalendarz := kalendarz30
+  mianownik := .wszyscyGłosujący
+  sejmDziała := true
+  prezydentDziała := true
+  limit := none
+  prógPowtórnyMinistra := 115
+
+def odpowiedzialnośćBezPrezydenta : OdpowiedzialnośćRządu.Założenia :=
+  { odpowiedzialnośćWedługTekstu with prezydentDziała := false }
+
+theorem warunki_rozstrzygnięcia_spełnialne :
+    OdpowiedzialnośćRządu.WarunkiRozstrzygnięcia odpowiedzialnośćWedługTekstu := ⟨rfl, rfl⟩
+
+theorem nowy_rząd_przez_wotum :
+    ∃ u, OdpowiedzialnośćRządu.Osiągalny odpowiedzialnośćWedługTekstu u ∧
+      u.etap = .nowyRząd 0 :=
+  OdpowiedzialnośćRządu.wotum_daje_nowy_rząd rfl rfl
+
+example := OdpowiedzialnośćRządu.bezczynność_blokuje_powołanie
+  (Z := odpowiedzialnośćBezPrezydenta) rfl rfl
+
+/-- Pełne złożenie z art. 154–155 przy spełnialnych warunkach. -/
+theorem dymisja_w_modelu (t) :
+    ∃ u, Przebieg (OdpowiedzialnośćRządu.PełnyKrok odpowiedzialnośćWedługTekstu rządWedługTekstu)
+      (.inl ⟨.dymisjaPrzyjęta, t, none, none, 0⟩) (.inr u) ∧
+      (u.etap = .rząd ∨ u.etap = .kadencjaSkrócona) :=
+  OdpowiedzialnośćRządu.dymisja_prowadzi_do_wyniku warunki_zakończenia_spełnialne t _ _ _
 
 end Konstytucja.Modele

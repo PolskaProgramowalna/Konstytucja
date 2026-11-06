@@ -17,3 +17,7 @@ V8,bez wniosku do Trybunału,Założenia.trybunałPrzedPodpisem,roboczy,art. 235
 V8,z wnioskiem do Trybunału,Założenia.trybunałPrzedPodpisem,roboczy,art. 235 ust. 7 milczy
 V9,brak limitu,Założenia.limit,roboczy,odpowiada tekstowi art. 235
 V9,limit L dni,Założenia.limit,roboczy,założenie spoza tekstu
+R1,brak limitu,Założenia.limit,roboczy,odpowiada tekstowi art. 158-162
+R1,limit L dni,Założenia.limit,roboczy,założenie spoza tekstu
+R2,próg 115 posłów dla ministra,Założenia.prógPowtórnyMinistra,roboczy,art. 159 ust. 1 mówi tylko o stosowaniu odpowiednim
+R2,inny próg dla ministra,Założenia.prógPowtórnyMinistra,roboczy,art. 159 ust. 1 mówi tylko o stosowaniu odpowiednim

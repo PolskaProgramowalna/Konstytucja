@@ -7,6 +7,15 @@ inductive Przebieg {S : Type} (R : S → S → Prop) : S → S → Prop where
   | stój (s) : Przebieg R s s
   | dalej {a b c} : R a b → Przebieg R b c → Przebieg R a c
 
+/-- Przebieg przenosi się przez odwzorowanie zachowujące kroki. Służy do składania
+automatów i do przechodzenia na relację szerszą. -/
+theorem Przebieg.przenieś {S T : Type} {R : S → S → Prop} {Q : T → T → Prop} (f : S → T)
+    (h : ∀ {a b}, R a b → Q (f a) (f b)) {a b} (p : Przebieg R a b) :
+    Przebieg Q (f a) (f b) := by
+  induction p with
+  | stój => exact .stój _
+  | dalej r _ ih => exact .dalej (h r) ih
+
 /-- Miara malejąca w każdym kroku wyklucza nieskończony przebieg. -/
 theorem brak_nieskończonego {S : Type} {R : S → S → Prop} (miara : S → Nat)
     (h : ∀ {a b}, R a b → miara b < miara a) (f : Nat → S) :

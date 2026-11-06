@@ -82,9 +82,10 @@ Model ujmuje to wspólnym parametrem U6.
 
 L18. Czy referendum z art. 235 ust. 6 podlega zakazowi z art. 228 ust. 7
 Art. 228 ust. 7 mówi o referendum ogólnokrajowym, a art. 125 ust. 4 wymienia referendum
-z art. 235 ust. 6 obok niego. Przy objęciu zakazem termin 60 dni z art. 235 ust. 6
-koliduje z zakazem i procedura staje (okres_ochronny_blokuje_referendum). Bez zakazu
-referendum się odbywa (bez_zakazu_referendum_możliwe).
+z art. 235 ust. 6 obok niego. Przy objęciu zakazem termin 60 dni koliduje z zakazem tylko
+wtedy, gdy ochrona obejmuje całe okno (referendum_zależy_od_okna, statycznie
+okres_ochronny_blokuje_referendum). Bez zakazu referendum się odbywa
+(bez_zakazu_referendum_możliwe).
 
 L19. Brak progu frekwencji w referendum zatwierdzającym
 Art. 125 ust. 3 wiąże wynik z udziałem ponad połowy uprawnionych, a art. 235 ust. 6
@@ -169,9 +170,11 @@ Tekst zakłada istnienie kolejnego kandydata. Model nie ma przejścia po wyczerp
 (brak_zapasu_nie_zastępuje), a liczbę zastąpień ogranicza założenie W4.
 
 L38. Wybory a okres ochronny (art. 128 ust. 2 i art. 228 ust. 7)
-Termin 14 i 60 dni po opróżnieniu koliduje z zakazem wyborów. Art. 228 ust. 7 przedłuża
-kadencje, ale opróżnienie urzędu nie jest upływem kadencji. Automat staje na dacie
-w okresie ochronnym (okres_ochronny_blokuje_turę).
+Terminy 14 i 60 dni po opróżnieniu kolidują z zakazem wyborów tylko wtedy, gdy ochrona
+obejmuje całe okno 74 dni (wybory_niewykonalne_gdy_ochrona_obejmuje_okno). Inaczej wybory mogą
+się odbyć po niej (wybory_po_okresie_wykonalne). Art. 228 ust. 7 przedłuża kadencje, ale
+opróżnienie urzędu nie jest upływem kadencji. Automat staje na dacie w okresie ochronnym
+(okres_ochronny_blokuje_turę).
 
 L39. Obowiązek skrócenia kadencji w czasie zastępstwa (art. 155 ust. 2 i art. 131 ust. 4)
 Jeśli nakaz przechodzi na osobę wykonującą obowiązki, koliduje z zakazem z art. 131 ust. 4
@@ -306,7 +309,14 @@ Orzeczenie wchodzi w życie z dniem ogłoszenia, a tekst nie mówi, co gdy nie z
 
 L71. Kolizja bez niewykonalności (art. 225 i art. 228 ust. 7)
 Dozwolenie skrócenia kadencji koliduje z zakazem, ale obu przepisów można przestrzegać, nie
-skracając kadencji (dozwolenie_nie_blokuje). Odróżnia to tę parę od pięciu par nakaz i zakaz.
+skracając kadencji (dozwolenie_nie_blokuje). Takich par jest dwie, a wymagają rozstrzygnięcia,
+czy dozwolenie działa.
 
 L72. Ograniczony zakres analizy
 Wynik wykonalności dotyczy tylko 10 norm (F1). Nie dowodzi wykonalności całej Konstytucji.
+
+L73. Wykonalność statyczna i terminowa
+Pięć par nakaz i zakaz wyklucza się w jednej chwili, ale obowiązki z terminem mogą być
+wykonane później. Rzeczywista kolizja wymaga zakazu na całe okno. Art. 155 ust. 2 nie ma
+terminu, więc przy skończonej historii kadencję można skrócić później. Art. 131 ust. 4 zależy
+od czasu zastępstwa, którego model nie liczy (F4).

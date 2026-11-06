@@ -14,6 +14,7 @@ import Konstytucja.Twierdzenia.Kompetencje
 import Konstytucja.Twierdzenia.Prawa
 import Konstytucja.Twierdzenia.OgłoszenieOrzeczenia
 import Konstytucja.Twierdzenia.SystemNorm
+import Konstytucja.Twierdzenia.Terminowość
 import Konstytucja.Analiza.Własności
 import Konstytucja.Modele.Kalendarz30
 import Konstytucja.Modele.Procedury

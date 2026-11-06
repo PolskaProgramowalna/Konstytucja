@@ -279,7 +279,7 @@ art,ust,pkt,status,definicje,twierdzenia
 124,0,0,nie_rozpoczęto,,
 125,1,0,częściowo,Referendum.Krok,bez_znaczenia_brak_zarządzenia
 125,2,0,częściowo,zarządzenieSejmu;zgodaSenatu;Referendum.Krok,min_sejm;min_senat;ze_sprawy_tylko_sejm;z_wniosku_tylko_zgoda_senatu;zarządzone_przez_sejm;zarządzone_przez_prezydenta;senat_może_odmówić;sejm_może_nie_zarządzić;bierność_senatu_blokuje
-125,3,0,częściowo,wiąże;rozstrzyga;Wynik,połowa_nie_wiąże;remis_nie_rozstrzyga;wiążące_jednym_głosem;art235_łagodniejszy_od_art125;wynik_wiążący_osiągalny;wynik_niewiążący_osiągalny
+125,3,0,częściowo,wiąże;rozstrzyga;Referendum.Wynik,połowa_nie_wiąże;remis_nie_rozstrzyga;wiążące_jednym_głosem;art235_łagodniejszy_od_art125;wynik_wiążący_osiągalny;wynik_niewiążący_osiągalny
 125,4,0,częściowo,ZmianaKonstytucji.Krok;Referendum.Krok,wiążące_wymaga_udziału;bierność_sądu_blokuje;nieważne_osiągalne
 125,5,0,nie_rozpoczęto,,
 126,1,0,nie_rozpoczęto,,
@@ -492,7 +492,7 @@ art,ust,pkt,status,definicje,twierdzenia
 189,0,0,częściowo,Sprawa,spór_węższy
 190,1,0,nie_rozpoczęto,,
 190,2,0,częściowo,OgłoszenieOrzeczenia.Krok,nieogłoszenie_blokuje;d_blokada_ogłoszenia
-190,3,0,częściowo,OgłoszenieOrzeczenia.Krok;miesiąceOdroczenia,wejście_tylko_przez_ogłoszenie;odroczenie_ustawy;odroczenie_innego_aktu;ogłoszenie_osiągalne
+190,3,0,częściowo,OgłoszenieOrzeczenia.Krok;miesiąceOdroczenia;OgłoszenieOrzeczenia.Wynik,wejście_tylko_przez_ogłoszenie;odroczenie_ustawy;odroczenie_innego_aktu;ogłoszenie_niezgodności_osiągalne;ogłoszenie_zgodności_osiągalne;zgodność_bez_utraty_mocy
 190,4,0,nie_rozpoczęto,,
 190,5,0,nie_rozpoczęto,,
 191,1,0,nie_rozpoczęto,,

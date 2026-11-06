@@ -53,14 +53,16 @@ def Norma.spełniona (n : Norma S C) (w : C → Bool) (s : S) : Prop :=
     | .zakaz => w n.czyn = false
     | .dozwolenie => True
 
-/-- Istnieje wybór czynności spełniający naraz wszystkie normy z listy. -/
-def Wykonalny (l : List (Norma S C)) (s : S) : Prop :=
+/-- Istnieje wybór czynności spełniający naraz wszystkie normy z listy, w jednej sytuacji.
+To statyczna wykonalność: nie rozróżnia wykonania teraz i później, więc obowiązek z terminem
+może być wykonalny, choć jest statycznie sprzeczny z bieżącym zakazem. -/
+def WykonalnyStatycznie (l : List (Norma S C)) (s : S) : Prop :=
   ∃ w : C → Bool, ∀ n ∈ l, n.spełniona w s
 
 /-- Działający nakaz i zakaz tego samego czynu wykluczają wykonalność. -/
 theorem nakaz_i_zakaz_niewykonalne {l : List (Norma S C)} {a b : Norma S C} {s : S}
     (ma : a ∈ l) (mb : b ∈ l) (na : a.modalność = .nakaz) (zb : b.modalność = .zakaz)
-    (c : a.czyn = b.czyn) (da : a.działa s) (db : b.działa s) : ¬ Wykonalny l s := by
+    (c : a.czyn = b.czyn) (da : a.działa s) (db : b.działa s) : ¬ WykonalnyStatycznie l s := by
   rintro ⟨w, h⟩
   have p := h a ma da
   have q := h b mb db
@@ -71,7 +73,7 @@ theorem nakaz_i_zakaz_niewykonalne {l : List (Norma S C)} {a b : Norma S C} {s :
 /-- Bez działającej pary nakaz i zakaz tego samego czynu lista jest wykonalna. -/
 theorem brak_pary_daje_wykonalność (l : List (Norma S C)) (s : S)
     (h : ∀ a ∈ l, ∀ b ∈ l, a.modalność = .nakaz → b.modalność = .zakaz →
-      a.działa s → b.działa s → a.czyn ≠ b.czyn) : Wykonalny l s := by
+      a.działa s → b.działa s → a.czyn ≠ b.czyn) : WykonalnyStatycznie l s := by
   classical
   refine ⟨fun c => decide (∃ a ∈ l, a.modalność = .nakaz ∧ a.działa s ∧ a.czyn = c), ?_⟩
   intro n m d

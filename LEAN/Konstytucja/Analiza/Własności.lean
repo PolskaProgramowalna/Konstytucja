@@ -138,10 +138,11 @@ theorem d_blokada_zawieszenia :
 def ogłoszenieBezOrganu : OgłoszenieOrzeczenia.Założenia :=
   ⟨false, 1, kalendarz30⟩
 
-theorem d_blokada_ogłoszenia (a : OgłoszenieOrzeczenia.RodzajAktu) :
-    OgłoszenieOrzeczenia.Osiągalny ogłoszenieBezOrganu a ⟨.wydane, 0, a⟩ ∧
-      ∀ u, ¬ OgłoszenieOrzeczenia.Krok ogłoszenieBezOrganu ⟨.wydane, 0, a⟩ u :=
-  OgłoszenieOrzeczenia.nieogłoszenie_blokuje rfl a
+theorem d_blokada_ogłoszenia (a : OgłoszenieOrzeczenia.RodzajAktu)
+    (w : OgłoszenieOrzeczenia.Wynik) :
+    OgłoszenieOrzeczenia.Osiągalny ogłoszenieBezOrganu a w ⟨.wydane, 0, a, w⟩ ∧
+      ∀ u, ¬ OgłoszenieOrzeczenia.Krok ogłoszenieBezOrganu ⟨.wydane, 0, a, w⟩ u :=
+  OgłoszenieOrzeczenia.nieogłoszenie_blokuje rfl a w
 
 /-! ## Spór art. 122 i art. 235 ust. 7 -/
 

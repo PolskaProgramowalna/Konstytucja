@@ -146,8 +146,11 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
 * E8. Jeden ustęp może zawierać kilka norm, więc klauzule zależą od czynności. Art. 59 ust. 4
   obejmuje też prawo do rokowań i strajk jako inne wolności związkowe.
 * F1. Analiza norm obejmuje wybrany system 10 norm, a nie wszystkie obowiązki Konstytucji.
-* F2. Wykonalność oznacza, że istnieje wybór czynności spełniający wszystkie działające nakazy
-  i zakazy. Dozwolenie sprzeczne z zakazem jest kolizją, ale nie niewykonalnością.
+* F2. Wykonalność statyczna oznacza, że w jednej sytuacji istnieje wybór czynności spełniający
+  działające nakazy i zakazy. Dozwolenie sprzeczne z zakazem jest kolizją, ale nie
+  niewykonalnością.
+* F4. Wykonalność terminowa oznacza dzień w oknie obowiązku, w którym zakaz nie działa.
+  Okna: art. 128 ust. 2 to 74 dni, art. 235 ust. 6 to 60 dni, art. 235 ust. 7 to 21 dni.
 * F3. Art. 190 ust. 2 „niezwłocznie” to parametr liczbowy, a organ ogłaszający to parametr.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3
   nie są jeszcze modelowane.

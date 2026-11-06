@@ -1,9 +1,10 @@
 import Konstytucja.Podstawy.Normy
 
-/-! # Wykonalność i kolizje w wybranym systemie norm
+/-! # Statyczna wykonalność i kolizje w wybranym systemie norm
 
-Własności b i c z etapu 6, założenia F1 i F2. Kolizja nie zawsze znaczy niewykonalność:
-zakaz i dozwolenie tego samego czynu kolidują, ale można ich przestrzegać razem.
+Własności b i c z etapu 6, założenia F1 i F2. Sytuacja opisuje jeden moment: nie rozróżnia
+wykonania teraz i później. Terminy bada `Twierdzenia/Terminowość.lean`. Kolizja nie zawsze
+znaczy niewykonalność: zakaz i dozwolenie tego samego czynu można spełnić razem.
 -/
 
 namespace Konstytucja.SystemNorm
@@ -85,26 +86,35 @@ def sprzeczna (s : Sytuacja) : Prop :=
     (s.żądanieReferendum = true ∧ s.okresOchronny = true ∧ s.zakazObejmujeReferendum = true) ∨
     (s.zmianaPrzedstawiona = true ∧ s.stanNadzwyczajny = true)
 
-/-- Pary nakaz i zakaz w systemie: jedyne kolizje, które dają niewykonalność. -/
+/-- Pary nakaz i zakaz w systemie: jedyne kolizje dające statyczną niewykonalność. -/
 def paryNiewykonalne : List (Id × Id) :=
   [(.nakaz155, .zakaz228Kadencja), (.nakaz155, .zakaz131), (.nakaz128, .zakaz228Wybory),
    (.nakaz235Referendum, .zakaz228Referendum), (.nakaz235Podpis, .zakaz228Zmiana)]
 
+/-- Kolizje dozwolenia z zakazem. Nie dają niewykonalności, ale wymagają rozstrzygnięcia,
+czy dozwolenie działa. -/
+def paryDozwoleń : List (Id × Id) :=
+  [(.dozwolenie225, .zakaz228Kadencja), (.dozwolenie225, .zakaz131)]
+
+/-- Wszystkie pary kolizyjne systemu. -/
+def paryKolizji : List (Id × Id) := paryNiewykonalne ++ paryDozwoleń
+
 /-- Reguła pierwszeństwa: `R a b` oznacza, że `a` ustępuje `b`. -/
 abbrev Reguły := Id → Id → Bool
 
-/-- Każda para ma regułę w jedną albo drugą stronę. -/
+/-- Każda kolizja systemu ma regułę w jedną albo drugą stronę. -/
 def Rozstrzygnięty (R : Reguły) : Prop :=
-  ∀ p ∈ paryNiewykonalne, R p.1 p.2 = true ∨ R p.2 p.1 = true
+  ∀ p ∈ paryKolizji, R p.1 p.2 = true ∨ R p.2 p.1 = true
 
 /-- Tekst Konstytucji nie podaje reguły dla żadnej z tych par (założenie modelu). -/
 def bezReguł : Reguły := fun _ _ => false
 
-/-- Wariant: nakazy ustępują zakazom. -/
-def zakazyPierwsze : Reguły := fun a b => (paryNiewykonalne.contains (a, b))
+/-- Wariant: nakazy i dozwolenia ustępują zakazom. -/
+def zakazyPierwsze : Reguły := fun a b => paryKolizji.contains (a, b)
 
-/-- Wariant: zakazy ustępują nakazom. -/
-def nakazyPierwsze : Reguły := fun a b => (paryNiewykonalne.contains (b, a))
+/-- Wariant: zakazy ustępują nakazom, a dozwolenia nadal ustępują zakazom. -/
+def nakazyPierwsze : Reguły := fun a b =>
+  paryNiewykonalne.contains (b, a) || paryDozwoleń.contains (a, b)
 
 /-- Norma po zastosowaniu reguł: wypada, gdy działa norma, której ma ustąpić. -/
 def poRegułach (R : Reguły) (i : Id) : Norma Sytuacja Czyn :=

@@ -10,7 +10,7 @@ private theorem działa_iff (i : Id) (s) : (norma i).działa s ↔ (norma i).zak
 /-! ## Własność b: wykonalność -/
 
 /-- System jest wykonalny dokładnie wtedy, gdy nie działa żadna para nakaz i zakaz. -/
-theorem wykonalny_iff (s : Sytuacja) : Wykonalny system s ↔ ¬ sprzeczna s := by
+theorem wykonalny_iff (s : Sytuacja) : WykonalnyStatycznie system s ↔ ¬ sprzeczna s := by
   constructor
   · intro w k
     rcases k with ⟨a, b | b⟩ | ⟨a, b⟩ | ⟨a, b, c⟩ | ⟨a, b⟩
@@ -45,19 +45,19 @@ theorem wykonalny_iff (s : Sytuacja) : Wykonalny system s ↔ ¬ sprzeczna s := 
 
 /-- Zwykła sytuacja bez stanu i bez zastępstwa jest wykonalna. -/
 theorem zwykła_sytuacja_wykonalna :
-    Wykonalny system ⟨true, false, false, false, true, true, true, true, false⟩ :=
+    WykonalnyStatycznie system ⟨true, false, false, false, true, true, true, true, false⟩ :=
   (wykonalny_iff _).2 (by simp [sprzeczna])
 
 /-- Kolizja art. 155 ust. 2 z art. 228 ust. 7 czyni system niewykonalnym. -/
 theorem kolizja_kadencji_niewykonalna :
-    ¬ Wykonalny system ⟨true, true, true, false, false, false, false, false, false⟩ := by
+    ¬ WykonalnyStatycznie system ⟨true, true, true, false, false, false, false, false, false⟩ := by
   rw [wykonalny_iff]
   simp [sprzeczna]
 
 /-- Wariant V5 zmienia wynik: bez objęcia referendum zakazem system jest wykonalny. -/
 theorem wariant_V5_w_systemie :
-    Wykonalny system ⟨false, true, false, false, false, true, false, false, false⟩ ∧
-      ¬ Wykonalny system ⟨false, true, false, false, false, true, true, false, false⟩ := by
+    WykonalnyStatycznie system ⟨false, true, false, false, false, true, false, false, false⟩ ∧
+      ¬ WykonalnyStatycznie system ⟨false, true, false, false, false, true, true, false, false⟩ := by
   constructor
   · exact (wykonalny_iff _).2 (by simp [sprzeczna])
   · rw [wykonalny_iff]
@@ -65,7 +65,7 @@ theorem wariant_V5_w_systemie :
 
 /-- Art. 228 ust. 6 nie koliduje z art. 235 ust. 7 po zakończeniu stanu, mimo okresu 90 dni. -/
 theorem okres_przejściowy_w_systemie :
-    Wykonalny system ⟨false, true, false, false, false, false, false, true, false⟩ :=
+    WykonalnyStatycznie system ⟨false, true, false, false, false, false, false, true, false⟩ :=
   (wykonalny_iff _).2 (by simp [sprzeczna])
 
 /-- Kolizja nie musi znaczyć niewykonalności: art. 225 dozwala, art. 228 ust. 7 zakazuje,
@@ -73,21 +73,28 @@ a oba przepisy można spełnić, nie skracając kadencji. -/
 theorem dozwolenie_nie_blokuje :
     Kolizja (norma .dozwolenie225) (norma .zakaz228Kadencja)
         ⟨false, true, true, false, false, false, false, false, true⟩ ∧
-      Wykonalny system ⟨false, true, true, false, false, false, false, false, true⟩ := by
+      WykonalnyStatycznie system ⟨false, true, true, false, false, false, false, false, true⟩ := by
   constructor
   · simp [Kolizja, Norma.działa, norma, normaProsta, Modalność.sprzeczna]
   · exact (wykonalny_iff _).2 (by simp [sprzeczna])
 
 /-! ## Własność c: rozstrzyganie kolizji -/
 
-/-- Lista par jest pełna: każda działająca para nakaz i zakaz to jedna z pięciu par. -/
+/-- Lista nakazów i zakazów jest pełna. -/
 theorem pary_pełne (a b : Id) (na : (norma a).modalność = .nakaz)
     (zb : (norma b).modalność = .zakaz) (c : (norma a).czyn = (norma b).czyn) :
     (a, b) ∈ paryNiewykonalne := by
   cases a <;> cases b <;> simp_all [norma, normaProsta, paryNiewykonalne]
 
-/-- Bez dodatkowej reguły żadna para nie jest rozstrzygnięta. -/
-theorem tekst_nie_rozstrzyga : ¬ Rozstrzygnięty bezReguł := by
+/-- Lista wszystkich kolizji jest pełna: siedem par, w jedną lub drugą stronę. -/
+theorem kolizje_pełne (a b : Id) (c : (norma a).czyn = (norma b).czyn)
+    (s : (norma a).modalność.sprzeczna (norma b).modalność = true) :
+    (a, b) ∈ paryKolizji ∨ (b, a) ∈ paryKolizji := by
+  cases a <;> cases b <;>
+    simp_all [norma, normaProsta, paryKolizji, paryNiewykonalne, paryDozwoleń,
+      Modalność.sprzeczna]
+
+theorem bez_reguł_nie_rozstrzyga : ¬ Rozstrzygnięty bezReguł := by
   intro h
   have := h (.nakaz155, .zakaz228Kadencja) (by decide)
   simp [bezReguł] at this
@@ -98,34 +105,56 @@ theorem zakazy_rozstrzygają : Rozstrzygnięty zakazyPierwsze := by
 
 theorem nakazy_rozstrzygają : Rozstrzygnięty nakazyPierwsze := by
   intro p m
-  exact .inr (by simpa [nakazyPierwsze] using m)
+  simp only [paryKolizji, List.mem_append] at m
+  cases m with
+  | inl h => exact .inr (by simp [nakazyPierwsze, h])
+  | inr h => exact .inl (by simp [nakazyPierwsze, h])
 
-/-- Pierwszeństwo zakazów czyni cały system wykonalnym w każdej sytuacji. -/
-theorem zakazy_dają_wykonalność (s : Sytuacja) : Wykonalny (systemPo zakazyPierwsze) s := by
+private theorem działa_po_regułach {R i s} (h : (poRegułach R i).działa s) :
+    (norma i).działa s := by
+  refine ⟨h.1, ?_⟩
+  intro w
+  exact h.2 (Or.inl w)
+
+/-- Rozstrzygnięcie usuwa każdą kolizję systemu, także z dozwoleniem. -/
+theorem rozstrzygnięcie_usuwa_kolizje {R : Reguły} (r : Rozstrzygnięty R) (i j : Id) (s) :
+    ¬ Kolizja (poRegułach R i) (poRegułach R j) s := by
+  intro ⟨c, di, dj, m⟩
+  have pełna := kolizje_pełne i j c m
+  have zi := działa_po_regułach di
+  have zj := działa_po_regułach dj
+  have pierwsza : ∀ {a b}, R a b = true → (poRegułach R a).działa s → (norma b).działa s → False :=
+    fun h da db => da.2 (Or.inr ⟨_, h, db⟩)
+  rcases pełna with p | p
+  · rcases r _ p with h | h
+    · exact pierwsza h di zj
+    · exact pierwsza h dj zi
+  · rcases r _ p with h | h
+    · exact pierwsza h dj zi
+    · exact pierwsza h di zj
+
+/-- Pierwszeństwo zakazów czyni cały system statycznie wykonalnym w każdej sytuacji. -/
+theorem zakazy_dają_wykonalność (s : Sytuacja) :
+    WykonalnyStatycznie (systemPo zakazyPierwsze) s := by
   apply brak_pary_daje_wykonalność
   intro a ma b mb na zb da db e
   simp only [systemPo, List.mem_map] at ma mb
   obtain ⟨i, _, rfl⟩ := ma
   obtain ⟨j, _, rfl⟩ := mb
-  have zj : (norma j).działa s := by
-    refine ⟨db.1, ?_⟩
-    simp [norma] at *
-    cases j <;> simp [normaProsta]
+  have zj := działa_po_regułach db
   have p := pary_pełne i j na zb e
-  exact da.2 (Or.inr ⟨j, by simpa [zakazyPierwsze] using p, zj⟩)
+  exact da.2 (Or.inr ⟨j, by simp [zakazyPierwsze, paryKolizji, p], zj⟩)
 
 /-- Pierwszeństwo nakazów też daje wykonalność, więc logika nie wybiera między nimi. -/
-theorem nakazy_dają_wykonalność (s : Sytuacja) : Wykonalny (systemPo nakazyPierwsze) s := by
+theorem nakazy_dają_wykonalność (s : Sytuacja) :
+    WykonalnyStatycznie (systemPo nakazyPierwsze) s := by
   apply brak_pary_daje_wykonalność
   intro a ma b mb na zb da db e
   simp only [systemPo, List.mem_map] at ma mb
   obtain ⟨i, _, rfl⟩ := ma
   obtain ⟨j, _, rfl⟩ := mb
-  have zi : (norma i).działa s := by
-    refine ⟨da.1, ?_⟩
-    simp [norma] at *
-    cases i <;> simp [normaProsta]
+  have zi := działa_po_regułach da
   have p := pary_pełne i j na zb e
-  exact db.2 (Or.inr ⟨i, by simpa [nakazyPierwsze] using p, zi⟩)
+  exact db.2 (Or.inr ⟨i, by simp [nakazyPierwsze, p], zi⟩)
 
 end Konstytucja.SystemNorm

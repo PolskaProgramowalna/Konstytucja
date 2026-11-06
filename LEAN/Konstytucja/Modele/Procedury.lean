@@ -1,5 +1,6 @@
 import Konstytucja.Twierdzenia.TworzenieRządu
 import Konstytucja.Twierdzenia.Ustawodawstwo
+import Konstytucja.Twierdzenia.ZmianaKonstytucji
 
 /-! # Instancje założeń procedur
 
@@ -82,5 +83,68 @@ theorem warunki_zakończenia_spełnialne : TworzenieRządu.WarunkiZakończenia r
 theorem blokada_okresu_ochronnego (s t) :
     ¬ TworzenieRządu.Krok rządWOkresieOchronnym ⟨.skrócenie, t⟩ s :=
   TworzenieRządu.trwały_okres_ochronny_blokuje rfl (fun _ => rfl) s t
+
+/-- Zmiana spoza rozdziałów I, II i XII, bez stanu nadzwyczajnego i bez limitu. -/
+def zmianaZwykła : ZmianaKonstytucji.Założenia where
+  chroniona := false
+  wnioskodawca := .posłowie 92
+  wnioskodawcaUprawniony := by
+    simp [ZmianaKonstytucji.Wnioskodawca.uprawniony, Izba.ustawowaLiczba]
+  mianownik := .wszyscyGłosujący
+  sejmDziała := true
+  prezydentDziała := true
+  sądDziała := true
+  trybunałOrzeka := true
+  trybunałPrzedPodpisem := false
+  stanNadzwyczajny := fun _ => false
+  okresOchronny := fun _ => false
+  stanWOkresie := by simp
+  zakazDotyczyReferendum := true
+  limit := none
+
+def zmianaChroniona : ZmianaKonstytucji.Założenia :=
+  { zmianaZwykła with chroniona := true }
+
+/-- Tryb chroniony z limitem 30 dni. -/
+def zmianaZLimitem : ZmianaKonstytucji.Założenia :=
+  { zmianaChroniona with limit := some 30 }
+
+/-- Trwały okres ochronny bez stanu nadzwyczajnego, z zakazem referendum. -/
+def zmianaWOkresieOchronnym : ZmianaKonstytucji.Założenia :=
+  { zmianaChroniona with
+    okresOchronny := fun _ => true
+    stanWOkresie := fun _ _ => rfl }
+
+/-- Ten sam okres ochronny, ale zakaz nie obejmuje referendum z art. 235 ust. 6. -/
+def zmianaBezZakazu : ZmianaKonstytucji.Założenia :=
+  { zmianaWOkresieOchronnym with zakazDotyczyReferendum := false }
+
+theorem warunki_zmiany_spełnialne : ZmianaKonstytucji.WarunkiZakończenia zmianaChroniona :=
+  ⟨rfl, rfl, rfl, rfl, fun _ => rfl⟩
+
+theorem zwykła_30_dni :
+    ∃ u, ZmianaKonstytucji.Osiągalny zmianaZwykła u ∧ u.etap = .podpisana ∧ u.dzień = 30 :=
+  ZmianaKonstytucji.podpisana_zwykła rfl rfl rfl (fun _ => rfl)
+
+theorem chroniona_135_dni :
+    ∃ u, ZmianaKonstytucji.Osiągalny zmianaChroniona u ∧ u.etap = .podpisana ∧
+      u.dzień = 135 ∧ u.referendum = false :=
+  ZmianaKonstytucji.podpisana_chroniona rfl rfl rfl (fun _ => rfl)
+
+theorem chroniona_90_dni_z_referendum :
+    ∃ u, ZmianaKonstytucji.Osiągalny zmianaChroniona u ∧ u.etap = .podpisana ∧
+      u.dzień = 90 ∧ u.referendum = true :=
+  ZmianaKonstytucji.podpisana_z_referendum rfl rfl rfl rfl (fun _ => rfl)
+
+theorem limit_daje_granicę_zmiany {s} (h : ZmianaKonstytucji.Osiągalny zmianaZLimitem s) :
+    s.dzień ≤ 426 :=
+  ZmianaKonstytucji.granica_czasu (L := 30) rfl h
+
+example := ZmianaKonstytucji.okres_ochronny_blokuje_referendum
+  (Z := zmianaWOkresieOchronnym) rfl rfl rfl (fun _ => rfl)
+
+theorem zakaz_nie_obejmuje_referendum :
+    ∃ u, ZmianaKonstytucji.Osiągalny zmianaBezZakazu u ∧ u.etap = .ważność :=
+  ZmianaKonstytucji.bez_zakazu_referendum_możliwe rfl rfl rfl
 
 end Konstytucja.Modele

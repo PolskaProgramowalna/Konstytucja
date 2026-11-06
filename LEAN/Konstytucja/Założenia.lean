@@ -43,6 +43,24 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
 * U7. `maksPowrotów` to założenie spoza tekstu, ograniczające liczbę zwrotów,
   a `none` odpowiada tekstowi.
 * U8. Ustawa z art. 224 ma inny tryb. Ten automat jej nie obejmuje.
+* V1. Art. 235 ust. 2 nie wskazuje początku 60 dni dla Senatu. Liczymy je od uchwalenia
+  ustawy przez Sejm.
+* V2. „W jednakowym brzmieniu”: Senat nie wnosi poprawek. Tekst odmienny od sejmowego
+  to brak uchwalenia, a model nie przewiduje drogi powrotnej do Sejmu.
+* V3. Dla ustaw z rozdziałów I, II lub XII przedstawienie Prezydentowi następuje po
+  upływie 45 dni albo po referendum (art. 235 ust. 7 w związku z ust. 6).
+* V4. Art. 228 ust. 6 zakazuje zmiany Konstytucji w czasie stanu nadzwyczajnego.
+  Za chwilę zmiany przyjmujemy podpisanie ustawy.
+* V5. Czy zakaz referendum z art. 228 ust. 7 obejmuje referendum z art. 235 ust. 6,
+  jest parametrem `zakazDotyczyReferendum`, bo art. 125 ust. 4 wymienia je obok
+  referendum ogólnokrajowego.
+* V6. „Większość głosujących” liczymy od ważnych głosów „za” i „przeciw”.
+* V7. Nieważność referendum (art. 125 ust. 4) kończy procedurę niepowodzeniem.
+  Tekst nie opisuje skutku nieważności.
+* V8. Art. 235 ust. 7 nie wspomina o wecie ani o Trybunale. Weta nie modelujemy,
+  a wniosek do Trybunału jest parametrem `trybunałPrzedPodpisem`.
+* V9. Terminy bez wartości liczbowej ujmuje parametr `limit`. Dla czynności z minimalnym
+  odstępem liczy się on od pierwszego dozwolonego dnia.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3
   nie są jeszcze modelowane.
 * A2. Art. 87 traktujemy jako zamknięty katalog źródeł powszechnie obowiązujących,

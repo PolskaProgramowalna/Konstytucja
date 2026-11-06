@@ -11,3 +11,9 @@ U6,brak limitu dla Sejmu i Trybunału,Założenia.limit,roboczy,odpowiada teksto
 U6,limit L dni,Założenia.limit,roboczy,założenie spoza tekstu
 U7,brak limitu zwrotów,Założenia.maksPowrotów,roboczy,odpowiada tekstowi art. 122 ust. 4
 U7,limit m zwrotów,Założenia.maksPowrotów,roboczy,założenie spoza tekstu
+V5,zakaz z art. 228 ust. 7 obejmuje referendum z art. 235,Założenia.zakazDotyczyReferendum,roboczy,art. 125 ust. 4 wymienia je obok ogólnokrajowego
+V5,zakaz nie obejmuje tego referendum,Założenia.zakazDotyczyReferendum,roboczy,art. 125 ust. 4 wymienia je obok ogólnokrajowego
+V8,bez wniosku do Trybunału,Założenia.trybunałPrzedPodpisem,roboczy,art. 235 ust. 7 milczy
+V8,z wnioskiem do Trybunału,Założenia.trybunałPrzedPodpisem,roboczy,art. 235 ust. 7 milczy
+V9,brak limitu,Założenia.limit,roboczy,odpowiada tekstowi art. 235
+V9,limit L dni,Założenia.limit,roboczy,założenie spoza tekstu

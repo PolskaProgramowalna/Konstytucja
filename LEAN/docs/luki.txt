@@ -79,3 +79,36 @@ Termin 21 dni istnieje, ale tekst nie opisuje skutku jego upływu
 L17. Brak terminów Sejmu i Marszałka
 Art. 119, art. 121 ust. 1 i 3, art. 122 ust. 1 i ust. 5 nie podają liczby dni.
 Model ujmuje to wspólnym parametrem U6.
+
+L18. Czy referendum z art. 235 ust. 6 podlega zakazowi z art. 228 ust. 7
+Art. 228 ust. 7 mówi o referendum ogólnokrajowym, a art. 125 ust. 4 wymienia referendum
+z art. 235 ust. 6 obok niego. Przy objęciu zakazem termin 60 dni z art. 235 ust. 6
+koliduje z zakazem i procedura staje (okres_ochronny_blokuje_referendum). Bez zakazu
+referendum się odbywa (bez_zakazu_referendum_możliwe).
+
+L19. Brak progu frekwencji w referendum zatwierdzającym
+Art. 125 ust. 3 wiąże wynik z udziałem ponad połowy uprawnionych, a art. 235 ust. 6
+wymaga tylko większości głosujących. Jeden ważny głos "za" wystarcza w modelu
+(referendum_bez_frekwencji). Liczenie głosów nieważnych to założenie V6.
+
+L20. Weto i Trybunał przy art. 235 ust. 7
+Przepis mówi tylko o podpisaniu w 21 dni. Weta nie ma w modelu (tylko_podpis).
+Czy art. 122 ust. 3 stosuje się tu odpowiednio, jest wariantem V8.
+
+L21. Stan nadzwyczajny i podpis
+Art. 228 ust. 6 zakazuje zmiany Konstytucji, ale nie mówi, którego etapu to dotyczy,
+ani co dzieje się z biegnącym terminem. Model wiąże zakaz z podpisaniem (V4), więc
+przy trwającym stanie Prezydent nie może podpisać (stan_nadzwyczajny_blokuje_podpis).
+
+L22. Brak drogi przy odmiennym tekście Senatu
+Art. 235 ust. 2 wymaga jednakowego brzmienia, ale nie opisuje uzgadniania tekstu.
+Model traktuje odmienny tekst jako brak uchwalenia (V2).
+
+L23. Skutek nieważności referendum
+Art. 125 ust. 4 każe stwierdzić ważność, lecz tekst nie mówi, co dalej po nieważności.
+Model kończy wtedy procedurę (V7).
+
+L24. Górna granica przed Sejmem
+Art. 235 ust. 3 i 5 podają tylko najwcześniejsze dni, a nie najpóźniejsze.
+Bez limitu procedura może trwać dowolnie długo (ZmianaKonstytucji.brak_górnej_granicy).
+Senat ma natomiast twardy limit 60 dni.

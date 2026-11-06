@@ -20,7 +20,7 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 19,I,,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 20,I,,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 21,I,,2,0,3,prawo_lub_zasada,nie_rozpoczęto,,
-22,I,,0,0,3,odesłanie;ocenne;prawo_lub_zasada,nie_rozpoczęto,,
+22,I,,0,0,3,odesłanie;ocenne;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 1
 23,I,,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 24,I,,0,0,3,kompetencja;prawo_lub_zasada,nie_rozpoczęto,,
 25,I,,5,0,3,odesłanie;ocenne;prawo_lub_zasada,nie_rozpoczęto,,
@@ -28,42 +28,42 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 27,I,,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 28,I,,5,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
 29,I,,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
-30,II,Zasady ogólne,0,0,3,ocenne;prawo_lub_zasada,nie_rozpoczęto,,
-31,II,Zasady ogólne,3,0,3,odesłanie;ocenne;prawo_lub_zasada,częściowo,Konstytucja/Podstawy/Interpretacja.lean;Konstytucja/Twierdzenia/Interpretacje.lean,ujęte wiersze: 1 z 3
+30,II,Zasady ogólne,0,0,3,ocenne;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Prawa/Pojęcia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 1
+31,II,Zasady ogólne,3,0,3,odesłanie;ocenne;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Prawa/Pojęcia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 3
 32,II,Zasady ogólne,2,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 33,II,Zasady ogólne,2,0,3,ocenne;prawo_lub_zasada,nie_rozpoczęto,,
-34,II,Zasady ogólne,2,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
+34,II,Zasady ogólne,2,0,3,odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 2
 35,II,Zasady ogólne,2,0,3,kompetencja;prawo_lub_zasada,nie_rozpoczęto,,
 36,II,Zasady ogólne,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 37,II,Zasady ogólne,2,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
 38,II,Wolności i prawa osobiste,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
-39,II,Wolności i prawa osobiste,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
-40,II,Wolności i prawa osobiste,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
-41,II,Wolności i prawa osobiste,5,0,3,termin;odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
+39,II,Wolności i prawa osobiste,0,0,3,prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 1
+40,II,Wolności i prawa osobiste,0,0,3,prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 1
+41,II,Wolności i prawa osobiste,5,0,3,termin;odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean,ujęte wiersze: 1 z 5
 42,II,Wolności i prawa osobiste,3,0,3,odesłanie;ocenne;prawo_lub_zasada,nie_rozpoczęto,,
 43,II,Wolności i prawa osobiste,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 44,II,Wolności i prawa osobiste,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
-45,II,Wolności i prawa osobiste,2,0,3,ocenne;prawo_lub_zasada,nie_rozpoczęto,,
-46,II,Wolności i prawa osobiste,0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
+45,II,Wolności i prawa osobiste,2,0,3,ocenne;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Prawa/Pojęcia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 2
+46,II,Wolności i prawa osobiste,0,0,3,odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean,ujęte wiersze: 1 z 1
 47,II,Wolności i prawa osobiste,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
-48,II,Wolności i prawa osobiste,2,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
-49,II,Wolności i prawa osobiste,0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
-50,II,Wolności i prawa osobiste,0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
-51,II,Wolności i prawa osobiste,5,0,3,odesłanie;ocenne;prawo_lub_zasada,nie_rozpoczęto,,
-52,II,Wolności i prawa osobiste,5,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
-53,II,Wolności i prawa osobiste,7,0,3,odesłanie;ocenne;prawo_lub_zasada,nie_rozpoczęto,,
-54,II,Wolności i prawa osobiste,2,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
+48,II,Wolności i prawa osobiste,2,0,3,odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean,ujęte wiersze: 1 z 2
+49,II,Wolności i prawa osobiste,0,0,3,odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 1
+50,II,Wolności i prawa osobiste,0,0,3,odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean,ujęte wiersze: 1 z 1
+51,II,Wolności i prawa osobiste,5,0,3,odesłanie;ocenne;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean,ujęte wiersze: 1 z 5
+52,II,Wolności i prawa osobiste,5,0,3,odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 2 z 5
+53,II,Wolności i prawa osobiste,7,0,3,odesłanie;ocenne;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 3 z 7
+54,II,Wolności i prawa osobiste,2,0,3,odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 2
 55,II,Wolności i prawa osobiste,5,2,3,kompetencja;wyliczenie;prawo_lub_zasada,nie_rozpoczęto,,
 56,II,Wolności i prawa osobiste,2,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
-57,II,Wolności i prawa polityczne,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
+57,II,Wolności i prawa polityczne,0,0,3,prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 1
 58,II,Wolności i prawa polityczne,3,0,3,kompetencja;odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
-59,II,Wolności i prawa polityczne,4,0,3,kompetencja;odesłanie;ocenne;prawo_lub_zasada,nie_rozpoczęto,,
+59,II,Wolności i prawa polityczne,4,0,3,kompetencja;odesłanie;ocenne;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 2 z 4
 60,II,Wolności i prawa polityczne,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
-61,II,Wolności i prawa polityczne,4,0,3,kompetencja;odesłanie;ocenne;prawo_lub_zasada,nie_rozpoczęto,,
+61,II,Wolności i prawa polityczne,4,0,3,kompetencja;odesłanie;ocenne;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 4
 62,II,Wolności i prawa polityczne,2,0,3,termin;kompetencja;prawo_lub_zasada,nie_rozpoczęto,,
 63,II,Wolności i prawa polityczne,0,0,3,odesłanie;ocenne;prawo_lub_zasada,nie_rozpoczęto,,
-64,II,"Wolności i prawa ekonomiczne, socjalne i kulturalne",3,0,3,odesłanie;ocenne;prawo_lub_zasada,nie_rozpoczęto,,
-65,II,"Wolności i prawa ekonomiczne, socjalne i kulturalne",5,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
+64,II,"Wolności i prawa ekonomiczne, socjalne i kulturalne",3,0,3,odesłanie;ocenne;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 3
+65,II,"Wolności i prawa ekonomiczne, socjalne i kulturalne",5,0,3,odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean,ujęte wiersze: 1 z 5
 66,II,"Wolności i prawa ekonomiczne, socjalne i kulturalne",2,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
 67,II,"Wolności i prawa ekonomiczne, socjalne i kulturalne",2,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
 68,II,"Wolności i prawa ekonomiczne, socjalne i kulturalne",5,0,3,odesłanie;ocenne;prawo_lub_zasada,nie_rozpoczęto,,
@@ -76,10 +76,10 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 75,II,"Wolności i prawa ekonomiczne, socjalne i kulturalne",2,0,3,odesłanie;ocenne;prawo_lub_zasada,nie_rozpoczęto,,
 76,II,"Wolności i prawa ekonomiczne, socjalne i kulturalne",0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
 77,II,Środki ochrony wolności i praw,2,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
-78,II,Środki ochrony wolności i praw,0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
+78,II,Środki ochrony wolności i praw,0,0,3,odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean,ujęte wiersze: 1 z 1
 79,II,Środki ochrony wolności i praw,2,0,3,procedura;odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Kompetencje/Trybunał.lean;Konstytucja/Twierdzenia/Kompetencje.lean,ujęte wiersze: 2 z 2
 80,II,Środki ochrony wolności i praw,0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
-81,II,Środki ochrony wolności i praw,0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
+81,II,Środki ochrony wolności i praw,0,0,3,odesłanie;prawo_lub_zasada,częściowo,Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Twierdzenia/Prawa.lean,ujęte wiersze: 1 z 1
 82,II,Obowiązki,0,0,3,ocenne;prawo_lub_zasada,nie_rozpoczęto,,
 83,II,Obowiązki,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 84,II,Obowiązki,0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
@@ -226,12 +226,12 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 225,X,,0,0,2,procedura;termin;kompetencja,nie_rozpoczęto,,
 226,X,,2,0,2,procedura;termin,nie_rozpoczęto,,
 227,X,,7,0,2,termin;kompetencja;odesłanie;ocenne,nie_rozpoczęto,,
-228,XI,,7,0,1,procedura;termin;kompetencja;odesłanie;ocenne,częściowo,Konstytucja/Modele/StanyNadzwyczajne.lean;Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Procedury/TworzenieRządu.lean;Konstytucja/Procedury/ZmianaKonstytucji.lean;Konstytucja/Twierdzenia/Kolizje.lean;Konstytucja/Twierdzenia/Referendum.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/TworzenieRządu.lean;Konstytucja/Twierdzenia/ZmianaKonstytucji.lean,ujęte wiersze: 3 z 7
+228,XI,,7,0,1,procedura;termin;kompetencja;odesłanie;ocenne,częściowo,Konstytucja/Modele/StanyNadzwyczajne.lean;Konstytucja/Prawa/Ograniczenia.lean;Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Procedury/TworzenieRządu.lean;Konstytucja/Procedury/ZmianaKonstytucji.lean;Konstytucja/Twierdzenia/Kolizje.lean;Konstytucja/Twierdzenia/Prawa.lean;Konstytucja/Twierdzenia/Referendum.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/TworzenieRządu.lean;Konstytucja/Twierdzenia/ZmianaKonstytucji.lean,ujęte wiersze: 4 z 7
 229,XI,,0,0,1,procedura;kompetencja,częściowo,Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean,ujęte wiersze: 1 z 1
 230,XI,,2,0,1,procedura;termin;kompetencja,częściowo,Konstytucja/Podstawy/Czas.lean;Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/Terminy.lean,ujęte wiersze: 2 z 2
 231,XI,,0,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Podstawy/Czas.lean;Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/Terminy.lean,ujęte wiersze: 1 z 1
 232,XI,,0,0,1,procedura;termin;kompetencja,częściowo,Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean,ujęte wiersze: 1 z 1
-233,XI,,3,0,1,odesłanie;ocenne,częściowo,Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean,ujęte wiersze: 3 z 3
+233,XI,,3,0,1,odesłanie;ocenne,częściowo,Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/Prawa.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean,ujęte wiersze: 3 z 3
 234,XI,,2,0,1,procedura;kompetencja,częściowo,Konstytucja/Podstawy/Akty.lean;Konstytucja/Procedury/StanyNadzwyczajne.lean;Konstytucja/Twierdzenia/StanyNadzwyczajne.lean,ujęte wiersze: 2 z 2
 235,XII,,7,0,1,procedura;próg;termin;kompetencja;odesłanie,częściowo,Konstytucja/Procedury/ZmianaKonstytucji.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/ZmianaKonstytucji.lean,ujęte wiersze: 7 z 7
 236,XIII,,2,0,0,przepis_przejściowy,nie_rozpoczęto,,

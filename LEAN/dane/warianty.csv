@@ -41,3 +41,8 @@ K4,skarga tylko z art. 79,możeWystąpić,roboczy,art. 191 ust. 1 pkt 1 mówi og
 K5,art. 234 tylko względem Konstytucji,kontrolowalny,roboczy,art. 188 pkt 3 nie wymienia tych rozporządzeń osobno
 K7,art. 186 ust. 2 obejmuje art. 188 pkt 1 i pkt 3 względem Konstytucji,możeWystąpić,roboczy,przepis mówi o aktach normatywnych
 K8,skarga i pytanie obejmują każdy rodzaj aktu poza Konstytucją,przedmiotSkargi,roboczy,charakter normatywny aktu nie jest badany
+E1,klauzula i art. 31 ust. 3 łącznie,Tryb.łącznie,roboczy,tekst nie rozstrzyga stosunku przepisów
+E1,klauzula szczególna zamiast art. 31 ust. 3,Tryb.klauzulaZamiast,roboczy,tekst nie rozstrzyga stosunku przepisów
+E2,zakazy bez wyjątku,klauzula,roboczy,art. 31 ust. 3 mówi ogólnie o wolnościach i prawach
+E3,art. 31 ust. 3 obowiązuje w stanie nadzwyczajnym,dopuszczalneWStanie,roboczy,art. 228 i 233 regulują tę sytuację osobno
+E3,art. 31 ust. 3 nie obowiązuje w stanie nadzwyczajnym,dopuszczalneWStanie,roboczy,art. 228 i 233 regulują tę sytuację osobno

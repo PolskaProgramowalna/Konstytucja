@@ -33,3 +33,7 @@ więc częściowo nie mówi, która z nich została ujęta; mówią to definicje
 
 Status wariantu: roboczy, przyjęty do głównego modelu albo zweryfikowany przez
 recenzenta. Dowód dla wariantu nie przesądza o jego prawnej dopuszczalności.
+
+pojecia.csv   pojęcia ocenne z etapu 5 i ich frazy z tekstu
+klauzule.csv  klauzule ograniczeń i ich frazy z tekstu
+              generuj.py sprawdza, że każda fraza występuje w danym przepisie

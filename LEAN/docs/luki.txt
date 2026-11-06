@@ -259,3 +259,34 @@ wskazał omówienie TK w sprawie SK 42/02. Tego źródła nie weryfikowano.
 L59. Zakres kompetencji osoby wykonującej obowiązki Prezydenta
 Art. 131 ust. 4 zakazuje tylko skrócenia kadencji. Tekst nie mówi wprost, czy zastępca ma
 pozostałe prerogatywy z art. 144 ust. 3. Model tego jeszcze nie opisuje.
+
+L60. Zakazy bez wyjątku a art. 31 ust. 3
+Art. 39, 40, art. 52 ust. 4, art. 53 ust. 6-7 i art. 54 ust. 2 brzmią jak zakazy bez wyjątku,
+a art. 31 ust. 3 mówi ogólnie o konstytucyjnych wolnościach i prawach. Model przyjmuje E2.
+
+L61. Stosunek klauzul szczególnych do art. 31 ust. 3
+Art. 22, art. 45 ust. 2, art. 53 ust. 5, art. 59, art. 61 ust. 3 i art. 64 ust. 3 mają własne
+warunki. Wynik zależy od wariantu (tryb_zmienia_wynik_art22, art61_interes_gospodarczy).
+
+L62. Zakazy spoza art. 233 ust. 1
+Art. 52 ust. 4 i art. 54 ust. 2 nie są wymienione w art. 233 ust. 1. Bez art. 31 ust. 3
+ustawa o stanie wojennym lub wyjątkowym mogłaby formalnie je objąć (zakazy_poza_art233,
+wariant_E3_zmienia_wynik).
+
+L63. Art. 31 ust. 3 w stanach nadzwyczajnych
+Art. 228 ust. 3 i art. 233 tworzą odrębny reżim. Tekst nie mówi, czy art. 31 ust. 3 obowiązuje
+obok nich (E3).
+
+L64. Art. 81 a skarga konstytucyjna
+Art. 81 ogranicza dochodzenie praw do granic ustawy. Tekst nie mówi wprost, jak ma się to
+do skargi z art. 79. Model nie łączy tych przepisów.
+
+L65. Forma ustawy w art. 45 ust. 2
+Przepis nie wspomina o ustawie, a model jej wymaga (E4).
+
+L66. Niepełna lista pojęć ocennych
+Lista obejmuje 16 pozycji. Większość pozostaje parametrem bez znaczenia, a część, np. dobro
+wspólne i sprawiedliwość społeczna, nie wpływa dziś na żaden wynik modelu (E6).
+
+L67. Wyjątki dla cudzoziemców (art. 37 ust. 2)
+Art. 37 ust. 2 odsyła do ustawy, a model nie rozróżnia podmiotów praw.

@@ -223,6 +223,18 @@ def rejestr(przepisy):
     return wpisy
 
 
+def frazy(przepisy):
+    """Sprawdza, że frazy pojęć ocennych i klauzul występują w tekście przepisów."""
+    tekst = collections.defaultdict(str)
+    for p in przepisy:
+        tekst[(p["art"], p["ust"])] += " " + p["tekst"]
+    for plik, pole in (("pojecia.csv", "pojęcie"), ("klauzule.csv", "klauzula")):
+        with open(TU / plik, encoding="utf8", newline="") as f:
+            for w in csv.DictReader(f):
+                klucz = (int(w["art"]), int(w["ust"]))
+                assert w["fraza"] in tekst[klucz], f"{plik}: {w[pole]} {klucz}: {w['fraza']}"
+
+
 def main():
     segmenty, przepisy, preambuła, nagłówki = parsuj(wyodrębnij())
     liczba = kontrola(segmenty, przepisy, nagłówki)
@@ -238,6 +250,7 @@ def main():
         w.writerow(["rozdział", "podrozdział", "art", "ust", "pkt", "tekst"])
         for p in przepisy:
             w.writerow([p["rozdział"], p["podrozdział"], p["art"], p["ust"], p["pkt"], p["tekst"]])
+    frazy(przepisy)
     wpisy = rejestr(przepisy)
     with open(TU / "pokrycie_przepisy.csv", "w", encoding="utf8", newline="") as f:
         w = csv.writer(f)

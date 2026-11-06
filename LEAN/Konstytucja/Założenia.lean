@@ -131,6 +131,16 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
   art. 188 pkt 1 i pkt 3 w tym zakresie, a nie względem umów ani ustaw.
 * K8. Art. 79 ust. 1 obejmuje każdy rodzaj aktu poza Konstytucją, a art. 193 ma te same
   przedmioty. Model nie rozstrzyga, czy konkretny akt ma charakter normatywny.
+* E1. Stosunek klauzul szczególnych do art. 31 ust. 3 jest wariantem `Tryb`: stosowane
+  łącznie albo klauzula zamiast art. 31 ust. 3.
+* E2. Przepisy sformułowane jako zakaz bez wyjątku (`zakaz`) nie podlegają ograniczeniom,
+  choć art. 31 ust. 3 mówi ogólnie o konstytucyjnych wolnościach i prawach.
+* E3. To, czy art. 31 ust. 3 obowiązuje obok art. 228 i art. 233 w stanie nadzwyczajnym,
+  jest wariantem.
+* E4. Każda klauzula wymaga formy ustawy, także art. 45 ust. 2, który tego nie mówi wprost.
+* E5. Przypisanie klauzul przepisom jest robocze i obejmuje tylko wymienione przepisy.
+  Pozostałe przepisy rozdziału II mają tryb ogólny z art. 31 ust. 3.
+* E6. Lista pojęć ocennych nie jest wyczerpująca. Każde pojęcie jest parametrem bez definicji.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3
   nie są jeszcze modelowane.
 * A2. Art. 87 traktujemy jako zamknięty katalog źródeł powszechnie obowiązujących,

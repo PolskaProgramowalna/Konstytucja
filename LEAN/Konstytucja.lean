@@ -2,7 +2,6 @@ import Konstytucja.Twierdzenia.Progi
 import Konstytucja.Twierdzenia.Hierarchia
 import Konstytucja.Twierdzenia.Terminy
 import Konstytucja.Twierdzenia.Kolizje
-import Konstytucja.Twierdzenia.Interpretacje
 import Konstytucja.Twierdzenia.TworzenieRządu
 import Konstytucja.Twierdzenia.Ustawodawstwo
 import Konstytucja.Twierdzenia.ZmianaKonstytucji
@@ -12,6 +11,7 @@ import Konstytucja.Twierdzenia.WybórPrezydenta
 import Konstytucja.Twierdzenia.UrządPrezydenta
 import Konstytucja.Twierdzenia.StanyNadzwyczajne
 import Konstytucja.Twierdzenia.Kompetencje
+import Konstytucja.Twierdzenia.Prawa
 import Konstytucja.Modele.Kalendarz30
 import Konstytucja.Modele.Procedury
 import Konstytucja.Modele.Wybory

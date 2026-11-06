@@ -1,0 +1,213 @@
+PLAN FORMALIZACJI KONSTYTUCJI RP W LEAN 4
+Stan na 2026-11-06
+
+
+1. CEL
+
+Zbudować maszynowo sprawdzany model Konstytucji RP z 2 kwietnia 1997 r.
+oraz dowodzić w Lean 4 twierdzeń o jej procedurach, progach, terminach
+i kompetencjach organów.
+
+Konstytucja nie jest dowodem, lecz zbiorem norm. W projekcie:
+- przepisy stają się definicjami, typami i jawnymi założeniami,
+- dowodami są dopiero wnioski wyprowadzone z tego modelu.
+
+Model jest jedną z możliwych interpretacji i nie ma mocy prawnej.
+Ostateczne rozstrzygnięcia w sprawach z art. 188 należą do Trybunału
+Konstytucyjnego (art. 190 ust. 1). Wynik dowodu znaczy zawsze:
+"przy tych założeniach wynika, że...".
+
+
+2. ZAKRES
+
+Priorytet 1 (najlepiej nadają się do formalizacji):
+- rozdz. III : źródła prawa i ich hierarchia
+- rozdz. IV  : Sejm i Senat, postępowanie ustawodawcze, referendum
+- rozdz. V   : Prezydent, kontrasygnata (art. 144)
+- rozdz. VI  : tworzenie rządu, wotum zaufania i nieufności
+- rozdz. XI  : stany nadzwyczajne
+- rozdz. XII : zmiana Konstytucji
+
+Priorytet 2 (głównie struktura i kompetencje):
+- rozdz. VII, VIII, IX, X
+
+Priorytet 3 (tylko szkielet z parametrami):
+- rozdz. I i II: zasady ustroju, wolności i prawa
+
+Poza formalizacją:
+- preambuła: zachowana jako komentarz, bez modelu
+- rozdz. XIII: przepisy przejściowe, tylko tam, gdzie mają jeszcze znaczenie
+
+
+3. ZASADY
+
+Z1. Każda definicja i każde twierdzenie wskazują przepis źródłowy,
+    np. art. 158 ust. 1.
+Z2. Każde założenie spoza tekstu Konstytucji jest jawne, nazwane,
+    opisane i zebrane w jednym miejscu.
+Z3. Pojęcia ocenne nie są definiowane na siłę. Stają się polami struktury
+    Interpretacja, a więc parametrami twierdzeń.
+Z4. Odesłania do ustaw i regulaminów są parametrami. Ich konkretną treść
+    można dołączyć później jako osobną warstwę.
+Z5. Brak sankcji albo spór interpretacyjny zapisujemy jako wynik analizy,
+    a nie ukrywamy w modelu. Warianty sporne modelujemy osobno.
+Z6. W głównej gałęzi nie ma `sorry`. Własne `axiom` są dopuszczone tylko
+    w wykazie z Z2, a ich użycie sprawdza `#print axioms`.
+Z7. Niesprzeczność założeń potwierdza skonstruowany model (instancja),
+    a nie samo przekonanie autora.
+Z8. Nie używamy Mathlib, dopóki biblioteka standardowa wystarcza.
+
+
+4. STRUKTURA PROJEKTU (propozycja)
+
+lean-toolchain                 przypięta wersja Lean
+lakefile.toml                  konfiguracja projektu
+Konstytucja/
+  Podstawy/
+    Czas.lean                  dni, miesiące, lata, terminy
+    Glosowanie.lean            kworum i rodzaje większości
+    Organy.lean                organy i ich składy
+    Akty.lean                  rodzaje aktów i hierarchia źródeł prawa
+    Normy.lean                 nakaz, zakaz, dozwolenie, wyjątki
+    Interpretacja.lean         parametry pojęć ocennych
+  Zalozenia.lean               wykaz założeń spoza tekstu
+  Rozdzial03.lean ...          model kolejnych rozdziałów
+  Twierdzenia/                 wyniki pogrupowane tematycznie
+  Modele/                      instancje dowodzące niesprzeczności
+dane/
+  artykuly.txt                 oczyszczony tekst, jeden artykuł w wierszu
+  pokrycie.csv                 artykuł, status, plik Lean, uwagi
+docs/
+  luki.txt                     wykryte luki i spory interpretacyjne
+
+
+5. ETAPY
+
+Etap 0. Przygotowanie
+- Zainstalować toolchain i przypiąć wersję. Na razie instalacja nie
+  została potwierdzona, a użytkownik uruchamia ją sam.
+- Założyć projekt Lake, skompilować pierwszy plik.
+- Potwierdzić kompilację identyfikatorów z polskimi znakami (decyzja D2).
+- Poprawić i skompilować istniejący szkic Demo.lean.
+Gotowe, gdy: `lake build` przechodzi bez błędów.
+
+Etap 1. Tekst źródłowy
+- Tekst wzorcowy: Sejm/D19970483Lj.pdf (decyzja D1).
+- Porównanie z tekstem Senatu wykonane 2026-11-06: jedyna różnica
+  w treści to art. 228 ust. 7. Sejm ma "przeprowadzane", Senat
+  "przeprowadzone". Skan Dz.U. 1997 nr 78 poz. 483, s. 2465, potwierdza
+  wersję Sejmu.
+- Wyodrębnić tekst z PDF z zachowaniem układu (`pdftotext -layout`).
+  Bez tego w art. 65 ust. 5 i art. 126 ust. 1 słowa wychodzą
+  w złej kolejności.
+- Oczyścić tekst: nagłówki, stopki, numery stron, podziały wyrazów,
+  tytuły rozdziałów i podrozdziałów doklejone do artykułów.
+- Rozbić tekst na artykuły, ustępy i punkty. Potwierdzić komplet 243 art.
+- Sklasyfikować przepisy: próg, termin, procedura, kompetencja,
+  wyliczenie, odesłanie do ustawy, pojęcie ocenne, przepis przejściowy.
+Gotowe, gdy: dane/pokrycie.csv obejmuje wszystkie artykuły.
+
+Etap 2. Rdzeń pojęciowy
+- Czas i terminy: "w ciągu", "nie później niż", "niezwłocznie".
+- Głosowanie: kworum, większość zwykła, bezwzględna, kwalifikowana
+  i większość ustawowej liczby. Liczenie głosów wstrzymujących się
+  jako jawne założenie.
+- Organy, składy (art. 96, 97, 114), akty i hierarchia źródeł prawa.
+- Normy: najprostsza potrzebna reprezentacja nakazów, zakazów i wyjątków.
+Gotowe, gdy: progi z art. 120, 121, 122, 154, 155, 158 i 235 mają
+sprawdzone twierdzenia o minimalnej liczbie głosów.
+
+Etap 3. Procedury (główna wartość projektu)
+Każdą procedurę zapisać jako automat stanów z przejściami i terminami:
+- art. 118-123: uchwalanie ustawy, Senat, weto, wniosek do TK
+- art. 154-155: tworzenie rządu
+- art. 158-162: wotum nieufności i dymisja
+- art. 235: zmiana Konstytucji, w tym tryb dla rozdz. I, II i XII
+- art. 125: referendum ogólnokrajowe
+- art. 127-131: wybór Prezydenta i opróżnienie urzędu
+- art. 228-234: stany nadzwyczajne i ich ograniczenia
+Gotowe, gdy: dla każdej procedury dowiedziono osiągalności wyników,
+zakończenia oraz maksymalnego czasu trwania przy założeniu, że organy
+działają w terminach.
+
+Etap 4. Kompetencje i ich granice
+- art. 144 ust. 3: 30 prerogatyw jako typ wyliczeniowy
+- art. 188, 189, 191, 193: właściwość TK i uprawnieni wnioskodawcy
+- art. 233: katalogi praw, których nie wolno ograniczać
+Gotowe, gdy: rozstrzygalne są pytania typu "czy ten akt wymaga
+kontrasygnaty" i "czy ten podmiot może złożyć wniosek".
+
+Etap 5. Prawa i zasady
+- Szkielet art. 31 ust. 3 z parametrami "konieczne" i "istota prawa".
+- Podział praw na podlegające i niepodlegające ograniczeniom.
+- Pokazanie na parach instancji, gdzie wynik zależy od interpretacji.
+Gotowe, gdy: każde pojęcie ocenne jest parametrem z opisem, a twierdzenia
+wskazują, od których parametrów zależą.
+
+Etap 6. Niesprzeczność i analiza luk
+- Zbudować model spełniający wszystkie założenia sformalizowanej części.
+- Szukać stanów bez wyjścia: brak podpisu Prezydenta (art. 122 ust. 2),
+  brak ogłoszenia orzeczenia TK (art. 190 ust. 2-3), bezczynność organów.
+- Zbadać miejsca sporne, np. relację art. 122 i art. 235 ust. 7.
+- Prawnik weryfikuje założenia, luki i sposób ich opisania.
+Gotowe, gdy: model się kompiluje, a docs/luki.txt jest po recenzji.
+
+Etap 7. Publikacja i utrzymanie
+- CI: `lake build`, zakaz `sorry`, kontrola `#print axioms`,
+  kontrola pokrycia artykułów.
+- Czytelny opis wyników dla osób bez znajomości Lean.
+- Wersjonowanie modelu według stanu Konstytucji (art. 235 pozwala ją
+  zmieniać, a zmiany wymagają nowej wersji modelu).
+
+
+6. PIERWSZE TWIERDZENIA DO SPRAWDZENIA
+
+Wartości poniżej policzono ręcznie, nie są jeszcze sprawdzone w Lean.
+
+T1. Większość bezwzględna spełnia też warunek większości zwykłej.
+T2. Wotum nieufności wymaga co najmniej 231 głosów (art. 158 ust. 1).
+T3. Zmiana Konstytucji w Sejmie wymaga co najmniej 154 głosów przy
+    230 obecnych (art. 235 ust. 4).
+T4. Odrzucenie weta wymaga co najmniej 138 głosów (art. 122 ust. 5).
+T5. W samym Sejmie zmiana Konstytucji może przejść mniejszą liczbą głosów
+    niż wotum nieufności. Potrzebna jest jeszcze zgoda Senatu.
+T6. Każda ścieżka z art. 154-155 kończy się rządem lub skróceniem
+    kadencji Sejmu, jeśli organy działają w terminach.
+T7. Stan wyjątkowy trwa najwyżej 150 dni (art. 230: 90 + 60).
+T8. Ten sam stan faktyczny może być oceniony różnie przy dwóch
+    interpretacjach art. 31 ust. 3.
+
+
+7. RYZYKA
+
+R1. Formalizacja przemyca wykładnię. Ograniczają to Z2, Z5 i recenzja prawnika.
+R2. Model wygląda na bardziej pewny niż tekst. Każdy wynik pokazujemy
+    razem z jego założeniami.
+R3. Logika norm staje się zbyt rozbudowana. Zaczynamy od automatów
+    i wyliczeń, a teorię dokładamy tylko pod konkretne potrzeby.
+R4. Odesłania do ustaw blokują wnioski. Parametry mają jawne interfejsy,
+    a wnioski są warunkowe.
+R5. Zmiany w Lean psują kompilację. Przypinamy wersję i aktualizujemy ją celowo.
+R6. Twierdzenia sprawdzają model, a nie zgodność modelu z tekstem. Pomaga
+    pokrycie artykułów, Z1 i recenzja.
+
+
+8. DECYZJE DO PODJĘCIA
+
+Podjęte:
+D1. Tekst wzorcowy: Sejm/D19970483Lj.pdf.
+D2. Identyfikatory zawsze z polskimi znakami.
+
+Otwarte:
+D3. Czy oprócz Konstytucji modelujemy także regulaminy Sejmu i Senatu?
+    Dałoby to konkretne definicje większości, ale poszerzyłoby zakres.
+D4. Kto recenzuje model od strony prawnej?
+D5. Czy projekt ma być publiczny i na jakiej licencji?
+
+
+9. NAJBLIŻSZE KROKI
+
+1. Potwierdzić instalację toolchaina Lean 4.
+2. Założyć projekt Lake i skompilować poprawiony szkic.
+3. Dokończyć etap 1: dane/artykuly.txt i dane/pokrycie.csv.
+4. Wykonać etap 2 i sprawdzić twierdzenia T1-T4.

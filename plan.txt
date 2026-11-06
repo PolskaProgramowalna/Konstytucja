@@ -79,6 +79,7 @@ Konstytucja/
     Normy.lean                 nakaz, zakaz, dozwolenie, wyjątki
     Interpretacja.lean         parametry pojęć ocennych
   Założenia.lean               wykaz założeń spoza tekstu
+  Podstawy/Automat.lean        wspólne pojęcia automatów
   Procedury/                   automaty procedur
   Rozdział03.lean ...          model kolejnych rozdziałów
   Twierdzenia/                 wyniki pogrupowane tematycznie
@@ -155,7 +156,8 @@ d) maksymalnego czasu albo jego braku. Brak górnej granicy jest dopuszczalnym
    terminu dla TK, a wniosek wstrzymuje termin podpisania).
 Twierdzenie o zakończeniu wskazuje rozstrzygnięcia kolizji oraz założenia
 o bezczynności organów, także ograniczenia spoza danej procedury.
-Stan: pilotaż art. 154-155 wykonany 2026-11-06, pozostałe procedury otwarte.
+Stan 2026-11-06: gotowe art. 154-155 i art. 118-123 (zwykła ustawa i tryb
+pilny; art. 224 poza zakresem). Pozostałe procedury otwarte.
 
 Etap 4. Kompetencje i ich granice
 - art. 144 ust. 3: 30 prerogatyw jako typ wyliczeniowy
@@ -251,5 +253,6 @@ D5. Czy projekt ma być publiczny i na jakiej licencji?
 
 9. NAJBLIŻSZE KROKI
 
-1. Ocenić pilotaż art. 154-155 i uruchomić zadanie CI po wypchnięciu zmian.
-2. Wykonać etap 3 dla art. 118-123, z brakiem terminu TK jako wynikiem analizy.
+1. Zatwierdzić i wypchnąć zmiany razem z .github/, żeby uruchomić CI.
+2. Ocenić założenia U1-U7 i luki L12-L17 przed kolejną procedurą.
+3. Wykonać etap 3 dla art. 235.

@@ -30,6 +30,19 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
 * P4. Art. 154 ust. 3 zd. 2 i art. 155 ust. 2 nie podają terminu działania Prezydenta.
   Pole `limit` to dodatkowe założenie, a `none` odpowiada tekstowi.
 * P5. Wariant rozstrzygnięcia kolizji art. 155 ust. 2 i art. 228 ust. 7 jest parametrem.
+* U1. Art. 122 ust. 6 mówi tylko o wstrzymaniu biegu terminu. Przyjmujemy, że po orzeczeniu
+  Trybunału bieg trwa dalej z dniami, które zostały.
+* U2. Czytania z art. 119 ust. 1 nie są modelowane: etap Sejmu to jedno przejście.
+* U3. Zwrot z art. 122 ust. 4 uruchamia nowe przedstawienie ustawy Prezydentowi, który
+  może znów wystąpić do Trybunału, bo tekst tego nie zakazuje.
+* U4. Tekst nie mówi, czy po usunięciu niezgodności ustawa wraca do Senatu. To parametr
+  `powrótPrzezSenat`.
+* U5. Wystąpienie do Trybunału trwale wyklucza drogę z art. 122 ust. 5 w tej ustawie.
+* U6. Terminy bez wartości liczbowej (Sejm, Marszałek, Trybunał) ujmuje wspólny parametr
+  `limit`, a `none` odpowiada tekstowi.
+* U7. `maksPowrotów` to założenie spoza tekstu, ograniczające liczbę zwrotów,
+  a `none` odpowiada tekstowi.
+* U8. Ustawa z art. 224 ma inny tryb. Ten automat jej nie obejmuje.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3
   nie są jeszcze modelowane.
 * A2. Art. 87 traktujemy jako zamknięty katalog źródeł powszechnie obowiązujących,

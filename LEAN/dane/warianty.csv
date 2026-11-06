@@ -5,3 +5,9 @@ P4,brak limitu,Założenia.limit,roboczy,odpowiada tekstowi art. 154 ust. 3 i ar
 P4,limit L dni,Założenia.limit,roboczy,założenie spoza tekstu
 P5,pierwszeństwo art. 228 ust. 7,Rozstrzygnięcie.pierwszeństwoArt228,roboczy,rozstrzygnięcie kolizji L2
 P5,pierwszeństwo art. 155 ust. 2,Rozstrzygnięcie.pierwszeństwoArt155,roboczy,rozstrzygnięcie kolizji L2
+U4,po usunięciu niezgodności bez Senatu,Założenia.powrótPrzezSenat,roboczy,tekst milczy
+U4,po usunięciu niezgodności przez Senat,Założenia.powrótPrzezSenat,roboczy,tekst milczy
+U6,brak limitu dla Sejmu i Trybunału,Założenia.limit,roboczy,odpowiada tekstowi art. 118-122
+U6,limit L dni,Założenia.limit,roboczy,założenie spoza tekstu
+U7,brak limitu zwrotów,Założenia.maksPowrotów,roboczy,odpowiada tekstowi art. 122 ust. 4
+U7,limit m zwrotów,Założenia.maksPowrotów,roboczy,założenie spoza tekstu

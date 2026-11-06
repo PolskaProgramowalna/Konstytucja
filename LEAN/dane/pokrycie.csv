@@ -117,11 +117,11 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 116,IV,Organizacja i działanie,2,0,1,kompetencja,nie_rozpoczęto,,
 117,IV,Organizacja i działanie,0,0,1,do_oceny,nie_rozpoczęto,,
 118,IV,Organizacja i działanie,3,0,1,procedura;próg;kompetencja;odesłanie,nie_rozpoczęto,,
-119,IV,Organizacja i działanie,4,0,1,procedura;kompetencja,nie_rozpoczęto,,
-120,IV,Organizacja i działanie,0,0,1,procedura;próg,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 1
-121,IV,Organizacja i działanie,3,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 3
-122,IV,Organizacja i działanie,6,0,1,procedura;próg;termin;kompetencja;ocenne,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 6
-123,IV,Organizacja i działanie,3,0,1,procedura;termin;kompetencja;odesłanie,nie_rozpoczęto,,
+119,IV,Organizacja i działanie,4,0,1,procedura;kompetencja,częściowo,Konstytucja/Procedury/Ustawodawstwo.lean;Konstytucja/Twierdzenia/Ustawodawstwo.lean,ujęte wiersze: 1 z 4
+120,IV,Organizacja i działanie,0,0,1,procedura;próg,częściowo,Konstytucja/Procedury/Ustawodawstwo.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/Ustawodawstwo.lean,ujęte wiersze: 1 z 1
+121,IV,Organizacja i działanie,3,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Procedury/Ustawodawstwo.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/Ustawodawstwo.lean,ujęte wiersze: 3 z 3
+122,IV,Organizacja i działanie,6,0,1,procedura;próg;termin;kompetencja;ocenne,częściowo,Konstytucja/Procedury/Ustawodawstwo.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/Ustawodawstwo.lean,ujęte wiersze: 6 z 6
+123,IV,Organizacja i działanie,3,0,1,procedura;termin;kompetencja;odesłanie,częściowo,Konstytucja/Procedury/Ustawodawstwo.lean;Konstytucja/Twierdzenia/Ustawodawstwo.lean,ujęte wiersze: 2 z 3
 124,IV,Organizacja i działanie,0,0,1,do_oceny,nie_rozpoczęto,,
 125,IV,Referendum,5,0,1,procedura;próg;kompetencja;odesłanie;ocenne,nie_rozpoczęto,,
 126,V,,3,0,1,do_oceny,nie_rozpoczęto,,

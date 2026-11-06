@@ -54,4 +54,28 @@ Model przyjmuje założenie P1.
 
 L12. Brak terminu TK w art. 122
 Wniosek do Trybunału wstrzymuje bieg terminu podpisania (art. 122 ust. 6), a tekst
-nie podaje terminu orzeczenia. Do sprawdzenia przy automacie art. 118-123.
+nie podaje terminu orzeczenia. Art. 224 ust. 2 podaje go tylko dla ustawy budżetowej
+i o prowizorium. Bez dodatkowego założenia podpis może nastąpić dowolnie późno
+(Ustawodawstwo.brak_górnej_granicy), a brak orzeczenia zatrzymuje automat
+(brak_orzeczenia_blokuje).
+
+L13. Brak ograniczenia zwrotów z art. 122 ust. 4
+Tekst nie zakazuje ponownego wniosku do Trybunału po usunięciu niezgodności, więc ta
+sama ustawa może wracać dowolnie wiele razy (dowolnie_wiele_powrotów). Zależy to
+od założenia U3. Skończoność procedury wymaga dodatkowego założenia U7.
+
+L14. Wznowienie biegu terminu podpisania
+Art. 122 ust. 6 mówi o wstrzymaniu, ale nie mówi, co dzieje się po orzeczeniu.
+Model zachowuje dni pozostałe w chwili wniosku (U1).
+
+L15. Droga ustawy po usunięciu niezgodności
+Tekst nie mówi, czy ustawa wraca do Senatu i czy Sejm może nie usunąć niezgodności.
+Pierwsze jest parametrem U4. Dla drugiego model nie ma przejścia.
+
+L16. Brak sankcji za niepodpisanie (art. 122 ust. 2)
+Termin 21 dni istnieje, ale tekst nie opisuje skutku jego upływu
+(bezczynność_prezydenta_blokuje). Sytuacja jest podobna do L8.
+
+L17. Brak terminów Sejmu i Marszałka
+Art. 119, art. 121 ust. 1 i 3, art. 122 ust. 1 i ust. 5 nie podają liczby dni.
+Model ujmuje to wspólnym parametrem U6.

@@ -12,9 +12,7 @@ variable {Z : Założenia}
 
 /-! ## Osiągalność -/
 
-private theorem wLimicie_refl (t : Nat) : wLimicie Z t t := by
-  simp only [wLimicie]
-  split <;> simp
+private theorem wLimicie_refl (t : Nat) : wLimicie Z t t := wLimicieCzasu_refl _ t
 
 theorem rząd_w_art154 (h : Z.prezydentDziała = true) : Osiągalny Z ⟨.rząd, 0⟩ :=
   .krok (.krok .start (.powołanie (t' := 0) h (by simp [wCiągu]))) (.wotumTak (by simp [wCiągu]))
@@ -80,7 +78,7 @@ theorem granica_przy_limicie {L s} (l : Z.limit = some L) (h : Osiągalny Z s) :
   | start => simp
   | krok p k =>
     have g := granice_etapów p
-    cases k <;> simp only [wGranicy, wCiągu, wLimicie, l] at * <;> simp <;> omega
+    cases k <;> simp only [wGranicy, wCiągu, wLimicie, wLimicieCzasu, l] at * <;> simp <;> omega
 
 /-! ## Zakończenie -/
 
@@ -89,17 +87,8 @@ theorem krok_zmniejsza {s s'} (k : Krok Z s s') : s'.etap.pozostało < s.etap.po
 
 /-- Nie ma nieskończonego przebiegu, przy każdych założeniach. -/
 theorem brak_nieskończonego_przebiegu (f : Nat → Stan) :
-    ¬ ∀ n, Krok Z (f n) (f (n + 1)) := by
-  intro h
-  have p : ∀ n, (f n).etap.pozostało + n ≤ (f 0).etap.pozostało := by
-    intro n
-    induction n with
-    | zero => omega
-    | succ n ih =>
-      have := krok_zmniejsza (h n)
-      omega
-  have := p ((f 0).etap.pozostało + 1)
-  omega
+    ¬ ∀ n, Krok Z (f n) (f (n + 1)) :=
+  brak_nieskończonego (fun s => s.etap.pozostało) krok_zmniejsza f
 
 /-- Założenia zakończenia: Prezydent działa, a kadencję da się kiedyś skrócić. -/
 structure WarunkiZakończenia (Z : Założenia) : Prop where
@@ -127,30 +116,16 @@ theorem postęp (w : WarunkiZakończenia Z) (s : Stan) (n : s.etap.końcowy = fa
 /-- T6: przy jawnych warunkach z każdego stanu prowadzi przebieg do rządu albo
 skrócenia kadencji. Teza dotyczy dojścia od `s`, a nie samego istnienia wyniku. -/
 theorem zakończenie (w : WarunkiZakończenia Z) (s : Stan) :
-    ∃ s', Przebieg Z s s' ∧ (s'.etap = .rząd ∨ s'.etap = .kadencjaSkrócona) := by
-  suffices p : ∀ n s, s.etap.pozostało ≤ n →
-      ∃ s', Przebieg Z s s' ∧ (s'.etap = .rząd ∨ s'.etap = .kadencjaSkrócona) from
-    p _ s (Nat.le_refl _)
-  intro n
-  induction n with
-  | zero =>
-    intro s l
-    refine ⟨s, .stój s, ?_⟩
-    obtain ⟨e, t⟩ := s
-    cases e <;> simp_all [Etap.pozostało]
-  | succ n ih =>
-    intro s l
-    by_cases k : s.etap.końcowy = true
-    · refine ⟨s, .stój s, ?_⟩
-      obtain ⟨e, t⟩ := s
-      cases e <;> simp_all [Etap.końcowy]
-    · obtain ⟨s', ks⟩ := postęp w s (by simpa using k)
-      have := krok_zmniejsza ks
-      obtain ⟨u, pu, ku⟩ := ih s' (by omega)
-      exact ⟨u, .dalej ks pu, ku⟩
+    ∃ s', Przebieg (Krok Z) s s' ∧ (s'.etap = .rząd ∨ s'.etap = .kadencjaSkrócona) := by
+  obtain ⟨u, p, k⟩ := dojście_do_końca (fun s => s.etap.pozostało)
+    (fun s => s.etap.końcowy = true) krok_zmniejsza
+    (fun s n => postęp w s (by simpa using n)) s
+  refine ⟨u, p, ?_⟩
+  obtain ⟨e, t⟩ := u
+  cases e <;> simp_all [Etap.końcowy]
 
 /-- Przebieg ze stanu osiągalnego daje stan osiągalny. -/
-theorem osiągalny_po_przebiegu {s s'} (h : Osiągalny Z s) (p : Przebieg Z s s') :
+theorem osiągalny_po_przebiegu {s s'} (h : Osiągalny Z s) (p : Przebieg (Krok Z) s s') :
     Osiągalny Z s' := by
   induction p with
   | stój => exact h
@@ -167,7 +142,7 @@ theorem utknięcie_tylko_na_końcu (w : WarunkiZakończenia Z) {s}
 
 /-- Teza `zakończenie` zależy od `s`: ze stanu końcowego nie ma dokąd przejść. -/
 theorem przebieg_ze_stanu_końcowego {s s'} (k : s.etap.końcowy = true)
-    (p : Przebieg Z s s') : s' = s := by
+    (p : Przebieg (Krok Z) s s') : s' = s := by
   cases p with
   | stój => rfl
   | dalej h _ =>
@@ -183,7 +158,7 @@ theorem brak_górnej_granicy (h : Z.prezydentDziała = true) (l : Z.limit = none
   refine ⟨14 + n + 1, by omega, ?_⟩
   refine .krok (.krok (.krok .start .niepowołanie) (.wybór (t' := 14) (by simp [wCiągu])))
     (.powołanieWybranych h ?_)
-  simp [wLimicie, l]
+  simp [wLimicie, wLimicieCzasu, l]
   omega
 
 /-- Bierność Prezydenta przy art. 154 ust. 1 nie blokuje, bo tekst podaje jej skutek. -/

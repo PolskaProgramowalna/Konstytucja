@@ -1,4 +1,5 @@
 import Konstytucja.Podstawy.Czas
+import Konstytucja.Podstawy.Automat
 
 /-! # Art. 154–155: tworzenie rządu jako automat
 
@@ -64,10 +65,7 @@ structure Stan where
 variable (Z : Założenia)
 
 /-- Czynność bez terminu w tekście: dowolnie późno, chyba że przyjęto limit (P4). -/
-def wLimicie (t t' : Nat) : Prop :=
-  t ≤ t' ∧ match Z.limit with
-    | none => True
-    | some L => t' ≤ t + L
+def wLimicie (t t' : Nat) : Prop := wLimicieCzasu Z.limit t t'
 
 /-- Art. 228 ust. 7 przy wybranym rozstrzygnięciu. -/
 def skrócenieDozwolone (t : Nat) : Prop :=
@@ -104,10 +102,5 @@ inductive Krok : Stan → Stan → Prop where
 inductive Osiągalny : Stan → Prop where
   | start : Osiągalny ⟨.powołanie154, 0⟩
   | krok {s s'} : Osiągalny s → Krok Z s s' → Osiągalny s'
-
-/-- Przebieg: zero lub więcej kroków od stanu `s`. -/
-inductive Przebieg : Stan → Stan → Prop where
-  | stój (s) : Przebieg s s
-  | dalej {a b c} : Krok Z a b → Przebieg b c → Przebieg a c
 
 end Konstytucja.TworzenieRządu

@@ -12,6 +12,16 @@ def wCiągu (d n t : Nat) : Prop := d ≤ t ∧ t ≤ d + n
 /-- „Nie wcześniej niż n-tego dnia od dnia d” (np. art. 235 ust. 3). -/
 def nieWcześniejNiż (d n t : Nat) : Prop := d + n ≤ t
 
+/-- Czynność bez terminu w tekście: dowolnie późno, chyba że założono limit. -/
+def wLimicieCzasu (limit : Option Nat) (t t' : Nat) : Prop :=
+  t ≤ t' ∧ match limit with
+    | none => True
+    | some L => t' ≤ t + L
+
+theorem wLimicieCzasu_refl (limit : Option Nat) (t : Nat) : wLimicieCzasu limit t t := by
+  simp only [wLimicieCzasu]
+  split <;> simp
+
 /-- Dwa kolejne terminy dają termin będący ich sumą. -/
 theorem wCiągu_składanie {d t u a b : Nat}
     (h₁ : wCiągu d a t) (h₂ : wCiągu t b u) : wCiągu d (a + b) u := by

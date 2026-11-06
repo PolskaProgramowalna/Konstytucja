@@ -189,12 +189,16 @@ def typy(nr, tekst, rozdz, ma_punkty):
 
 
 def deklaracje():
-    """Nazwy zadeklarowane w Lean -> plik względem LEAN/."""
-    wynik = {}
+    """Nazwy zadeklarowane w Lean -> pliki; także w postaci Przestrzeń.nazwa."""
+    wynik = collections.defaultdict(set)
     for plik in sorted((TU.parent / "Konstytucja").rglob("*.lean")):
-        for m in re.finditer(r"(?m)^(?:private )?(?:def|theorem|structure|inductive)\s+([^\s:({\[]+)",
-                             plik.read_text(encoding="utf8")):
-            wynik[m.group(1)] = str(plik.relative_to(TU.parent))
+        tekst = plik.read_text(encoding="utf8")
+        ns = re.search(r"(?m)^namespace (\S+)", tekst)
+        przedrostek = ns.group(1).split(".")[-1] if ns else ""
+        for m in re.finditer(r"(?m)^(?:private )?(?:def|theorem|structure|inductive)\s+([^\s:({\[]+)", tekst):
+            ścieżka = str(plik.relative_to(TU.parent))
+            wynik[m.group(1)].add(ścieżka)
+            wynik[f"{przedrostek}.{m.group(1)}"].add(ścieżka)
     return wynik
 
 
@@ -208,11 +212,13 @@ def rejestr(przepisy):
             nazwy = [n for n in (w["definicje"] + ";" + w["twierdzenia"]).split(";") if n]
             brak = [n for n in nazwy if n not in decl]
             assert not brak, f"rejestr: brak deklaracji {brak}"
+            niejasne = [n for n in nazwy if len(decl[n]) > 1]
+            assert not niejasne, f"rejestr: nazwa niejednoznaczna {niejasne}"
             if w["rodzaj"] == "pomocnicza":
                 continue
             klucz = (int(w["art"]), int(w["ust"]), int(w["pkt"]))
             assert klucz in znane, f"rejestr: brak przepisu {klucz}"
-            w["pliki"] = sorted({decl[n] for n in nazwy})
+            w["pliki"] = sorted({x for n in nazwy for x in decl[n]})
             wpisy[klucz] = w
     return wpisy
 

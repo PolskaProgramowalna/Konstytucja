@@ -4,4 +4,6 @@ import Konstytucja.Twierdzenia.Terminy
 import Konstytucja.Twierdzenia.Kolizje
 import Konstytucja.Twierdzenia.Interpretacje
 import Konstytucja.Twierdzenia.TworzenieRządu
+import Konstytucja.Twierdzenia.Ustawodawstwo
 import Konstytucja.Modele.Kalendarz30
+import Konstytucja.Modele.Procedury

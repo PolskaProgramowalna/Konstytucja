@@ -20,5 +20,16 @@ Pola typy i priorytet w pokrycie.csv:
 - do_oceny: żaden wzorzec nie pasuje
 - priorytet 0: poza główną formalizacją (rozdział XIII)
 
-Pole status: nie_rozpoczęto albo częściowo. Status częściowo znaczy, że w Lean
-jest tylko zakres z kolumny uwagi. Status pełny nie jest jeszcze używany.
+rejestr.csv   ręczne przypisanie przepisów do definicji i twierdzeń Lean;
+              rodzaj pomocnicza oznacza konstrukcję bez odpowiednika w przepisie
+pokrycie_przepisy.csv  stan każdego ustępu i punktu, generowany z rejestru
+warianty.csv  warianty interpretacyjne i ich status
+
+generuj.py sprawdza, że każdy przepis i każda nazwa z rejestru istnieją.
+
+Pole status: nie_rozpoczęto, częściowo albo pełny. Status pełny artykułu wymaga
+pełnego ujęcia wszystkich jego wierszy. Jeden wiersz może zawierać kilka norm,
+więc częściowo nie mówi, która z nich została ujęta; mówią to definicje i twierdzenia.
+
+Status wariantu: roboczy, przyjęty do głównego modelu albo zweryfikowany przez
+recenzenta. Dowód dla wariantu nie przesądza o jego prawnej dopuszczalności.

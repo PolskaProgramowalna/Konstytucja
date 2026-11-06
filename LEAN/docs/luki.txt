@@ -29,3 +29,29 @@ się wstrzymają. Wynika to z założeń G1 i G3, czyli wyniku teoretycznego.
 L6. Brak górnej granicy stanu klęski żywiołowej (art. 232)
 Art. 230 ogranicza stan wyjątkowy do 150 dni. Art. 232 pozwala przedłużać stan
 klęski za zgodą Sejmu bez podania limitu. Tej różnicy jeszcze nie sformalizowano.
+
+L7. Brak terminu w art. 154 ust. 3 zd. 2
+Prezydent powołuje rząd wybrany przez Sejm, ale tekst nie podaje liczby dni.
+Bez dodatkowego limitu rząd może powstać dowolnie późno (brak_górnej_granicy).
+
+L8. Bezczynność Prezydenta w art. 155 ust. 1
+Art. 154 ust. 3 opisuje skutek niepowołania rządu, a art. 155 go nie opisuje.
+Termin 14 dni istnieje, lecz automat staje (bezczynność_blokuje_art155). Tak samo
+przy art. 154 ust. 3 zd. 2 (bezczynność_blokuje_art154_ust3).
+
+L9. Brak terminu w art. 155 ust. 2 i początek terminu w art. 155 ust. 1
+Art. 155 ust. 2 nie mówi, kiedy Prezydent ma skrócić kadencję. Art. 155 ust. 1
+nie wskazuje początku 14 dni, a model liczy go od upływu terminu z art. 154 ust. 3.
+
+L10. Trwały okres ochronny (art. 228 ust. 7 i art. 229)
+Art. 229 nie ogranicza czasu stanu wojennego. Przy pierwszeństwie art. 228 ust. 7
+i okresie ochronnym bez końca skrócenie kadencji jest niemożliwe
+(trwały_okres_ochronny_blokuje).
+
+L11. Termin Sejmu w art. 154 ust. 2
+Przepis wyznacza 14 dni Prezesowi Rady Ministrów, a nie Sejmowi na głosowanie.
+Model przyjmuje założenie P1.
+
+L12. Brak terminu TK w art. 122
+Wniosek do Trybunału wstrzymuje bieg terminu podpisania (art. 122 ust. 6), a tekst
+nie podaje terminu orzeczenia. Do sprawdzenia przy automacie art. 118-123.

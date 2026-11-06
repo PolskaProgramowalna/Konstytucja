@@ -42,7 +42,8 @@ Poza formalizacją:
 3. ZASADY
 
 Z1. Każda definicja i każde twierdzenie wskazują przepis źródłowy,
-    np. art. 158 ust. 1.
+    np. art. 158 ust. 1. Konstrukcja bez odpowiednika w przepisie jest
+    oznaczona jako definicja pomocnicza.
 Z2. Każde założenie spoza tekstu Konstytucji jest jawne, nazwane,
     opisane i zebrane w jednym miejscu.
 Z3. Pojęcia ocenne nie są definiowane na siłę. Stają się polami struktury
@@ -51,11 +52,17 @@ Z4. Odesłania do ustaw i regulaminów są parametrami. Ich konkretną treść
     można dołączyć później jako osobną warstwę.
 Z5. Brak sankcji albo spór interpretacyjny zapisujemy jako wynik analizy,
     a nie ukrywamy w modelu. Warianty sporne modelujemy osobno.
-Z6. W głównej gałęzi nie ma `sorry`. Własne `axiom` są dopuszczone tylko
-    w wykazie z Z2, a ich użycie sprawdza `#print axioms`.
-Z7. Niesprzeczność założeń potwierdza skonstruowany model (instancja),
-    a nie samo przekonanie autora.
+Z6. Założenia prawne są parametrami, a nie globalnymi deklaracjami `axiom`.
+    Kompilację przerywa każda deklaracja projektu zależna od `sorryAx`
+    albo od aksjomatu spoza propext, Classical.choice i Quot.sound.
+Z7. Instancja potwierdza tylko spełnialność warunków zapisanych w jej typie.
+    Nie dowodzi spójności wszystkich norm: nakaz i zakaz zapisane jako dane
+    nie dają sprzeczności logicznej w Lean. Każdy wynik nazywa własność z etapu 6.
 Z8. Nie używamy Mathlib, dopóki biblioteka standardowa wystarcza.
+Z9. Każdy wariant interpretacyjny ma status: roboczy, przyjęty do głównego
+    modelu albo zweryfikowany przez recenzenta (dane/warianty.csv).
+Z10. Postęp mierzymy na poziomie ustępu i punktu, z nazwami definicji
+    i twierdzeń (dane/rejestr.csv), a pokrycie artykułów jest tylko skrótem.
 
 
 4. STRUKTURA PROJEKTU (propozycja, w katalogu LEAN/)
@@ -64,14 +71,16 @@ lean-toolchain                 przypięta wersja Lean
 lakefile.toml                  konfiguracja projektu
 Konstytucja/
   Podstawy/
-    Czas.lean                  dni, miesiące, lata, terminy
+    Czas.lean                  godziny, dni, miesiące, lata, terminy
     Głosowanie.lean            kworum i rodzaje większości
     Organy.lean                organy i ich składy
     Akty.lean                  rodzaje aktów i hierarchia źródeł prawa
     Normy.lean                 nakaz, zakaz, dozwolenie, wyjątki
     Interpretacja.lean         parametry pojęć ocennych
   Założenia.lean               wykaz założeń spoza tekstu
-  Kontrola.lean                kontrola aksjomatów
+  Kontrola.lean                kontrola aksjomatów całego projektu
+  Narzędzia/                   polecenie kontroli
+  Procedury/                   automaty procedur
   Rozdział03.lean ...          model kolejnych rozdziałów
   Twierdzenia/                 wyniki pogrupowane tematycznie
   Modele/                      instancje dowodzące niesprzeczności
@@ -79,7 +88,10 @@ dane/
   generuj.py                   odtwarza dane z PDF i kontroluje je z tekstem Senatu
   artykuly.txt                 oczyszczony tekst, jeden artykuł w wierszu
   przepisy.csv                 podział na artykuły, ustępy i punkty
-  pokrycie.csv                 artykuł, typy, status, plik Lean, uwagi
+  rejestr.csv                  przepis, definicje, twierdzenia, zakres
+  warianty.csv                 warianty interpretacyjne i ich status
+  pokrycie_przepisy.csv        stan każdego ustępu i punktu
+  pokrycie.csv                 skrót dla artykułów
 docs/
   luki.txt                     wykryte luki i spory interpretacyjne
 
@@ -91,7 +103,7 @@ Etap 0. Przygotowanie
   w lean-toolchain.
 - Projekt Lake założony w LEAN/, `lake build` przechodzi.
 - Kompilacja identyfikatorów z polskimi znakami potwierdzona (decyzja D2).
-- Szkic włączony do projektu jako LEAN/Konstytucja/Demo.lean.
+- Szkic włączony do projektu; T6 zastąpił automat z etapu 3.
 Gotowe, gdy: `lake build` przechodzi bez błędów.
 
 Etap 1. Tekst źródłowy
@@ -135,9 +147,16 @@ Każdą procedurę zapisać jako automat stanów z przejściami i terminami:
 - art. 125: referendum ogólnokrajowe
 - art. 127-131: wybór Prezydenta i opróżnienie urzędu
 - art. 228-234: stany nadzwyczajne i ich ograniczenia
-Gotowe, gdy: dla każdej procedury dowiedziono osiągalności wyników,
-zakończenia oraz maksymalnego czasu trwania przy założeniu, że organy
-działają w terminach.
+Gotowe, gdy dla każdej procedury dowiedziono osobno:
+a) osiągalności każdego wyniku,
+b) zachowania ograniczeń z przepisów,
+c) zakończenia przy jawnie nazwanych założeniach,
+d) maksymalnego czasu albo jego braku. Brak górnej granicy jest dopuszczalnym
+   wynikiem analizy, bo nie każdy przepis ma termin (np. art. 122 nie podaje
+   terminu dla TK, a wniosek wstrzymuje termin podpisania).
+Twierdzenie o zakończeniu wskazuje rozstrzygnięcia kolizji oraz założenia
+o bezczynności organów, także ograniczenia spoza danej procedury.
+Stan: pilotaż art. 154-155 wykonany 2026-11-06, pozostałe procedury otwarte.
 
 Etap 4. Kompetencje i ich granice
 - art. 144 ust. 3: 30 prerogatyw jako typ wyliczeniowy
@@ -154,16 +173,23 @@ Gotowe, gdy: każde pojęcie ocenne jest parametrem z opisem, a twierdzenia
 wskazują, od których parametrów zależą.
 
 Etap 6. Niesprzeczność i analiza luk
-- Zbudować model spełniający wszystkie założenia sformalizowanej części.
+Sprawdzać osobno i nazywać w wynikach cztery własności:
+a) spełnialność założeń: istnieje instancja parametrów,
+b) wykonalność obowiązków: wszystkie działające nakazy i zakazy da się
+   spełnić naraz w danej sytuacji,
+c) brak nierozstrzygniętych kolizji: każda kolizja ma regułę pierwszeństwa,
+d) brak zablokowanych procedur: stan niekońcowy ma następnika.
 - Szukać stanów bez wyjścia: brak podpisu Prezydenta (art. 122 ust. 2),
   brak ogłoszenia orzeczenia TK (art. 190 ust. 2-3), bezczynność organów.
 - Zbadać miejsca sporne, np. relację art. 122 i art. 235 ust. 7.
 - Prawnik weryfikuje założenia, luki i sposób ich opisania.
-Gotowe, gdy: model się kompiluje, a docs/luki.txt jest po recenzji.
+Gotowe, gdy: własności a)-d) mają wyniki dla sformalizowanej części,
+a docs/luki.txt jest po recenzji.
 
 Etap 7. Publikacja i utrzymanie
-- CI: `lake build`, zakaz `sorry`, kontrola `#print axioms`,
-  kontrola pokrycia artykułów.
+- CI: LEAN/sprawdź.sh i .github/workflows/lean.yml uruchamiają `lake build`,
+  kontrolę aksjomatów i zgodność danych z rejestrem. Zadanie w GitHub Actions
+  nie zostało jeszcze uruchomione.
 - Czytelny opis wyników dla osób bez znajomości Lean.
 - Wersjonowanie modelu według stanu Konstytucji (art. 235 pozwala ją
   zmieniać, a zmiany wymagają nowej wersji modelu).
@@ -172,10 +198,9 @@ Etap 7. Publikacja i utrzymanie
 6. PIERWSZE TWIERDZENIA DO SPRAWDZENIA
 
 Sprawdzone na Lean v4.35.0, bez `sorry` i bez własnych aksjomatów.
-T1-T5 są w Twierdzenia/Progi.lean, T7 w Twierdzenia/Terminy.lean,
-a T8 w Twierdzenia/Interpretacje.lean. T6 pozostaje w Demo.lean jako
-sprawdzenie małej tabeli przypadków, bez terminów i bez bezczynności
-organów; pełny model powstanie w etapie 3.
+T1-T5 są w Twierdzenia/Progi.lean, T6 w Twierdzenia/TworzenieRządu.lean,
+T7 w Twierdzenia/Terminy.lean, a T8 w Twierdzenia/Interpretacje.lean.
+Wyniki z minimum 1 głosu to analiza wrażliwości wariantu roboczego.
 
 T1. Większość bezwzględna spełnia też warunek większości zwykłej.
 T2. Wotum nieufności wymaga co najmniej 231 głosów (art. 158 ust. 1).
@@ -186,8 +211,9 @@ T4. Odrzucenie weta wymaga co najmniej 138 głosów przy tym samym
     założeniu (art. 122 ust. 5). W drugim wariancie minimum wynosi 1.
 T5. W samym Sejmie zmiana Konstytucji może przejść mniejszą liczbą głosów
     niż wotum nieufności. Potrzebna jest jeszcze zgoda Senatu.
-T6. Każda ścieżka z art. 154-155 kończy się rządem lub skróceniem
-    kadencji Sejmu, jeśli organy działają w terminach.
+T6. Z każdego osiągalnego stanu art. 154-155 można dojść do rządu lub
+    skrócenia kadencji, jeśli Prezydent działa, a skrócenie jest gdzieś
+    dozwolone przy przyjętym rozstrzygnięciu kolizji z art. 228 ust. 7.
 T7. Stan wyjątkowy trwa najwyżej 150 dni (art. 230: 90 + 60).
 T8. Ten sam stan faktyczny może być oceniony różnie przy dwóch
     interpretacjach art. 31 ust. 3.
@@ -225,4 +251,5 @@ D5. Czy projekt ma być publiczny i na jakiej licencji?
 
 9. NAJBLIŻSZE KROKI
 
-1. Wykonać etap 3, zaczynając od art. 154-155 (zastąpi T6 z Demo.lean).
+1. Ocenić pilotaż art. 154-155 i uruchomić zadanie CI po wypchnięciu zmian.
+2. Wykonać etap 3 dla art. 118-123, z brakiem terminu TK jako wynikiem analizy.

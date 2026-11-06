@@ -6,7 +6,7 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 5,I,,0,0,3,ocenne;prawo_lub_zasada,nie_rozpoczęto,,
 6,I,,2,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 7,I,,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
-8,I,,2,0,3,prawo_lub_zasada,częściowo,Podstawy/Akty.lean,ujęte: ust. 1
+8,I,,2,0,3,prawo_lub_zasada,częściowo,Konstytucja/Podstawy/Akty.lean;Konstytucja/Twierdzenia/Hierarchia.lean,ujęte wiersze: 1 z 2
 9,I,,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 10,I,,2,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 11,I,,2,0,3,prawo_lub_zasada,nie_rozpoczęto,,
@@ -29,7 +29,7 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 28,I,,5,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
 29,I,,0,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 30,II,Zasady ogólne,0,0,3,ocenne;prawo_lub_zasada,nie_rozpoczęto,,
-31,II,Zasady ogólne,3,0,3,odesłanie;ocenne;prawo_lub_zasada,częściowo,Podstawy/Interpretacja.lean,ujęte: ust. 3
+31,II,Zasady ogólne,3,0,3,odesłanie;ocenne;prawo_lub_zasada,częściowo,Konstytucja/Podstawy/Interpretacja.lean;Konstytucja/Twierdzenia/Interpretacje.lean,ujęte wiersze: 1 z 3
 32,II,Zasady ogólne,2,0,3,prawo_lub_zasada,nie_rozpoczęto,,
 33,II,Zasady ogólne,2,0,3,ocenne;prawo_lub_zasada,nie_rozpoczęto,,
 34,II,Zasady ogólne,2,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
@@ -85,18 +85,18 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 84,II,Obowiązki,0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
 85,II,Obowiązki,3,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
 86,II,Obowiązki,0,0,3,odesłanie;prawo_lub_zasada,nie_rozpoczęto,,
-87,III,,2,0,1,do_oceny,częściowo,Podstawy/Akty.lean,ujęte: ust. 1-2
+87,III,,2,0,1,do_oceny,częściowo,Konstytucja/Podstawy/Akty.lean,ujęte wiersze: 2 z 2
 88,III,,3,0,1,odesłanie,nie_rozpoczęto,,
 89,III,,3,5,1,odesłanie;wyliczenie,nie_rozpoczęto,,
 90,III,,4,0,1,próg;kompetencja;odesłanie,nie_rozpoczęto,,
-91,III,,3,0,1,do_oceny,częściowo,Podstawy/Akty.lean,ujęte: ust. 2-3
-92,III,,2,0,1,kompetencja;odesłanie,częściowo,Podstawy/Akty.lean,ujęte: ust. 1
-93,III,,3,0,1,odesłanie,częściowo,Podstawy/Akty.lean,ujęte: ust. 1-3
-94,III,,0,0,1,odesłanie,częściowo,Podstawy/Akty.lean,ujęte: zd. 1
+91,III,,3,0,1,do_oceny,częściowo,Konstytucja/Podstawy/Akty.lean;Konstytucja/Twierdzenia/Hierarchia.lean,ujęte wiersze: 2 z 3
+92,III,,2,0,1,kompetencja;odesłanie,częściowo,Konstytucja/Podstawy/Akty.lean,ujęte wiersze: 1 z 2
+93,III,,3,0,1,odesłanie,częściowo,Konstytucja/Podstawy/Akty.lean;Konstytucja/Twierdzenia/Hierarchia.lean,ujęte wiersze: 3 z 3
+94,III,,0,0,1,odesłanie,częściowo,Konstytucja/Podstawy/Akty.lean,ujęte wiersze: 1 z 1
 95,IV,,2,0,1,kompetencja,nie_rozpoczęto,,
-96,IV,Wybory i kadencja,2,0,1,próg,częściowo,Podstawy/Organy.lean,ujęte: ust. 1
-97,IV,Wybory i kadencja,2,0,1,próg,częściowo,Podstawy/Organy.lean,ujęte: ust. 1
-98,IV,Wybory i kadencja,6,0,1,procedura;próg;termin;kompetencja,częściowo,Twierdzenia/Progi.lean,ujęte: ust. 3
+96,IV,Wybory i kadencja,2,0,1,próg,częściowo,Konstytucja/Podstawy/Organy.lean,ujęte wiersze: 1 z 2
+97,IV,Wybory i kadencja,2,0,1,próg,częściowo,Konstytucja/Podstawy/Organy.lean,ujęte wiersze: 1 z 2
+98,IV,Wybory i kadencja,6,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 6
 99,IV,Wybory i kadencja,3,0,1,termin;kompetencja,nie_rozpoczęto,,
 100,IV,Wybory i kadencja,3,0,1,odesłanie,nie_rozpoczęto,,
 101,IV,Wybory i kadencja,2,0,1,kompetencja;odesłanie,nie_rozpoczęto,,
@@ -112,15 +112,15 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 111,IV,Organizacja i działanie,2,0,1,kompetencja;odesłanie,nie_rozpoczęto,,
 112,IV,Organizacja i działanie,0,0,1,odesłanie,nie_rozpoczęto,,
 113,IV,Organizacja i działanie,0,0,1,próg;kompetencja,nie_rozpoczęto,,
-114,IV,Organizacja i działanie,2,0,1,odesłanie,częściowo,Podstawy/Organy.lean,ujęte: ust. 1
+114,IV,Organizacja i działanie,2,0,1,odesłanie,częściowo,Konstytucja/Podstawy/Organy.lean,ujęte wiersze: 1 z 2
 115,IV,Organizacja i działanie,2,0,1,termin,nie_rozpoczęto,,
 116,IV,Organizacja i działanie,2,0,1,kompetencja,nie_rozpoczęto,,
 117,IV,Organizacja i działanie,0,0,1,do_oceny,nie_rozpoczęto,,
 118,IV,Organizacja i działanie,3,0,1,procedura;próg;kompetencja;odesłanie,nie_rozpoczęto,,
 119,IV,Organizacja i działanie,4,0,1,procedura;kompetencja,nie_rozpoczęto,,
-120,IV,Organizacja i działanie,0,0,1,procedura;próg,częściowo,Twierdzenia/Progi.lean,ujęte: zd. 1
-121,IV,Organizacja i działanie,3,0,1,procedura;próg;termin;kompetencja,częściowo,Twierdzenia/Progi.lean,ujęte: ust. 3
-122,IV,Organizacja i działanie,6,0,1,procedura;próg;termin;kompetencja;ocenne,częściowo,Twierdzenia/Progi.lean,ujęte: ust. 5
+120,IV,Organizacja i działanie,0,0,1,procedura;próg,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 1
+121,IV,Organizacja i działanie,3,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 3
+122,IV,Organizacja i działanie,6,0,1,procedura;próg;termin;kompetencja;ocenne,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 6
 123,IV,Organizacja i działanie,3,0,1,procedura;termin;kompetencja;odesłanie,nie_rozpoczęto,,
 124,IV,Organizacja i działanie,0,0,1,do_oceny,nie_rozpoczęto,,
 125,IV,Referendum,5,0,1,procedura;próg;kompetencja;odesłanie;ocenne,nie_rozpoczęto,,
@@ -129,7 +129,7 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 128,V,,2,0,1,procedura;termin;kompetencja,nie_rozpoczęto,,
 129,V,,3,0,1,procedura;kompetencja;odesłanie,nie_rozpoczęto,,
 130,V,,0,0,1,ocenne,nie_rozpoczęto,,
-131,V,,4,5,1,procedura;próg;termin;kompetencja;wyliczenie,częściowo,Twierdzenia/Progi.lean,ujęte: ust. 2 pkt 4
+131,V,,4,5,1,procedura;próg;termin;kompetencja;wyliczenie,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 9
 132,V,,0,0,1,kompetencja,nie_rozpoczęto,,
 133,V,,3,3,1,kompetencja;wyliczenie,nie_rozpoczęto,,
 134,V,,6,0,1,termin;kompetencja;odesłanie,nie_rozpoczęto,,
@@ -143,7 +143,7 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 142,V,,2,0,1,kompetencja,nie_rozpoczęto,,
 143,V,,0,0,1,kompetencja,nie_rozpoczęto,,
 144,V,,3,30,1,termin;kompetencja;wyliczenie,nie_rozpoczęto,,
-145,V,,3,0,1,procedura;próg;kompetencja,częściowo,Twierdzenia/Progi.lean,ujęte: ust. 2
+145,V,,3,0,1,procedura;próg;kompetencja,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 3
 146,VI,,4,12,1,kompetencja;ocenne;wyliczenie,nie_rozpoczęto,,
 147,VI,,4,0,1,odesłanie,nie_rozpoczęto,,
 148,VI,,0,7,1,kompetencja;wyliczenie,nie_rozpoczęto,,
@@ -152,11 +152,11 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 151,VI,,0,0,1,do_oceny,nie_rozpoczęto,,
 152,VI,,2,0,1,odesłanie,nie_rozpoczęto,,
 153,VI,,2,0,1,ocenne,nie_rozpoczęto,,
-154,VI,,3,0,1,procedura;próg;termin;kompetencja,częściowo,Twierdzenia/Progi.lean;Demo.lean,ujęte: ust. 2-3
-155,VI,,2,0,1,procedura;próg;termin;kompetencja,częściowo,Twierdzenia/Progi.lean;Demo.lean,ujęte: ust. 1-2
-156,VI,,2,0,1,procedura;próg,częściowo,Twierdzenia/Progi.lean,ujęte: ust. 2
+154,VI,,3,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Procedury/TworzenieRządu.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/TworzenieRządu.lean,ujęte wiersze: 3 z 3
+155,VI,,2,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Procedury/TworzenieRządu.lean;Konstytucja/Twierdzenia/Kolizje.lean;Konstytucja/Twierdzenia/Progi.lean;Konstytucja/Twierdzenia/TworzenieRządu.lean,ujęte wiersze: 2 z 2
+156,VI,,2,0,1,procedura;próg,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 2
 157,VI,,2,0,1,kompetencja,nie_rozpoczęto,,
-158,VI,,2,0,1,procedura;próg;termin;kompetencja,częściowo,Twierdzenia/Progi.lean,ujęte: ust. 1
+158,VI,,2,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 1 z 2
 159,VI,,2,0,1,procedura;próg;kompetencja,nie_rozpoczęto,,
 160,VI,,0,0,1,procedura;próg;kompetencja,nie_rozpoczęto,,
 161,VI,,0,0,1,procedura,nie_rozpoczęto,,
@@ -185,19 +185,19 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 184,VIII,Sądy,0,0,2,kompetencja;odesłanie,nie_rozpoczęto,,
 185,VIII,Sądy,0,0,2,termin;kompetencja,nie_rozpoczęto,,
 186,VIII,Sądy,2,0,2,kompetencja,nie_rozpoczęto,,
-187,VIII,Sądy,4,3,2,odesłanie;wyliczenie,częściowo,Podstawy/Organy.lean,ujęte: ust. 1
-188,VIII,Trybunał Konstytucyjny,0,5,2,kompetencja;wyliczenie,częściowo,Podstawy/Akty.lean,ujęte: pkt 3
+187,VIII,Sądy,4,3,2,odesłanie;wyliczenie,częściowo,Konstytucja/Podstawy/Organy.lean,ujęte wiersze: 3 z 7
+188,VIII,Trybunał Konstytucyjny,0,5,2,kompetencja;wyliczenie,częściowo,Konstytucja/Podstawy/Akty.lean,ujęte wiersze: 1 z 6
 189,VIII,Trybunał Konstytucyjny,0,0,2,kompetencja,nie_rozpoczęto,,
 190,VIII,Trybunał Konstytucyjny,5,0,2,procedura;próg;kompetencja;odesłanie,nie_rozpoczęto,,
 191,VIII,Trybunał Konstytucyjny,2,6,2,procedura;wyliczenie,nie_rozpoczęto,,
 192,VIII,Trybunał Konstytucyjny,0,0,2,do_oceny,nie_rozpoczęto,,
 193,VIII,Trybunał Konstytucyjny,0,0,2,procedura;kompetencja,nie_rozpoczęto,,
-194,VIII,Trybunał Konstytucyjny,2,0,2,próg;termin;kompetencja,częściowo,Podstawy/Organy.lean,ujęte: ust. 1
+194,VIII,Trybunał Konstytucyjny,2,0,2,próg;termin;kompetencja,częściowo,Konstytucja/Podstawy/Organy.lean,ujęte wiersze: 1 z 2
 195,VIII,Trybunał Konstytucyjny,3,0,2,ocenne,nie_rozpoczęto,,
 196,VIII,Trybunał Konstytucyjny,0,0,2,termin;kompetencja;ocenne,nie_rozpoczęto,,
 197,VIII,Trybunał Konstytucyjny,0,0,2,odesłanie,nie_rozpoczęto,,
 198,VIII,Trybunał Stanu,3,0,2,procedura;kompetencja;odesłanie,nie_rozpoczęto,,
-199,VIII,Trybunał Stanu,3,0,2,termin,częściowo,Podstawy/Organy.lean,ujęte: ust. 1
+199,VIII,Trybunał Stanu,3,0,2,termin,częściowo,Konstytucja/Podstawy/Organy.lean,ujęte wiersze: 1 z 3
 200,VIII,Trybunał Stanu,0,0,2,termin;kompetencja;ocenne,nie_rozpoczęto,,
 201,VIII,Trybunał Stanu,0,0,2,odesłanie,nie_rozpoczęto,,
 202,IX,Najwyższa Izba Kontroli,3,0,2,do_oceny,nie_rozpoczęto,,
@@ -226,14 +226,14 @@ art,rozdział,podrozdział,liczba_ust,liczba_pkt,priorytet,typy,status,plik_lean
 225,X,,0,0,2,procedura;termin;kompetencja,nie_rozpoczęto,,
 226,X,,2,0,2,procedura;termin,nie_rozpoczęto,,
 227,X,,7,0,2,termin;kompetencja;odesłanie;ocenne,nie_rozpoczęto,,
-228,XI,,7,0,1,procedura;termin;kompetencja;odesłanie;ocenne,częściowo,Twierdzenia/Kolizje.lean,ujęte: ust. 7
+228,XI,,7,0,1,procedura;termin;kompetencja;odesłanie;ocenne,częściowo,Konstytucja/Procedury/TworzenieRządu.lean;Konstytucja/Twierdzenia/Kolizje.lean;Konstytucja/Twierdzenia/TworzenieRządu.lean,ujęte wiersze: 1 z 7
 229,XI,,0,0,1,procedura;kompetencja,nie_rozpoczęto,,
-230,XI,,2,0,1,procedura;termin;kompetencja,częściowo,Podstawy/Czas.lean,ujęte: ust. 1-2
-231,XI,,0,0,1,procedura;próg;termin;kompetencja,nie_rozpoczęto,,
+230,XI,,2,0,1,procedura;termin;kompetencja,częściowo,Konstytucja/Podstawy/Czas.lean;Konstytucja/Twierdzenia/Terminy.lean,ujęte wiersze: 2 z 2
+231,XI,,0,0,1,procedura;próg;termin;kompetencja,częściowo,Konstytucja/Podstawy/Czas.lean;Konstytucja/Twierdzenia/Terminy.lean,ujęte wiersze: 1 z 1
 232,XI,,0,0,1,procedura;termin;kompetencja,nie_rozpoczęto,,
 233,XI,,3,0,1,odesłanie;ocenne,nie_rozpoczęto,,
-234,XI,,2,0,1,procedura;kompetencja,częściowo,Podstawy/Akty.lean,ujęte: ust. 2
-235,XII,,7,0,1,procedura;próg;termin;kompetencja;odesłanie,częściowo,Twierdzenia/Progi.lean,"ujęte: ust. 1, 4"
+234,XI,,2,0,1,procedura;kompetencja,częściowo,Konstytucja/Podstawy/Akty.lean,ujęte wiersze: 1 z 2
+235,XII,,7,0,1,procedura;próg;termin;kompetencja;odesłanie,częściowo,Konstytucja/Twierdzenia/Progi.lean,ujęte wiersze: 2 z 7
 236,XIII,,2,0,0,przepis_przejściowy,nie_rozpoczęto,,
 237,XIII,,2,0,0,przepis_przejściowy,nie_rozpoczęto,,
 238,XIII,,3,0,0,przepis_przejściowy,nie_rozpoczęto,,

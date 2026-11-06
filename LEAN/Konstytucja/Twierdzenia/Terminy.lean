@@ -15,4 +15,9 @@ theorem stan_wyjątkowy_max (s : StanWyjątkowy) : s.czasŁączny ≤ 150 := by
 theorem stan_wyjątkowy_150 : ∃ s : StanWyjątkowy, s.czasŁączny = 150 :=
   ⟨⟨90, 60, by decide, by decide⟩, rfl⟩
 
+/-- Art. 231 zd. 1: przedstawienie w chwili podpisania mieści się w terminie. -/
+theorem przedstawienie_od_razu (K : Kalendarz) (c : Nat) :
+    przedstawienieRozporządzenia K c c := by
+  simp [przedstawienieRozporządzenia, wTerminie, koniecTerminu]
+
 end Konstytucja

@@ -19,19 +19,6 @@ PDF = REPO / "Sejm/D19970483Lj.pdf"
 SENAT = REPO / "Senat/konstytucja_rp_miniatura_w._polska.txt"
 MALE = "a-ząćęłńóśźż"
 
-# Stan formalizacji: art -> (zakres, pliki w katalogu Konstytucja/).
-AKTY, ORGANY, PROGI = "Podstawy/Akty.lean", "Podstawy/Organy.lean", "Twierdzenia/Progi.lean"
-UJĘTE = {
-    8: ("ust. 1", AKTY), 31: ("ust. 3", "Podstawy/Interpretacja.lean"), 87: ("ust. 1-2", AKTY),
-    91: ("ust. 2-3", AKTY), 92: ("ust. 1", AKTY), 93: ("ust. 1-3", AKTY), 94: ("zd. 1", AKTY),
-    96: ("ust. 1", ORGANY), 97: ("ust. 1", ORGANY), 98: ("ust. 3", PROGI), 114: ("ust. 1", ORGANY),
-    120: ("zd. 1", PROGI), 121: ("ust. 3", PROGI), 122: ("ust. 5", PROGI),
-    131: ("ust. 2 pkt 4", PROGI), 145: ("ust. 2", PROGI),
-    154: ("ust. 2-3", f"{PROGI};Demo.lean"), 155: ("ust. 1-2", f"{PROGI};Demo.lean"),
-    156: ("ust. 2", PROGI), 158: ("ust. 1", PROGI), 187: ("ust. 1", ORGANY), 188: ("pkt 3", AKTY),
-    194: ("ust. 1", ORGANY), 199: ("ust. 1", ORGANY), 228: ("ust. 7", "Twierdzenia/Kolizje.lean"),
-    230: ("ust. 1-2", "Podstawy/Czas.lean"), 234: ("ust. 2", AKTY), 235: ("ust. 1, 4", PROGI),
-}
 PRIORYTET = {"I": 3, "II": 3, "III": 1, "IV": 1, "V": 1, "VI": 1, "VII": 2,
              "VIII": 2, "IX": 2, "X": 2, "XI": 1, "XII": 1, "XIII": 0}
 # Lista ręczna: artykuły opisujące przebieg postępowania (patrz plan, etap 3).
@@ -201,6 +188,35 @@ def typy(nr, tekst, rozdz, ma_punkty):
     return wynik or ["do_oceny"]
 
 
+def deklaracje():
+    """Nazwy zadeklarowane w Lean -> plik względem LEAN/."""
+    wynik = {}
+    for plik in sorted((TU.parent / "Konstytucja").rglob("*.lean")):
+        for m in re.finditer(r"(?m)^(?:private )?(?:def|theorem|structure|inductive)\s+([^\s:({\[]+)",
+                             plik.read_text(encoding="utf8")):
+            wynik[m.group(1)] = str(plik.relative_to(TU.parent))
+    return wynik
+
+
+def rejestr(przepisy):
+    """Czyta rejestr i sprawdza, że wskazane przepisy i deklaracje istnieją."""
+    znane = {(p["art"], p["ust"], p["pkt"]) for p in przepisy}
+    decl = deklaracje()
+    wpisy = {}
+    with open(TU / "rejestr.csv", encoding="utf8", newline="") as f:
+        for w in csv.DictReader(f):
+            nazwy = [n for n in (w["definicje"] + ";" + w["twierdzenia"]).split(";") if n]
+            brak = [n for n in nazwy if n not in decl]
+            assert not brak, f"rejestr: brak deklaracji {brak}"
+            if w["rodzaj"] == "pomocnicza":
+                continue
+            klucz = (int(w["art"]), int(w["ust"]), int(w["pkt"]))
+            assert klucz in znane, f"rejestr: brak przepisu {klucz}"
+            w["pliki"] = sorted({decl[n] for n in nazwy})
+            wpisy[klucz] = w
+    return wpisy
+
+
 def main():
     segmenty, przepisy, preambuła, nagłówki = parsuj(wyodrębnij())
     liczba = kontrola(segmenty, przepisy, nagłówki)
@@ -216,6 +232,14 @@ def main():
         w.writerow(["rozdział", "podrozdział", "art", "ust", "pkt", "tekst"])
         for p in przepisy:
             w.writerow([p["rozdział"], p["podrozdział"], p["art"], p["ust"], p["pkt"], p["tekst"]])
+    wpisy = rejestr(przepisy)
+    with open(TU / "pokrycie_przepisy.csv", "w", encoding="utf8", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["art", "ust", "pkt", "status", "definicje", "twierdzenia"])
+        for p in przepisy:
+            e = wpisy.get((p["art"], p["ust"], p["pkt"]))
+            w.writerow([p["art"], p["ust"], p["pkt"], e["zakres"] if e else "nie_rozpoczęto",
+                        e["definicje"] if e else "", e["twierdzenia"] if e else ""])
     licznik = collections.Counter()
     with open(TU / "pokrycie.csv", "w", encoding="utf8", newline="") as f:
         w = csv.writer(f)
@@ -225,12 +249,15 @@ def main():
             tekst, rozdz = artykuł(prz), prz[0]["rozdział"]
             tt = typy(nr, tekst, rozdz, any(p["pkt"] for p in prz))
             licznik.update(tt)
-            ujęte = UJĘTE.get(nr)
+            klucze = [(p["art"], p["ust"], p["pkt"]) for p in prz]
+            ujęte = [wpisy[k] for k in klucze if k in wpisy]
+            status = ("nie_rozpoczęto" if not ujęte else
+                      "pełny" if len(ujęte) == len(klucze) and all(e["zakres"] == "pełny" for e in ujęte)
+                      else "częściowo")
             w.writerow([nr, rozdz, prz[0]["podrozdział"], max(p["ust"] for p in prz),
-                        sum(1 for p in prz if p["pkt"]), PRIORYTET[rozdz], ";".join(tt),
-                        "częściowo" if ujęte else "nie_rozpoczęto",
-                        ujęte[1] if ujęte else "",
-                        f"ujęte: {ujęte[0]}" if ujęte else ""])
+                        sum(1 for p in prz if p["pkt"]), PRIORYTET[rozdz], ";".join(tt), status,
+                        ";".join(sorted({x for e in ujęte for x in e["pliki"]})),
+                        f"ujęte wiersze: {len(ujęte)} z {len(klucze)}" if ujęte else ""])
     print("tokeny", liczba, "artykuły", len(arty), "wiersze przepisów", len(przepisy))
     print(dict(licznik))
 

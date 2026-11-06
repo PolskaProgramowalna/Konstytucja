@@ -14,10 +14,22 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
   to większość zwykła.
 * G6. Większość ustawowej liczby to więcej niż połowa tej liczby, niezależnie
   od frekwencji (art. 158 ust. 1, art. 159 ust. 2).
-* C1. Czas mierzymy w dniach kalendarzowych numerowanych liczbami naturalnymi.
-* C2. Termin „w ciągu n dni od dnia d” obejmuje dni od d do d + n włącznie.
+* C1. Chwile mierzymy w pełnych godzinach, a doba kalendarzowa to 24 kolejne godziny.
+* C2. Termin „w ciągu n dni od dnia d”: dzień d nie wlicza się do n, czynność można
+  wykonać już w dniu d, a ostatnim dniem jest d + n. Terminy w godzinach biegną
+  od chwili zdarzenia.
 * C3. Pojęcie „niezwłocznie” nie ma wartości liczbowej i jest parametrem interpretacji.
 * C4. Miesiące i lata zależą od kalendarza, który jest parametrem (`Kalendarz`).
+* C5. Terminu nie przesuwamy, gdy kończy się w dniu wolnym od pracy.
+* P1. Art. 154 ust. 2 wyznacza termin Prezesowi Rady Ministrów, a nie Sejmowi.
+  Przyjmujemy, że głosowanie nad wotum także mieści się w tych 14 dniach.
+* P2. Brak uchwały w terminie traktujemy jak nieudzielenie wotum lub niewybranie rządu.
+  Art. 154 ust. 3 liczy kolejny termin od upływu poprzedniego, nie od głosowania.
+* P3. Art. 155 ust. 1 nie wskazuje początku terminu. Liczymy go od upływu 14 dni
+  z art. 154 ust. 3.
+* P4. Art. 154 ust. 3 zd. 2 i art. 155 ust. 2 nie podają terminu działania Prezydenta.
+  Pole `limit` to dodatkowe założenie, a `none` odpowiada tekstowi.
+* P5. Wariant rozstrzygnięcia kolizji art. 155 ust. 2 i art. 228 ust. 7 jest parametrem.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3
   nie są jeszcze modelowane.
 * A2. Art. 87 traktujemy jako zamknięty katalog źródeł powszechnie obowiązujących,

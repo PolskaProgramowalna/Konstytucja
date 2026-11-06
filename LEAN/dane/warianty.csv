@@ -1,0 +1,7 @@
+założenie,wariant,identyfikator,status,uwagi
+G2,wszyscy głosujący,Mianownik.wszyscyGłosujący,roboczy,dotychczas domyślny wariant przykładów
+G2,tylko za i przeciw,Mianownik.zaIPrzeciw,roboczy,analiza wrażliwości; nie dowodzi prawnej dopuszczalności
+P4,brak limitu,Założenia.limit,roboczy,odpowiada tekstowi art. 154 ust. 3 i art. 155 ust. 2
+P4,limit L dni,Założenia.limit,roboczy,założenie spoza tekstu
+P5,pierwszeństwo art. 228 ust. 7,Rozstrzygnięcie.pierwszeństwoArt228,roboczy,rozstrzygnięcie kolizji L2
+P5,pierwszeństwo art. 155 ust. 2,Rozstrzygnięcie.pierwszeństwoArt155,roboczy,rozstrzygnięcie kolizji L2

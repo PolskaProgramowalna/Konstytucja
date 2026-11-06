@@ -1,0 +1,5 @@
+name = "konstytucja"
+defaultTargets = ["Konstytucja"]
+
+[[lean_lib]]
+name = "Konstytucja"

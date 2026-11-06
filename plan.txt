@@ -75,8 +75,10 @@ Konstytucja/
   Twierdzenia/                 wyniki pogrupowane tematycznie
   Modele/                      instancje dowodzące niesprzeczności
 dane/
+  generuj.py                   odtwarza dane z PDF i kontroluje je z tekstem Senatu
   artykuly.txt                 oczyszczony tekst, jeden artykuł w wierszu
-  pokrycie.csv                 artykuł, status, plik Lean, uwagi
+  przepisy.csv                 podział na artykuły, ustępy i punkty
+  pokrycie.csv                 artykuł, typy, status, plik Lean, uwagi
 docs/
   luki.txt                     wykryte luki i spory interpretacyjne
 
@@ -84,11 +86,11 @@ docs/
 5. ETAPY
 
 Etap 0. Przygotowanie
-- Toolchain zainstalowany: Lean v4.35.0 (aarch64). Przypiąć tę wersję
+- Toolchain zainstalowany: Lean v4.35.0 (aarch64), przypięty
   w lean-toolchain.
-- Założyć projekt Lake, skompilować pierwszy plik.
+- Projekt Lake założony w LEAN/, `lake build` przechodzi.
 - Kompilacja identyfikatorów z polskimi znakami potwierdzona (decyzja D2).
-- Szkic LEAN/Demo.lean skompilowany; włączyć go do projektu.
+- Szkic włączony do projektu jako LEAN/Konstytucja/Demo.lean.
 Gotowe, gdy: `lake build` przechodzi bez błędów.
 
 Etap 1. Tekst źródłowy
@@ -106,6 +108,9 @@ Etap 1. Tekst źródłowy
 - Sklasyfikować przepisy: próg, termin, procedura, kompetencja,
   wyliczenie, odesłanie do ustawy, pojęcie ocenne, przepis przejściowy.
 Gotowe, gdy: dane/pokrycie.csv obejmuje wszystkie artykuły.
+Stan: wykonane 2026-11-06. Typy w pokrycie.csv są klasyfikacją wstępną
+(wzorce tekstowe i ręczna lista procedur); wymagają przeglądu przy
+formalizacji danego artykułu. Pełny opis w dane/CZYTAJ.txt.
 
 Etap 2. Rdzeń pojęciowy
 - Czas i terminy: "w ciągu", "nie później niż", "niezwłocznie".
@@ -210,6 +215,4 @@ D5. Czy projekt ma być publiczny i na jakiej licencji?
 
 9. NAJBLIŻSZE KROKI
 
-1. Założyć projekt Lake w LEAN/ i włączyć do niego szkic LEAN/Demo.lean.
-2. Dokończyć etap 1: dane/artykuly.txt i dane/pokrycie.csv.
-3. Wykonać etap 2 i przenieść twierdzenia T1-T4 do docelowych definicji.
+1. Wykonać etap 2 i przenieść twierdzenia T1-T4 do docelowych definicji.

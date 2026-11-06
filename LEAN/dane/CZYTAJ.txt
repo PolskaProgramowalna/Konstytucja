@@ -1,0 +1,21 @@
+Dane etapu 1. Tekst wzorcowy: Sejm/D19970483Lj.pdf.
+
+generuj.py    odtwarza wszystkie pliki poniżej (python3 generuj.py, wymaga pdftotext)
+artykuly.txt  preambuła i 243 artykuły, po jednym w wierszu
+przepisy.csv  rozdział, podrozdział, art, ust, pkt, tekst
+              ust = 0: artykuł bez ustępów; pkt = 0: tekst przed punktami lub bez punktów
+pokrycie.csv  stan formalizacji każdego artykułu
+
+Kontrola w generuj.py: komplet 243 artykułów i 13 rozdziałów, 30 punktów
+w art. 144, a pełny tekst zgodny token po tokenie z wydaniem Senatu.
+Dozwolona jest tylko różnica w art. 228 ust. 7 (przeprowadzane/przeprowadzone).
+
+Pola typy i priorytet w pokrycie.csv:
+- procedura: ręczna lista w generuj.py
+- próg, termin, kompetencja, odesłanie, ocenne: wzorce tekstowe, więc mogą
+  zawierać błędy w obie strony; nie są oceną prawną
+- wyliczenie: artykuł ma punkty
+- prawo_lub_zasada: rozdziały I-II (typ dodany poza listą z planu)
+- przepis_przejściowy: rozdział XIII
+- do_oceny: żaden wzorzec nie pasuje
+- priorytet 0: poza główną formalizacją (rozdział XIII)

@@ -13,8 +13,10 @@ inductive Sprawa where
   | zgodnośćZKonstytucją
   /-- Art. 188 pkt 2. -/
   | zgodnośćZUmową
-  /-- Art. 188 pkt 3. -/
-  | przepisyCentralne
+  /-- Art. 188 pkt 3: wzorcem jest Konstytucja. -/
+  | przepisyCentralneZKonstytucją
+  /-- Art. 188 pkt 3: wzorcem jest ratyfikowana umowa albo ustawa. -/
+  | przepisyCentralneZUmowąLubUstawą
   /-- Art. 188 pkt 4. -/
   | partiaPolityczna
   /-- Art. 188 pkt 5. -/
@@ -31,7 +33,8 @@ inductive Sprawa where
 
 /-- Art. 188 pkt 1–3. -/
 def Sprawa.aktNormatywny : Sprawa → Bool
-  | .zgodnośćZKonstytucją | .zgodnośćZUmową | .przepisyCentralne => true
+  | .zgodnośćZKonstytucją | .zgodnośćZUmową | .przepisyCentralneZKonstytucją
+  | .przepisyCentralneZUmowąLubUstawą => true
   | _ => false
 
 inductive Podmiot where
@@ -48,14 +51,18 @@ inductive Podmiot where
   | rzecznikPrawObywatelskich
   /-- Art. 191 ust. 1 pkt 2. -/
   | krajowaRadaSądownictwa
-  /-- Art. 191 ust. 1 pkt 3. -/
-  | organSamorządu
-  /-- Art. 191 ust. 1 pkt 4. -/
-  | związekZawodowy
-  | organizacjaPracodawców
-  | organizacjaZawodowa
+  /-- Art. 191 ust. 1 pkt 3: uprawniony jest tylko organ stanowiący. -/
+  | organSamorządu (stanowiący : Bool)
+  /-- Art. 191 ust. 1 pkt 4: uprawniony jest tylko organ ogólnokrajowy. -/
+  | związekZawodowy (ogólnokrajowy : Bool)
+  /-- Art. 191 ust. 1 pkt 4: uprawnione są tylko władze ogólnokrajowe. -/
+  | organizacjaPracodawców (ogólnokrajowa : Bool)
+  /-- Art. 191 ust. 1 pkt 4: uprawnione są tylko władze ogólnokrajowe. -/
+  | organizacjaZawodowa (ogólnokrajowa : Bool)
   /-- Art. 191 ust. 1 pkt 5. -/
   | kościół
+  /-- Art. 191 ust. 1 pkt 5: inne związki wyznaniowe. -/
+  | związekWyznaniowy
   /-- Art. 79 ust. 1: każdy. -/
   | osoba
   /-- Art. 193. -/
@@ -67,8 +74,10 @@ inductive Podmiot where
 structure Okoliczności where
   /-- Art. 191 ust. 2. -/
   zakresDziałania : Bool
-  /-- Art. 186 ust. 2. -/
+  /-- Art. 186 ust. 2: akt dotyczy niezależności sądów. -/
   niezależnośćSądów : Bool
+  /-- Art. 186 ust. 2: akt dotyczy niezawisłości sędziów. -/
+  niezawisłośćSędziów : Bool
   /-- Art. 79 ust. 1: naruszone wolności lub prawa. -/
   naruszenie : Bool
   /-- Art. 79 ust. 1: ostateczne orzeczenie. -/
@@ -88,8 +97,9 @@ def Podmiot.ogólny : Podmiot → Bool
 
 /-- Art. 191 ust. 1 pkt 3–5. -/
 def Podmiot.szczególny : Podmiot → Bool
-  | .organSamorządu | .związekZawodowy | .organizacjaPracodawców
-  | .organizacjaZawodowa | .kościół => true
+  | .organSamorządu k | .związekZawodowy k | .organizacjaPracodawców k
+  | .organizacjaZawodowa k => k
+  | .kościół | .związekWyznaniowy => true
   | _ => false
 
 /-- Art. 192. -/
@@ -106,8 +116,10 @@ def możeWystąpić (p : Podmiot) (s : Sprawa) (o : Okoliczności) : Bool :=
   | .przeszkodaWSprawowaniuUrzędu => p == .marszałekSejmu
   | .skarga => p == .osoba && o.naruszenie && o.orzeczenieOstateczne && !o.prawoZArt56
   | .partiaPolityczna => p.ogólny
-  | _ =>
-    p.ogólny || (p == .krajowaRadaSądownictwa && o.niezależnośćSądów) ||
+  | .zgodnośćZUmową | .przepisyCentralneZUmowąLubUstawą =>
+    p.ogólny || (p.szczególny && o.zakresDziałania)
+  | .zgodnośćZKonstytucją | .przepisyCentralneZKonstytucją =>
+    p.ogólny || (p == .krajowaRadaSądownictwa && (o.niezależnośćSądów || o.niezawisłośćSędziów)) ||
       (p.szczególny && o.zakresDziałania)
 
 /-- Art. 193: pytanie prawne. -/
@@ -116,7 +128,8 @@ def pytanieDopuszczalne (p : Podmiot) (odOdpowiedziZależy : Bool) : Bool :=
 
 open RodzajAktu
 
-/-- Czy `wzorzec` może być podstawą kontroli aktu `a` (art. 188 pkt 1–3, założenie K5). -/
+/-- Czy akt `a` można badać względem wzorca w trybach art. 188 pkt 1–3 (założenie K5).
+Funkcja nie obejmuje skargi z art. 79 ani pytania prawnego z art. 193. -/
 def kontrolowalny : RodzajAktu → RodzajAktu → Bool
   | ustawa, konstytucja | umowaZaZgodą, konstytucja | umowaBezZgody, konstytucja => true
   | ustawa, umowaZaZgodą => true
@@ -128,5 +141,17 @@ def kontrolowalny : RodzajAktu → RodzajAktu → Bool
   | uchwałaRadyMinistrów, konstytucja | uchwałaRadyMinistrów, ustawa
   | uchwałaRadyMinistrów, umowaZaZgodą | uchwałaRadyMinistrów, umowaBezZgody => true
   | _, _ => false
+
+/-- Art. 79 ust. 1: akt może być przedmiotem skargi, jeśli jest ustawą lub innym aktem
+normatywnym (założenie K8). Wzorcem jest Konstytucja. Funkcja zna tylko rodzaj aktu i nie
+przesądza, czy dany akt ma charakter normatywny. -/
+def przedmiotSkargi : RodzajAktu → Bool
+  | konstytucja => false
+  | _ => true
+
+/-- Art. 193: wzorce pytania prawnego. -/
+def wzorzecPytania : RodzajAktu → Bool
+  | konstytucja | ustawa | umowaZaZgodą | umowaBezZgody => true
+  | _ => false
 
 end Konstytucja.Trybunał

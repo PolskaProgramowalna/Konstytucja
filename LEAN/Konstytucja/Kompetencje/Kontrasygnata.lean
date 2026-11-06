@@ -113,8 +113,9 @@ def wymagaKontrasygnaty (wetoWolneOdKontrasygnaty : Bool) : Akt → Bool
   | .wniosekOPonowneRozpatrzenie => !wetoWolneOdKontrasygnaty
   | _ => true
 
-/-- Art. 144 ust. 2: ważność aktu. -/
-def ważny (w : Bool) (a : Akt) (podpisPrezesa : Bool) : Bool :=
+/-- Art. 144 ust. 2: czy spełniony jest warunek podpisu Prezesa Rady Ministrów. Nie ocenia
+kompetencji Prezydenta, trybu ani innych warunków ważności aktu. -/
+def spełniaWarunekKontrasygnaty (w : Bool) (a : Akt) (podpisPrezesa : Bool) : Bool :=
   !wymagaKontrasygnaty w a || podpisPrezesa
 
 end Konstytucja.Kontrasygnata

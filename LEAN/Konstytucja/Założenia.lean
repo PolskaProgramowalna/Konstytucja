@@ -127,6 +127,10 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
 * K5. Rozporządzenie z mocą ustawy (art. 234) badamy tylko względem Konstytucji.
 * K6. Podmioty z art. 191 ust. 1 pkt 3–5 składają wniosek tylko w sprawach aktów
   normatywnych, a sprawa partii politycznej z art. 188 pkt 4 nimi nie jest.
+* K7. Art. 186 ust. 2 obejmuje każdą kontrolę aktu normatywnego względem Konstytucji, czyli
+  art. 188 pkt 1 i pkt 3 w tym zakresie, a nie względem umów ani ustaw.
+* K8. Art. 79 ust. 1 obejmuje każdy rodzaj aktu poza Konstytucją, a art. 193 ma te same
+  przedmioty. Model nie rozstrzyga, czy konkretny akt ma charakter normatywny.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3
   nie są jeszcze modelowane.
 * A2. Art. 87 traktujemy jako zamknięty katalog źródeł powszechnie obowiązujących,

@@ -166,7 +166,7 @@ art,ust,pkt,status,definicje,twierdzenia
 77,1,0,nie_rozpoczęto,,
 77,2,0,nie_rozpoczęto,,
 78,0,0,nie_rozpoczęto,,
-79,1,0,częściowo,możeWystąpić;Okoliczności,skarga_wymaga
+79,1,0,częściowo,możeWystąpić;Okoliczności;przedmiotSkargi,skarga_wymaga;akt_miejscowy_w_skardze;skarga_zgodna_z_hierarchią
 79,2,0,częściowo,możeWystąpić,art56_wyłączony
 80,0,0,nie_rozpoczęto,,
 81,0,0,nie_rozpoczęto,,
@@ -332,7 +332,7 @@ art,ust,pkt,status,definicje,twierdzenia
 142,2,0,nie_rozpoczęto,,
 143,0,0,nie_rozpoczęto,,
 144,1,0,częściowo,Kontrasygnata.Akt,
-144,2,0,częściowo,wymagaKontrasygnaty;ważny,bez_podpisu_nieważny;podpis_wystarcza;prerogatywa_ważna;stany_wymagają_kontrasygnaty;inne_akty_wymagają;weto_zależy_od_wariantu;czynności_z_automatów
+144,2,0,częściowo,wymagaKontrasygnaty;spełniaWarunekKontrasygnaty,bez_podpisu_warunek_niespełniony;podpis_spełnia_warunek;prerogatywa_spełnia_warunek;stany_wymagają_kontrasygnaty;inne_akty_wymagają;weto_zależy_od_wariantu;czynności_z_automatów
 144,3,0,nie_rozpoczęto,,
 144,3,1,częściowo,Prerogatywa;Prerogatywa.punkt;wszystkie,jest_30_punktów;lista_kompletna;punkty_kolejne;bez_powtórzeń;prerogatywa_bez_kontrasygnaty
 144,3,2,częściowo,Prerogatywa;Prerogatywa.punkt;wszystkie,jest_30_punktów;lista_kompletna;punkty_kolejne;bez_powtórzeń;prerogatywa_bez_kontrasygnaty
@@ -475,7 +475,7 @@ art,ust,pkt,status,definicje,twierdzenia
 184,0,0,nie_rozpoczęto,,
 185,0,0,nie_rozpoczęto,,
 186,1,0,nie_rozpoczęto,,
-186,2,0,częściowo,możeWystąpić;Okoliczności,krs_tylko_niezależność
+186,2,0,częściowo,możeWystąpić;Okoliczności,krs_oba_zakresy;krs_tylko_względem_konstytucji
 187,1,0,nie_rozpoczęto,,
 187,1,1,częściowo,składKrajowejRadySądownictwa,skład_krs
 187,1,2,częściowo,składKrajowejRadySądownictwa,skład_krs
@@ -486,7 +486,7 @@ art,ust,pkt,status,definicje,twierdzenia
 188,0,0,nie_rozpoczęto,,
 188,0,1,częściowo,Sprawa;kontrolowalny,kontrola_zgodna_z_hierarchią;progi_parlamentarzystów
 188,0,2,częściowo,Sprawa;kontrolowalny,kontrola_zgodna_z_hierarchią;umowa_bez_zgody_nie_wzorcem_ustawy
-188,0,3,częściowo,MaPierwszeństwo;kontrolowalny;Sprawa,kontrola_zgodna_z_hierarchią;akt_miejscowy_poza_kontrolą
+188,0,3,częściowo,MaPierwszeństwo;kontrolowalny;Sprawa,kontrola_zgodna_z_hierarchią;akt_miejscowy_poza_art188_pkt1do3
 188,0,4,częściowo,Sprawa,partia_tylko_ogólni
 188,0,5,częściowo,Sprawa,skarga_wymaga;prezydent_bez_skargi
 189,0,0,częściowo,Sprawa,spór_węższy
@@ -497,14 +497,14 @@ art,ust,pkt,status,definicje,twierdzenia
 190,5,0,nie_rozpoczęto,,
 191,1,0,nie_rozpoczęto,,
 191,1,1,częściowo,Podmiot.ogólny;możeWystąpić,progi_parlamentarzystów;ogólni_w_wykazie;inny_bez_drogi
-191,1,2,częściowo,możeWystąpić,krs_tylko_niezależność
-191,1,3,częściowo,Podmiot.szczególny;możeWystąpić,szczególni_tylko_w_zakresie;szczególni_w_zakresie
-191,1,4,częściowo,Podmiot.szczególny;możeWystąpić,szczególni_tylko_w_zakresie;szczególni_w_zakresie
+191,1,2,częściowo,możeWystąpić,krs_oba_zakresy;krs_tylko_względem_konstytucji
+191,1,3,częściowo,Podmiot.szczególny;możeWystąpić,szczególni_tylko_w_zakresie;szczególni_w_zakresie;kwalifikacje_wnioskodawców
+191,1,4,częściowo,Podmiot.szczególny;możeWystąpić,szczególni_tylko_w_zakresie;szczególni_w_zakresie;kwalifikacje_wnioskodawców
 191,1,5,częściowo,Podmiot.szczególny;możeWystąpić,szczególni_tylko_w_zakresie;szczególni_w_zakresie
 191,1,6,częściowo,możeWystąpić,skarga_wymaga
 191,2,0,częściowo,możeWystąpić,szczególni_tylko_w_zakresie
 192,0,0,częściowo,Podmiot.wSporze,spór_węższy;spór_w_ogólnych
-193,0,0,częściowo,pytanieDopuszczalne,pytanie_tylko_sądu;sąd_bez_wniosku
+193,0,0,częściowo,pytanieDopuszczalne;wzorzecPytania,pytanie_tylko_sądu;sąd_bez_wniosku;wzorce_pytania
 194,1,0,częściowo,składTrybunałuKonstytucyjnego,
 194,2,0,nie_rozpoczęto,,
 195,1,0,nie_rozpoczęto,,

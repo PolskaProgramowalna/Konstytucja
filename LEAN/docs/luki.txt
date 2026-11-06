@@ -250,9 +250,11 @@ L57. Kontrola rozporządzeń z art. 234
 Mają one moc ustawy, ale art. 188 nie wymienia ich osobno. Model przyjmuje kontrolę tylko
 względem Konstytucji (K5).
 
-L58. Akty poza art. 188
-Akty prawa miejscowego nie są przepisami centralnymi, a prawo organizacji międzynarodowej
-nie jest wymienione. Model nie ma dla nich drogi do Trybunału.
+L58. Akty poza art. 188 pkt 1-3
+Akty prawa miejscowego nie są przepisami centralnymi z pkt 3, a prawo organizacji
+międzynarodowej nie jest wymienione. Dotyczy to tylko tych trybów. Akt miejscowy o charakterze
+normatywnym może być przedmiotem skargi z art. 79 albo pytania z art. 193 (K8). Recenzent
+wskazał omówienie TK w sprawie SK 42/02. Tego źródła nie weryfikowano.
 
 L59. Zakres kompetencji osoby wykonującej obowiązki Prezydenta
 Art. 131 ust. 4 zakazuje tylko skrócenia kadencji. Tekst nie mówi wprost, czy zastępca ma

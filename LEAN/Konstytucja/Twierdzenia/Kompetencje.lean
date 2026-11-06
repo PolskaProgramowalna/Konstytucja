@@ -31,17 +31,18 @@ theorem bez_powtórzeń : wszystkie.Nodup := by decide
 theorem prerogatywa_bez_kontrasygnaty (w) (p : Prerogatywa) :
     wymagaKontrasygnaty w (.prerogatywa p) = false := rfl
 
-/-- Art. 144 ust. 2: akt spoza katalogu jest bez podpisu nieważny (K2). -/
-theorem bez_podpisu_nieważny (w) (a : Akt) (h : wymagaKontrasygnaty w a = true) :
-    ważny w a false = false := by
-  simp [ważny, h]
+/-- Art. 144 ust. 2: bez podpisu akt spoza katalogu nie spełnia warunku kontrasygnaty (K2). -/
+theorem bez_podpisu_warunek_niespełniony (w) (a : Akt) (h : wymagaKontrasygnaty w a = true) :
+    spełniaWarunekKontrasygnaty w a false = false := by
+  simp [spełniaWarunekKontrasygnaty, h]
 
-/-- Art. 144 ust. 2: podpis Prezesa wystarcza. -/
-theorem podpis_wystarcza (w) (a : Akt) : ważny w a true = true := by
-  simp [ważny]
+/-- Art. 144 ust. 2: podpis Prezesa spełnia ten warunek, ale nie inne warunki ważności. -/
+theorem podpis_spełnia_warunek (w) (a : Akt) : spełniaWarunekKontrasygnaty w a true = true := by
+  simp [spełniaWarunekKontrasygnaty]
 
-/-- Prerogatywa jest ważna bez podpisu. -/
-theorem prerogatywa_ważna (w) (p : Prerogatywa) : ważny w (.prerogatywa p) false = true := rfl
+/-- Prerogatywa spełnia warunek bez podpisu. Teza nie mówi o pozostałych warunkach ważności. -/
+theorem prerogatywa_spełnia_warunek (w) (p : Prerogatywa) :
+    spełniaWarunekKontrasygnaty w (.prerogatywa p) false = true := rfl
 
 /-- Art. 229 i art. 230 wymagają kontrasygnaty, niezależnie od wariantu K1. -/
 theorem stany_wymagają_kontrasygnaty (w) :
@@ -76,7 +77,10 @@ end Kontrasygnata
 namespace Trybunał
 
 /-- Okoliczności bez szczególnych warunków. -/
-def bezWarunków : Okoliczności := ⟨false, false, false, false, false⟩
+def bezWarunków : Okoliczności := ⟨false, false, false, false, false, false⟩
+
+/-- Akt w zakresie działania podmiotu. -/
+def wZakresie : Okoliczności := { bezWarunków with zakresDziałania := true }
 
 /-! ## Art. 191 -/
 
@@ -95,16 +99,36 @@ theorem szczególni_tylko_w_zakresie (p : Podmiot) (o : Okoliczności) (h : p.sz
 
 /-- Art. 191 ust. 2: w swoim zakresie mogą wystąpić o akty normatywne. -/
 theorem szczególni_w_zakresie :
-    możeWystąpić .kościół .zgodnośćZKonstytucją ⟨true, false, false, false, false⟩ = true ∧
-      możeWystąpić .związekZawodowy .przepisyCentralne ⟨true, false, false, false, false⟩ = true := by
+    możeWystąpić .kościół .zgodnośćZKonstytucją wZakresie = true ∧
+      możeWystąpić .związekWyznaniowy .zgodnośćZKonstytucją wZakresie = true ∧
+      możeWystąpić (.organSamorządu true) .zgodnośćZKonstytucją wZakresie = true ∧
+      możeWystąpić (.związekZawodowy true) .przepisyCentralneZKonstytucją wZakresie = true ∧
+      możeWystąpić (.organizacjaPracodawców true) .zgodnośćZUmową wZakresie = true ∧
+      możeWystąpić (.organizacjaZawodowa true) .przepisyCentralneZUmowąLubUstawą wZakresie = true := by
   decide
 
-/-- Art. 186 ust. 2: Krajowa Rada Sądownictwa tylko w sprawie niezależności sądów. -/
-theorem krs_tylko_niezależność :
+/-- Art. 191 ust. 1 pkt 3–4: organ wykonawczy i organy nieogólnokrajowe nie są uprawnione. -/
+theorem kwalifikacje_wnioskodawców (s : Sprawa) (o : Okoliczności) :
+    możeWystąpić (.organSamorządu false) s o = false ∧
+      możeWystąpić (.związekZawodowy false) s o = false ∧
+      możeWystąpić (.organizacjaPracodawców false) s o = false ∧
+      możeWystąpić (.organizacjaZawodowa false) s o = false := by
+  cases s <;> simp [możeWystąpić, Podmiot.ogólny, Podmiot.szczególny, Podmiot.wSporze]
+
+/-- Art. 186 ust. 2: oba zakresy uprawnienia Krajowej Rady Sądownictwa. -/
+theorem krs_oba_zakresy :
     możeWystąpić .krajowaRadaSądownictwa .zgodnośćZKonstytucją
-        ⟨false, true, false, false, false⟩ = true ∧
+        { bezWarunków with niezależnośćSądów := true } = true ∧
+      możeWystąpić .krajowaRadaSądownictwa .przepisyCentralneZKonstytucją
+        { bezWarunków with niezawisłośćSędziów := true } = true ∧
       możeWystąpić .krajowaRadaSądownictwa .zgodnośćZKonstytucją bezWarunków = false := by
   decide
+
+/-- Art. 186 ust. 2: Krajowa Rada Sądownictwa bada tylko zgodność z Konstytucją. -/
+theorem krs_tylko_względem_konstytucji (o) :
+    możeWystąpić .krajowaRadaSądownictwa .zgodnośćZUmową o = false ∧
+      możeWystąpić .krajowaRadaSądownictwa .przepisyCentralneZUmowąLubUstawą o = false := by
+  simp [możeWystąpić, Podmiot.ogólny, Podmiot.szczególny]
 
 /-- Art. 191 ust. 1 pkt 1 wymienia dziewięć organów oraz grupy posłów i senatorów. -/
 theorem ogólni_w_wykazie (p : Podmiot) (h : p.ogólny = true) :
@@ -197,12 +221,28 @@ theorem kontrola_zgodna_z_hierarchią (a w : RodzajAktu) (h : kontrolowalny a w 
 /-- Art. 188 pkt 2 obejmuje tylko umowy za zgodą ustawową. -/
 theorem umowa_bez_zgody_nie_wzorcem_ustawy : kontrolowalny ustawa umowaBezZgody = false := rfl
 
-/-- Akt prawa miejscowego nie jest przepisem centralnym z art. 188 pkt 3. -/
-theorem akt_miejscowy_poza_kontrolą (w) : kontrolowalny aktPrawaMiejscowego w = false := by
+/-- Akt prawa miejscowego nie jest przepisem centralnym z art. 188 pkt 3. Teza dotyczy tylko
+tego trybu, a nie skargi z art. 79 ani pytania z art. 193. -/
+theorem akt_miejscowy_poza_art188_pkt1do3 (w) : kontrolowalny aktPrawaMiejscowego w = false := by
   cases w <;> rfl
 
-/-- Art. 188 nie wymienia prawa organizacji międzynarodowej. -/
-theorem prawo_organizacji_poza_kontrolą (w) :
+/-- Art. 79 ust. 1 mówi o innym akcie normatywnym, więc akt miejscowy o takim charakterze
+może być przedmiotem skargi (założenie K8). -/
+theorem akt_miejscowy_w_skardze : przedmiotSkargi aktPrawaMiejscowego = true := rfl
+
+/-- Skarga bada akt względem Konstytucji, czyli zawsze od aktu niższego do wyższego. -/
+theorem skarga_zgodna_z_hierarchią (a) (h : przedmiotSkargi a = true) : Wyższy konstytucja a := by
+  cases a <;> first
+    | (simp [przedmiotSkargi] at h; done)
+    | exact .wprost (.konstytucjaNajwyższa _ (by decide))
+
+/-- Art. 193: wzorce pytania prawnego to Konstytucja, umowy ratyfikowane i ustawa. -/
+theorem wzorce_pytania :
+    wzorzecPytania konstytucja = true ∧ wzorzecPytania ustawa = true ∧
+      wzorzecPytania umowaBezZgody = true ∧ wzorzecPytania rozporządzenie = false := by decide
+
+/-- Art. 188 pkt 1–3 nie wymieniają prawa organizacji międzynarodowej. -/
+theorem prawo_organizacji_poza_art188_pkt1do3 (w) :
     kontrolowalny prawoOrganizacjiMiędzynarodowej w = false := by
   cases w <;> rfl
 

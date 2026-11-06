@@ -65,13 +65,14 @@ lakefile.toml                  konfiguracja projektu
 Konstytucja/
   Podstawy/
     Czas.lean                  dni, miesiące, lata, terminy
-    Glosowanie.lean            kworum i rodzaje większości
+    Głosowanie.lean            kworum i rodzaje większości
     Organy.lean                organy i ich składy
     Akty.lean                  rodzaje aktów i hierarchia źródeł prawa
     Normy.lean                 nakaz, zakaz, dozwolenie, wyjątki
     Interpretacja.lean         parametry pojęć ocennych
-  Zalozenia.lean               wykaz założeń spoza tekstu
-  Rozdzial03.lean ...          model kolejnych rozdziałów
+  Założenia.lean               wykaz założeń spoza tekstu
+  Kontrola.lean                kontrola aksjomatów
+  Rozdział03.lean ...          model kolejnych rozdziałów
   Twierdzenia/                 wyniki pogrupowane tematycznie
   Modele/                      instancje dowodzące niesprzeczności
 dane/
@@ -121,6 +122,9 @@ Etap 2. Rdzeń pojęciowy
 - Normy: najprostsza potrzebna reprezentacja nakazów, zakazów i wyjątków.
 Gotowe, gdy: progi z art. 120, 121, 122, 154, 155, 158 i 235 mają
 sprawdzone twierdzenia o minimalnej liczbie głosów.
+Stan: wykonane 2026-11-06. Liczenie głosów jest parametrem Mianownik,
+a minima są dowiedzione dla obu wariantów tam, gdzie od niego zależą.
+Definicja JestMinimum wymaga przykładu i dolnego ograniczenia.
 
 Etap 3. Procedury (główna wartość projektu)
 Każdą procedurę zapisać jako automat stanów z przejściami i terminami:
@@ -167,16 +171,19 @@ Etap 7. Publikacja i utrzymanie
 
 6. PIERWSZE TWIERDZENIA DO SPRAWDZENIA
 
-Sprawdzone w szkicu Demo.lean na Lean v4.35.0, bez `sorry` i bez własnych
-aksjomatów. T2-T5 zależą od przyjętych w szkicu definicji głosowania.
-T6 to sprawdzenie małej tabeli przypadków, bez terminów i bez bezczynności
+Sprawdzone na Lean v4.35.0, bez `sorry` i bez własnych aksjomatów.
+T1-T5 są w Twierdzenia/Progi.lean, T7 w Twierdzenia/Terminy.lean,
+a T8 w Twierdzenia/Interpretacje.lean. T6 pozostaje w Demo.lean jako
+sprawdzenie małej tabeli przypadków, bez terminów i bez bezczynności
 organów; pełny model powstanie w etapie 3.
 
 T1. Większość bezwzględna spełnia też warunek większości zwykłej.
 T2. Wotum nieufności wymaga co najmniej 231 głosów (art. 158 ust. 1).
 T3. Zmiana Konstytucji w Sejmie wymaga co najmniej 154 głosów przy
-    230 obecnych (art. 235 ust. 4).
-T4. Odrzucenie weta wymaga co najmniej 138 głosów (art. 122 ust. 5).
+    230 obecnych, jeśli liczyć wszystkich głosujących (art. 235 ust. 4).
+    Bez wstrzymujących się w mianowniku minimum wynosi 1.
+T4. Odrzucenie weta wymaga co najmniej 138 głosów przy tym samym
+    założeniu (art. 122 ust. 5). W drugim wariancie minimum wynosi 1.
 T5. W samym Sejmie zmiana Konstytucji może przejść mniejszą liczbą głosów
     niż wotum nieufności. Potrzebna jest jeszcze zgoda Senatu.
 T6. Każda ścieżka z art. 154-155 kończy się rządem lub skróceniem
@@ -207,6 +214,9 @@ D1. Tekst wzorcowy: Sejm/D19970483Lj.pdf.
 D2. Identyfikatory zawsze z polskimi znakami.
 
 Otwarte:
+D6. Który mianownik przyjąć dla większości ułamkowych (założenie G2)?
+    Dla większości bezwzględnej wariant bez wstrzymujących się zaciera
+    różnicę ze zwykłą; patrz docs/luki.txt.
 D3. Czy oprócz Konstytucji modelujemy także regulaminy Sejmu i Senatu?
     Dałoby to konkretne definicje większości, ale poszerzyłoby zakres.
 D4. Kto recenzuje model od strony prawnej?
@@ -215,4 +225,4 @@ D5. Czy projekt ma być publiczny i na jakiej licencji?
 
 9. NAJBLIŻSZE KROKI
 
-1. Wykonać etap 2 i przenieść twierdzenia T1-T4 do docelowych definicji.
+1. Wykonać etap 3, zaczynając od art. 154-155 (zastąpi T6 z Demo.lean).

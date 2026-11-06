@@ -1,0 +1,31 @@
+LUKI I SPORY INTERPRETACYJNE
+
+Wnioski z modelu, do oceny przez prawnika (etap 6). Nie są to oceny prawne.
+
+L1. Liczenie głosów wstrzymujących się (art. 120-122, 154, 235)
+Konstytucja nie mówi, czy wliczać je do mianownika "głosów".
+Jeśli ich nie liczyć, większość bezwzględna jest równoważna zwykłej
+(bezwzględna_bez_wstrzymanych_to_zwykła), choć Konstytucja rozróżnia te pojęcia.
+Minimum dla art. 122 ust. 5 i art. 235 ust. 4 spada wtedy ze 138 i 154 do 1.
+
+L2. Kolizja art. 155 ust. 2 i art. 228 ust. 7
+Nakaz skrócenia kadencji po nieudzieleniu wotum zaufania spotyka się z zakazem
+skrócenia kadencji w czasie stanu nadzwyczajnego i przez 90 dni po nim.
+Model pokazuje kolizję i niesprzeczność obu rozstrzygnięć, ale nie wybiera żadnego.
+
+L3. Umowa ratyfikowana bez zgody a ustawa
+Tekst przyznaje pierwszeństwo przed ustawą tylko umowie za uprzednią zgodą
+(art. 91 ust. 2). Stosunek umowy bez zgody do ustawy nie wynika z modelu.
+
+L4. Prawo organizacji międzynarodowej a Konstytucja
+Art. 91 ust. 3 daje pierwszeństwo tylko przed ustawami, a art. 8 ust. 1 stawia
+Konstytucję najwyżej. Model przyjmuje ten odczyt tekstu i nie uwzględnia
+orzecznictwa ani prawa samej organizacji.
+
+L5. Skrajnie niskie progi przy zwykłej większości (art. 120, art. 155 ust. 1)
+Przy kworum 230 uchwała może przejść jednym głosem "za", jeśli pozostali
+się wstrzymają. Wynika to z założeń G1 i G3, czyli wyniku teoretycznego.
+
+L6. Brak górnej granicy stanu klęski żywiołowej (art. 232)
+Art. 230 ogranicza stan wyjątkowy do 150 dni. Art. 232 pozwala przedłużać stan
+klęski za zgodą Sejmu bez podania limitu. Tej różnicy jeszcze nie sformalizowano.

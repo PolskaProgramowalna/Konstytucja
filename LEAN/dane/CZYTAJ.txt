@@ -19,3 +19,6 @@ Pola typy i priorytet w pokrycie.csv:
 - przepis_przejściowy: rozdział XIII
 - do_oceny: żaden wzorzec nie pasuje
 - priorytet 0: poza główną formalizacją (rozdział XIII)
+
+Pole status: nie_rozpoczęto albo częściowo. Status częściowo znaczy, że w Lean
+jest tylko zakres z kolumny uwagi. Status pełny nie jest jeszcze używany.

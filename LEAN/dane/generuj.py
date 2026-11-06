@@ -19,10 +19,19 @@ PDF = REPO / "Sejm/D19970483Lj.pdf"
 SENAT = REPO / "Senat/konstytucja_rp_miniatura_w._polska.txt"
 MALE = "a-ząćęłńóśźż"
 
-# Tylko identyfikacja, nie treść prawa: co jest już w Konstytucja/Demo.lean.
-SZKIC = {31: "art. 31 ust. 3", 96: "art. 96 ust. 1", 122: "art. 122 ust. 5",
-         154: "art. 154", 155: "art. 155", 158: "art. 158 ust. 1",
-         230: "art. 230", 235: "art. 235 ust. 4"}
+# Stan formalizacji: art -> (zakres, pliki w katalogu Konstytucja/).
+AKTY, ORGANY, PROGI = "Podstawy/Akty.lean", "Podstawy/Organy.lean", "Twierdzenia/Progi.lean"
+UJĘTE = {
+    8: ("ust. 1", AKTY), 31: ("ust. 3", "Podstawy/Interpretacja.lean"), 87: ("ust. 1-2", AKTY),
+    91: ("ust. 2-3", AKTY), 92: ("ust. 1", AKTY), 93: ("ust. 1-3", AKTY), 94: ("zd. 1", AKTY),
+    96: ("ust. 1", ORGANY), 97: ("ust. 1", ORGANY), 98: ("ust. 3", PROGI), 114: ("ust. 1", ORGANY),
+    120: ("zd. 1", PROGI), 121: ("ust. 3", PROGI), 122: ("ust. 5", PROGI),
+    131: ("ust. 2 pkt 4", PROGI), 145: ("ust. 2", PROGI),
+    154: ("ust. 2-3", f"{PROGI};Demo.lean"), 155: ("ust. 1-2", f"{PROGI};Demo.lean"),
+    156: ("ust. 2", PROGI), 158: ("ust. 1", PROGI), 187: ("ust. 1", ORGANY), 188: ("pkt 3", AKTY),
+    194: ("ust. 1", ORGANY), 199: ("ust. 1", ORGANY), 228: ("ust. 7", "Twierdzenia/Kolizje.lean"),
+    230: ("ust. 1-2", "Podstawy/Czas.lean"), 234: ("ust. 2", AKTY), 235: ("ust. 1, 4", PROGI),
+}
 PRIORYTET = {"I": 3, "II": 3, "III": 1, "IV": 1, "V": 1, "VI": 1, "VII": 2,
              "VIII": 2, "IX": 2, "X": 2, "XI": 1, "XII": 1, "XIII": 0}
 # Lista ręczna: artykuły opisujące przebieg postępowania (patrz plan, etap 3).
@@ -216,12 +225,12 @@ def main():
             tekst, rozdz = artykuł(prz), prz[0]["rozdział"]
             tt = typy(nr, tekst, rozdz, any(p["pkt"] for p in prz))
             licznik.update(tt)
-            szkic = nr in SZKIC
+            ujęte = UJĘTE.get(nr)
             w.writerow([nr, rozdz, prz[0]["podrozdział"], max(p["ust"] for p in prz),
                         sum(1 for p in prz if p["pkt"]), PRIORYTET[rozdz], ";".join(tt),
-                        "szkic" if szkic else "nie_rozpoczęto",
-                        "Konstytucja/Demo.lean" if szkic else "",
-                        f"szkic obejmuje {SZKIC[nr]}" if szkic else ""])
+                        "częściowo" if ujęte else "nie_rozpoczęto",
+                        ujęte[1] if ujęte else "",
+                        f"ujęte: {ujęte[0]}" if ujęte else ""])
     print("tokeny", liczba, "artykuły", len(arty), "wiersze przepisów", len(przepisy))
     print(dict(licznik))
 

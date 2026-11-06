@@ -1,1 +1,1 @@
-import Konstytucja.Demo
+import Konstytucja.Kontrola

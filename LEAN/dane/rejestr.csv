@@ -26,7 +26,7 @@ przepis,155,1,0,częściowo,Krok;wotumZaufaniaArt155,rząd_w_art155;min_art155;b
 przepis,155,2,0,częściowo,Krok;nakazArt155,skrócenie_osiągalne;zakończenie;kolizja_art155_art228
 przepis,156,2,0,częściowo,odpowiedzialnośćMinistra,min_art156
 przepis,158,1,0,częściowo,wotumNieufności,min_art158;zmiana_tańsza_niż_wotum
-przepis,187,1,1,pełny,składKrajowejRadySądownictwa,skład_krs
+przepis,187,1,1,częściowo,składKrajowejRadySądownictwa,skład_krs
 przepis,187,1,2,częściowo,składKrajowejRadySądownictwa,skład_krs
 przepis,187,1,3,częściowo,składKrajowejRadySądownictwa,skład_krs
 przepis,188,0,3,częściowo,MaPierwszeństwo,
@@ -41,6 +41,6 @@ przepis,235,1,0,częściowo,,wnioskodawcy_art235
 przepis,235,4,0,częściowo,zmianaKonstytucjiSejm;zmianaKonstytucjiSenat,min_art235_sejm;min_art235_sejm_b;min_art235_senat;min_art235_senat_b;pełna_sala_art235;zmiana_tańsza_niż_wotum
 pomocnicza,,,,,JestMinimum;Głosowanie;Głosowanie.głosujący;Głosowanie.mianownik,bezwzględna_daje_zwykłą;ustawowa_daje_bezwzględną
 pomocnicza,,,,,ranga;Wyższy,ranga_maleje;ranga_maleje_pośrednio;brak_cyklu
-pomocnicza,,,,,Etap.pozostało;Osiągalny;wGranicy;WarunkiZakończenia;wLimicie,krok_zmniejsza;brak_nieskończonego_przebiegu;granice_etapów;postęp;granica_przy_limicie
+pomocnicza,,,,,Etap.pozostało;Osiągalny;Przebieg;wGranicy;WarunkiZakończenia;wLimicie,krok_zmniejsza;brak_nieskończonego_przebiegu;granice_etapów;postęp;granica_przy_limicie;osiągalny_po_przebiegu;utknięcie_tylko_na_końcu;przebieg_ze_stanu_końcowego
 pomocnicza,,,,,Kalendarz;Okres;koniecTerminu;wTerminie;wCiągu;nieWcześniejNiż,wCiągu_składanie;wTerminie_dni;godziny_różne_od_dni
 pomocnicza,,,,,Norma;Kolizja;Norma.ustępuje,ustąpienie_usuwa_kolizję

@@ -53,8 +53,9 @@ Z4. Odesłania do ustaw i regulaminów są parametrami. Ich konkretną treść
 Z5. Brak sankcji albo spór interpretacyjny zapisujemy jako wynik analizy,
     a nie ukrywamy w modelu. Warianty sporne modelujemy osobno.
 Z6. Założenia prawne są parametrami, a nie globalnymi deklaracjami `axiom`.
-    Kompilację przerywa każda deklaracja projektu zależna od `sorryAx`
-    albo od aksjomatu spoza propext, Classical.choice i Quot.sound.
+    Skrypt Skrypty/KontrolaProjektu.lean bierze listę plików z dysku, a nie
+    z importów, i odrzuca każdą deklarację zależną od `sorryAx` albo
+    od aksjomatu spoza propext, Classical.choice i Quot.sound.
 Z7. Instancja potwierdza tylko spełnialność warunków zapisanych w jej typie.
     Nie dowodzi spójności wszystkich norm: nakaz i zakaz zapisane jako dane
     nie dają sprzeczności logicznej w Lean. Każdy wynik nazywa własność z etapu 6.
@@ -78,8 +79,6 @@ Konstytucja/
     Normy.lean                 nakaz, zakaz, dozwolenie, wyjątki
     Interpretacja.lean         parametry pojęć ocennych
   Założenia.lean               wykaz założeń spoza tekstu
-  Kontrola.lean                kontrola aksjomatów całego projektu
-  Narzędzia/                   polecenie kontroli
   Procedury/                   automaty procedur
   Rozdział03.lean ...          model kolejnych rozdziałów
   Twierdzenia/                 wyniki pogrupowane tematycznie
@@ -188,8 +187,8 @@ a docs/luki.txt jest po recenzji.
 
 Etap 7. Publikacja i utrzymanie
 - CI: LEAN/sprawdź.sh i .github/workflows/lean.yml uruchamiają `lake build`,
-  kontrolę aksjomatów i zgodność danych z rejestrem. Zadanie w GitHub Actions
-  nie zostało jeszcze uruchomione.
+  kontrolę aksjomatów i aktualność danych. Zadanie w GitHub Actions nie
+  zostało jeszcze uruchomione, a plik workflow czeka na commit.
 - Czytelny opis wyników dla osób bez znajomości Lean.
 - Wersjonowanie modelu według stanu Konstytucji (art. 235 pozwala ją
   zmieniać, a zmiany wymagają nowej wersji modelu).
@@ -211,9 +210,10 @@ T4. Odrzucenie weta wymaga co najmniej 138 głosów przy tym samym
     założeniu (art. 122 ust. 5). W drugim wariancie minimum wynosi 1.
 T5. W samym Sejmie zmiana Konstytucji może przejść mniejszą liczbą głosów
     niż wotum nieufności. Potrzebna jest jeszcze zgoda Senatu.
-T6. Z każdego osiągalnego stanu art. 154-155 można dojść do rządu lub
-    skrócenia kadencji, jeśli Prezydent działa, a skrócenie jest gdzieś
+T6. Z każdego stanu art. 154-155 prowadzi przebieg do rządu lub skrócenia
+    kadencji, jeśli Prezydent działa, a po każdym dniu skrócenie jest
     dozwolone przy przyjętym rozstrzygnięciu kolizji z art. 228 ust. 7.
+    Granica 70 dni dotyczy wejścia do etapu skrócenia, a nie samego aktu.
 T7. Stan wyjątkowy trwa najwyżej 150 dni (art. 230: 90 + 60).
 T8. Ten sam stan faktyczny może być oceniony różnie przy dwóch
     interpretacjach art. 31 ust. 3.

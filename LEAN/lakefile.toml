@@ -3,3 +3,4 @@ defaultTargets = ["Konstytucja"]
 
 [[lean_lib]]
 name = "Konstytucja"
+globs = ["Konstytucja", "Konstytucja.*"]

@@ -477,7 +477,7 @@ art,ust,pkt,status,definicje,twierdzenia
 186,1,0,nie_rozpoczęto,,
 186,2,0,nie_rozpoczęto,,
 187,1,0,nie_rozpoczęto,,
-187,1,1,pełny,składKrajowejRadySądownictwa,skład_krs
+187,1,1,częściowo,składKrajowejRadySądownictwa,skład_krs
 187,1,2,częściowo,składKrajowejRadySądownictwa,skład_krs
 187,1,3,częściowo,składKrajowejRadySądownictwa,skład_krs
 187,2,0,nie_rozpoczęto,,

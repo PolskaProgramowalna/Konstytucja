@@ -49,7 +49,8 @@ def wGranicy (s : Stan) : Prop :=
   | .skrócenie => s.dzień ≤ 70
   | .rząd | .kadencjaSkrócona => True
 
-/-- Do decyzji o skróceniu kadencji z art. 155 ust. 2 upływa najwyżej 70 dni. -/
+/-- Górne granice wejścia do etapów. Etap oczekiwania na skrócenie zaczyna się najpóźniej
+70. dnia, ale samo skrócenie (art. 155 ust. 2) nie ma terminu w tekście. -/
 theorem granice_etapów {s} (h : Osiągalny Z s) : wGranicy s := by
   induction h with
   | start => simp [wGranicy]
@@ -65,11 +66,12 @@ theorem skrócenie_poza_okresem_ochronnym (h : Z.rozstrzygnięcie = .pierwszeńs
     | inl d => exact d
     | inr d => rw [h] at d; cases d
 
-/-- Przy pierwszeństwie art. 155 ust. 2 skrócenie jest możliwe także w okresie ochronnym. -/
+/-- Przy pierwszeństwie art. 155 ust. 2 skrócenie jest możliwe każdego dnia,
+także w okresie ochronnym. -/
 theorem skrócenie_w_okresie_ochronnym (h : Z.prezydentDziała = true)
-    (r : Z.rozstrzygnięcie = .pierwszeństwoArt155) :
-    Osiągalny Z ⟨.kadencjaSkrócona, 42⟩ :=
-  skrócenie_osiągalne h (Or.inr r)
+    (r : Z.rozstrzygnięcie = .pierwszeństwoArt155) (t : Nat) :
+    Krok Z ⟨.skrócenie, t⟩ ⟨.kadencjaSkrócona, t⟩ :=
+  .skrócenie h (wLimicie_refl t) (Or.inr r)
 
 /-- Przy dodatkowym limicie (P4) czas całej procedury jest ograniczony. -/
 theorem granica_przy_limicie {L s} (l : Z.limit = some L) (h : Osiągalny Z s) :
@@ -122,29 +124,56 @@ theorem postęp (w : WarunkiZakończenia Z) (s : Stan) (n : s.etap.końcowy = fa
   | rząd => simp [Etap.końcowy] at n
   | kadencjaSkrócona => simp [Etap.końcowy] at n
 
-/-- Zastępuje szkicowe T6: przy jawnych warunkach z każdego osiągalnego stanu
-można dojść do rządu albo skrócenia kadencji. -/
-theorem zakończenie (w : WarunkiZakończenia Z) {s} (h : Osiągalny Z s) :
-    ∃ s', Osiągalny Z s' ∧ (s'.etap = .rząd ∨ s'.etap = .kadencjaSkrócona) := by
-  suffices p : ∀ n s, s.etap.pozostało ≤ n → Osiągalny Z s →
-      ∃ s', Osiągalny Z s' ∧ (s'.etap = .rząd ∨ s'.etap = .kadencjaSkrócona) from
-    p _ s (Nat.le_refl _) h
+/-- T6: przy jawnych warunkach z każdego stanu prowadzi przebieg do rządu albo
+skrócenia kadencji. Teza dotyczy dojścia od `s`, a nie samego istnienia wyniku. -/
+theorem zakończenie (w : WarunkiZakończenia Z) (s : Stan) :
+    ∃ s', Przebieg Z s s' ∧ (s'.etap = .rząd ∨ s'.etap = .kadencjaSkrócona) := by
+  suffices p : ∀ n s, s.etap.pozostało ≤ n →
+      ∃ s', Przebieg Z s s' ∧ (s'.etap = .rząd ∨ s'.etap = .kadencjaSkrócona) from
+    p _ s (Nat.le_refl _)
   intro n
   induction n with
   | zero =>
-    intro s l o
-    refine ⟨s, o, ?_⟩
+    intro s l
+    refine ⟨s, .stój s, ?_⟩
     obtain ⟨e, t⟩ := s
     cases e <;> simp_all [Etap.pozostało]
   | succ n ih =>
-    intro s l o
+    intro s l
     by_cases k : s.etap.końcowy = true
-    · refine ⟨s, o, ?_⟩
+    · refine ⟨s, .stój s, ?_⟩
       obtain ⟨e, t⟩ := s
       cases e <;> simp_all [Etap.końcowy]
     · obtain ⟨s', ks⟩ := postęp w s (by simpa using k)
       have := krok_zmniejsza ks
-      exact ih s' (by omega) (.krok o ks)
+      obtain ⟨u, pu, ku⟩ := ih s' (by omega)
+      exact ⟨u, .dalej ks pu, ku⟩
+
+/-- Przebieg ze stanu osiągalnego daje stan osiągalny. -/
+theorem osiągalny_po_przebiegu {s s'} (h : Osiągalny Z s) (p : Przebieg Z s s') :
+    Osiągalny Z s' := by
+  induction p with
+  | stój => exact h
+  | dalej k _ ih => exact ih (.krok h k)
+
+/-- Przy tych warunkach przebieg może utknąć tylko w stanie końcowym. -/
+theorem utknięcie_tylko_na_końcu (w : WarunkiZakończenia Z) {s}
+    (u : ∀ s', ¬ Krok Z s s') : s.etap.końcowy = true := by
+  cases n : s.etap.końcowy with
+  | true => rfl
+  | false =>
+    obtain ⟨s', k⟩ := postęp w s n
+    exact absurd k (u s')
+
+/-- Teza `zakończenie` zależy od `s`: ze stanu końcowego nie ma dokąd przejść. -/
+theorem przebieg_ze_stanu_końcowego {s s'} (k : s.etap.końcowy = true)
+    (p : Przebieg Z s s') : s' = s := by
+  cases p with
+  | stój => rfl
+  | dalej h _ =>
+    have := krok_zmniejsza h
+    obtain ⟨e, t⟩ := s
+    cases e <;> simp [Etap.końcowy, Etap.pozostało] at k this
 
 /-! ## Blokady i brak górnej granicy -/
 
@@ -162,17 +191,18 @@ theorem bezczynność_nie_blokuje_art154 :
     Osiągalny Z ⟨.powołanie155, 28⟩ :=
   .krok (.krok .start .niepowołanie) .brakWyboru
 
-/-- Art. 155 ust. 1 nie przewiduje skutku bezczynności Prezydenta, więc automat staje. -/
-theorem bezczynność_blokuje_art155 (h : Z.prezydentDziała = false) (s t) :
-    ¬ Krok Z ⟨.powołanie155, t⟩ s := by
-  intro k
+/-- Art. 155 ust. 1 nie przewiduje skutku bezczynności Prezydenta, więc automat staje
+w osiągalnym stanie niekońcowym. -/
+theorem bezczynność_blokuje_art155 (h : Z.prezydentDziała = false) :
+    Osiągalny Z ⟨.powołanie155, 28⟩ ∧ ∀ s, ¬ Krok Z ⟨.powołanie155, 28⟩ s := by
+  refine ⟨bezczynność_nie_blokuje_art154, fun s k => ?_⟩
   cases k with
   | powołanie155 p _ => rw [h] at p; cases p
 
 /-- To samo dotyczy powołania rządu wybranego przez Sejm. -/
-theorem bezczynność_blokuje_art154_ust3 (h : Z.prezydentDziała = false) (s t) :
-    ¬ Krok Z ⟨.powołanieWybranych, t⟩ s := by
-  intro k
+theorem bezczynność_blokuje_art154_ust3 (h : Z.prezydentDziała = false) :
+    Osiągalny Z ⟨.powołanieWybranych, 14⟩ ∧ ∀ s, ¬ Krok Z ⟨.powołanieWybranych, 14⟩ s := by
+  refine ⟨.krok (.krok .start .niepowołanie) (.wybór (by simp [wCiągu])), fun s k => ?_⟩
   cases k with
   | powołanieWybranych p _ => rw [h] at p; cases p
 

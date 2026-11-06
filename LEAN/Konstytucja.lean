@@ -1,1 +1,7 @@
-import Konstytucja.Kontrola
+import Konstytucja.Twierdzenia.Progi
+import Konstytucja.Twierdzenia.Hierarchia
+import Konstytucja.Twierdzenia.Terminy
+import Konstytucja.Twierdzenia.Kolizje
+import Konstytucja.Twierdzenia.Interpretacje
+import Konstytucja.Twierdzenia.TworzenieRządu
+import Konstytucja.Modele.Kalendarz30

@@ -105,4 +105,9 @@ inductive Osiągalny : Stan → Prop where
   | start : Osiągalny ⟨.powołanie154, 0⟩
   | krok {s s'} : Osiągalny s → Krok Z s s' → Osiągalny s'
 
+/-- Przebieg: zero lub więcej kroków od stanu `s`. -/
+inductive Przebieg : Stan → Stan → Prop where
+  | stój (s) : Przebieg s s
+  | dalej {a b c} : Krok Z a b → Przebieg b c → Przebieg a c
+
 end Konstytucja.TworzenieRządu

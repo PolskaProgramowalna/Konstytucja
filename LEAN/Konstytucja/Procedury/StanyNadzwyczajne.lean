@@ -57,8 +57,8 @@ structure Założenia where
   prezydentDziała : Bool
   /-- Art. 231 zd. 2: liczba godzin mieszcząca się w „niezwłocznie”. -/
   niezwłocznie : Nat
-  /-- Art. 234 ust. 1. -/
-  sejmMożeObradować : Bool
+  /-- Art. 234 ust. 1: zmienia się w czasie. -/
+  sejmMożeObradować : Nat → Bool
   /-- Założenie G2. -/
   mianownik : Mianownik
   kalendarz : Kalendarz
@@ -77,6 +77,18 @@ def przesłankiSpełnione (r : Rodzaj) : Prop :=
 
 /-- Art. 231 zd. 3. -/
 def uchylenie (g : Głosowanie .sejm) : Prop := kworum g ∧ większośćBezwzględna Z.mianownik g
+
+/-- Stan obowiązuje najdłużej do planowanego końca. -/
+def doKońca (k : Option Nat) (t : Nat) : Prop :=
+  match k with
+  | none => True
+  | some e => t ≤ e
+
+/-- W etapach obowiązywania czas nie może minąć planowanego końca. -/
+def możeCzekać (e : Etap) (t : Nat) : Prop :=
+  match e with
+  | .podpisane _ _ k | .uSejmu _ _ k | .trwa _ _ k _ => doKońca k t
+  | _ => True
 
 /-- Założenie S4. -/
 def zgodaSejmu (g : Głosowanie .sejm) : Prop := kworum g ∧ większośćZwykła g
@@ -97,14 +109,22 @@ inductive Krok : Stan → Stan → Prop where
         ⟨.podpisane .wyjątkowy t (some (t + godziny d)), t, x⟩
   /-- Art. 231 zd. 1. -/
   | przedstawienie {r p k t t' x} : Z.prezydentDziała = true →
-      wTerminie Z.kalendarz p (.godziny 48) t' → t ≤ t' →
+      wTerminie Z.kalendarz p (.godziny 48) t' → t ≤ t' → doKońca k t' →
       Krok ⟨.podpisane r p k, t, x⟩ ⟨.uSejmu r p k, t', x⟩
   /-- Art. 231 zd. 2: Sejm nie uchyla. -/
   | utrzymanie {r p k t t' x} : Z.sejmDziała = true → t ≤ t' → t' ≤ t + Z.niezwłocznie →
+      doKońca k t' →
       Krok ⟨.uSejmu r p k, t, x⟩ ⟨.trwa r p k 0, t', x⟩
   /-- Art. 231 zd. 3. -/
   | uchylenie {r p k t t' x} (g) : Z.sejmDziała = true → uchylenie Z g → t ≤ t' →
-      t' ≤ t + Z.niezwłocznie → Krok ⟨.uSejmu r p k, t, x⟩ ⟨.poStanie r p t', t', x⟩
+      t' ≤ t + Z.niezwłocznie → doKońca k t' →
+      Krok ⟨.uSejmu r p k, t, x⟩ ⟨.poStanie r p t', t', x⟩
+  /-- Art. 230 ust. 1: stan wygasa z upływem czasu, także przed decyzją Sejmu. -/
+  | wygaśnięciePodpisanego {r p k t x} : t ≤ k →
+      Krok ⟨.podpisane r p (some k), t, x⟩ ⟨.poStanie r p k, k, x⟩
+  /-- Art. 230 ust. 1: stan wygasa z upływem czasu, także przed decyzją Sejmu. -/
+  | wygaśnięcieUSejmu {r p k t x} : t ≤ k →
+      Krok ⟨.uSejmu r p (some k), t, x⟩ ⟨.poStanie r p k, k, x⟩
   /-- Art. 232: Rada Ministrów wprowadza stan klęski bez udziału Prezydenta i Sejmu. -/
   | wprowadzenieKlęski {t d x} : przesłankiSpełnione Z .klęskaŻywiołowa → d ≤ 30 →
       Krok ⟨.normalny, t, x⟩ ⟨.trwa .klęskaŻywiołowa t (some (t + godziny d)) 0, t, x⟩
@@ -118,14 +138,13 @@ inductive Krok : Stan → Stan → Prop where
         ⟨.trwa .klęskaŻywiołowa p (some (k + godziny d)) (e + 1), t, x⟩
   /-- Art. 234 ust. 1. -/
   | rozporządzenieZMocąUstawy {p k t e x} : Z.prezydentDziała = true →
-      Z.sejmMożeObradować = false →
+      Z.sejmMożeObradować t = false →
       Krok ⟨.trwa .wojenny p k e, t, x⟩ ⟨.trwa .wojenny p k e, t, x + 1⟩
-  /-- Art. 234 ust. 1 zd. 2. -/
-  | zatwierdzenie {p k t e x} : Z.sejmDziała = true → Z.sejmMożeObradować = true →
-      Krok ⟨.trwa .wojenny p k e, t, x + 1⟩ ⟨.trwa .wojenny p k e, t, x⟩
-  /-- Założenie S5: koniec nie później niż w planowanym dniu, a jeśli ten minął już
-  w czasie rozpatrywania w Sejmie, od razu. -/
-  | koniec {r p k e t t' x} : t ≤ t' → (t' ≤ k ∨ t' = t) →
+  /-- Art. 234 ust. 1 zd. 2: także po zakończeniu stanu wojennego. -/
+  | zatwierdzenie {e t x} : Z.sejmDziała = true → Z.sejmMożeObradować t = true →
+      Krok ⟨e, t, x + 1⟩ ⟨e, t, x⟩
+  /-- Założenie S5: koniec nie później niż w planowanym dniu. -/
+  | koniec {r p k e t t' x} : t ≤ t' → t' ≤ k →
       Krok ⟨.trwa r p (some k) e, t, x⟩ ⟨.poStanie r p t', t', x⟩
   /-- Założenie S5: stan wojenny nie ma terminu w tekście. -/
   | końcowaDecyzja {p e t t' x} : Z.prezydentDziała = true → t ≤ t' →
@@ -133,6 +152,8 @@ inductive Krok : Stan → Stan → Prop where
   /-- Art. 228 ust. 7: po 90 dniach od końca. -/
   | końcowyPowrót {r p k t x} : k + godziny 90 ≤ t →
       Krok ⟨.poStanie r p k, t, x⟩ ⟨.normalny, t, x⟩
+  /-- Upływ czasu. W etapach obowiązywania tylko do planowanego końca. -/
+  | czekanie {e t t' x} : t ≤ t' → możeCzekać e t' → Krok ⟨e, t, x⟩ ⟨e, t', x⟩
 
 inductive Osiągalny : Stan → Prop where
   | start : Osiągalny ⟨.normalny, 0, 0⟩
@@ -208,10 +229,17 @@ def wStanie (h : Historia) (t : Nat) : Bool :=
 def wOkresieOchronnym (h : Historia) (t : Nat) : Bool :=
   h.any fun x => x.1 ≤ t && t ≤ x.2 + 90
 
-/-- Założenie S7. -/
+/-- Pierwszy dzień od `t` poza okresem ochronnym, przy `f` krokach zapasu. -/
+def pierwszyWolny (h : Historia) : Nat → Nat → Nat
+  | 0, t => t
+  | f + 1, t => if wOkresieOchronnym h t then pierwszyWolny h f (t + 1) else t
+
+/-- Pierwszy dzień, od którego historia nie chroni. -/
+def koniecOchrony (h : Historia) : Nat := (h.map fun x => x.2 + 91).foldr max 0
+
+/-- Założenie S7: pierwszy dzień poza okresem ochronnym obejmującym koniec kadencji.
+Późniejsze, niezwiązane stany nie mają wpływu. -/
 def przedłużonaKadencja (h : Historia) (koniec : Nat) : Nat :=
-  if wOkresieOchronnym h koniec then
-    (h.map fun x => x.2 + 91).foldr max koniec
-  else koniec
+  pierwszyWolny h (koniecOchrony h - koniec) koniec
 
 end Konstytucja.StanyNadzwyczajne

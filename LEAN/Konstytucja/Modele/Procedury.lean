@@ -20,6 +20,7 @@ def ustawaWedługTekstu : Ustawodawstwo.Założenia where
   pilnośćDopuszczalna := by simp
   mianownik := .wszyscyGłosujący
   sejmDziała := true
+  sejmRozpatruje := true
   prezydentDziała := true
   trybunałOrzeka := true
   limit := none
@@ -61,7 +62,7 @@ theorem limity_dają_granicę {s} (h : Ustawodawstwo.Osiągalny ustawaZLimitami 
 
 theorem limity_dają_zakończenie (s : Ustawodawstwo.Stan) :
     ∃ u, Przebieg (Ustawodawstwo.Krok ustawaZLimitami) s u ∧ u.etap.końcowy = true :=
-  Ustawodawstwo.zakończenie ⟨rfl, rfl, rfl⟩ (m := 1) rfl s
+  Ustawodawstwo.zakończenie ⟨rfl, rfl, rfl, rfl⟩ (m := 1) rfl s
 
 example :=
   Ustawodawstwo.brak_orzeczenia_blokuje (Z := ustawaBezOrzeczenia) rfl rfl rfl

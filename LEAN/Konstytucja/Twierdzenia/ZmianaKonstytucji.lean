@@ -216,20 +216,35 @@ theorem bez_zakazu_referendum_możliwe (s : Z.sejmDziała = true) (c : Z.chronio
   ⟨_, .krok (do_referendum s c) (.referendumPrzyjęte ⟨1, 0⟩ s referendum_bez_frekwencji
     (wCiągu_refl _ _) (Or.inr v)), rfl⟩
 
+/-- Etap Prezydenta jest osiągalny bez jego udziału. -/
+theorem do_prezydenta (s : Z.sejmDziała = true) (c : Z.chroniona = false) :
+    ∃ v, Osiągalny Z v ∧ v.etap = .prezydent :=
+  ⟨_, .krok (.krok (do_senatu s)
+    (.senatUchwala pełnySenat (pełnySenat_uchwala _) (wCiągu_refl _ _) c))
+    (.przedstawienie s (refl _)), rfl⟩
+
 /-- Art. 235 ust. 7 nie przewiduje skutku bezczynności Prezydenta. -/
-theorem bezczynność_prezydenta_blokuje (p : Z.prezydentDziała = false) (t r x u) :
-    ¬ Krok Z ⟨.prezydent, t, r, x⟩ u := by
-  intro k
+theorem bezczynność_prezydenta_blokuje (s : Z.sejmDziała = true) (c : Z.chroniona = false)
+    (p : Z.prezydentDziała = false) :
+    ∃ v, Osiągalny Z v ∧ v.etap = .prezydent ∧ ∀ u, ¬ Krok Z v u := by
+  obtain ⟨⟨e, t, r, x⟩, o, q⟩ := do_prezydenta s c
+  simp only at q
+  subst q
+  refine ⟨_, o, rfl, fun u k => ?_⟩
   cases k <;> simp_all
 
-/-- Podpis w ostatnim dniu może nie być możliwy, gdy trwa stan nadzwyczajny. -/
-theorem stan_nadzwyczajny_blokuje_podpis (b : ∀ t, Z.stanNadzwyczajny t = true)
-    (v : Z.trybunałPrzedPodpisem = false) (t r x u) :
-    ¬ Krok Z ⟨.prezydent, t, r, x⟩ u := by
-  intro k
+/-- Przy stanie nadzwyczajnym w dniu podpisu Prezydent nie może podpisać: Art. 228 ust. 6
+wiążemy z podpisem (V4). Stan jest osiągalny, bo wcześniejsze etapy nie mają tego zakazu. -/
+theorem stan_nadzwyczajny_blokuje_podpis (s : Z.sejmDziała = true) (c : Z.chroniona = false)
+    (b : ∀ t, Z.stanNadzwyczajny t = true) (v : Z.trybunałPrzedPodpisem = false) :
+    ∃ w, Osiągalny Z w ∧ w.etap = .prezydent ∧ ∀ u, ¬ Krok Z w u := by
+  obtain ⟨⟨e, t, r, x⟩, o, q⟩ := do_prezydenta s c
+  simp only at q
+  subst q
+  refine ⟨_, o, rfl, fun u k => ?_⟩
   cases k with
-  | podpis _ _ s => rw [b] at s; cases s
-  | wniosekDoTrybunału _ _ w => rw [v] at w; cases w
+  | podpis _ _ h => rw [b] at h; cases h
+  | wniosekDoTrybunału _ _ h => rw [v] at h; cases h
 
 /-! ## Zakończenie i czas -/
 

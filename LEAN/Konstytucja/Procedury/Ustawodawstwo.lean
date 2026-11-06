@@ -80,6 +80,8 @@ structure Założenia where
   /-- Założenie G2. -/
   mianownik : Mianownik
   sejmDziała : Bool
+  /-- Założenie U9. -/
+  sejmRozpatruje : Bool
   prezydentDziała : Bool
   trybunałOrzeka : Bool
   /-- Założenie U6. -/
@@ -138,14 +140,14 @@ inductive Krok : Stan → Stan → Prop where
   | senatOdrzuca {t t' r w p} : wCiągu t (terminSenatu Z) t' →
       Krok ⟨.senat, t, r, w, p⟩ ⟨.sejmPoOdrzuceniu, t', r, w, p⟩
   /-- Art. 121 ust. 3: ustawa idzie dalej, z poprawką lub bez niej. -/
-  | poprawkiRozpatrzone {t t' r w p} : Z.sejmDziała = true → wLimicie Z t t' →
+  | poprawkiRozpatrzone {t t' r w p} : Z.sejmRozpatruje = true → wLimicie Z t t' →
       Krok ⟨.sejmPoPoprawkach, t, r, w, p⟩ ⟨.marszałek, t', r, w, p⟩
   /-- Art. 121 ust. 3. -/
-  | odrzucenieOdrzucone {t t' r w p} (g) : Z.sejmDziała = true →
+  | odrzucenieOdrzucone {t t' r w p} (g) : Z.sejmRozpatruje = true →
       odrzucenieStanowiskaSenatu Z.mianownik g → wLimicie Z t t' →
       Krok ⟨.sejmPoOdrzuceniu, t, r, w, p⟩ ⟨.marszałek, t', r, w, p⟩
   /-- Art. 121 ust. 3. -/
-  | odrzucenieUtrzymane {t t' r w p} (g) : Z.sejmDziała = true →
+  | odrzucenieUtrzymane {t t' r w p} (g) : Z.sejmRozpatruje = true →
       ¬ odrzucenieStanowiskaSenatu Z.mianownik g → wLimicie Z t t' →
       Krok ⟨.sejmPoOdrzuceniu, t, r, w, p⟩ ⟨.upadła, t', r, w, p⟩
   /-- Art. 122 ust. 1–2, art. 123 ust. 3. Zegar startuje od nowa. -/

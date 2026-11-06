@@ -93,6 +93,18 @@ theorem głosowanie_ministra_po_7_dniach {t a b o s}
     (k : Krok Z ⟨.wniosekMinistra, t, a, b, o⟩ s) : t + 7 ≤ s.dzień := by
   cases k <;> simp_all [wOknieGłosowania, wLimicieCzasu]
 
+/-- Art. 158 ust. 2 zd. 2: po odczekaniu 3 miesięcy osiągalny jest wniosek 46 posłów. -/
+theorem powtórny_wniosek_46_osiągalny (s : Z.sejmDziała = true) :
+    ∃ v, Osiągalny Z v ∧ v.etap = .wniosekNieufności 0 ∧ v.odrzucone = 1 := by
+  have a := Osiągalny.krok (Osiągalny.start (Z := Z))
+    (.zgłoszenieNieufności 46 0 (by decide) (Or.inr trivial))
+  have b := Osiągalny.krok a (.wotumNieuchwalone pusty s pusty_bez_nieufności (okno 0))
+  have c := Osiągalny.krok b (.upływCzasu (t' := max (0 + 7) (Z.kalendarz.poMiesiącach 0 3))
+    (by omega))
+  exact ⟨_, .krok c (.zgłoszenieNieufności 46 0 (by decide) (Or.inr (by
+    show Z.kalendarz.poMiesiącach 0 3 ≤ _
+    omega))), rfl, rfl⟩
+
 /-- Art. 158 ust. 2 zd. 2: powtórny wniosek mniej niż 115 posłów dopiero po 3 miesiącach. -/
 theorem powtórny_po_3_miesiącach {z n t} (d : powtórnyDopuszczalny Z (some z) 115 n t)
     (m : n < 115) : Z.kalendarz.poMiesiącach z 3 ≤ t := by
@@ -106,6 +118,7 @@ theorem wniosek_wymaga_46 {t a b o s w}
     ∃ n, n ≥ 46 ∧ powtórnyDopuszczalny Z a 115 n t := by
   cases k with
   | zgłoszenieNieufności n _ m d => exact ⟨n, m, d⟩
+  | upływCzasu => cases e
   | zgłoszenieMinistra => cases e
   | wniosekZaufania => cases e
   | pierwszePosiedzenie => cases e

@@ -69,7 +69,46 @@ theorem okres_przejściowy (t : Nat) (a : 131 ≤ t) (b : t ≤ 220) :
   simp [wStanie, wOkresieOchronnym, historiaPrzykładowa]
   omega
 
+set_option maxRecDepth 20000 in
 /-- Założenie S7 w przykładzie: kadencja kończąca się 120. dnia trwa do dnia 221. -/
 theorem kadencja_w_przykładzie : przedłużonaKadencja historiaPrzykładowa 120 = 221 := by decide
+
+/-- Stany nadzwyczajne: Sejm nie może obradować w chwili 0, a od chwili 1 może. -/
+def stanyWedługTekstu : StanyNadzwyczajne.Założenia where
+  środkiNiewystarczające := true
+  przesłanka := fun _ => true
+  sejmDziała := true
+  prezydentDziała := true
+  niezwłocznie := 24
+  sejmMożeObradować := fun t => t != 0
+  mianownik := .wszyscyGłosujący
+  kalendarz := kalendarz30
+
+theorem warunki_stanów_spełnialne :
+    StanyNadzwyczajne.WarunkiZakończenia stanyWedługTekstu := ⟨rfl, rfl⟩
+
+private theorem przesłanki (r) : przesłankiSpełnione stanyWedługTekstu r := ⟨rfl, rfl⟩
+
+/-- Art. 234: wydanie i zatwierdzenie rozporządzenia w jednym przebiegu. -/
+theorem art234_w_modelu : Osiągalny stanyWedługTekstu ⟨.trwa .wojenny 0 none 0, 1, 0⟩ :=
+  zatwierdzenie_osiągalne (przesłanki _) rfl rfl rfl rfl
+
+theorem art234_po_stanie : Osiągalny stanyWedługTekstu ⟨.poStanie .wojenny 0 0, 1, 0⟩ :=
+  zatwierdzenie_po_stanie (przesłanki _) rfl rfl rfl rfl
+
+theorem pełna_granica_w_modelu :
+    Osiągalny stanyWedługTekstu ⟨.poStanie .wyjątkowy 0 (0 + godziny 90 + godziny 60),
+      0 + godziny 90 + godziny 60, 0⟩ :=
+  wyjątkowy_150_osiągalne (przesłanki _) rfl rfl
+
+theorem powrót_w_modelu : Osiągalny stanyWedługTekstu ⟨.normalny, 0 + godziny 90, 0⟩ :=
+  powrót_do_normalnego (przesłanki _) rfl rfl
+
+theorem klęska_w_modelu (n : Nat) :
+    ∃ u p k e, Osiągalny stanyWedługTekstu u ∧ u.etap = .trwa .klęskaŻywiołowa p k e ∧
+      u.chwila > n :=
+  klęska_dowolnie_długo rfl (przesłanki _) n
+
+example := spóźnienie_wojennego (Z := stanyWedługTekstu) (przesłanki _) rfl
 
 end Konstytucja.Modele

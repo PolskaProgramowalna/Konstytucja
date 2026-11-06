@@ -192,16 +192,18 @@ Nie jest jasne, czy 60 dni i dzień wolny dotyczą też wyborów zwykłych (W1).
 
 L44. Brak skutku przekroczenia 48 godzin (art. 231)
 Tekst nie mówi, co dzieje się z rozporządzeniem nieprzedstawionym Sejmowi w terminie.
-Automat staje po 48 godzinach (po_48_godzinach_brak_kroku, nieprzedstawienie_blokuje).
-Stan formalnie trwa od podpisania, ale model nie ma etapu wygaśnięcia.
+Po 48 godzinach nie ma przedstawienia (po_48_godzinach_bez_przedstawienia). Stan z terminem
+wygasa później sam, a stan wojenny bez terminu pozostaje w etapie podpisane
+(spóźnienie_wojennego). Model nie ma etapu nieważności takiego rozporządzenia.
 
 L45. Stan wojenny bez limitu i bez trybu zakończenia (art. 229)
 Art. 229 nie podaje czasu trwania, a przepisy nie opisują odwołania stanu. Model przyjmuje
 S5, a bez działania Prezydenta stan nie wygasa (wojenny_nie_wygasa).
 
 L46. Przedłużanie stanu klęski bez limitu (art. 232)
-Przepis mówi tylko o zgodzie Sejmu, inaczej niż art. 230 ust. 2. Przedłużanie może trwać
-bez końca (klęska_bez_końca). To rozwija L6.
+Przepis mówi tylko o zgodzie Sejmu, inaczej niż art. 230 ust. 2. Stan klęski może
+obowiązywać dowolnie długo przy upływającym czasie (klęska_bez_końca,
+klęska_dowolnie_długo). To rozwija L6.
 
 L47. Tryb wprowadzenia a czas pracy Sejmu
 Art. 231 opisuje tylko stan wojenny i wyjątkowy. Stan klęski nie podlega przedstawieniu ani
@@ -219,3 +221,11 @@ ochronnym (S7), choć w praktyce potrzebny byłby też czas na wybory.
 L50. Lokalny zasięg a zakaz wyborów (art. 228 ust. 7 zd. 2)
 Wybory samorządowe są możliwe tam, gdzie nie wprowadzono stanu. Stany dotyczą części
 albo całego terytorium (art. 229, 230, 232), a model nie ma pojęcia terytorium.
+
+L51. Skutek niezatwierdzenia rozporządzenia z art. 234
+Art. 234 ust. 1 wymaga zatwierdzenia na najbliższym posiedzeniu, ale nie mówi, co gdy
+Sejm odmówi lub się nie zbierze. Model ma tylko przejście zatwierdzające (S10).
+
+L52. Upływ terminu stanu przed decyzją Sejmu (art. 231 i art. 230)
+Krótki stan może wygasnąć, zanim Sejm rozpatrzy rozporządzenie
+(wygaśnięcie_przed_decyzją). Tekst nie opisuje tej sytuacji (S9).

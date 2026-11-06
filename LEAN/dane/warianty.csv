@@ -33,3 +33,5 @@ S2,przesłanki spełnione,Założenia.środkiNiewystarczające,roboczy,pojęcie 
 S2,przesłanki niespełnione,Założenia.środkiNiewystarczające,roboczy,pojęcie ocenne
 S5,zakończenie stanu przed terminem dozwolone,Krok.koniec,roboczy,tekst milczy
 S7,kadencja do pierwszego dnia po okresie,przedłużonaKadencja,roboczy,"tekst mówi o odpowiednim przedłużeniu, a kadencja może trwać dłużej do wyborów"
+S9,stan wygasa przed decyzją Sejmu,Krok.wygaśnięcieUSejmu,roboczy,art. 230 nie opisuje tej sytuacji
+U9,bierność Sejmu po stanowisku Senatu,Założenia.sejmRozpatruje,roboczy,art. 121 ust. 3 nie podaje terminu

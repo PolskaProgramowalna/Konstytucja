@@ -42,6 +42,8 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
   `limit`, a `none` odpowiada tekstowi.
 * U7. `maksPowrotów` to założenie spoza tekstu, ograniczające liczbę zwrotów,
   a `none` odpowiada tekstowi.
+* U9. `sejmDziała` dotyczy uchwalania ustawy. Rozpatrywanie stanowiska Senatu ma osobny
+  parametr `sejmRozpatruje`, bo inaczej bierność na tym etapie byłaby nieosiągalna.
 * U8. Ustawa z art. 224 ma inny tryb. Ten automat jej nie obejmuje.
 * V1. Art. 235 ust. 2 nie wskazuje początku 60 dni dla Senatu. Liczymy je od uchwalenia
   ustawy przez Sejm.
@@ -106,7 +108,12 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
 * S5. Tekst nie mówi, jak kończy się stan wojenny, ani nie wyklucza wcześniejszego
   zakończenia pozostałych stanów. Przejście do `poStanie` ujmuje każde zakończenie.
 * S6. Okres ochronny obejmuje dzień zakończenia i 90 kolejnych dni.
-* S7. Kadencja kończąca się w okresie ochronnym trwa do pierwszego dnia po nim.
+* S7. Kadencja kończąca się w okresie ochronnym trwa do pierwszego dnia poza nim. Stykające
+  się okresy liczą się razem, a późniejsze niezwiązane stany nie mają wpływu.
+* S9. Stan obowiązuje najdłużej do planowanego końca, także gdy Sejm go jeszcze nie
+  rozpatrzył. Wtedy wygasa. Przedłużyć można tylko stan, który jeszcze obowiązuje.
+* S10. Rozporządzenia z art. 234 zatwierdza Sejm, gdy może obradować, także po zakończeniu
+  stanu wojennego. Tekst nie opisuje skutku odmowy zatwierdzenia.
 * S8. Art. 233 ust. 2 modeluje tylko motyw ograniczenia. Art. 228 ust. 5 (odpowiedniość)
   jest pojęciem ocennym i nie wchodzi do katalogów.
 * A1. Pierwszeństwo aktów opisuje tylko sytuację kolizji. Warunki z art. 91 ust. 2–3

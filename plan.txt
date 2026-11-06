@@ -62,6 +62,9 @@ Z7. Instancja potwierdza tylko spełnialność warunków zapisanych w jej typie.
 Z8. Nie używamy Mathlib, dopóki biblioteka standardowa wystarcza.
 Z9. Każdy wariant interpretacyjny ma status: roboczy, przyjęty do głównego
     modelu albo zweryfikowany przez recenzenta (dane/warianty.csv).
+Z11. Blokada i wynik analizy muszą dotyczyć stanu osiągalnego. Parametr stały
+    w całym przebiegu nie może czynić opisywanego etapu nieosiągalnym, a automat
+    z terminami musi dopuszczać upływ czasu w etapach oczekiwania.
 Z10. Postęp mierzymy na poziomie ustępu i punktu, z nazwami definicji
     i twierdzeń (dane/rejestr.csv), a pokrycie artykułów jest tylko skrótem.
 
@@ -261,5 +264,5 @@ D5. Czy projekt ma być publiczny i na jakiej licencji?
 9. NAJBLIŻSZE KROKI
 
 1. Zatwierdzić i wypchnąć zmiany razem z .github/, żeby uruchomić CI.
-2. Ocenić wszystkie założenia oraz luki L1-L50.
+2. Ocenić wszystkie założenia oraz luki L1-L52.
 3. Przejść do etapu 4: kompetencje i ich granice.

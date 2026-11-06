@@ -96,6 +96,8 @@ def wotumZaufaniaArt160 (g : Głosowanie .sejm) : Prop := kworum g ∧ większo�
 def wotumNieufnościMinistra (g : Głosowanie .sejm) : Prop := większośćUstawowa g
 
 inductive Krok : Stan → Stan → Prop where
+  /-- Upływ czasu w czasie urzędowania. -/
+  | upływCzasu {t t' a b o} : t ≤ t' → Krok ⟨.urzęduje, t, a, b, o⟩ ⟨.urzęduje, t', a, b, o⟩
   /-- Art. 158 ust. 1–2. -/
   | zgłoszenieNieufności {t a b o} (n k : Nat) : n ≥ 46 →
       powtórnyDopuszczalny Z a 115 n t →

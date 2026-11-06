@@ -67,11 +67,12 @@ theorem upadła_przez_nieuchwalenie (s : Z.sejmDziała = true) :
     ∃ u, Osiągalny Z u ∧ u.etap = .upadła :=
   ⟨_, .krok .start (.nieuchwalenie pusty s (fun h => pusty_bez_kworum h.1) (refl 0)), rfl⟩
 
-theorem upadła_przez_stanowisko_senatu (s : Z.sejmDziała = true) :
+theorem upadła_przez_stanowisko_senatu (s : Z.sejmDziała = true)
+    (q : Z.sejmRozpatruje = true) :
     ∃ u, Osiągalny Z u ∧ u.etap = .upadła :=
   ⟨_, .krok (.krok (.krok .start (.uchwalenie pełny s pełny_ustawa (refl 0)))
     (.senatOdrzuca (wCiągu_refl 0 _)))
-    (.odrzucenieUtrzymane pusty s (fun h => pusty_bez_kworum h.1) (refl 0)), rfl⟩
+    (.odrzucenieUtrzymane pusty q (fun h => pusty_bez_kworum h.1) (refl 0)), rfl⟩
 
 theorem upadła_przez_trybunał (s : Z.sejmDziała = true) (h : Z.prezydentDziała = true)
     (t : Z.trybunałOrzeka = true) : ∃ u, Osiągalny Z u ∧ u.etap = .upadła :=
@@ -218,9 +219,11 @@ theorem bezczynność_prezydenta_blokuje (s : Z.sejmDziała = true)
   cases k <;> simp_all
 
 /-- Art. 121 ust. 3 nie podaje terminu Sejmowi: po poprawkach automat staje. -/
-theorem bierność_sejmu_blokuje (s : Z.sejmDziała = false) (t r w p u) :
-    ¬ Krok Z ⟨.sejmPoPoprawkach, t, r, w, p⟩ u := by
-  intro k
+theorem bierność_sejmu_blokuje (s : Z.sejmDziała = true) (b : Z.sejmRozpatruje = false) :
+    Osiągalny Z ⟨.sejmPoPoprawkach, 0, 0, false, 0⟩ ∧
+      ∀ u, ¬ Krok Z ⟨.sejmPoPoprawkach, 0, 0, false, 0⟩ u := by
+  refine ⟨.krok (.krok .start (.uchwalenie pełny s pełny_ustawa (refl 0)))
+    (.senatPoprawia (wCiągu_refl 0 _)), fun u k => ?_⟩
   cases k <;> simp_all
 
 /-! ## Zakończenie przy założeniu U7 -/
@@ -239,6 +242,7 @@ theorem brak_nieskończonego_przy_limicie {m} (l : Z.maksPowrotów = some m) (f 
 
 structure WarunkiZakończenia (Z : Założenia) : Prop where
   sejm : Z.sejmDziała = true
+  rozpatruje : Z.sejmRozpatruje = true
   prezydent : Z.prezydentDziała = true
   trybunał : Z.trybunałOrzeka = true
 
@@ -251,9 +255,10 @@ theorem postęp (w : WarunkiZakończenia Z) (s : Stan) (n : s.etap.końcowy = fa
   cases e with
   | sejm => exact ⟨_, .wycofanie (refl t)⟩
   | senat => exact ⟨_, .senatMilczy⟩
-  | sejmPoPoprawkach => exact ⟨_, .poprawkiRozpatrzone hs (refl t)⟩
+  | sejmPoPoprawkach => exact ⟨_, .poprawkiRozpatrzone w.rozpatruje (refl t)⟩
   | sejmPoOdrzuceniu =>
-    exact ⟨_, .odrzucenieUtrzymane pusty hs (fun h => pusty_bez_kworum h.1) (refl t)⟩
+    exact ⟨_, .odrzucenieUtrzymane pusty w.rozpatruje
+      (fun h => pusty_bez_kworum h.1) (refl t)⟩
   | marszałek => exact ⟨_, .przedstawienie hs (refl t)⟩
   | prezydent => exact ⟨_, .podpis (d := 0) hp (Nat.zero_le _)⟩
   | trybunał => exact ⟨_, .orzeczenieZgodna ht (refl t)⟩

@@ -8,6 +8,7 @@ Model jest roboczą interpretacją, a nie opinią prawną. Wynik znaczy zawsze: 
 
 | Dla kogo | Dokument |
 | --- | --- |
+| Początkujący | [JAKZACZĄĆ.md](JAKZACZĄĆ.md) |
 | Ogólny obraz metody | [METODOLOGIA.md](METODOLOGIA.md) |
 | Prawnik | [inne/](inne/): recenzja prawna z założeniami, lukami i pytaniami |
 | Plan i stan etapów | [plan.txt](plan.txt) |

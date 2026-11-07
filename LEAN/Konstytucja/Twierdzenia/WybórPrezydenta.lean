@@ -109,13 +109,44 @@ theorem wybrany_dopuszczalny {s w} (h : Osiągalny Z s) (e : s.etap = .prezydent
 /-! ## Terminy -/
 
 /-- Art. 128 ust. 2: w trybie zwykłym wybory wypadają 75–100 dni przed końcem kadencji. -/
-theorem data_zwykłych {k t z d p} (m : Z.tryb = .zwykły k)
-    (h : Krok Z ⟨.przedZarządzeniem, t, p⟩ ⟨.pierwszaTura d, z, p⟩) :
+theorem data_zwykłych {k t z d p}
+    (h : Krok Z ⟨.przedZarządzeniem (.zwykły k), t, p⟩ ⟨.pierwszaTura d, z, p⟩) :
     k ≤ d + 100 ∧ d + 75 ≤ k := by
   cases h with
-  | zarządzenie _ w _ =>
-    simp only [terminZarządzenia, m] at w
-    exact w.2.2
+  | zarządzenie _ w _ => exact w.2.2.2
+
+/-- Zarządzenie nie cofa czasu w żadnym trybie. -/
+theorem zarządzenie_nie_cofa {m t z d p}
+    (h : Krok Z ⟨.przedZarządzeniem m, t, p⟩ ⟨.pierwszaTura d, z, p⟩) : t ≤ z := by
+  cases h with
+  | zarządzenie _ w _ => exact w.1
+
+/-- W osiągalnych stanach dzień pierwszej tury nie leży przed dniem zarządzenia. -/
+theorem tura_po_zarządzeniu {s d} (h : Osiągalny Z s) (e : s.etap = .pierwszaTura d) :
+    s.dzień ≤ d := by
+  cases h with
+  | start => cases e
+  | krok _ k =>
+    cases k with
+    | zarządzenie _ w _ => cases e; exact w.2.1
+    | _ => cases e
+
+/-- Czas nigdy nie cofa się w osiągalnych przebiegach. -/
+theorem czas_nie_cofa {a b} (h : Osiągalny Z a) (k : Krok Z a b) : a.dzień ≤ b.dzień := by
+  cases k with
+  | zarządzenie _ w _ => exact w.1
+  | wygrana => exact tura_po_zarządzeniu h rfl
+  | ponowneGłosowanie =>
+    have := tura_po_zarządzeniu h rfl
+    simp only at this ⊢
+    omega
+  | zastąpienieA => simp
+  | zastąpienieB => simp
+  | wygranaA => exact Nat.le_refl _
+  | wygranaB => exact Nat.le_refl _
+  | wybórWażny _ l => exact l.1
+  | wybórUznanyZaNieważny _ l => exact l.1
+  | objęcieUrzędu l => exact l.1
 
 /-- Art. 127 ust. 4 zd. 2: ponowne głosowanie czternastego dnia po pierwszym. -/
 theorem druga_tura_czternastego_dnia {z d p s a b}
@@ -138,7 +169,7 @@ theorem zastąpienie_odracza_o_14 {t a b p s x y}
 /-- Niezmiennik terminów w trybie opróżnienia: dni liczymy od opróżnienia urzędu. -/
 def wTerminie (Z : Założenia) (s : Stan) : Prop :=
   s.zapas ≤ Z.zapas ∧ match s.etap with
-  | .przedZarządzeniem => s.dzień = 0
+  | .przedZarządzeniem m => s.dzień = 0 ∧ m = .opróżnienie
   | .pierwszaTura d => s.dzień ≤ 14 ∧ d ≤ 74
   | .drugaTura _ _ | .ważność _ => s.dzień + 14 * s.zapas ≤ 88 + 14 * Z.zapas
   | _ => True
@@ -146,11 +177,19 @@ def wTerminie (Z : Założenia) (s : Stan) : Prop :=
 theorem terminy_opróżnienia (m : Z.tryb = .opróżnienie) {s} (h : Osiągalny Z s) :
     wTerminie Z s := by
   induction h with
-  | start => simp [wTerminie]
+  | start => simp [wTerminie, m]
   | krok _ k ih =>
     obtain ⟨z, i⟩ := ih
-    cases k <;>
-      simp only [wTerminie, terminZarządzenia, m, wLimicie, wLimicieCzasu] at * <;>
+    cases k with
+    | zarządzenie _ w _ =>
+      obtain ⟨c, e⟩ := i
+      subst e
+      simp only [terminZarządzenia] at w
+      simp only [wTerminie]
+      simp only at c z
+      omega
+    | _ =>
+      simp only [wTerminie, wLimicie, wLimicieCzasu] at * <;>
       first
         | omega
         | exact ⟨by omega, trivial⟩
@@ -230,7 +269,6 @@ theorem brak_nieskończonego_przebiegu (f : Nat → Stan) :
   brak_nieskończonego miara krok_zmniejsza f
 
 structure WarunkiZakończenia (Z : Założenia) : Prop where
-  tryb : Z.tryb = .opróżnienie
   marszałek : Z.marszałekDziała = true
   sąd : Z.sądDziała = true
   dzieńWolny : ∀ t, Z.dzieńWolny t = true
@@ -242,13 +280,17 @@ structure WarunkiZakończenia (Z : Założenia) : Prop where
 /-- Warunki art. 127 ust. 5 nie gwarantują `a ≠ b` po zastąpieniu z założenia W4,
 dlatego postęp w drugiej turze jest liczony dla różnych kandydatów. -/
 theorem postęp (w : WarunkiZakończenia Z) (s : Stan) (n : s.etap.końcowy = false)
-    (r : ∀ a b, s.etap = .drugaTura a b → a ≠ b) : ∃ u, Krok Z s u := by
+    (r : ∀ a b, s.etap = .drugaTura a b → a ≠ b)
+    (q : ∀ k, s.etap ≠ .przedZarządzeniem (.zwykły k)) : ∃ u, Krok Z s u := by
   obtain ⟨e, t, p⟩ := s
   have ho := w.bezOkresuOchronnego
   cases e with
-  | przedZarządzeniem =>
-    refine ⟨⟨.pierwszaTura t, t, p⟩, .zarządzenie w.marszałek ?_ (w.dzieńWolny t)⟩
-    simp [terminZarządzenia, w.tryb]
+  | przedZarządzeniem m =>
+    cases m with
+    | zwykły k => exact absurd rfl (q k)
+    | opróżnienie =>
+      refine ⟨⟨.pierwszaTura t, t, p⟩, .zarządzenie w.marszałek ?_ (w.dzieńWolny t)⟩
+      simp [terminZarządzenia]
   | pierwszaTura d =>
     rcases w.wynikI with ⟨v, m, h⟩ | ⟨b, a, c, h⟩
     · exact ⟨_, .wygrana v m h (ho d)⟩
@@ -263,17 +305,20 @@ theorem postęp (w : WarunkiZakończenia Z) (s : Stan) (n : s.etap.końcowy = fa
   | objęcie v => exact ⟨_, .objęcieUrzędu (refl t)⟩
   | prezydentWybrany _ | wybórNieważny => simp [Etap.końcowy] at n
 
-/-- Etapy, w których kandydaci drugiej tury są różni. -/
-def kandydaciRóżni (s : Stan) : Prop := ∀ a b, s.etap = .drugaTura a b → a ≠ b
+/-- Stany objęte twierdzeniem o zakończeniu: różni kandydaci drugiej tury i brak etapu przed
+zarządzeniem wyborów zwykłych, którego daty zależą od końca kadencji. -/
+def kandydaciRóżni (s : Stan) : Prop :=
+  (∀ a b, s.etap = .drugaTura a b → a ≠ b) ∧ ∀ k, s.etap ≠ .przedZarządzeniem (.zwykły k)
 
 theorem krok_zachowuje_różnych {a b} (k : Krok Z a b) (h : kandydaciRóżni a) :
     kandydaciRóżni b := by
-  intro x y e
-  cases k with
-  | ponowneGłosowanie p q d _ _ => cases e; exact d.2.2.1
-  | zastąpienieA c _ ca cb => cases e; exact cb
-  | zastąpienieB c _ ca cb => cases e; exact fun q => ca q.symm
-  | _ => cases e
+  refine ⟨fun x y e => ?_, fun m e => ?_⟩
+  · cases k with
+    | ponowneGłosowanie p q d _ _ => cases e; exact d.2.2.1
+    | zastąpienieA c _ ca cb => cases e; exact cb
+    | zastąpienieB c _ ca cb => cases e; exact fun q => ca q.symm
+    | _ => cases e
+  · cases k <;> cases e
 
 /-- Krok w obrębie stanów z różnymi kandydatami drugiej tury. -/
 def KrokRóżnych (Z : Założenia) (a b : {s : Stan // kandydaciRóżni s}) : Prop :=
@@ -286,7 +331,7 @@ theorem zakończenie (w : WarunkiZakończenia Z) (s : Stan) (h : kandydaciRóżn
   obtain ⟨u, p, k⟩ := dojście_do_końca (R := KrokRóżnych Z) (fun s => miara s.1)
     (fun s => s.1.etap.końcowy = true) (fun r => krok_zmniejsza r)
     (fun s n => by
-      obtain ⟨u, ku⟩ := postęp w s.1 (by simpa using n) s.2
+      obtain ⟨u, ku⟩ := postęp w s.1 (by simpa using n) s.2.1 s.2.2
       exact ⟨⟨u, krok_zachowuje_różnych ku s.2⟩, ku⟩) ⟨s, h⟩
   exact ⟨u.1, Przebieg.przenieś (Subtype.val) (fun r => r) p, k⟩
 

@@ -200,6 +200,10 @@ theorem brak_górnej_granicy (s : Z.sejmDziała = true) (h : Z.prezydentDziała 
   have b := Osiągalny.krok (do_trybunału s h) (.orzeczenieZgodna t a)
   exact ⟨_, .krok b (.podpisPoZgodności (d := 0) h (Nat.zero_le _)), rfl, by simp⟩
 
+/-- Żaden krok nie cofa czasu. -/
+theorem czas_nie_cofa {a b} (k : Krok Z a b) : a.dzień ≤ b.dzień := by
+  cases k <;> simp_all [wCiągu, wLimicie, wLimicieCzasu]
+
 /-! ## Blokady -/
 
 /-- Bez orzeczenia Trybunału automat staje w osiągalnym stanie niekońcowym. -/

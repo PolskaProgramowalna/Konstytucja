@@ -48,7 +48,7 @@ Pełna lista zasad Z1–Z11 jest w `plan.txt`. Najważniejsze z nich:
 
 Każda procedura to automat: etapy, dozwolone przejścia i warunki z przepisów. Terminy są warunkami przejść, a progi głosowań pochodzą ze wspólnych definicji.
 
-Parametrem jest to, czego tekst nie mówi, np. czy organ działa albo jaki limit przyjąć dla czynności bez terminu. Gdy czas ma znaczenie, automat dopuszcza jego upływ w etapach oczekiwania.
+Parametrem jest to, czego tekst nie mówi, np. czy organ działa albo jaki limit przyjąć dla czynności bez terminu. Gdy czas ma znaczenie, automat dopuszcza jego upływ w etapach oczekiwania, a terminy liczy od stałego zdarzenia, a nie od bieżącej chwili. Twierdzenia `czas_nie_cofa` sprawdzają, że automat nie cofa czasu.
 
 Dla każdej procedury dowodzimy osobno:
 
@@ -97,7 +97,7 @@ Kompilacja to tylko pierwszy krok. Projekt korzysta z kilku niezależnych kontro
 | Kontrola aksjomatów | `sorry`, własne aksjomaty i `native_decide`, także w modułach niezaimportowanych | `LEAN/Skrypty/KontrolaProjektu.lean` |
 | Instancje | warunki niemożliwe do spełnienia | `LEAN/Konstytucja/Modele/` |
 | Porównanie tekstu | błędy wyodrębniania | `LEAN/dane/generuj.py` |
-| Rejestr | odwołania do nieistniejących przepisów lub nazw | `LEAN/dane/rejestr.csv` |
+| Rejestr | odwołania do nieistniejących przepisów lub nazw, sprawdzane w skompilowanym środowisku Lean | `LEAN/dane/rejestr.csv` |
 | Frazy | klauzule bez podstawy w tekście | `pojecia.csv`, `klauzule.csv` |
 | Testy mutacyjne | twierdzenia, które niczego nie wymuszają | wykonywane ręcznie na kopii |
 | Recenzja techniczna | puste tezy, zbyt mocne wnioski, błędy modelu | po każdym etapie |
@@ -112,7 +112,7 @@ Takie testy znalazły realne braki. Mutacja „motyw dozwolony” przeszła bez 
 
 ### Puste tezy
 
-Twierdzenie może być poprawne i nic nie mówić. Tak było z `Przebieg a a`, które dowodzi samo przejście puste, i z blokadami stanów nieosiągalnych przy stałym parametrze. Dlatego przegląd tez sprawdza, czy konkluzja zależy od założeń i czy opisany stan jest osiągalny.
+Twierdzenie może być poprawne i nic nie mówić. Tak było z `Przebieg a a`, które dowodzi samo przejście puste, i z blokadami stanów nieosiągalnych przy stałym parametrze. Dlatego przegląd tez sprawdza, czy konkluzja zależy od założeń i czy opisany stan jest osiągalny. Katalogi z przepisów mają pełne charakterystyki dla każdego elementu, bo przykłady nie wykrywają usunięcia pozycji.
 
 ## Pokrycie
 

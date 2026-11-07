@@ -56,7 +56,8 @@ structure Założenia where
   limit : Option Nat
 
 inductive Etap where
-  | przedZarządzeniem
+  /-- Tryb należy do procedury, bo po nieważności zmienia się na tryb opróżnienia. -/
+  | przedZarządzeniem (m : Tryb)
   /-- `data` to dzień pierwszego głosowania. -/
   | pierwszaTura (data : Nat)
   /-- Art. 127 ust. 4–5. -/
@@ -75,7 +76,7 @@ def Etap.końcowy : Etap → Bool
 
 /-- Definicja pomocnicza do miary. -/
 def Etap.ranga : Etap → Nat
-  | .przedZarządzeniem => 6
+  | .przedZarządzeniem _ => 6
   | .pierwszaTura _ => 5
   | .drugaTura _ _ => 4
   | .ważność _ => 2
@@ -94,10 +95,10 @@ variable (Z : Założenia)
 def wLimicie (t t' : Nat) : Prop := wLimicieCzasu Z.limit t t'
 
 /-- Art. 128 ust. 2, założenie W1. `z` to dzień zarządzenia, a `d` dzień wyborów. -/
-def terminZarządzenia (t z d : Nat) : Prop :=
-  z ≤ d ∧ d ≤ z + 60 ∧ match Z.tryb with
+def terminZarządzenia (m : Tryb) (t z d : Nat) : Prop :=
+  t ≤ z ∧ z ≤ d ∧ d ≤ z + 60 ∧ match m with
     | .zwykły k => k ≤ d + 100 ∧ d + 75 ≤ k
-    | .opróżnienie => t ≤ z ∧ z ≤ t + 14
+    | .opróżnienie => z ≤ t + 14
 
 /-- Art. 127 ust. 4 zd. 1. -/
 def większośćI (w : Nat) : Prop := 2 * Z.głosyI w > suma Z.głosyI Z.kandydaci
@@ -109,9 +110,9 @@ def dwajNajlepsi (a b : Nat) : Prop :=
 
 inductive Krok : Stan → Stan → Prop where
   /-- Art. 128 ust. 2. -/
-  | zarządzenie {t z d p} : Z.marszałekDziała = true → terminZarządzenia Z t z d →
+  | zarządzenie {t z d p m} : Z.marszałekDziała = true → terminZarządzenia m t z d →
       Z.dzieńWolny d = true →
-      Krok ⟨.przedZarządzeniem, t, p⟩ ⟨.pierwszaTura d, z, p⟩
+      Krok ⟨.przedZarządzeniem m, t, p⟩ ⟨.pierwszaTura d, z, p⟩
   /-- Art. 127 ust. 4 zd. 1, art. 228 ust. 7. -/
   | wygrana {z d p} (w : Nat) : w ∈ Z.kandydaci → większośćI Z w →
       Z.okresOchronny d = false →
@@ -143,7 +144,7 @@ inductive Krok : Stan → Stan → Prop where
       Krok ⟨.objęcie w, t, p⟩ ⟨.prezydentWybrany w, t', p⟩
 
 inductive Osiągalny : Stan → Prop where
-  | start : Osiągalny ⟨.przedZarządzeniem, 0, Z.zapas⟩
+  | start : Osiągalny ⟨.przedZarządzeniem Z.tryb, 0, Z.zapas⟩
   | krok {s s'} : Osiągalny s → Krok Z s s' → Osiągalny s'
 
 end Konstytucja.WybórPrezydenta

@@ -320,3 +320,7 @@ Pięć par nakaz i zakaz wyklucza się w jednej chwili, ale obowiązki z termine
 wykonane później. Rzeczywista kolizja wymaga zakazu na całe okno. Art. 155 ust. 2 nie ma
 terminu, więc przy skończonej historii kadencję można skrócić później. Art. 131 ust. 4 zależy
 od czasu zastępstwa, którego model nie liczy (F4).
+
+L74. Przekroczenie "niezwłocznie" przez Sejm (art. 231 zd. 2)
+Termin biegnie od otrzymania rozporządzenia (S11). Po jego upływie automat nie ma decyzji
+Sejmu, a tekst nie podaje skutku (spóźnienie_sejmu). Stan z terminem wygasa potem sam.

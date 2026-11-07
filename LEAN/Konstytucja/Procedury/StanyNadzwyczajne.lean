@@ -27,8 +27,8 @@ inductive Etap where
   | decyzjaPrezydenta (r : Rodzaj)
   /-- Art. 231 zd. 1: 48 godzin od podpisania. -/
   | podpisane (r : Rodzaj) (początek : Nat) (koniec : Option Nat)
-  /-- Art. 231 zd. 2–3. -/
-  | uSejmu (r : Rodzaj) (początek : Nat) (koniec : Option Nat)
+  /-- Art. 231 zd. 2–3. `otrzymano` to chwila przedstawienia, od której biegnie „niezwłocznie”. -/
+  | uSejmu (r : Rodzaj) (początek : Nat) (koniec : Option Nat) (otrzymano : Nat)
   /-- Stan trwa. `przedłużenia` liczy przedłużenia z art. 230 ust. 2 i art. 232. -/
   | trwa (r : Rodzaj) (początek : Nat) (koniec : Option Nat) (przedłużenia : Nat)
   /-- Art. 228 ust. 7: stan się zakończył, trwa 90 dni ochrony. -/
@@ -44,7 +44,7 @@ def Etap.ustalony : Etap → Bool
 def Etap.ranga : Etap → Nat
   | .normalny | .poStanie _ _ _ => 0
   | .trwa _ _ _ _ => 1
-  | .uSejmu _ _ _ => 2
+  | .uSejmu _ _ _ _ => 2
   | .podpisane _ _ _ => 3
   | .decyzjaPrezydenta _ => 4
 
@@ -87,7 +87,7 @@ def doKońca (k : Option Nat) (t : Nat) : Prop :=
 /-- W etapach obowiązywania czas nie może minąć planowanego końca. -/
 def możeCzekać (e : Etap) (t : Nat) : Prop :=
   match e with
-  | .podpisane _ _ k | .uSejmu _ _ k | .trwa _ _ k _ => doKońca k t
+  | .podpisane _ _ k | .uSejmu _ _ k _ | .trwa _ _ k _ => doKońca k t
   | _ => True
 
 /-- Założenie S4. -/
@@ -110,21 +110,21 @@ inductive Krok : Stan → Stan → Prop where
   /-- Art. 231 zd. 1. -/
   | przedstawienie {r p k t t' x} : Z.prezydentDziała = true →
       wTerminie Z.kalendarz p (.godziny 48) t' → t ≤ t' → doKońca k t' →
-      Krok ⟨.podpisane r p k, t, x⟩ ⟨.uSejmu r p k, t', x⟩
+      Krok ⟨.podpisane r p k, t, x⟩ ⟨.uSejmu r p k t', t', x⟩
   /-- Art. 231 zd. 2: Sejm nie uchyla. -/
-  | utrzymanie {r p k t t' x} : Z.sejmDziała = true → t ≤ t' → t' ≤ t + Z.niezwłocznie →
+  | utrzymanie {r p k q t t' x} : Z.sejmDziała = true → t ≤ t' → t' ≤ q + Z.niezwłocznie →
       doKońca k t' →
-      Krok ⟨.uSejmu r p k, t, x⟩ ⟨.trwa r p k 0, t', x⟩
+      Krok ⟨.uSejmu r p k q, t, x⟩ ⟨.trwa r p k 0, t', x⟩
   /-- Art. 231 zd. 3. -/
-  | uchylenie {r p k t t' x} (g) : Z.sejmDziała = true → uchylenie Z g → t ≤ t' →
-      t' ≤ t + Z.niezwłocznie → doKońca k t' →
-      Krok ⟨.uSejmu r p k, t, x⟩ ⟨.poStanie r p t', t', x⟩
+  | uchylenie {r p k q t t' x} (g) : Z.sejmDziała = true → uchylenie Z g → t ≤ t' →
+      t' ≤ q + Z.niezwłocznie → doKońca k t' →
+      Krok ⟨.uSejmu r p k q, t, x⟩ ⟨.poStanie r p t', t', x⟩
   /-- Art. 230 ust. 1: stan wygasa z upływem czasu, także przed decyzją Sejmu. -/
   | wygaśnięciePodpisanego {r p k t x} : t ≤ k →
       Krok ⟨.podpisane r p (some k), t, x⟩ ⟨.poStanie r p k, k, x⟩
   /-- Art. 230 ust. 1: stan wygasa z upływem czasu, także przed decyzją Sejmu. -/
-  | wygaśnięcieUSejmu {r p k t x} : t ≤ k →
-      Krok ⟨.uSejmu r p (some k), t, x⟩ ⟨.poStanie r p k, k, x⟩
+  | wygaśnięcieUSejmu {r p k q t x} : t ≤ k →
+      Krok ⟨.uSejmu r p (some k) q, t, x⟩ ⟨.poStanie r p k, k, x⟩
   /-- Art. 232: Rada Ministrów wprowadza stan klęski bez udziału Prezydenta i Sejmu. -/
   | wprowadzenieKlęski {t d x} : przesłankiSpełnione Z .klęskaŻywiołowa → d ≤ 30 →
       Krok ⟨.normalny, t, x⟩ ⟨.trwa .klęskaŻywiołowa t (some (t + godziny d)) 0, t, x⟩

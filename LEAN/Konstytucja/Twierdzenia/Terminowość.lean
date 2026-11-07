@@ -47,12 +47,11 @@ theorem wybory_po_okresie_wykonalne :
 /-- Automat wyboru dopuszcza dokładnie ten scenariusz. -/
 theorem automat_potwierdza_scenariusz (p) :
     WybórPrezydenta.Krok (wyboryPrzyHistorii [(0, 10)])
-        ⟨.przedZarządzeniem, 95, p⟩ ⟨.pierwszaTura 101, 95, p⟩ ∧
+        ⟨.przedZarządzeniem .opróżnienie, 95, p⟩ ⟨.pierwszaTura 101, 95, p⟩ ∧
       WybórPrezydenta.Krok (wyboryPrzyHistorii [(0, 10)])
         ⟨.pierwszaTura 101, 95, p⟩ ⟨.ważność 0, 101, p⟩ := by
   constructor
-  · exact .zarządzenie rfl (by simp [WybórPrezydenta.terminZarządzenia, wyboryPrzyHistorii,
-      wyboryJednejTury]) rfl
+  · exact .zarządzenie rfl (by simp [WybórPrezydenta.terminZarządzenia]) rfl
   · exact .wygrana 0 (by simp [wyboryPrzyHistorii, wyboryJednejTury])
       (by simp [WybórPrezydenta.większośćI, wyboryPrzyHistorii, wyboryJednejTury,
         WybórPrezydenta.suma]) (by decide)

@@ -163,6 +163,10 @@ theorem wyniki_bez_kroków {t u w} : ¬ Krok Z ⟨.wiążące w, t⟩ u := by
   intro k
   cases k
 
+/-- Żaden krok nie cofa czasu. -/
+theorem czas_nie_cofa {a b} (k : Krok Z a b) : a.dzień ≤ b.dzień := by
+  cases k <;> simp_all [wLimicie, wLimicieCzasu]
+
 /-! ## Blokady -/
 
 /-- Art. 125 ust. 2 nie podaje terminu Senatowi. -/

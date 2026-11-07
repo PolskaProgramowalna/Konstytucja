@@ -173,6 +173,7 @@ Nazwy w Lean zapisujemy po polsku, ze znakami diakrytycznymi.
 | `lake: command not found` | otwórz nowy terminal albo dodaj `~/.elan/bin` do `PATH` |
 | `sprawdź.sh` kończy się błędem o brakującym module | usuń pliki `.lean` spoza biblioteki, np. `Proba.lean` |
 | `rejestr: brak deklaracji` | popraw nazwę w `dane/rejestr.csv` albo dodaj deklarację |
+| `Nazwy z rejestru nie istnieją w środowisku Lean` | popraw nazwę w `dane/rejestr.csv`; deklaracja w komentarzu się nie liczy |
 | `rejestr: nazwa niejednoznaczna` | dodaj przestrzeń nazw, np. `Ustawodawstwo.Krok` |
 | `Dane były nieaktualne` | uruchom `python3 -I generuj.py` w katalogu `dane` |
 | `lake build` przechodzi, ale `sprawdź.sh` nie | w kodzie może być `sorry`, którego sama kompilacja nie zatrzymuje |

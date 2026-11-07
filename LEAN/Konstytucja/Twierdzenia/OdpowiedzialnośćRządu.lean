@@ -70,15 +70,17 @@ theorem rezygnacja_odmowa (p : Z.prezydentDziała = true) :
       Krok Z v u ∧ u.etap = .urzęduje :=
   ⟨_, _, .krok .start .rezygnacja, rfl, .odmowaPrzyjęcia p (refl 0), rfl⟩
 
+/-- Art. 159 ust. 2: po obaleniu ministra Prezydent go odwołuje. Etap odwołania jest osiągalny. -/
 theorem minister_odwołany (s : Z.sejmDziała = true) (p : Z.prezydentDziała = true) :
-    ∃ u, Osiągalny Z u ∧ u.etap = .urzęduje ∧ u.dzień = 7 := by
+    ∃ v u, Osiągalny Z v ∧ v.etap = .odwołanieMinistra ∧ Krok Z v u ∧ u.etap = .urzęduje := by
   have a := Osiągalny.krok (Osiągalny.start (Z := Z)) (.zgłoszenieMinistra 69 (by decide) (Or.inr trivial))
-  have b := Osiągalny.krok a (.ministerObalony pełny s pełny_minister (okno 0))
-  exact ⟨_, .krok b (.odwołanie p (refl _)), rfl, rfl⟩
+  exact ⟨_, _, .krok a (.ministerObalony pełny s pełny_minister (okno 0)), rfl,
+    .odwołanie p (refl _), rfl⟩
 
+/-- Art. 160: po wniosku Sejm udziela wotum, a rząd urzęduje dalej bez dymisji. -/
 theorem wotum_zaufania_udzielone (s : Z.sejmDziała = true) :
-    ∃ u, Osiągalny Z u ∧ u.etap = .urzęduje :=
-  ⟨_, .krok (.krok .start .wniosekZaufania) (.zaufanieUdzielone pełny s pełny_zaufanie (refl 0)),
+    ∃ v u, Osiągalny Z v ∧ v.etap = .wniosekZaufania ∧ Krok Z v u ∧ u.etap = .urzęduje :=
+  ⟨_, _, .krok .start .wniosekZaufania, rfl, .zaufanieUdzielone pełny s pełny_zaufanie (refl 0),
     rfl⟩
 
 /-! ## Ograniczenia -/
@@ -161,6 +163,10 @@ theorem historia_poprawna {s} (h : Osiągalny Z s) : historiaWPrzeszłości s :=
         | (have := i₁ z e; omega)
         | (have := i₂ z e; omega)
         | (cases e; omega)
+
+/-- Żaden krok nie cofa czasu. -/
+theorem czas_nie_cofa {a b} (k : Krok Z a b) : a.dzień ≤ b.dzień := by
+  cases k <;> simp_all [wLimicie, wOknieGłosowania, wLimicieCzasu] <;> omega
 
 /-! ## Blokady -/
 

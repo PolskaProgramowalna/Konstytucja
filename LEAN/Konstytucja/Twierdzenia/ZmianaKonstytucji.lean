@@ -196,6 +196,10 @@ theorem referendum_tylko_chronione {s} (h : Osiągalny Z s) (e : s.etap = .refer
   subst e
   exact i.1
 
+/-- Żaden krok nie cofa czasu. -/
+theorem czas_nie_cofa {a b} (k : Krok Z a b) : a.dzień ≤ b.dzień := by
+  cases k <;> simp_all [wCiągu, wLimicie, wOknie, wLimicieCzasu] <;> omega
+
 /-! ## Blokady -/
 
 /-- Art. 235 ust. 6 a art. 228 ust. 7: przy wariancie V5 z zakazem i trwałym okresie

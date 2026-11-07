@@ -150,6 +150,10 @@ theorem przebieg_ze_stanu_końcowego {s s'} (k : s.etap.końcowy = true)
     obtain ⟨e, t⟩ := s
     cases e <;> simp [Etap.końcowy, Etap.pozostało] at k this
 
+/-- Żaden krok nie cofa czasu. -/
+theorem czas_nie_cofa {a b} (k : Krok Z a b) : a.dzień ≤ b.dzień := by
+  cases k <;> simp_all [wCiągu, wLimicie, wLimicieCzasu]
+
 /-! ## Blokady i brak górnej granicy -/
 
 /-- Art. 154 ust. 3 nie ma terminu: bez limitu rząd może powstać dowolnie późno. -/

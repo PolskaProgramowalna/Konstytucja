@@ -2,7 +2,7 @@
 
 Nov 6, 2026 · @Pawel
 
-Prosimy o ocenę 88 założeń interpretacyjnych i 73 luk wykrytych przy zapisie procedur, kompetencji i ograniczeń praw z Konstytucji RP w języku Lean 4. Najpilniejsze jest siedem pytań z części „Pytania priorytetowe”, bo od nich zależą najmocniejsze wnioski modelu.
+Prosimy o ocenę 89 założeń interpretacyjnych i 74 luk wykrytych przy zapisie procedur, kompetencji i ograniczeń praw z Konstytucji RP w języku Lean 4. Najpilniejsze jest siedem pytań z części „Pytania priorytetowe”, bo od nich zależą najmocniejsze wnioski modelu.
 
 ## O co prosimy
 
@@ -43,7 +43,7 @@ Od tych siedmiu odpowiedzi zależą najmocniejsze wnioski modelu, więc prosimy 
 
 ## Założenia do oceny
 
-Model przyjmuje 88 założeń spoza tekstu Konstytucji albo uproszczeń. Litera oznacza obszar: G głosowanie, C czas, A akty prawne, P tworzenie rządu, U ustawodawstwo, V zmiana Konstytucji, R odpowiedzialność rządu, Q referendum, W Prezydent, S stany nadzwyczajne, K kompetencje, E wolności i prawa, F analiza norm. Kolumna „Ocena” jest do wypełnienia: przyjąć, zmienić albo sporne.
+Model przyjmuje 89 założeń spoza tekstu Konstytucji albo uproszczeń. Litera oznacza obszar: G głosowanie, C czas, A akty prawne, P tworzenie rządu, U ustawodawstwo, V zmiana Konstytucji, R odpowiedzialność rządu, Q referendum, W Prezydent, S stany nadzwyczajne, K kompetencje, E wolności i prawa, F analiza norm. Kolumna „Ocena” jest do wypełnienia: przyjąć, zmienić albo sporne.
 
 | Id | Założenie | Ocena |
 | --- | --- | --- |
@@ -100,7 +100,7 @@ Model przyjmuje 88 założeń spoza tekstu Konstytucji albo uproszczeń. Litera 
 | W2 | „Ponownie wybrany tylko raz” liczymy łącznie, nie tylko dla kadencji po sobie. |  |
 | W3 | Wyniki tur wyborów są parametrem scenariusza. |  |
 | W4 | Model nie sprawdza kolejności zapasowych kandydatów, a liczbę zastąpień ogranicza parametr. |  |
-| W5 | Terminy 14 i 60 dni stosujemy także po nieważności wyboru. |  |
+| W5 | Po nieważności wyboru obowiązuje tryb opróżnienia urzędu, także gdy pierwsze wybory były zwykłe. |  |
 | W6 | Art. 228 ust. 7 zakazuje głosowania, ale model nie wyznacza nowej daty. |  |
 | W7 | Prezydent może wrócić po przejściowej niemożności. |  |
 | W8 | Zawieszony Prezydent ma zastępcę, bo art. 145 ust. 3 stosuje art. 131 odpowiednio. |  |
@@ -135,10 +135,11 @@ Model przyjmuje 88 założeń spoza tekstu Konstytucji albo uproszczeń. Litera 
 | F2 | Wykonalność statyczna to istnienie wyboru czynności spełniającego działające nakazy i zakazy. Dozwolenie sprzeczne z zakazem nie jest niewykonalne. |  |
 | F3 | „Niezwłocznie” z art. 190 ust. 2 i organ ogłaszający są parametrami. |  |
 | F4 | Wykonalność terminowa to dzień w oknie obowiązku bez zakazu: 74 dni dla art. 128 ust. 2, 60 dla art. 235 ust. 6 i 21 dla art. 235 ust. 7. |  |
+| S11 | „Niezwłocznie” z art. 231 zd. 2 liczymy od otrzymania rozporządzenia przez Sejm. |  |
 
 ## Luki i spory
 
-Wykaz obejmuje 73 miejsca, w których tekst milczy, normy kolidują albo model musiał przyjąć wykładnię. Kolumna „Ocena” jest do wypełnienia: luka, rozstrzygnięte gdzie indziej albo uproszczenie modelu.
+Wykaz obejmuje 74 miejsca, w których tekst milczy, normy kolidują albo model musiał przyjąć wykładnię. Kolumna „Ocena” jest do wypełnienia: luka, rozstrzygnięte gdzie indziej albo uproszczenie modelu.
 
 | Id | Przepisy | Problem | Co robi model | Ocena |
 | --- | --- | --- | --- | --- |
@@ -215,6 +216,7 @@ Wykaz obejmuje 73 miejsca, w których tekst milczy, normy kolidują albo model m
 | L71 | art. 225, art. 228 ust. 7 | Kolizja dozwolenia z zakazem. | Obu przepisów można przestrzegać, nie skracając kadencji. |  |
 | L72 | cała Konstytucja | Ograniczony zakres analizy wykonalności. | Wynik dotyczy 10 norm (F1). |  |
 | L73 | art. 128, 131 ust. 4, 155 ust. 2, 235 ust. 6–7 | Sprzeczność chwilowa a możliwość wykonania obowiązku później. | Bada okna terminowe, art. 155 ust. 2 przy skończonej historii da się wykonać później, art. 131 ust. 4 nie jest liczony w czasie. |  |
+| L74 | art. 231 zd. 2 | Przekroczenie terminu „niezwłocznie” przez Sejm. | Brak decyzji po terminie, stan z terminem wygasa sam (S11). |  |
 
 ## Warianty do decyzji
 

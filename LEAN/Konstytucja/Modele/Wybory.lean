@@ -44,13 +44,13 @@ def wyboryDwóchTur : Założenia :=
 def wyboryZRemisem : Założenia :=
   { wyboryDwóchTur with głosyII := fun _ => 5, zapas := 0 }
 
-private theorem termin_jednej : terminZarządzenia wyboryJednejTury 0 0 0 := by
+private theorem termin_jednej : terminZarządzenia wyboryJednejTury.tryb 0 0 0 := by
   simp [terminZarządzenia, wyboryJednejTury]
 
-private theorem termin_dwóch : terminZarządzenia wyboryDwóchTur 0 0 0 := by
+private theorem termin_dwóch : terminZarządzenia wyboryDwóchTur.tryb 0 0 0 := by
   simp [terminZarządzenia, wyboryDwóchTur, wyboryJednejTury]
 
-private theorem termin_remisu : terminZarządzenia wyboryZRemisem 0 0 0 := by
+private theorem termin_remisu : terminZarządzenia wyboryZRemisem.tryb 0 0 0 := by
   simp [terminZarządzenia, wyboryZRemisem, wyboryDwóchTur, wyboryJednejTury]
 
 private theorem większość_zera : większośćI wyboryJednejTury 0 := by
@@ -104,7 +104,6 @@ theorem remis_w_scenariuszu :
    remis_blokuje rfl⟩
 
 theorem warunki_wyborów_spełnialne : WarunkiZakończenia wyboryJednejTury where
-  tryb := rfl
   marszałek := rfl
   sąd := rfl
   dzieńWolny := fun _ => rfl

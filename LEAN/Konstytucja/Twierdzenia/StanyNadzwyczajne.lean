@@ -44,7 +44,7 @@ theorem do_podpisania_wojennego (w : przesłankiSpełnione Z .wojenny)
   .krok (do_decyzji .wojenny (by decide) w) (.wprowadzenieWojennego p)
 
 theorem do_sejmu_wojennego (w : przesłankiSpełnione Z .wojenny)
-    (p : Z.prezydentDziała = true) : Osiągalny Z ⟨.uSejmu .wojenny 0 none, 0, 0⟩ :=
+    (p : Z.prezydentDziała = true) : Osiągalny Z ⟨.uSejmu .wojenny 0 none 0, 0, 0⟩ :=
   .krok (do_podpisania_wojennego w p) (.przedstawienie p (w48 _ 0) (Nat.le_refl _) (dk_none _))
 
 theorem wojenny_osiągalny (w : przesłankiSpełnione Z .wojenny) (p : Z.prezydentDziała = true)
@@ -102,18 +102,18 @@ theorem klęska_bez_prezydenta {s} (o : Osiągalny Z s) :
 
 /-- Art. 231: przedstawienie Sejmowi w ciągu 48 godzin od podpisania. -/
 theorem przedstawienie_w_48_godzin {r p k t x s}
-    (h : Krok Z ⟨.podpisane r p k, t, x⟩ s) (e : ∃ q c, s.etap = .uSejmu r q c) :
+    (h : Krok Z ⟨.podpisane r p k, t, x⟩ s) (e : ∃ q c o, s.etap = .uSejmu r q c o) :
     s.chwila ≤ p + 48 := by
   cases h with
   | przedstawienie _ w _ _ => exact w.2
-  | wygaśnięciePodpisanego => obtain ⟨_, _, e⟩ := e; cases e
-  | czekanie => obtain ⟨_, _, e⟩ := e; cases e
-  | zatwierdzenie => obtain ⟨_, _, e⟩ := e; cases e
+  | wygaśnięciePodpisanego => obtain ⟨_, _, _, e⟩ := e; cases e
+  | czekanie => obtain ⟨_, _, _, e⟩ := e; cases e
+  | zatwierdzenie => obtain ⟨_, _, _, e⟩ := e; cases e
 
 /-- Niezmiennik limitów. `koniec` planowany i rzeczywisty mieści się w granicach art. 230. -/
 def wGranicach (s : Stan) : Prop :=
   (∀ p k, s.etap = .podpisane .wyjątkowy p (some k) → k ≤ p + godziny 90) ∧
-  (∀ p k, s.etap = .uSejmu .wyjątkowy p (some k) → k ≤ p + godziny 90) ∧
+  (∀ p k q, s.etap = .uSejmu .wyjątkowy p (some k) q → k ≤ p + godziny 90) ∧
   (∀ p k, s.etap = .trwa .wyjątkowy p (some k) 0 → k ≤ p + godziny 90) ∧
   (∀ p k e, s.etap = .trwa .wyjątkowy p (some k) (e + 1) → k ≤ p + godziny 150) ∧
   (∀ p q, s.etap = .poStanie .wyjątkowy p q → q ≤ p + godziny 150)
@@ -121,7 +121,7 @@ def wGranicach (s : Stan) : Prop :=
 /-- Niezmiennik obowiązywania: chwila nie mija początku ani planowanego końca. -/
 def etapPoprawny (s : Stan) : Prop :=
   match s.etap with
-  | .podpisane r p k | .uSejmu r p k | .trwa r p k _ =>
+  | .podpisane r p k | .uSejmu r p k _ | .trwa r p k _ =>
       p ≤ s.chwila ∧ (k = none → r = .wojenny) ∧ doKońca k s.chwila
   | _ => True
 
@@ -306,19 +306,34 @@ theorem powrót_po_90_dniach {r p k t x s} (h : Krok Z ⟨.poStanie r p k, t, x�
   | czekanie => cases e
   | zatwierdzenie => cases e
 
+/-- Czas nie cofa się w osiągalnych przebiegach. -/
+theorem czas_nie_cofa {a b} (h : Osiągalny Z a) (k : Krok Z a b) : a.chwila ≤ b.chwila := by
+  have i := zawsze_poprawny h
+  cases k with
+  | czekanie p _ => exact p
+  | przedstawienie _ _ p _ => exact p
+  | utrzymanie _ p _ _ => exact p
+  | uchylenie _ _ _ p _ _ => exact p
+  | koniec p _ => exact p
+  | końcowaDecyzja _ p => exact p
+  | wygaśnięciePodpisanego p => exact p
+  | wygaśnięcieUSejmu p => exact p
+  | wprowadzenieKlęski => exact Nat.le_refl _
+  | _ => simp
+
 /-! ## Blokady -/
 
 /-- Art. 231 nie podaje skutku spóźnienia: po 48 godzinach nie ma przedstawienia. -/
 theorem po_48_godzinach_bez_przedstawienia {r q k t x s} (w : t > q + 48)
-    (h : Krok Z ⟨.podpisane r q k, t, x⟩ s) (e : ∃ c d, s.etap = .uSejmu r c d) : False := by
+    (h : Krok Z ⟨.podpisane r q k, t, x⟩ s) (e : ∃ c d o, s.etap = .uSejmu r c d o) : False := by
   cases h with
   | przedstawienie _ a b _ =>
     have := a.2
     simp only [koniecTerminu] at this
     omega
-  | wygaśnięciePodpisanego => obtain ⟨_, _, e⟩ := e; cases e
-  | czekanie => obtain ⟨_, _, e⟩ := e; cases e
-  | zatwierdzenie => obtain ⟨_, _, e⟩ := e; cases e
+  | wygaśnięciePodpisanego => obtain ⟨_, _, _, e⟩ := e; cases e
+  | czekanie => obtain ⟨_, _, _, e⟩ := e; cases e
+  | zatwierdzenie => obtain ⟨_, _, _, e⟩ := e; cases e
 
 /-- Osiągalny przypadek spóźnienia: stan wojenny bez terminu nigdy nie wyjdzie z etapu
 `podpisane`, gdy minęło 48 godzin. -/
@@ -339,22 +354,45 @@ theorem spóźnienie_wojennego (w : przesłankiSpełnione Z .wojenny)
 /-- Art. 231 zd. 2: przy bierności Sejmu stan wojenny czeka w osiągalnym etapie. -/
 theorem bierność_sejmu_blokuje (w : przesłankiSpełnione Z .wojenny)
     (p : Z.prezydentDziała = true) (s : Z.sejmDziała = false) :
-    Osiągalny Z ⟨.uSejmu .wojenny 0 none, 0, 0⟩ ∧
-      ∀ t u, Krok Z ⟨.uSejmu .wojenny 0 none, t, 0⟩ u → u.etap = .uSejmu .wojenny 0 none := by
+    Osiągalny Z ⟨.uSejmu .wojenny 0 none 0, 0, 0⟩ ∧
+      ∀ t u, Krok Z ⟨.uSejmu .wojenny 0 none 0, t, 0⟩ u →
+        u.etap = .uSejmu .wojenny 0 none 0 := by
   refine ⟨do_sejmu_wojennego w p, fun t u k => ?_⟩
   cases k with
   | czekanie => rfl
   | utrzymanie h => rw [s] at h; cases h
   | uchylenie _ h => rw [s] at h; cases h
 
+/-- Założenie S11: czekanie nie przedłuża „niezwłocznie”, bo termin biegnie od otrzymania. -/
+theorem sejm_po_terminie_nie_rozstrzyga {r q k o t x s} (w : t > o + Z.niezwłocznie)
+    (h : Krok Z ⟨.uSejmu r q k o, t, x⟩ s) (e : ∃ a b c, s.etap = .trwa a b c 0) : False := by
+  cases h with
+  | utrzymanie _ a b _ => omega
+  | uchylenie => obtain ⟨_, _, _, e⟩ := e; cases e
+  | wygaśnięcieUSejmu => obtain ⟨_, _, _, e⟩ := e; cases e
+  | czekanie => obtain ⟨_, _, _, e⟩ := e; cases e
+  | zatwierdzenie => obtain ⟨_, _, _, e⟩ := e; cases e
+
+/-- Spóźnienie Sejmu jest osiągalne: stan wojenny pozostaje na tym etapie. -/
+theorem spóźnienie_sejmu (w : przesłankiSpełnione Z .wojenny) (p : Z.prezydentDziała = true) :
+    Osiągalny Z ⟨.uSejmu .wojenny 0 none 0, Z.niezwłocznie + 1, 0⟩ ∧
+      ∀ u, Krok Z ⟨.uSejmu .wojenny 0 none 0, Z.niezwłocznie + 1, 0⟩ u →
+        u.etap = .uSejmu .wojenny 0 none 0 := by
+  refine ⟨.krok (do_sejmu_wojennego w p) (.czekanie (Nat.zero_le _) trivial), fun u k => ?_⟩
+  cases k with
+  | czekanie => rfl
+  | utrzymanie _ _ b _ => omega
+  | uchylenie _ _ _ b _ => omega
+
 /-! ## Zakończenie spraw w toku -/
 
-/-- Art. 231: stan, w którym rozporządzenie nie jest spóźnione. -/
-def terminDotrzymany (s : Stan) : Prop :=
-  ∀ r p k, s.etap = .podpisane r p k → s.chwila ≤ p + 48
+/-- Art. 231: stan, w którym nie przekroczono ani 48 godzin, ani „niezwłocznie”. -/
+def terminDotrzymany (Z : Założenia) (s : Stan) : Prop :=
+  (∀ r p k, s.etap = .podpisane r p k → s.chwila ≤ p + 48) ∧
+    ∀ r p k o, s.etap = .uSejmu r p k o → s.chwila ≤ o + Z.niezwłocznie
 
 /-- Stany osiągalne bez spóźnienia z art. 231. -/
-abbrev StanWToku (Z : Założenia) := {s : Stan // Osiągalny Z s ∧ terminDotrzymany s}
+abbrev StanWToku (Z : Założenia) := {s : Stan // Osiągalny Z s ∧ terminDotrzymany Z s}
 
 /-- Krok zamykający: etap przybliża się do stanu ustalonego. -/
 def KrokZamykający (Z : Założenia) (a b : StanWToku Z) : Prop :=
@@ -370,20 +408,25 @@ theorem postęp (w : WarunkiZakończenia Z) (s : StanWToku Z)
   have i := zawsze_poprawny o
   have hs := w.sejm
   have hp := w.prezydent
-  have bez : ∀ u : Stan, (∀ r p k, u.etap ≠ .podpisane r p k) → terminDotrzymany u :=
-    fun u a r p k e => absurd e (a r p k)
+  have bez : ∀ u : Stan, (∀ r p k, u.etap ≠ .podpisane r p k) →
+      (∀ r p k o, u.etap ≠ .uSejmu r p k o) → terminDotrzymany Z u :=
+    fun u a b => ⟨fun r p k e => absurd e (a r p k), fun r p k o e => absurd e (b r p k o)⟩
   cases e with
   | normalny | poStanie => simp [Etap.ustalony] at n
   | decyzjaPrezydenta r =>
-    exact ⟨⟨_, .krok o (.odmowa hp), bez _ (by simp)⟩, .odmowa hp, by simp [Etap.ranga]⟩
+    exact ⟨⟨_, .krok o (.odmowa hp), bez _ (by simp) (by simp)⟩, .odmowa hp,
+      by simp [Etap.ranga]⟩
   | podpisane r q k =>
-    have a : wTerminie Z.kalendarz q (.godziny 48) t := ⟨i.1, d r q k rfl⟩
+    have a : wTerminie Z.kalendarz q (.godziny 48) t := ⟨i.1, d.1 r q k rfl⟩
     have b := Krok.przedstawienie (r := r) hp a (Nat.le_refl t) i.2.2 (x := x)
-    exact ⟨⟨_, .krok o b, bez _ (by simp)⟩, b, by simp [Etap.ranga]⟩
-  | uSejmu r q k =>
-    have a := Krok.utrzymanie (Z := Z) (r := r) (p := q) (t := t) (x := x) hs
-      (Nat.le_refl _) (Nat.le_add_right _ _) i.2.2
-    exact ⟨⟨_, .krok o a, bez _ (by simp)⟩, a, by simp [Etap.ranga]⟩
+    refine ⟨⟨_, .krok o b, ⟨by simp, ?_⟩⟩, b, by simp [Etap.ranga]⟩
+    intro r' p' k' o' e
+    cases e
+    exact Nat.le_add_right _ _
+  | uSejmu r q k c =>
+    have a := Krok.utrzymanie (Z := Z) (r := r) (p := q) (q := c) (t := t) (t' := t) (x := x) hs
+      (Nat.le_refl _) (d.2 r q k c rfl) i.2.2
+    exact ⟨⟨_, .krok o a, bez _ (by simp) (by simp)⟩, a, by simp [Etap.ranga]⟩
   | trwa r q k f =>
     cases k with
     | none =>
@@ -391,22 +434,40 @@ theorem postęp (w : WarunkiZakończenia Z) (s : StanWToku Z)
       subst c
       have a := Krok.końcowaDecyzja (Z := Z) (p := q) (e := f) (t := t) (t' := t) (x := x) hp
         (Nat.le_refl _)
-      exact ⟨⟨_, .krok o a, bez _ (by simp)⟩, a, by simp [Etap.ranga]⟩
+      exact ⟨⟨_, .krok o a, bez _ (by simp) (by simp)⟩, a, by simp [Etap.ranga]⟩
     | some g =>
       have a := Krok.koniec (Z := Z) (r := r) (p := q) (k := g) (e := f) (t := t) (t' := t)
         (x := x) (Nat.le_refl _) i.2.2
-      exact ⟨⟨_, .krok o a, bez _ (by simp)⟩, a, by simp [Etap.ranga]⟩
+      exact ⟨⟨_, .krok o a, bez _ (by simp) (by simp)⟩, a, by simp [Etap.ranga]⟩
 
 /-- Przy działaniu organów każdy osiągalny stan bez spóźnienia z art. 231 można zamknąć.
 Stan klęski można przedłużać bez końca, więc to możliwość, a nie gwarancja zakończenia. -/
 theorem zakończenie (w : WarunkiZakończenia Z) {s} (o : Osiągalny Z s)
-    (d : terminDotrzymany s) : ∃ u, Przebieg (Krok Z) s u ∧ u.etap.ustalony = true := by
+    (d : terminDotrzymany Z s) : ∃ u, Przebieg (Krok Z) s u ∧ u.etap.ustalony = true := by
   obtain ⟨u, p, k⟩ := dojście_do_końca (R := KrokZamykający Z) (fun s => s.1.etap.ranga)
     (fun s => s.1.etap.ustalony = true) (fun r => r.2)
     (fun s n => postęp w s (by simpa using n)) ⟨s, o, d⟩
   exact ⟨u.1, Przebieg.przenieś Subtype.val (fun r => r.1) p, k⟩
 
 /-! ## Art. 233 -/
+
+/-- Art. 233 ust. 1: pełna charakterystyka katalogu, dla każdego przepisu. -/
+theorem art233_ust1_pełny (p : Przepis) :
+    nienaruszalne p = true ↔
+      (p.art = 30 ∨ p.art = 34 ∨ p.art = 36 ∨ p.art = 38 ∨ p.art = 39 ∨ p.art = 40 ∨
+        p.art = 42 ∨ p.art = 45 ∨ p.art = 47 ∨ p.art = 48 ∨ p.art = 53 ∨ p.art = 63 ∨
+        p.art = 72) ∨ (p.art = 41 ∧ p.ust = 4) := by
+  simp [nienaruszalne]
+
+/-- Art. 233 ust. 3: pełna charakterystyka katalogu, dla każdego przepisu. -/
+theorem art233_ust3_pełny (p : Przepis) :
+    dozwoloneWKlęsce p = true ↔
+      (p.art = 22 ∨ p.art = 50 ∨ p.art = 64) ∨
+        (p.art = 41 ∧ (p.ust = 1 ∨ p.ust = 3 ∨ p.ust = 5)) ∨ (p.art = 52 ∧ p.ust = 1) ∨
+        (p.art = 59 ∧ p.ust = 3) ∨ (p.art = 65 ∧ p.ust = 1) ∨
+        (p.art = 66 ∧ (p.ust = 1 ∨ p.ust = 2)) := by
+  simp [dozwoloneWKlęsce]
+  omega
 
 /-- Katalogi z art. 233 ust. 1 i 3 są rozłączne. -/
 theorem katalogi_rozłączne (p : Przepis) (h : nienaruszalne p = true) :

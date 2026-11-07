@@ -107,10 +107,10 @@ inductive PełnyKrok : PełnyStan → PełnyStan → Prop where
   | wybór {a b} : WybórPrezydenta.Krok W a b → PełnyKrok (.inr a) (.inr b)
   /-- Art. 128 ust. 2. -/
   | opróżnienie {t o p} :
-      PełnyKrok (.inl ⟨.opróżniony p, t, o⟩) (.inr ⟨.przedZarządzeniem, t, W.zapas⟩)
+      PełnyKrok (.inl ⟨.opróżniony p, t, o⟩) (.inr ⟨.przedZarządzeniem .opróżnienie, t, W.zapas⟩)
   /-- Art. 129 ust. 3, założenie W5. -/
   | ponowneWybory {t p} :
-      PełnyKrok (.inr ⟨.wybórNieważny, t, p⟩) (.inr ⟨.przedZarządzeniem, t, W.zapas⟩)
+      PełnyKrok (.inr ⟨.wybórNieważny, t, p⟩) (.inr ⟨.przedZarządzeniem .opróżnienie, t, W.zapas⟩)
   /-- Art. 130. -/
   | objęcie {t w p} :
       PełnyKrok (.inr ⟨.prezydentWybrany w, t, p⟩) (.inl ⟨.sprawuje, t, .prezydent⟩)

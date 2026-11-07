@@ -91,8 +91,8 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
 * W3. Wyniki tur są parametrem scenariusza (`głosyI`, `głosyII`).
 * W4. Przy wycofaniu kandydata model nie sprawdza kolejności zapasowych kandydatów, a
   liczbę możliwych zastąpień ogranicza `zapas`. Art. 127 ust. 5 mówi o kolejnym kandydacie.
-* W5. Termin 14 dni na zarządzenie i 60 dni na wybory liczymy także po stwierdzeniu
-  nieważności wyboru (art. 129 ust. 3).
+* W5. Po stwierdzeniu nieważności wyboru obowiązuje tryb opróżnienia urzędu (art. 129 ust. 3),
+  także gdy pierwsze wybory były zwykłe. Termin 14 dni liczymy od stwierdzenia nieważności.
 * W6. Art. 228 ust. 7 zakazuje głosowania, ale automat nie przesuwa daty. Tekst
   przedłuża kadencje, a nie opisuje nowego wyznaczenia daty.
 * W7. Tekst nie opisuje powrotu po przejściowej niemożności. Przyjmujemy, że Prezydent
@@ -110,6 +110,8 @@ wprost, więc każda decyzja jest wykładnią modelu, a nie treścią przepisu.
 * S6. Okres ochronny obejmuje dzień zakończenia i 90 kolejnych dni.
 * S7. Kadencja kończąca się w okresie ochronnym trwa do pierwszego dnia poza nim. Stykające
   się okresy liczą się razem, a późniejsze niezwiązane stany nie mają wpływu.
+* S11. „Niezwłocznie” z art. 231 zd. 2 liczymy od otrzymania rozporządzenia przez Sejm,
+  a nie od bieżącej chwili. Tekst nie podaje skutku przekroczenia tego terminu.
 * S9. Stan obowiązuje najdłużej do planowanego końca, także gdy Sejm go jeszcze nie
   rozpatrzył. Wtedy wygasa. Przedłużyć można tylko stan, który jeszcze obowiązuje.
 * S10. Rozporządzenia z art. 234 zatwierdza Sejm, gdy może obradować, także po zakończeniu

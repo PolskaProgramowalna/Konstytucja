@@ -138,6 +138,33 @@ theorem ogólni_w_wykazie (p : Podmiot) (h : p.ogólny = true) :
       (∃ n, n ≥ 30 ∧ p = .senatorowie n) := by
   cases p <;> simp_all [Podmiot.ogólny]
 
+/-- Odwrotność: każdy podmiot z art. 191 ust. 1 pkt 1 jest uznany. -/
+theorem wykaz_w_ogólnych :
+    (Podmiot.prezydent.ogólny = true) ∧ (Podmiot.marszałekSejmu.ogólny = true) ∧
+    (Podmiot.marszałekSenatu.ogólny = true) ∧ (Podmiot.prezesRadyMinistrów.ogólny = true) ∧
+    (Podmiot.pierwszyPrezesSN.ogólny = true) ∧ (Podmiot.prezesNSA.ogólny = true) ∧
+    (Podmiot.prokuratorGeneralny.ogólny = true) ∧ (Podmiot.prezesNIK.ogólny = true) ∧
+    (Podmiot.rzecznikPrawObywatelskich.ogólny = true) ∧
+    ((Podmiot.posłowie 50).ogólny = true) ∧ ((Podmiot.senatorowie 30).ogólny = true) := by
+  decide
+
+/-- Art. 191 ust. 1 pkt 3–5: wszystkie cztery kategorie i kościoły. -/
+theorem szczególni_pełni (p : Podmiot) :
+    p.szczególny = true ↔
+      p ∈ [Podmiot.organSamorządu true, .związekZawodowy true, .organizacjaPracodawców true,
+        .organizacjaZawodowa true, .kościół, .związekWyznaniowy] := by
+  cases p with
+  | organSamorządu k | związekZawodowy k | organizacjaPracodawców k | organizacjaZawodowa k =>
+    cases k <;> simp [Podmiot.szczególny]
+  | _ => simp [Podmiot.szczególny]
+
+/-- Art. 192: dokładnie siedem organów. -/
+theorem spór_pełny (p : Podmiot) :
+    p.wSporze = true ↔
+      p ∈ [Podmiot.prezydent, .marszałekSejmu, .marszałekSenatu, .prezesRadyMinistrów,
+        .pierwszyPrezesSN, .prezesNSA, .prezesNIK] := by
+  cases p <;> simp [Podmiot.wSporze]
+
 /-- Podmiot spoza wykazów nie ma żadnej drogi do Trybunału. -/
 theorem inny_bez_drogi (s o) : możeWystąpić .inny s o = false := by
   cases s <;> simp [możeWystąpić, Podmiot.ogólny, Podmiot.szczególny, Podmiot.wSporze]

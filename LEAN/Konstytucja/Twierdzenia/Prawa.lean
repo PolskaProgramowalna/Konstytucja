@@ -82,6 +82,19 @@ theorem art81_wykaz :
     (wGranicachUstawy ⟨74, 3, 0⟩ = true) ∧ (wGranicachUstawy ⟨76, 0, 0⟩ = true) ∧
     (wGranicachUstawy ⟨77, 1, 0⟩ = false) ∧ (wGranicachUstawy ⟨68, 1, 0⟩ = false) := by decide
 
+/-- Art. 81: pełna charakterystyka katalogu, dla każdego przepisu. -/
+theorem art81_pełny (p : Przepis) :
+    wGranicachUstawy p = true ↔
+      (p.art = 65 ∧ (p.ust = 4 ∨ p.ust = 5)) ∨
+        p.art = 66 ∨ p.art = 69 ∨ p.art = 71 ∨ p.art = 74 ∨ p.art = 75 ∨ p.art = 76 := by
+  simp [wGranicachUstawy]
+
+/-- Art. 31 ust. 3: dokładnie sześć celów ogólnych. -/
+theorem cele_ogólne_pełne (c : Cel) :
+    celOgólny c = true ↔ c ∈ [Cel.bezpieczeństwoPaństwa, .porządekPubliczny, .ochronaŚrodowiska,
+      .zdrowie, .moralność, .wolnościInnych] := by
+  cases c <;> simp [celOgólny]
+
 /-! ## Art. 59 -/
 
 private def strajk : Ograniczenie := ⟨⟨59, 3, 0⟩, true, .porządekPubliczny, .ogólna⟩

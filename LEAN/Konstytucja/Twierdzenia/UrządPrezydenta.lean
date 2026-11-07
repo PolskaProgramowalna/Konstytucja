@@ -100,6 +100,10 @@ theorem niezdolność_wymaga_uchwały {a b} (k : Krok Z a b)
   | niezdolność g h => exact ⟨g, h⟩
   | _ => cases e
 
+/-- Żaden krok nie cofa czasu. -/
+theorem czas_nie_cofa {a b} (k : Krok Z a b) : a.dzień ≤ b.dzień := by
+  cases k <;> simp_all [wLimicie, wLimicieCzasu]
+
 /-! ## Blokady -/
 
 /-- Art. 131 ust. 1 nie podaje terminu Trybunałowi. -/
@@ -124,13 +128,14 @@ wyboru Prezydenta albo do stwierdzenia nieważności. -/
 theorem opróżnienie_prowadzi_do_wyników (w : WybórPrezydenta.WarunkiZakończenia W)
     (t o p) : ∃ u, Przebieg (PełnyKrok Z W) (.inl ⟨.opróżniony p, t, o⟩) (.inr u) ∧
       u.etap.końcowy = true := by
-  obtain ⟨u, q, k⟩ := WybórPrezydenta.zakończenie w ⟨.przedZarządzeniem, t, W.zapas⟩
-    (fun _ _ e => by cases e)
+  obtain ⟨u, q, k⟩ := WybórPrezydenta.zakończenie w ⟨.przedZarządzeniem .opróżnienie, t, W.zapas⟩
+    ⟨fun _ _ e => (by cases e), fun _ e => (by cases e)⟩
   exact ⟨u, .dalej .opróżnienie (Przebieg.przenieś Sum.inr (fun r => .wybór r) q), k⟩
 
 /-- Art. 129 ust. 3: nieważny wybór wraca do zarządzenia, a tekst nie ogranicza powtórzeń. -/
 theorem nieważność_wraca_do_zarządzenia (t p) :
-    PełnyKrok Z W (.inr ⟨.wybórNieważny, t, p⟩) (.inr ⟨.przedZarządzeniem, t, W.zapas⟩) :=
+    PełnyKrok Z W (.inr ⟨.wybórNieważny, t, p⟩)
+      (.inr ⟨.przedZarządzeniem .opróżnienie, t, W.zapas⟩) :=
   .ponowneWybory
 
 /-- Pełny obieg: urząd zostaje opróżniony, wybrany obejmuje urząd i Prezydent sprawuje go. -/

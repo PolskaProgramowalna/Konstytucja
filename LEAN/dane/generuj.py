@@ -192,7 +192,7 @@ def deklaracje():
     """Nazwy zadeklarowane w Lean -> pliki; także w postaci Przestrzeń.nazwa."""
     wynik = collections.defaultdict(set)
     for plik in sorted((TU.parent / "Konstytucja").rglob("*.lean")):
-        tekst = plik.read_text(encoding="utf8")
+        tekst = re.sub(r"/-.*?-/", "", plik.read_text(encoding="utf8"), flags=re.S)
         ns = re.search(r"(?m)^namespace (\S+)", tekst)
         przedrostek = ns.group(1).split(".")[-1] if ns else ""
         for m in re.finditer(r"(?m)^(?:private )?(?:def|theorem|structure|inductive|abbrev)\s+([^\s:({\[]+)", tekst):

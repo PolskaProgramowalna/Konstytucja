@@ -46,7 +46,7 @@ Z1. Każda definicja i każde twierdzenie wskazują przepis źródłowy,
     oznaczona jako definicja pomocnicza.
 Z2. Każde założenie spoza tekstu Konstytucji jest jawne, nazwane,
     opisane i zebrane w jednym miejscu.
-Z3. Pojęcia ocenne nie są definiowane na siłę. Stają się polami struktury
+Z3. Pojęcia ocenne nie są definiowane na siłę. Stają się wartościami funkcji
     Interpretacja, a więc parametrami twierdzeń.
 Z4. Odesłania do ustaw i regulaminów są parametrami. Ich konkretną treść
     można dołączyć później jako osobną warstwę.
@@ -212,8 +212,8 @@ nie jest zakończony.
 
 Etap 7. Publikacja i utrzymanie
 - CI: LEAN/sprawdź.sh i .github/workflows/lean.yml uruchamiają `lake build`,
-  kontrolę aksjomatów i aktualność danych. Zadanie w GitHub Actions nie
-  zostało jeszcze uruchomione, a plik workflow czeka na commit.
+  kontrolę aksjomatów, istnienie nazw z rejestru i aktualność danych.
+  Zdalne wykonanie zadania w GitHub Actions nie zostało jeszcze potwierdzone.
 - Czytelny opis wyników dla osób bez znajomości Lean.
 - Wersjonowanie modelu według stanu Konstytucji (art. 235 pozwala ją
   zmieniać, a zmiany wymagają nowej wersji modelu).
@@ -223,7 +223,7 @@ Etap 7. Publikacja i utrzymanie
 
 Sprawdzone na Lean v4.35.0, bez `sorry` i bez własnych aksjomatów.
 T1-T5 są w Twierdzenia/Progi.lean, T6 w Twierdzenia/TworzenieRządu.lean,
-T7 w Twierdzenia/Terminy.lean, a T8 w Twierdzenia/Interpretacje.lean.
+T7 w Twierdzenia/Terminy.lean, a T8 w Twierdzenia/Prawa.lean.
 Wyniki z minimum 1 głosu to analiza wrażliwości wariantu roboczego.
 
 T1. Większość bezwzględna spełnia też warunek większości zwykłej.
@@ -278,5 +278,5 @@ D4. Kto recenzuje model od strony prawnej?
 9. NAJBLIŻSZE KROKI
 
 1. Zatwierdzić i wypchnąć zmiany razem z .github/, żeby uruchomić CI.
-2. Recenzja prawnika: wszystkie założenia oraz luki L1-L73.
+2. Recenzja prawnika: wszystkie założenia oraz luki L1-L74.
 3. Po recenzji: decyzja o wariantach i ewentualne poprawki, potem etap 7.

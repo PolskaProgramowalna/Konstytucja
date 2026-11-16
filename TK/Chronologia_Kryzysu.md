@@ -10,16 +10,17 @@
 | **Data pobrania** | 16 listopada 2026 (przez API MediaWiki: `action=query&prop=extracts` oraz `action=parse&oldid=81177984`) |
 | **Licencja materiału źródłowego** | CC BY-SA 4.0 (autorzy artykułu w Wikipedii — historia edycji: <https://pl.wikipedia.org/w/index.php?title=Kryzys_wok%C3%B3%C5%82_Trybuna%C5%82u_Konstytucyjnego_w_Polsce&action=history>) |
 
-**Uwaga licencyjna.** Części „Chronologia” i „Reakcje” są opracowaniem (streszczeniem i przeredagowaniem) tekstu Wikipedii, dlatego jako utwór zależny podlegają licencji **CC BY-SA 4.0**, a nie licencji CC BY 4.0 obowiązującej w reszcie repozytorium (zob. `LICENCJE.md`). Część „Analiza” jest opracowaniem własnym.
+**Uwaga licencyjna.** Cały plik, łącznie z analizą własną i uzupełnieniami weryfikacyjnymi, jest udostępniany na licencji **CC BY-SA 4.0**, zgodnie z [LICENCJE.md](../LICENCJE.md). Chronologia i reakcje streszczają oraz przeredagowują tekst Wikipedii; analiza zawiera wnioski autora opracowania.
 
 **Jak czytać oznaczenia:**
 
 - **§ Nazwa sekcji** — sekcja artykułu Wikipedii, z której pochodzi informacja (w wersji 81177984).
-- **[^N]** — przypis nr N **w numeracji Wikipedii** (rewizja 81177984), czyli źródło, na które powołuje się sam artykuł. Pełny opis bibliograficzny i URL każdego przypisu znajduje się w części „Przypisy” na końcu pliku, przepisany automatycznie z kodu HTML artykułu.
+- **`[^N]`** — przypis nr N **w numeracji Wikipedii** (rewizja 81177984), czyli źródło, na które powołuje się sam artykuł. Pełny opis bibliograficzny i URL każdego przypisu znajduje się w części „Przypisy” na końcu pliku, przepisany automatycznie z kodu HTML artykułu.
 - **⚠ brak przypisu** — w artykule Wikipedii dany akapit nie ma przypisu; informacja nie jest tam poparta źródłem.
+- **`[^W-…]`** — źródło dodane podczas niezależnej weryfikacji 16 listopada 2026; te przypisy mają osobną numerację i nie pochodzą z Wikipedii. Uzupełnienia oznaczono w tekście.
 - **[Analiza]** — wnioski własne, które nie pochodzą z Wikipedii.
 
-Wikipedia jest źródłem **trzeciorzędnym**. Wszystkie fakty poniżej podaję tak, jak opisuje je artykuł. Nie weryfikowałem ich niezależnie w źródłach pierwotnych, z wyjątkiem uwag w części „Krytyka źródła”.
+Wikipedia jest źródłem **trzeciorzędnym**. Podstawą opracowania pozostaje wskazana rewizja, ale wykryte błędy poprawiono, a wybrane zdarzenia uzupełniono na podstawie innych źródeł. Zakres niezależnego sprawdzenia i pozostałe ograniczenia opisuje [Weryfikacja_Chronologii.md](Weryfikacja_Chronologii.md). Potwierdzenie daty aktu nie jest potwierdzeniem wszystkich ocen prawnych towarzyszących jego opisowi.
 
 ---
 
@@ -54,7 +55,7 @@ Wikipedia jest źródłem **trzeciorzędnym**. Wszystkie fakty poniżej podaję 
 
 **§ Wyroki TK z grudnia 2015 w sprawach K 34/15 i K 35/15; § Kwestia publikacji wyroków**
 
-- **3 grudnia 2015 — wyrok K 34/15.** Wybór trzech sędziów z kadencjami od listopada 2015 był zgodny z Konstytucją, a wybór dwóch z kadencjami grudniowymi — niezgodny. Według uzasadnienia prezydent powinien niezwłocznie przyjąć ślubowanie od trzech prawidłowo wybranych osób. Kancelaria Prezydenta odpowiada, że nie jest to możliwe, bo miejsca są już obsadzone.[^51][^52][^11]
+- **3 grudnia 2015 — wyrok K 34/15.** TK bada art. 137 ustawy o TK, czyli podstawę prawną wyboru, a nie indywidualne uchwały wyborcze. Przepis jest zgodny z Konstytucją w zakresie następców trzech sędziów kończących kadencje 6 listopada 2015 i niezgodny w zakresie następców dwojga kończących kadencje 2 i 8 grudnia 2015. Według uzasadnienia prezydent powinien niezwłocznie przyjąć ślubowanie od trzech prawidłowo wybranych osób. Kancelaria Prezydenta odpowiada, że nie jest to możliwe, bo miejsca są już obsadzone.[^51][^52][^11]
 - **9 grudnia 2015** — posłowie PO składają projekt uchwały wzywającej prezydenta do wykonania wyroku (druk nr 200).[^53]
 - **9 grudnia 2015 — wyrok K 35/15.** Niekonstytucyjne okazują się przepisy nowelizacji z 19 listopada o ponownym wyborze sędziów i o pozbawieniu funkcji prezesa i wiceprezesa. Sam tryb uchwalenia nie naruszył Konstytucji.[^54][^55]
 - **10 grudnia 2015** — premier Beata Szydło wstrzymuje publikację wyroku K 34/15, wskazując na „wady prawne” (skład pięcioosobowy zamiast dziewięcioosobowego). To **pierwszy taki przypadek od 1986 r.** Następnego dnia prezes TK odpowiada, że art. 190 ust. 2 Konstytucji nie przewiduje wyjątków od obowiązku publikacji.[^56][^57][^58]
@@ -68,7 +69,7 @@ Wikipedia jest źródłem **trzeciorzędnym**. Wszystkie fakty poniżej podaję 
 - **3 grudnia 2015** — prezydent w orędziu zapowiada reformę TK w ramach Narodowej Rady Rozwoju. Kukiz’15 proponuje zmianę Konstytucji (18 sędziów zamiast 15).[^63][^64][^65]
 - **15 grudnia 2015** — PiS wnosi projekt (druk nr 122). Uzasadnienie: zmiany planowane przez rząd byłyby blokowane przez TK.[^66][^67]
 - **22 grudnia 2015** — Sejm uchwala nowelizację. W Komisji Ustawodawczej powtórzono głosowanie, które PiS wcześniej przegrał. Uwagi Biura Legislacyjnego, że poprawki wykraczają poza projekt, nie zostały uwzględnione. **24 grudnia** (w nocy) Senat przyjmuje ustawę bez poprawek.[^66][^68][^69][^28][^70][^71]
-  - Treść: pełny skład co najmniej 13 sędziów, orzeczenia większością 2/3 (art. 190 ust. 5 Konstytucji mówi o zwykłej większości), rozpatrywanie spraw według kolejności wpływu, terminy rozpraw najwcześniej po 3 lub 6 miesiącach, brak vacatio legis.[^72][^73][^74][^68][^75]
+  - Treść: pełny skład co najmniej 13 sędziów, orzeczenia większością 2/3 (art. 190 ust. 5 Konstytucji stanowi, że orzeczenia zapadają „większością głosów”), rozpatrywanie spraw według kolejności wpływu, terminy rozpraw najwcześniej po 3 lub 6 miesiącach, brak vacatio legis.[^72][^73][^74][^68][^75]
   - Zastrzeżenia zgłaszają KRS, Prokurator Generalny, RPO, NRA, KRRP, HFPC i „Iustitia”.[^76][^77][^78][^79][^80][^81][^82][^83][^84]
 - **28 grudnia 2015** — prezydent podpisuje ustawę, bo jego zdaniem „przyczynia się do wzmocnienia pozycji” TK. Tego samego dnia ustawa wchodzi w życie (Dz.U. 2015 poz. 2217).[^85][^68]
 - **Styczeń–luty 2016** — ustawę zaskarżają posłowie PO, posłowie Nowoczesnej i PSL, Pierwszy Prezes SN, RPO i KRS. Opinie *amicus curiae* (Fundacja Batorego, NRA, KRRP, HFPC) uznają ją za całkowicie niekonstytucyjną. Prokurator Generalny Andrzej Seremet wskazuje 16 punktów niezgodności z Konstytucją.[^86][^87][^88][^89][^90][^91][^92][^93][^94][^95]
@@ -93,7 +94,7 @@ Wikipedia jest źródłem **trzeciorzędnym**. Wszystkie fakty poniżej podaję 
 - **16 sierpnia 2016** — rząd publikuje 21 zaległych orzeczeń, ale nie publikuje wyroków z 9 marca i 11 sierpnia.[^140][^141]
 - **29 grudnia 2016** — publikacja kolejnych 15 zaległych orzeczeń. Trzy wyroki, w tym K 47/15, nadal nie zostają opublikowane.[^250][^127]
 - **Wiosna 2017** — wyroki K 47/15, K 39/16 i K 44/16 znikają ze strony internetowej TK. Mariusz Muszyński uznaje je za niewyroki. **Czerwiec 2017** — RPO publikuje je na swojej stronie.[^142][^143][^251]
-- **12 kwietnia 2018** — Sejm uchwala nowelizację przepisów wprowadzających. Prezydent podpisuje ją 2 maja, a 23 maja wchodzi w życie. Orzeczenia mają być publikowane jako „rozstrzygnięcia”. **5 czerwca 2018** — publikacja K 47/15, K 39/16 i K 44/16 w Dzienniku Ustaw (2018 poz. 1077–1079), **po 818 dniach**.[^129][^130][^131][^132][^133][^134][^135][^358]
+- **12 kwietnia 2018** — Sejm uchwala nowelizację przepisów wprowadzających. Prezydent podpisuje ją 2 maja, a 23 maja wchodzi w życie. Orzeczenia mają być publikowane jako „rozstrzygnięcia”. **5 czerwca 2018** — publikacja K 47/15, K 39/16 i K 44/16 w Dzienniku Ustaw (2018 poz. 1077–1079), **po 818 dniach w przypadku K 47/15** (K 39/16: 663 dni; K 44/16: 575 dni).[^129][^130][^131][^132][^133][^134][^135][^358]
 
 ### Faza V: Ustawa z 22 lipca 2016, wyroki K 39/16 i K 44/16 oraz bojkot (kwiecień – listopad 2016)
 
@@ -103,8 +104,8 @@ Wikipedia jest źródłem **trzeciorzędnym**. Wszystkie fakty poniżej podaję 
 - **22 lipca 2016** — Sejm uchwala nową ustawę o TK: rozpatrywanie spraw według kolejności wpływu, publikacja orzeczeń sprzed 20 lipca, włączenie „zaprzysiężonych” sędziów do orzekania, możliwość odroczenia narady na wniosek czterech sędziów, obowiązkowa obecność Prokuratora Generalnego. Negatywne opinie wydają m.in. SN, prezes TK, KRS, NRA, KRRP, RPO, HFPC, stowarzyszenia sędziów i Biuro Analiz Sejmowych.[^157][^158][^159][^160][^161][^162][^163][^164][^165][^166][^167][^168][^169][^170][^171][^172][^173][^174][^175][^176]
 - **30 lipca 2016** — podpis prezydenta. **1 sierpnia** — publikacja. **16 sierpnia** — wejście w życie.[^181][^157][^158]
 - **10 sierpnia 2016** — Jarosław Kaczyński zapowiada, że rząd nie opublikuje wyroku. Prokuratura uznaje to za niewystarczające do wszczęcia śledztwa.[^190][^191]
-- **11 sierpnia 2016 — wyrok K 39/16.** TK uznaje za niekonstytucyjne 9 z 10 zaskarżonych przepisów, m.in. obowiązek dopuszczenia „dublerów” do orzekania i wnioskowanie do premiera o publikację. Rzecznik rządu stwierdza, że wyrok „nie spełniał przesłanek ustawowych”, i nie zostaje on opublikowany.[^192][^193][^194]
-- **18 sierpnia 2016** — Prokuratura Regionalna w Katowicach ujawnia, że od 20 lipca prowadzi śledztwo przeciwko prezesowi Rzeplińskiemu w sprawie niedopuszczenia trzech sędziów do orzekania.[^197]
+- **11 sierpnia 2016 — wyrok K 39/16.** TK stwierdza niekonstytucyjność licznych przepisów, m.in. obowiązek dopuszczenia „dublerów” do orzekania i wnioskowanie do premiera o publikację. Rzecznik rządu stwierdza, że wyrok „nie spełniał przesłanek ustawowych”, i nie zostaje on opublikowany.[^192][^193][^194][^W-K39]
+- **18 sierpnia 2016** — Prokuratura Regionalna w Katowicach ujawnia, że od 20 lipca prowadzi śledztwo w sprawie niedopuszczenia trzech sędziów do orzekania przez prezesa Rzeplińskiego.[^197]
 - **Październik 2016** — sejmowa komisja odracza zaopiniowanie budżetu TK, bo uchwała Zgromadzenia Ogólnego miała zapaść „w niewłaściwym składzie”. Budżet zostaje uchwalony **16 grudnia 2016**.[^198][^199]
 - **25 października 2016** — przedstawiciel prezydenta nie stawia się na rozprawę w sprawie Kp 4/15 i zarzuca prezesowi „bezprawną decyzję”.[^205][^206]
 - **7 listopada 2016** — Przyłębska, Pszczółkowski i Jędrzejewski odmawiają udziału w pełnym składzie (sprawa K 44/16). Tego samego dnia skład pięciu wylosowanych sędziów orzeka zgodność przepisów o wyborze prezesa z Konstytucją. Wyrok zostaje opublikowany dopiero **5 czerwca 2018**.[^200][^201][^202][^203][^204][^135]
@@ -134,7 +135,7 @@ Wikipedia jest źródłem **trzeciorzędnym**. Wszystkie fakty poniżej podaję 
 **§ Spadek liczby spraw…; § Śmierć Lecha Morawskiego i Henryka Ciocha; § Wyrok K 1/17; § Wyrok K 12/18; § Stanowisko TK z 20 kwietnia 2020; § Wyrok ETPCz Xero Flor; § Wyrok K 6/21; § Orzeczenie SN z 13 grudnia 2023; § Zarzuty dotyczące upolitycznienia TK**
 
 - **2016** — liczba pytań prawnych od sądów spada do 21 (ze 135 w 2015 r.). **Marzec 2017** — KRS wycofuje swoje wnioski z TK, a w 2018 r. robi to samo RPO.[^50][^261]
-- **2017** — pojawia się **rozproszona kontrola konstytucyjności**: sądy stosują Konstytucję bezpośrednio. Ministerstwo Sprawiedliwości to krytykuje. „Stanowisko TK” w tej sprawie okazuje się tekstem samej Przyłębskiej.[^262][^263]
+- **2017** — w sporze o TK rośnie znaczenie **rozproszonej kontroli konstytucyjności**: sądy stosują Konstytucję bezpośrednio. Ministerstwo Sprawiedliwości to krytykuje. „Stanowisko TK” w tej sprawie okazuje się tekstem samej Przyłębskiej.[^262][^263]
 - **12 lipca 2017** — umiera Lech Morawski. **15 września 2017** Sejm wybiera na to miejsce Justyna Piskorskiego.[^266][^267][^268]
 - **24 października 2017 — wyrok K 1/17.** Przepisy ustaw z grudnia 2016 są zgodne z Konstytucją. W składzie zasiadają Muszyński i Cioch, czyli osoby, których status był przedmiotem sprawy. Prawnicy wskazują na naruszenie zasady *nemo iudex in causa sua*.[^271][^272][^273][^274]
 - **20 grudnia 2017** — umiera Henryk Cioch. W **styczniu 2018** Sejm wybiera Jarosława Wyrembaka.[^269][^270]
@@ -144,38 +145,45 @@ Wikipedia jest źródłem **trzeciorzędnym**. Wszystkie fakty poniżej podaję 
 - **7 maja 2021 — ETPCz, Xero Flor przeciwko Polsce.** Skład z udziałem Muszyńskiego nie jest „sądem ustanowionym ustawą” (naruszenie art. 6 EKPC).[^284]
 - **24 listopada 2021 — wyrok K 6/21.** TK uznaje art. 6 ust. 1 EKPC za niezgodny z Konstytucją w zakresie, w jakim pojęcie „sąd” obejmuje TK.[^285]
 - **8 i 15 listopada 2023** — po przegranych przez PiS wyborach TK rozstrzyga długo wstrzymywane sprawy wynagrodzeń sędziów i emerytur. Komentatorzy odczytują wcześniejszą zwłokę jako pomoc dla rządu PiS.[^321]
-- **13 grudnia 2023** — siedmioosobowy skład Izby Karnej SN stwierdza, że TK z „dublerami” nie jest trybunałem, a jego wyroki nie obowiązują. Orzeczenie ma moc zasady prawnej.[^286]
+- **13 grudnia 2023 — postanowienie I KZP 5/23.** Siedmioosobowy skład Izby Karnej SN odmawia podjęcia uchwały w sprawie wynagrodzeń obrońców z urzędu. W uzasadnieniu odmawia skutków z art. 190 ust. 1 i 3 Konstytucji wyrokowi TK SK 78/21 z 20 grudnia 2022, wydanemu z udziałem Jarosława Wyrembaka. Formułuje też ogólniejszą ocenę decyzji organu obsadzonego osobami wybranymi na zajęte miejsca. **Postanowieniu nie nadano mocy zasady prawnej**; sam siedmioosobowy skład tego nie powoduje.[^286][^W-SN]
 - Raport Fundacji Batorego i Archiwum Osiatyńskiego: Przyłębska manipulowała składami orzekającymi.[^322]
 
 ### Faza VIII: Próby naprawy po zmianie władzy (2024 – 2025)
 
 **§ Uchwała Sejmu X kadencji z 6 marca 2024; § Ustawy o TK z 13 września 2024; § Wygaśnięcie kadencji sędziów TK; § Brak wynagrodzeń dla czynnych sędziów TK; § Wyrok TSUE z 18 grudnia 2025 (C-448/23)**
 
-- **6 marca 2024** — Sejm przyjmuje uchwałę „w sprawie usunięcia skutków kryzysu konstytucyjnego lat 2015–2023”: „dublerzy” nie są sędziami, prezesa TK od 21 grudnia 2016 sprawuje osoba nieuprawniona, a sędziowie są wzywani do rezygnacji. Uchwała zostaje opublikowana w M.P. 11 marca 2024. Większość prawników uznaje ją za deklarację polityczną bez mocy prawnej.[^287][^288][^289][^290][^291][^292][^293][^294]
-- **28 maja 2024** — TK w składzie trzech sędziów uznaje tę uchwałę za niezgodną z Konstytucją.[^295]
-- **6 marca → 24 lipca → 13 września 2024** — Sejm uchwala ustawę o TK i przepisy wprowadzające (wybór sędziów większością 3/5, usunięcie „dublerów”, unieważnienie wyroków wydanych po 2016 r.). RPO Marcin Wiącek krytykuje unieważnianie orzeczeń. **7 października 2024** prezydent Duda kieruje obie ustawy do TK w trybie kontroli prewencyjnej.[^296][^297][^298][^299]
+- **6 marca 2024** — Sejm przyjmuje uchwałę „w sprawie usunięcia skutków kryzysu konstytucyjnego lat 2015–2023”: „dublerzy” nie są sędziami, prezesa TK od 21 grudnia 2016 sprawuje osoba nieuprawniona, a sędziowie są wzywani do rezygnacji. Uchwała zostaje opublikowana w M.P. 11 marca 2024. Cytowani w artykule prawnicy oceniają ją jako deklarację polityczną bez mocy prawnej.[^287][^288][^289][^290][^291][^292][^293][^294]
+- **28 maja 2024 — U 5/24.** TK w składzie trzech sędziów uznaje tę uchwałę za niezgodną z Konstytucją.[^295]
+- **6 marca 2024** — do Sejmu wpływają projekty ustawy o TK i przepisów wprowadzających (druki 253 i 254). **24 lipca** Sejm uchwala ustawy, a **13 września** rozpatruje poprawki Senatu i ustala ich ostateczne brzmienie. Przewidziano wybór sędziów większością 3/5 oraz nieważność określonych orzeczeń wydanych z udziałem osób uznanych w ustawie za nieuprawnione do orzekania; nie chodziło o wszystkie wyroki po 2016 r.[^W-USTAWY] RPO Marcin Wiącek krytykuje unieważnianie orzeczeń. **7 października 2024** prezydent Duda kieruje obie ustawy do TK w trybie kontroli prewencyjnej.[^296][^297][^298][^299]
 - **7 listopada 2024** — upływa hipotetyczna 9-letnia kadencja Hausera, Ślebzaka i Jakubeckiego, którzy nigdy nie objęli urzędu. Ślebzak i Jakubecki skarżą Polskę do ETPCz.[^302][^303]
 - **Listopad 2024** — Marszałek Hołownia zapowiada, że koalicja nie będzie zgłaszać kandydatów na zwalniające się miejsca.[^305][^306]
-- **2 grudnia 2024** — Przyłębska zrzeka się funkcji prezesa. **3 grudnia** kończą się kadencje Muszyńskiego i Pszczółkowskiego, a **9 grudnia** kadencja Przyłębskiej.[^307][^308][^309]
+- **2 grudnia 2024** — Przyłębska informuje o zrzeczeniu się funkcji prezesa. **3 grudnia** kończą się kadencje Muszyńskiego i Pszczółkowskiego, a **9 grudnia** kadencja Przyłębskiej.[^307][^308][^309]
+- **9 grudnia 2024 — uzupełnienie weryfikacyjne.** Prezydent Andrzej Duda powołuje Bogdana Święczkowskiego na prezesa TK.[^W-PREZES]
 - **21 lutego 2025** — Sejm odrzuca kandydatury Marka Asta i Artura Kotowskiego zgłoszone przez PiS.[^311][^312][^313][^314]
-- **Luty 2025** — po raz pierwszy w historii sędziowie TK nie otrzymują wynagrodzeń, bo ustawa budżetowa na 2025 r. nie przewiduje na nie środków. **6 maja 2025** TK uznaje tę część ustawy budżetowej za niekonstytucyjną, a wyrok nie zostaje opublikowany.[^323][^324]
-- **29 lipca 2025 — wyrok Kp 3/24** (pełny skład). Obie ustawy z 2024 r. są niekonstytucyjne, bo „rujnują podstawy konstytucyjnej konstrukcji Trybunału”. Koalicja nie uznaje tego wyroku ze względu na skład orzekający.[^300]
+- **Luty 2025** — według przytoczonej przez TVP Info wypowiedzi Krystyny Pawłowicz sędziowie TK nie otrzymują wynagrodzeń po ograniczeniu środków w ustawie budżetowej. Nie zweryfikowano dokumentacji wypłat ani twierdzenia, że był to pierwszy taki przypadek w historii. **6 maja 2025 — K 2/25.** TK uznaje zakwestionowane ograniczenia wydatków TK i KRS za niekonstytucyjne; według źródeł wyroku nie ogłoszono w Dzienniku Ustaw.[^323][^324]
+- **29 lipca 2025 — wyrok Kp 3/24** (pełny skład). TK stwierdza niekonstytucyjność wybranych przepisów obu ustaw z 2024 r. oraz nierozerwalny związek części tych przepisów z całymi ustawami, co blokuje podpisanie ustaw w trybie art. 122 ust. 4 Konstytucji. Nie jest to weto z art. 122 ust. 5.[^W-KP3] Koalicja nie uznaje tego wyroku ze względu na skład orzekający.[^300]
 - **Kadencje w 2025 r.** — Zbigniew Jędrzejewski (28 kwietnia), Krystyna Pawłowicz (stan spoczynku od 5 grudnia), Michał Warciński (20 grudnia).[^315][^316][^317][^318]
-- **18 grudnia 2025 — TSUE, C-448/23 (Komisja przeciwko Polsce).** TK nie spełnia wymogów niezawisłego sądu ustanowionego ustawą (art. 19 ust. 1 TUE w zw. z art. 47 Karty) z powodu „dublerów” i wyboru prezesa w 2016 r. To pierwszy taki wyrok TSUE. Prezes TK Bogdan Święczkowski i PiS powołują się na zasadę przyznania (art. 5 TUE).[^325][^326]
+- **18 grudnia 2025 — TSUE, C-448/23 (Komisja przeciwko Polsce).** TK nie spełnia wymogów niezawisłego sądu ustanowionego ustawą (art. 19 ust. 1 TUE w zw. z art. 47 Karty) z powodu „dublerów” i wyboru prezesa w 2016 r. Sprawa obejmuje także naruszenie prawa UE przez wyroki TK P 7/20 z 14 lipca 2021 i K 3/21 z 7 października 2021; TSUE stwierdza uchybienie zobowiązaniom przez Polskę.[^W-TSUE] Prezes TK Bogdan Święczkowski i PiS powołują się na zasadę przyznania (art. 5 TUE).[^325][^326]
 
 ### Faza IX: Rok 2026 — „trzeci spór o dublerów”
 
 **§ Ustawy o TK z 13 września 2024 (akapit końcowy); § Wygaśnięcie kadencji; § Wybór sędziów przez Sejm X kadencji i spór o ślubowanie (2026); § Zawieszenie prezesa TK**
 
-- **19 lutego 2026** — prezydent Karol Nawrocki, powołując się na wyrok Kp 3/24, odmawia podpisania ustaw z 2024 r. Legislacyjna próba zakończenia kryzysu nie wchodzi w życie.[^301] **❌ Wikipedia podaje tu błędną informację.** 19.02.2026 prezydent zawetował ustawę o KRS, a nie ustawy o TK (zob. [Weryfikacja_Chronologii.md](Weryfikacja_Chronologii.md), poz. 8).
-- **13 marca 2026** — Sejm X kadencji wybiera sześcioro sędziów TK: Magdalenę Bentkowską, Dariusza Szostka, Marcina Dziurdę, Annę Korwin-Piotrowską, Krystiana Markiewicza i Macieja Taborowskiego, bezwzględną większością głosów (art. 194 ust. 1 Konstytucji). ⚠ **brak przypisu** w artykule.
-- **1 kwietnia 2026** — prezydent przyjmuje ślubowanie tylko od Bentkowskiej i Szostka. Pozostałych czworga nie zaprasza, powołując się na art. 21 ust. 1 ustawy o statusie sędziów TK.[^327]
-- **9 kwietnia 2026** — szef KPRP Zbigniew Bogucki zapowiada, że ślubowanie w innej formie będzie traktowane jako odmowa złożenia ślubowania. Tego samego dnia czworo sędziów odczytuje i podpisuje rotę w Sejmie w obecności notariusza i przekazuje dokumenty do KPRP. Prezydent nie przychodzi na uroczystość.[^328][^329]
+- **19 lutego 2026 — sprostowanie Wikipedii.** Prezydent Karol Nawrocki wetuje ustawę o zmianie ustawy o KRS i Kodeksu wyborczego (druk 2108). To nie jest odmowa podpisania ustaw o TK z 2024 r., jak błędnie podaje artykuł Wikipedii. Data odrębnej odmowy podpisania ustaw o TK pozostaje w tej weryfikacji nieustalona.[^301][^W-WETO]
+- **13 marca 2026** — Sejm X kadencji wybiera sześcioro sędziów TK: Magdalenę Bentkowską, Dariusza Szostka, Marcina Dziurdę, Annę Korwin-Piotrowską, Krystiana Markiewicza i Macieja Taborowskiego, bezwzględną większością głosów. Kompetencja wyborcza wynika z art. 194 ust. 1 Konstytucji, a większość określał art. 31 ust. 1 Regulaminu Sejmu. ⚠ **brak przypisu** w artykule Wikipedii; informację potwierdza komunikat Sejmu.[^W-WYBOR][^W-REGULAMIN]
+- **1 kwietnia 2026** — prezydent przyjmuje ślubowanie tylko od Bentkowskiej i Szostka. Pozostałych czworga nie zaprasza. Wymóg ślubowania wobec prezydenta zawiera **art. 4 ust. 1** ustawy z 30 listopada 2016 o statusie sędziów TK. Podany w Wikipedii art. 21 ust. 1 to błędne odesłanie do numeracji wcześniejszej ustawy z 25 czerwca 2015.[^327][^W-STATUS]
+- **9 kwietnia 2026** — szef KPRP Zbigniew Bogucki zapowiada, że ślubowanie w innej formie będzie traktowane jako odmowa złożenia ślubowania. Tego samego dnia **sześcioro** wybranych sędziów składa ślubowanie w Sejmie w obecności notariusza; Bentkowska i Szostek czynią to ponownie. Czworo, od których prezydent nie przyjął ślubowania, przekazuje dokumenty do KPRP.[^W-SLUBOWANIE] Prezydent nie przychodzi na uroczystość.[^328][^329]
 - Marszałek Włodzimierz Czarzasty uznaje procedurę za „zamkniętą”.[^330]
 - Prezes TK Święczkowski uznaje, że stosunek służbowy nawiązało tylko dwoje sędziów zaprzysiężonych przez prezydenta. Status pozostałej czwórki pozostaje sporny i bywa nazywany „trzecim sporem o dublerów”.[^331]
-- **28 czerwca 2026** — kończy się kadencja Andrzeja Zielonackiego, a **18 września 2026** kadencja Justyna Piskorskiego.[^319][^320]
-- **13 października 2026 — opinia Komisji Weneckiej (CDL-AD(2026)031).** Prezydent ma obowiązek przyjąć ślubowanie i nie może oceniać wyboru dokonanego przez Sejm. Jeśli przez nieodpowiednio długi czas tego nie robi, ślubowanie może zostać złożone w formie pisemnej i przedłożone prezydentowi.[^332]
-- **30 października 2026** — na stronie TK pojawia się informacja o zarządzeniu przerwy w czynnościach prezesa Święczkowskiego i wiceprezesa Sochańskiego na podstawie art. 130 Prawa o ustroju sądów powszechnych. TK ma kierować Anna Korwin-Piotrowska jako sędzia z najdłuższym stażem. Decyzję krytykują m.in. Matczak, Piotrowski i Zaleśny.[^333][^334][^335][^336][^337]
+- **12 maja 2026 — K 3/26; uzupełnienie weryfikacyjne.** TK uznaje art. 4 ust. 1 ustawy o statusie sędziów TK, rozumiany jako nakładający na prezydenta obowiązek odebrania ślubowania, za niezgodny z Konstytucją. W pozostałym zakresie postępowanie umarza; sentencja nie orzeka o niekonstytucyjności procedury wyboru sędziów. Data 13 maja podana we wcześniejszej weryfikacji była błędna.[^W-K3]
+- **11 czerwca 2026 — uzupełnienie weryfikacyjne.** Sejm wybiera Sławomira Patyrę na sędziego TK.[^W-PATYRA]
+- **28 czerwca 2026** — kończy się kadencja Andrzeja Zielonackiego.[^319]
+- **28 lipca 2026 — uzupełnienie weryfikacyjne.** Prezydent przyjmuje ślubowanie od Patyry.[^W-PATYRA]
+- **4 września 2026 — uzupełnienie weryfikacyjne.** Sejm wybiera Macieja Berka na sędziego TK.[^W-BEREK]
+- **18 września 2026** — kończy się kadencja Justyna Piskorskiego.[^320]
+- **9–10 października 2026 — przyjęcie opinii Komisji Weneckiej CDL-AD(2026)031; 13 października — data dokumentu.** Według Komisji prezydent ma obowiązek przyjąć ślubowanie i nie ma swobody zatwierdzania wyboru Sejmu. Przy przedłużającym się zaniechaniu ślubowanie może zostać skierowane do prezydenta w należycie uwierzytelnionym dokumencie pisemnym i formalnie mu przedłożone. To stanowisko doradcze Komisji, a nie samodzielna zmiana polskiego prawa.[^332][^W-KW]
+- **14 października 2026 — uzupełnienie weryfikacyjne.** Berek składa ślubowanie w Sejmie pod nieobecność prezydenta; skuteczność tej procedury jest sporna.[^W-BEREK]
+- **30 października 2026** — na stronie TK pojawia się informacja o zarządzeniu przerwy w czynnościach prezesa Święczkowskiego i wiceprezesa Sochańskiego na podstawie art. 130 Prawa o ustroju sądów powszechnych. Anna Korwin-Piotrowska ogłasza kierowanie TK, powołując się na najdłuższy staż sędziowski. Podstawa i skuteczność jej działania są sporne; chodzi o staż sędziowski, nie o najdłuższe zasiadanie w TK. Decyzję krytykują m.in. Matczak, Piotrowski i Zaleśny.[^333][^334][^335][^336][^337]
 - Prokurator Generalny Waldemar Żurek kieruje do TK pięć wniosków o uchylenie immunitetu (cztery wobec Święczkowskiego, jeden wobec wiceprezesa).[^338]
 - Przed TK odbywa się manifestacja z udziałem Kaczyńskiego, Morawieckiego, Brauna, Mentzena i Bosaka. Policja udaremnia próbę wejścia Święczkowskiego do budynku.[^339][^340][^341]
 
@@ -242,14 +250,14 @@ Wikipedia jest źródłem **trzeciorzędnym**. Wszystkie fakty poniżej podaję 
 
 ### 1. Kryzys jako seria eskalacji, w których każda strona miała „pierwszy krok” drugiej
 
-Artykuł potwierdza ocenę Komisji Weneckiej z 11 marca 2016:[^543] **impuls wyszedł od Sejmu VII kadencji**, który wybrał „na zapas” dwóch sędziów (TK uznał to za niekonstytucyjne w K 34/15[^51]). Odpowiedź Sejmu VIII kadencji była jednak nieproporcjonalna. Unieważnił on także trzy *prawidłowe* wybory, zignorował postanowienie zabezpieczające TK[^27] i obsadził zajęte miejsca. Od tego momentu każdy kolejny ruch był przedstawiany jako „naprawa” poprzedniego:
+Artykuł potwierdza ocenę Komisji Weneckiej z 11 marca 2016:[^543] **impuls wyszedł od Sejmu VII kadencji**, który wybrał „na zapas” dwóch sędziów (TK uznał to za niekonstytucyjne w K 34/15[^51]). Odpowiedź Sejmu VIII kadencji była jednak nieproporcjonalna. Próbował on pozbawić mocy uchwały o trzech *prawidłowych* wyborach, zignorował postanowienie zabezpieczające TK[^27] i obsadził zajęte miejsca. Od tego momentu każdy kolejny ruch był przedstawiany jako „naprawa” poprzedniego:
 
-1. wybór „na zapas” → unieważnienie uchwałą,
+1. wybór „na zapas” → próba pozbawienia wyborów mocy uchwałą,
 2. wyrok TK → odmowa publikacji,
 3. ustawa paraliżująca → orzekanie z pominięciem ustawy (K 47/15),
 4. bojkot składów → ustawy przejściowe i nowy prezes,
 5. TK z „dublerami” → rozproszona kontrola konstytucyjności, uchwała Sejmu z 2024 r., nieuznawanie wyroków, wstrzymanie wynagrodzeń,
-6. ustawy naprawcze z 2024 r. → wyrok Kp 3/24 i weto,
+6. ustawy naprawcze z 2024 r. → wyrok Kp 3/24 blokujący ich podpisanie w ramach kontroli prewencyjnej,
 7. wybór sędziów w 2026 r. → odmowa przyjęcia ślubowania → przerwa w czynnościach prezesa.
 
 ### 2. Powtarzające się mechanizmy (symetrie)
@@ -258,7 +266,7 @@ Artykuł potwierdza ocenę Komisji Weneckiej z 11 marca 2016:[^543] **impuls wys
 |---|---|---|
 | **Ślubowanie jako faktyczne weto prezydenta** | Duda nie przyjmuje ślubowania od trzech sędziów prawidłowo wybranych (pomimo K 34/15) | Nawrocki nie przyjmuje ślubowania od czworga z sześciorga wybranych |
 | **Publikacja jako faktyczne weto rządu** | Premier nie publikuje K 47/15, K 39/16, K 44/16 | Rząd nie publikuje wyroku z 6 V 2025 (budżet) i nie uznaje Kp 3/24 |
-| **TK sędzią we własnej sprawie** | K 47/15 — TK orzeka o ustawie o sobie, z jej pominięciem | K 1/17 (z udziałem „dublerów”), Kp 3/24 |
+| **TK sędzią we własnej sprawie** | K 47/15 — TK orzeka o ustawie o sobie, z jej pominięciem | Kp 3/24; podobny spór dotyczył wcześniej K 1/17 z 2017 r. |
 | **Uchwała Sejmu jako narzędzie personalne** | Uchwały z 25 XI 2015 o „braku mocy prawnej” | Uchwała z 6 III 2024 o „dublerach” |
 | **Środek zastępczy przy blokadzie** | Rozproszona kontrola konstytucyjności przez sądy | Ślubowanie przed notariuszem, przerwa w czynnościach prezesa z art. 130 u.s.p. |
 | **Spór o „właściwy skład”** | Rząd: wyrok pięcioosobowy wadliwy | Koalicja: wyroki z udziałem „dublerów” nieistniejące |
@@ -269,9 +277,9 @@ Kryzys był możliwy, bo Konstytucja z 1997 r. pozostawia kilka kluczowych kwest
 
 1. **Brak terminu i formy ślubowania** sędziego TK w Konstytucji. Wymóg ślubowania wobec prezydenta wynika z ustawy, a nie z art. 194. Pozwoliło to dwóm kolejnym prezydentom blokować skład (§ Wybór sędziów 2015; § spór o ślubowanie 2026). Komisja Wenecka w 2026 r. musiała dopiero wskazać formę zastępczą.[^332]
 2. **Brak sankcji i procedury zastępczej przy niepublikowaniu wyroku.** Art. 190 ust. 2 wymaga „niezwłocznej” publikacji, ale nie mówi, co dalej, gdy jej nie ma. Prokuratura dwukrotnie umorzyła sprawę.[^60][^128]
-3. **Wybór sędziów zwykłą większością** (art. 194 ust. 1). Każda większość może obsadzić TK samodzielnie. Komisja Wenecka zalecała większość kwalifikowaną z mechanizmem na wypadek impasu albo podział nominacji 1/3–1/3–1/3.[^543]
+3. **Brak konstytucyjnego wymogu większości kwalifikowanej przy wyborze sędziów** (art. 194 ust. 1). Przepis Konstytucji nie określa większości; dla wyboru z marca 2026 art. 31 ust. 1 Regulaminu Sejmu przewidywał **większość bezwzględną**. Większość rządząca dysponująca takim poparciem może obsadzać zwalniane miejsca bez porozumienia z opozycją.[^W-REGULAMIN] Komisja Wenecka zalecała większość kwalifikowaną z mechanizmem na wypadek impasu albo podział nominacji 1/3–1/3–1/3.[^543]
 4. **Organizacja i tryb postępowania TK w ustawie zwykłej** (art. 197). Umożliwiło to sześć „ustaw naprawczych” w ciągu roku i paradoks kontroli ustawy o TK przez TK działający na jej podstawie.
-5. **Brak organu rozstrzygającego o ważności wyboru sędziego TK.** TK uznał, że uchwały Sejmu o wyborze nie są aktami normatywnymi i nie podlegają jego kontroli.[^48] Nikt więc nie mógł wiążąco rozstrzygnąć statusu „dublerów”, co ostatecznie zrobiły sądy zewnętrzne (ETPCz 2021, TSUE 2025).[^284][^325]
+5. **Brak organu rozstrzygającego o ważności wyboru sędziego TK.** TK uznał, że uchwały Sejmu o wyborze nie są aktami normatywnymi i nie podlegają jego kontroli.[^48] Spór ujawnił brak skutecznej krajowej drogi dochodzenia objęcia urzędu przez prawidłowo wybrane osoby. ETPCz i TSUE oceniły następnie skutki wadliwej obsady dla wymogów sądu ustanowionego ustawą; nie zastępowało to krajowej procedury obsadzenia stanowisk.[^284][^325][^W-RPO]
 6. **Wybór prezesa TK** (art. 194 ust. 2) bez określenia kworum i większości Zgromadzenia Ogólnego. Spór z grudnia 2016 r. dotyczył właśnie tego.[^243]
 
 ### 4. Skutki systemowe (według faktów z artykułu)
@@ -296,11 +304,11 @@ Kryzys był możliwy, bo Konstytucja z 1997 r. pozostawia kilka kluczowych kwest
 
 ## Część IV — Krytyka źródła
 
-> **Weryfikacja w innych źródłach:** w pliku [Weryfikacja_Chronologii.md](Weryfikacja_Chronologii.md) sprawdziłem fakty z tej chronologii w API Sejmu ELI, komunikatach TSUE, TK, SN i RPO oraz w mediach. Akty prawne i publikacje z lat 2015–2024 się zgadzają (17 z 17). W Wikipedii znalazłem 1 błąd (poz. 3 poniżej), 4 uproszczenia oraz 8 brakujących zdarzeń z 2026 r., m.in. wyrok TK z 13.05.2026, ślubowanie Patyry i sprawę Macieja Berka.
+> **Weryfikacja w innych źródłach:** w pliku [Weryfikacja_Chronologii.md](Weryfikacja_Chronologii.md) opisano sprawdzenie metadanych 17 aktów w API Sejmu oraz wybranych twierdzeń w tekstach orzeczeń i komunikatach urzędowych. Daty aktów i ich publikacji są zgodne (17 z 17), ale nie potwierdza to całego opisu lat 2015–2018. Weryfikacja wykazała m.in. pomylenie ustaw o TK z wetem ustawy o KRS, błędną informację o mocy zasady prawnej I KZP 5/23, błędny numer przepisu o ślubowaniu i pomyłki w samym pliku weryfikacyjnym. Wprowadzono wskazane w tekście sprostowania i uzupełnienia.
 
 1. **Charakter źródła.** Wikipedia jest źródłem trzeciorzędnym i edytowalnym. Ta chronologia odpowiada stanowi z rewizji 81177984 z 11 listopada 2026. Późniejsze edycje mogą zmienić treść.
 2. **Nierówna jakość przypisów.** Lata 2015–2018 są bardzo dobrze udokumentowane: Dziennik Ustaw, Monitor Polski, ISAP, strony TK, Sejmu, Senatu, KRS, RPO, NSA i prasa ogólnopolska. Okres 2024–2026 jest udokumentowany słabiej. Opiera się głównie na doniesieniach medialnych i stronie TK, a część akapitów nie ma przypisów (np. wybór sześciorga sędziów 13 marca 2026, wstęp do „Reakcji”).
-3. **Prawdopodobna niespójność przypisu [^301].** Zdanie o odmowie podpisania *ustaw o TK* przez prezydenta Nawrockiego 19 lutego 2026 opiera się na artykule Notes from Poland zatytułowanym „President vetoes bill reforming judicial body at heart of Poland’s rule of law crisis”. Tytuł wskazuje raczej na ustawę o KRS. Ustawy o TK z 2024 r. zostały przy tym skierowane do TK jeszcze przez prezydenta Dudę w trybie kontroli prewencyjnej, a artykuł nie wyjaśnia, jak doszło do późniejszej odmowy podpisu przez następcę. **Wynik weryfikacji: to błąd.** 19.02.2026 prezydent zawetował nowelizację ustawy o KRS i Kodeksu wyborczego (druk 2108), co potwierdzają Rzeczpospolita i RMF24. Data i forma odmowy podpisania ustaw o TK pozostają niepotwierdzone.
+3. **Błędny przedmiot ustawy w przypisie [^301].** Zdanie o odmowie podpisania *ustaw o TK* przez prezydenta Nawrockiego 19 lutego 2026 opiera się na artykule Notes from Poland zatytułowanym „President vetoes bill reforming judicial body at heart of Poland’s rule of law crisis”. Tytuł wskazuje raczej na ustawę o KRS. Ustawy o TK z 2024 r. zostały przy tym skierowane do TK jeszcze przez prezydenta Dudę w trybie kontroli prewencyjnej, a artykuł nie wyjaśnia, jak doszło do późniejszej odmowy podpisu przez następcę. **Wynik weryfikacji: to błąd.** 19.02.2026 prezydent zawetował nowelizację ustawy o KRS i Kodeksu wyborczego (druk 2108), co potwierdza urzędowy komunikat KPRP.[^W-WETO] Data odrębnej odmowy podpisania ustaw o TK pozostaje nieustalona; nie należy utożsamiać art. 122 ust. 4 z wetem z ust. 5.
 4. **Niespójność dat ustawy o statusie sędziów TK.** W tekście artykułu ustawa jest datowana na 30 listopada 2016, a przypis [^221] wskazuje „ustawę z dnia 4 listopada 2016 r.” i prowadzi do tekstu z etapu prac sejmowych (druk 880). Ostateczny akt to ustawa z 30 listopada 2016 (Dz.U. 2016 poz. 2073), co ustaliłem we własnym zakresie, a nie z artykułu.
 5. **Zróżnicowanie polityczne źródeł.** Artykuł cytuje media o różnych orientacjach: z jednej strony „Gazeta Wyborcza” i OKO.press, z drugiej wPolityce.pl, Niezalezna.pl i Radio Maryja. Oceny („zamach”, „bezprawne”) przypisuję w tekście konkretnym autorom, tak jak robi to artykuł.
 6. **Powtórzenia w artykule.** Opis nowelizacji z 2018 r. pojawia się dwa razy (§ Kwestia publikacji wyroku i § Nowelizacja z 2018), a informacja o usunięciu wyroków wiosną 2017 r. aż trzy razy. W chronologii połączyłem te opisy.
@@ -311,7 +319,7 @@ Kryzys był możliwy, bo Konstytucja z 1997 r. pozostawia kilka kluczowych kwest
 
 ## Przypisy
 
-Poniższe opisy bibliograficzne zostały przepisane automatycznie z kodu HTML artykułu Wikipedii (rewizja 81177984). Numeracja jest zgodna z numeracją przypisów w artykule. Daty „dostęp” odnoszą się do dostępu redaktorów Wikipedii, a nie autora tego opracowania.
+Przypisy liczbowe poniżej zostały przepisane automatycznie z kodu HTML artykułu Wikipedii (rewizja 81177984). Numeracja jest zgodna z numeracją przypisów w artykule. Daty „dostęp” odnoszą się do dostępu redaktorów Wikipedii, a nie autora tego opracowania.
 
 [^1]: M.P. z 2015 r. poz. 1038 (ISAP). — <http://www.dziennikustaw.gov.pl/mp/2015/1038> ; <https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WMP20150001038>
 [^2]: M.P. z 2015 r. poz. 1039 (ISAP). — <http://www.dziennikustaw.gov.pl/mp/2015/1039> ; <https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WMP20150001039>
@@ -694,3 +702,23 @@ Poniższe opisy bibliograficzne zostały przepisane automatycznie z kodu HTML ar
 [^577]: Patrycja Maciejewicz. Ratingowe ostrzeżenie. „Gazeta Wyborcza”, s. 4, 16 maja 2016. — (w opisie przypisu w Wikipedii brak adresu URL — np. wydanie drukowane gazety)
 [^578]: Komitet Praw Człowieka: Uwagi końcowe dotyczące siódmego sprawozdania okresowego Rzeczypospolitej Polskiej. rpo.gov.pl, 4 listopada 2016. \[dostęp 2016-11-11\]. — <https://www.rpo.gov.pl/sites/default/files/CCPR_C_POL_CO_7_25815%20-%20pol%20-2.pdf>
 [^579]: Human RightsH.R. Council Human RightsH.R., Report of the Special Rapporteur on the independence of judges and lawyers on his mission to Poland \[online\], documents-dds-ny.un.org \[dostęp 2018-06-06\] . — <https://documents-dds-ny.un.org/doc/UNDOC/GEN/G18/084/27/PDF/G1808427.pdf>
+
+
+### Źródła dodane podczas weryfikacji (16 listopada 2026)
+
+[^W-SN]: SN, postanowienie I KZP 5/23 z 13 grudnia 2023, sentencja s. 2 i uzasadnienie s. 7–10; odpis udostępniony przez RPO — <https://bip.brpo.gov.pl/sites/default/files/2024-01/Postanowienie_SN_pytanie_prawne_wynagrodzenie_obrona_z_urzedu_13.12.2023_0.pdf>.
+[^W-USTAWY]: Sejm, przebieg prac nad drukiem 253 — <https://www.sejm.gov.pl/sejm10.nsf/PrzebiegProc.xsp?nr=253>; TK, Kp 3/24, OTK ZU A/2025 poz. 82, opis przepisów wprowadzających i sentencja — <https://otkzu.trybunal.gov.pl/downloadOTK?mpo=48212>.
+[^W-PREZES]: KPRP, powołanie Bogdana Święczkowskiego, 9 grudnia 2024 — <https://k.prezydent.pl/kancelaria/archiwum/andrzej-duda/aktualnosci/nominacje/prezydent-powolal-bogdana-swieczkowskiego-na-prezesa-tk,95276>.
+[^W-KP3]: TK, wyrok Kp 3/24 z 29 lipca 2025, części I–IV sentencji, OTK ZU A/2025 poz. 82 — <https://otkzu.trybunal.gov.pl/downloadOTK?mpo=48212>.
+[^W-TSUE]: TSUE, komunikat nr 157/25 o wyroku C-448/23 z 18 grudnia 2025 — <https://curia.europa.eu/jcms/upload/docs/application/pdf/2025-12/cp250157pl.pdf>. Komunikat nie zastępuje pełnego uzasadnienia wyroku.
+[^W-WETO]: KPRP, „Prezydent RP podpisał dwie ustawy, dwie zawetował”, 19 lutego 2026 — <https://www.prezydent.pl/prawo/wnioski-do-tk/prezydent-rp-podpisal-dwie-ustawy-dwie-zawetowal,115305>.
+[^W-WYBOR]: Sejm, podsumowanie 53. posiedzenia, wybór sześciorga sędziów 13 marca 2026 — <https://www.sejm.gov.pl/sejm10.nsf/komunikat.xsp?documentId=2423F00CD1B28A44C1258DC000367A8A&symbol=KOMUNIKATY_KOMUNIKAT>.
+[^W-REGULAMIN]: Regulamin Sejmu, art. 31 ust. 1; tekst jednolity M.P. 2022 poz. 990 — <https://eli.gov.pl/eli/MP/2022/990/ogl>. Art. 194 ust. 1 Konstytucji nie określa większości wyborczej — <https://eli.gov.pl/eli/DU/1997/483/ogl>.
+[^W-STATUS]: Ustawa z 30 listopada 2016 o statusie sędziów TK, art. 4 ust. 1, Dz.U. 2016 poz. 2073 — <https://eli.gov.pl/eli/DU/2016/2073/ogl>; por. wyjaśnienie różnicy z art. 21 ustawy z 2015 w przypisie 9 opinii CDL-AD(2026)031.
+[^W-SLUBOWANIE]: Sejm, komunikat z 9 kwietnia 2026: ślubowanie sześciorga sędziów — <https://www.sejm.gov.pl/sejm10.nsf/komunikat.xsp?documentId=6B3DF195E108B7FFC1258DD400430C99&symbol=M_WYDARZENIA_KOMUNIKAT>.
+[^W-K3]: TK, sentencja K 3/26 z 12 maja 2026, w pozostałym zakresie umorzenie — <https://trybunal.gov.pl/postepowanie-i-orzeczenia/wyroki/art/zasady-i-tryb-wyboru-sedziego-trybunalu-konstytucyjnego-3>.
+[^W-PATYRA]: KPRP, ślubowanie Sławomira Patyry, 28 lipca 2026; komunikat podaje datę uchwały wyborczej 11 czerwca 2026 — <https://www.prezydent.pl/aktualnosci/nominacje/slubowanie-sedziego-trybunalu-konstytucyjnego,123825>.
+[^W-BEREK]: Sejm, druk 3006 i wybór 4 września 2026 — <https://www.sejm.gov.pl/Sejm10.nsf/PrzebiegProc.xsp?nr=3006>; komunikat po ślubowaniu 14 października 2026 — <https://www.sejm.gov.pl/sejm10.nsf/komunikat.xsp?documentId=2D8D06C7149A1BF4C1258E90002DBD9A&symbol=KOMUNIKATY_KOMUNIKAT>.
+[^W-KW]: Komisja Wenecka, CDL-AD(2026)031, przyjęta 9–10 października 2026, dokument z 13 października; zwłaszcza pkt 62, 81–84 i 98 — <https://rm.coe.int/poland-opinion-on-the-powers-of-the-president-in-the-context-of-the-oa/48802e450a>.
+[^W-RPO]: RPO, informacja o spotkaniu 5 listopada 2024 i odpowiedzi MSZ, aktualizacja 12 grudnia 2024 — <https://bip.brpo.gov.pl/pl/content/rpo-etpc-niedopuszczeni-sedziowie-tk-msz-odpowiedz>.
+[^W-K39]: TK, wyrok K 39/16 z 11 sierpnia 2016, sentencja ma 10 punktów: 9 o niezgodności i jeden o zgodności przepisu rozumianego w określony sposób. Nie oznacza to kontroli tylko 10 pojedynczych przepisów — <https://api.sejm.gov.pl/eli/acts/DU/2018/1078/text.html>.

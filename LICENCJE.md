@@ -9,7 +9,7 @@ Copyright 2026 autorzy projektu Konstytucja.
 | `LEAN/Konstytucja/`, `LEAN/Konstytucja.lean`, `LEAN/Skrypty/`, `LEAN/dane/generuj.py`, `LEAN/sprawdź.sh`, `LEAN/lakefile.toml`, `LEAN/lean-toolchain`, `LEAN/lake-manifest.json`, `tk_test.sh`, `oblicz_tk.sh`, `.github/` | [Apache 2.0](LICENSE) |
 | `CZYTAJ.md`, `METODOLOGIA.md`, `LICENCJE.md`, `plan.txt`, `LEAN/docs/`, `LEAN/dane/CZYTAJ.txt`, `inne/*.md` | [CC BY 4.0](LICENSE-CC-BY-4.0.txt) |
 | `LEAN/dane/` poza tekstem Konstytucji: `rejestr.csv`, `warianty.csv`, `pojecia.csv`, `klauzule.csv`, `pokrycie.csv`, `pokrycie_przepisy.csv` | [CC BY 4.0](LICENSE-CC-BY-4.0.txt) |
-| `TK/Weryfikacja_Chronologii.md`, `TK/Weryfikacja_planu_tk.md`, `TK/Przygotowanie_testu.md`, `plan_tk.txt`, `LEAN/dane/tk_rejestr.csv` | [CC BY 4.0](LICENSE-CC-BY-4.0.txt) |
+| `TK/Weryfikacja_Chronologii.md`, `TK/Weryfikacja_planu_tk.md`, `TK/Przygotowanie_testu.md`, `plan_tk.txt`, `plan_tk_etap_1.txt`, `LEAN/dane/tk_rejestr.csv` | [CC BY 4.0](LICENSE-CC-BY-4.0.txt) |
 | `TK/KryzysKonstytucyjny.md` | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.pl) — korzysta z `TK/Chronologia_Kryzysu.md`; dokumenty urzędowe, które cytuje, nie są przedmiotem prawa autorskiego (art. 4 ustawy o prawie autorskim) |
 | `TK/Chronologia_Kryzysu.md` | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.pl) — patrz niżej |
 

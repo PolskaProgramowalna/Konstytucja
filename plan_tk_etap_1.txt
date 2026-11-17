@@ -1,0 +1,538 @@
+PLAN FORMALIZACJI I TESTU ETAPU I KRYZYSU TK
+Podwójna obsada: październik–grudzień 2015
+Wersja 1, stan na 2026-11-17
+
+Dokument jest planem badania. Nie zawiera wyników historycznego testu
+ani werdyktu o TK. Wszystkie warianty interpretacyjne mają status roboczy.
+
+
+1. CEL I ZAKRES
+
+Ustalić, krok po kroku i osobno dla każdego wariantu interpretacji:
+- jakie czynności zostały dokonane i kiedy,
+- które wymogi Konstytucji spełniał każdy z dziesięciu wyborów z 2015 r.,
+- kto i od kiedy miał skuteczny wybór i tytuł do urzędu w danym modelu,
+- do których miejsc istniały konkurujące roszczenia,
+- kto faktycznie wykonywał funkcję, niezależnie od oceny jego tytułu,
+- co można ustalić o K 34/15, K 35/15 i publikacji tych orzeczeń,
+- które ustalenia są wspólne wariantom, a które od nich zależą.
+
+Podstawa chronologiczna: TK/KryzysKonstytucyjny.md, Etap I, kroki 1–8.
+Opis jest indeksem zdarzeń i dokumentów. Oceny zawarte w jego podsumowaniu
+nie są założeniami testu, w szczególności nie zakładamy z góry, że trzy
+październikowe wybory były prawidłowe ani że trzy grudniowe były wadliwe.
+
+Okno wyników: [2015-10-01, 2016-01-01), czyli do końca 31.12.2015.
+Badanie obsady dotyczy pięciu miejsc zwalnianych w 2015 r. Pełne liczniki
+TK podajemy dopiero po udokumentowaniu stanu pozostałych dziesięciu miejsc.
+
+Orzeczenia objęte testem: K 34/15 i K 35/15. Nie jest to pełne badanie
+orzecznictwa całego IV kwartału 2015 r. Zmiany ustawowe z dalszych etapów
+chronologii pozostają poza zakresem, chyba że zostaną jawnie do niego dodane.
+
+
+2. KONSTYTUCJA JAKO JEDYNY WZORZEC
+
+P1  Normatywną podstawą oceny jest wyłącznie Konstytucja RP z 2.04.1997,
+    w brzmieniu obowiązującym w badanym okresie. Kopie tekstu w repozytorium:
+    Senat/konstytucja_rp_miniatura_w._polska.txt i LEAN/dane/artykuly.txt.
+    Przy rozbieżności transkrypcji kontrolujemy urzędowy tekst Konstytucji.
+P2  Ustawy, regulamin Sejmu, uchwały personalne, orzeczenia i komunikaty są
+    DANYMI: potwierdzają czynność, treść dokumentu lub stanowisko autora.
+    Nie stanowią dodatkowych wzorców oceny i nie rozstrzygają testu za nas.
+P3  Konstytucyjne odesłanie do ustawy lub regulaminu pozostaje elementem
+    modelu. Nie wolno go usuwać, ale nie wczytujemy treści tych aktów jako
+    dodatkowych norm. Warunek wymagający takiej treści jest NIEUSTALONY
+    albo NIEPOKRYTY. Nie zastępujemy go arbitralną regułą domyślną.
+P4  Wariant interpretacyjny wskazuje konkretny przepis i miejsce, w którym
+    tekst wymaga wykładni. Nie jest przepisem Konstytucji. Wnioski zawsze
+    mają postać: "przy interpretacji I, stanie początkowym B i danych D...".
+P5  Wynik oceny wymogu: SPEŁNIONY / NARUSZONY / NIEUSTALONY.
+    NIEPOKRYTY jest osobnym oznaczeniem zakresu, a nie wynikiem pozytywnym.
+    "Brak dowodu naruszenia" nie oznacza "spełniony".
+P6  Każda ocena wskazuje: przepis W, wariant I, stan początkowy B,
+    identyfikatory zdarzeń i dokumentów D oraz pokrycie badanego warunku.
+P7  Brak dokumentu nie dowodzi braku czynności. Ślubowanie nie dowodzi
+    dopuszczenia do orzekania; dopuszczenie nie dowodzi prawidłowego tytułu.
+P8  Nie stosujemy domyślnych AD1–AD7 z testu ogólnego. Brakujące fakty
+    pozostają nieustalone. Ewentualne założenie o kompletności określonego
+    zbioru danych wymaga osobnego identyfikatora B i ujawnienia w wyniku.
+P9  Każda niepewna osoba, data, treść i kolejność zdarzeń ma własne
+    dopuszczalne uzupełnienia. Przeglądamy ich wspólnie spójne kombinacje,
+    z zachowaniem korelacji i jednej spójnej historii statusów osoby.
+    Status może zmieniać się w czasie zgodnie z regułami przejść.
+P10 Czas oczekiwania, liczba roszczeń i inne wskaźniki opisują dane.
+    Nie tworzą progów konstytucyjności. Nie stosujemy fikcji ślubowania
+    po 14/30/90 dniach ani liczbowej definicji "niezwłocznie".
+P11 Moc orzeczeń badamy według art. 190. Traktowanie ich treści jako danych
+    nie usuwa tego artykułu. Jednocześnie nie przyjmujemy sentencji jako
+    niezależnego wzorca ważności wcześniejszych wyborów personalnych.
+P12 Test nie wydaje rozstrzygnięcia mającego moc prawną. Nie wyprowadza
+    "utraty tożsamości TK" z liczby wad ani z pojedynczej wadliwej czynności.
+
+Jest to zakres węższy od trybu P2 w plan_tk.txt: ten plan NIE dopuszcza
+uzupełniania norm konstytucyjnych regułą ustawową wczytaną do parametru.
+Dotychczasowy silnik nie realizuje automatycznie całego tego zakresu.
+
+
+3. WZORCE KONSTYTUCYJNE
+
+W1  Art. 194 ust. 1: 15 sędziów; wybór indywidualny przez Sejm; dziewięć
+    lat kadencji; wyróżniająca wiedza prawnicza; zakaz ponownego wyboru.
+W2  Art. 98 ust. 1: granice kadencji Sejmu. Przedział pomocniczy:
+    [pierwsze posiedzenie, pierwsze posiedzenie następnej kadencji).
+W3  Art. 120, oba zdania: konstytucyjna reguła większości i kworum oraz
+    dopuszczone w samym tekście wyjątki. Dla uchwał nie wolno przemilczeć
+    klauzuli "jeżeli ustawa lub uchwała Sejmu nie stanowi inaczej".
+    Art. 96 ust. 1: ustawowa liczba posłów wynosi 460.
+W4  Art. 7 oraz art. 8 ust. 1–2: podstawa i granice działania organów,
+    nadrzędność oraz bezpośrednie stosowanie Konstytucji.
+W5  Art. 10 ust. 1–2 i art. 173: podział władz, odrębność i niezależność
+    sądów i trybunałów.
+W6  Art. 195 ust. 1 i 3: niezawisłość, podleganie Konstytucji, zakazy
+    dotyczące partii, związków zawodowych i określonej działalności
+    publicznej. Warunki ocenne wymagają jawnej oceny, nie etykiety politycznej.
+W7  Art. 188 pkt 1: kontrola zgodności ustawy z Konstytucją; art. 191:
+    konstytucyjny krąg wnioskodawców. Zakres badania konkretnych spraw
+    musi wynikać z ich dokumentów, a nie z samej sygnatury.
+W8  Art. 190 ust. 1, 2, 3 i 5: ostateczność i moc powszechnie obowiązująca,
+    niezwłoczna publikacja we właściwym dzienniku, wejście w życie,
+    możliwość odroczenia utraty mocy aktu, większość przy orzekaniu.
+    Oddzielamy te cztery kwestie. Art. 190 ust. 4 jest poza tym testem.
+W9  Art. 197 i art. 112: konstytucyjne odesłania dotyczące organizacji,
+    postępowania oraz regulaminu Sejmu. Nie są źródłem konkretnego kworum
+    składu TK, szczegółów wyboru ani dodatkowej sankcji za ich naruszenie.
+W10 Art. 126 ust. 3: zadania Prezydenta w zakresie i na zasadach określonych
+    w Konstytucji i ustawach. Sam przepis nie ustanawia ślubowania sędziego
+    TK ani fikcji jego złożenia; szczegóły ustawowe są poza wzorcami testu.
+
+W1 rozdzielamy na wymogi dotyczące czynności wyboru, osoby i struktury
+organu. Piętnaście miejsc nie oznacza, że każdy przejściowy wakat sam
+w sobie dowodzi naruszenia albo że wolno ograniczyć liczbę faktycznie
+działających osób do 15 przez usunięcie danych.
+
+Nie oceniamy tu zmiany kierownictwa TK, całego procesu ustawodawczego ani
+spraw międzynarodowych. Wymogi wyłączone lub niedające się automatycznie
+ocenić, w tym wiedza prawnicza i część W6, wpisujemy do tabeli pokrycia.
+
+
+4. DANE I STAN POCZĄTKOWY
+
+D0  Stan na 1.10.2015: osoby faktycznie wykonujące funkcję, udokumentowane
+    wybory, przedziały kadencji i informacja, na czym oparto ocenę tytułu.
+    Nie zakładamy prawidłowości całego stanu początkowego bez oznaczenia B.
+D1  Dziesięć wyborów: 8.10.2015 i 2.12.2015; każda osoba i każdy wynik
+    głosowania osobno, z dokumentem, zamierzonym wakatem i datą z uchwały.
+D2  Daty pierwszych posiedzeń Sejmu i dokumenty ich potwierdzenia.
+D3  Pięć uchwał z 25.11.2015: oddzielamy fakt podjęcia i treść twierdzenia
+    o "braku mocy prawnej" od jego ewentualnego skutku konstytucyjnego.
+D4  Postanowienie z 30.11.2015: pełna treść, rodzaj czynności, adresat,
+    podstawa wskazana przez autora, skład i dalsze działania Sejmu.
+D5  Ślubowania i odmowy: osoba, data, forma, adresat, dokładność czasu.
+    Brak ślubowania odróżniamy od braku dokumentu o ślubowaniu.
+D6  Dopuszczenia, cofnięcia i konkretne czynności w TK. E5 potwierdza
+    aktywność w zakresie dokumentu, nie jej trwanie przez wszystkie dni.
+D7  K 34/15 i K 35/15: data, skład, wynik nad każdą częścią sentencji,
+    wnioskodawcy, przedmiot kontroli, treść i zakres rozstrzygnięcia.
+D8  Publikacje: data, dziennik, pozycja, treść ogłoszona, przekazanie do
+    ogłoszenia, zapowiedzi odmowy, odmowy wykonane i ewentualne adnotacje.
+D9  Ustawa z 19.11.2015: uchwalenie, publikacja, wejście w życie i treść
+    jako dane o działaniach organów. Nie używamy jej jako wzorca oceny.
+
+Rejestr główny jest źródłem kandydatów danych, a nie gotowym wejściem:
+- trzeba wyjaśnić odejście Bagińskiej i następstwo po niej;
+- nie wolno utożsamić grudniowego wakatu z Bagińską albo Liszcz wyłącznie
+  dlatego, że ich wybory przypadały w podobnym terminie;
+- w obecnym CSV brakuje składów i wyników głosowania K 34/15 i K 35/15;
+- dane o ślubowaniach i dopuszczeniu wymagają zachowania jakości źródła;
+- nie importujemy późniejszych uchwał o statusie osób jako reguł
+  oceniających rok 2015.
+
+Dokument późniejszy może potwierdzić wcześniejszy fakt. Późniejsze zdarzenie
+nie staje się przez to wcześniejszą czynnością ani automatyczną sankcją.
+
+
+5. MIEJSCA, CZAS I STAN
+
+Miejsca N1, N2, N3, D1 i D2 są identyfikatorami pomocniczymi, nie
+konstytucyjnymi numerami stanowisk. Oddzielamy je od identyfikatorów danych.
+
+Dla każdego miejsca zapisujemy:
+- poprzednika albo zbiór dopuszczalnych poprzedników,
+- ostatni dzień poprzedniej kadencji i pierwszy dzień wakatu,
+- zbiór dokonanych wyborów i konkurujących roszczeń,
+- skuteczne wybory oraz tytuły według wariantu,
+- dowody i granice niepewności.
+
+Daty robocze wymagające dokumentów i właściwej konwencji końca kadencji:
+  grupa  ostatni dzień poprzednika  pierwszy dzień wakatu
+  N1–N3  2015-11-06                2015-11-07
+  D1     2015-12-02                2015-12-03
+  D2     2015-12-08                2015-12-09
+
+Początki kadencji wskazane w październikowych uchwałach są zamierzonymi
+datami z tych uchwał. Same nie dowodzą faktycznego opróżnienia stanowiska.
+Rozbieżności z liczeniem dziewięciu lat od wcześniejszego początku
+zachowujemy jako wariant danych/wykładni daty, bez cichego wyboru konwencji.
+
+Przedziały przechowujemy jako [od, do). Zmiana reprezentacji przedziału
+nie może zmieniać daty ostatniego dnia ani dodawać dnia do kadencji bez
+ujawnienia założenia. Dziewięć lat nie oznacza stałej liczby dni.
+
+Stan osoby ma osobne składowe:
+  C: czynność wyboru dokonana,
+  A: dopuszczalność wyboru przy I i D,
+  R: oczekujące lub konkurujące roszczenie do określonego miejsca,
+  E: skuteczność wyboru od określonej chwili,
+  T: tytuł do urzędu i jego przedział,
+  O: ślubowanie jako zdarzenie faktyczne,
+  F: faktyczne wykonywanie funkcji (potwierdzone / wykluczone / nieustalone).
+
+T nie wynika automatycznie z F, a F nie wynika automatycznie z T ani O.
+Zmianę tytułu i zmianę funkcji zapisujemy odrębnie.
+
+
+6. WARIANTY INTERPRETACYJNE
+
+Każdy wariant ma identyfikator, przepisy źródłowe, uzasadnienie,
+ograniczenia oraz status ROBOCZY. Zbiór jest jawny i wersjonowany.
+Nie twierdzimy, że wyczerpuje wszystkie możliwe wykładnie Konstytucji.
+
+I-WAKAT (W1, W2, W4): dopuszczalność wyboru na przyszłe miejsce:
+  A: miejsce musi być wolne w chwili wyboru;
+  B: można wybrać przed wakatem, jeżeli powstaje on w kadencji tego Sejmu;
+  C: można wybrać na przyszły wakat także w następnej kadencji Sejmu.
+  Art. 98 określa granice kadencji, ale sam nie wybiera A, B albo C.
+
+I-TYTUL (W1, W9, W10): znaczenie wyboru dla uzyskania tytułu:
+  A: skuteczny wybór i rozpoczęcie odpowiedniej kadencji wystarczają
+     w konstytucyjnym modelu; ślubowanie jest osobno rejestrowanym faktem;
+  B: odesłania konstytucyjne pozostawiają część warunków objęcia urzędu
+     niedookreśloną; dopóki nie da się ich ustalić z Konstytucji, wynik
+     dotyczący objęcia pozostaje NIEUSTALONY.
+  B nie jest regułą "Prezydent może blokować urząd" ani nakazem konkretnego
+  ślubowania. Nie importujemy ustawowego warunku ani skutku bezczynności.
+
+I-KADENCJA (W1): początek dziewięcioletniego okresu nowo wybranej osoby:
+  A: od otwarcia miejsca przeznaczonego dla tego wyboru;
+  B: od konstytucyjnie rozumianego objęcia urzędu.
+  Jeżeli nie da się ustalić daty w danej kombinacji, pozostaje nieustalona.
+  Nie zakładamy, że warianty są równoważne w 2015 r. bez sprawdzenia.
+
+I-PIERWSZENSTWO (W1, W4): konkurencja wcześniejszego i późniejszego wyboru:
+  A: wcześniejszy dopuszczalny i skuteczny wybór rezerwuje miejsce,
+     także gdy wykonywanie funkcji przez wybraną osobę jest zablokowane;
+  B: pierwszeństwo wiążemy z tytułem do urzędu; przy nieustalonym tytule
+     zachowujemy wspólnie dopuszczalne rozstrzygnięcia konkurencji.
+  Wariant B nie stwierdza sam, że drugi wybór jest dopuszczalny. Nie wolno
+  rozstrzygnąć konfliktu samym faktem późniejszego ślubowania.
+
+I-SKUTEK-WYBORU (W1, W4): późniejsze opróżnienie miejsca po wadliwym wyborze:
+  A: wada zajętego miejsca lub niedopuszczalnego wyprzedzenia nie znika
+     przez późniejszy wakat;
+  B: dopuszczamy skuteczność dopiero po ustaniu tej przeszkody, jako jawne
+     założenie interpretacji, nie regułę wyrażoną wprost w Konstytucji.
+  Zakres B jest osobnym polem: tylko zajęcie miejsca / także wyprzedzenie.
+  Inna wada, np. niedopuszczalny ponowny wybór, nie jest w ten sposób
+  naprawiana. Wszystkie przeszkody oceniamy łącznie, a nie przez wybór
+  jednego, wygodnego powodu. Początek kadencji nie jest resetowany bez
+  jawnej reguły z I-KADENCJA.
+
+I-UCHWALY-25XI (W1, W4): znaczenie późniejszej uchwały personalnej:
+  A: dokonany wybór nie jest cofany samym stanowiskiem Sejmu; model nie
+     identyfikuje w tekście Konstytucji takiej samodzielnej kompetencji;
+  B: konstytucyjny zakres kompetencji i skutku pozostaje nieustalony;
+     stan po uchwale jest odpowiednio nieustalony, a nie automatycznie
+     wyczyszczony. Brak rozstrzygnięcia nie jest przyznaniem kompetencji.
+
+I-DATY: dopuszczalne konwencje granic kadencji z uzasadnieniem według W1.
+  Zawsze zapisujemy osobno zamierzony początek z uchwały, ustalony lub
+  nieustalony koniec poprzedniej kadencji i wynik rachunku lat. Zbioru dat
+  nie zawężamy do jednej wartości tylko dlatego, że ułatwia obliczenie.
+
+W3 (tryb wyboru): liczymy spełnienie ogólnej konstytucyjnej reguły
+głosowania, warunkowo przy jej zastosowaniu. Ocena pełnej procedury,
+w tym ewentualnych wyjątków z aktów niższego rzędu, pozostaje NIEUSTALONA
+lub NIEPOKRYTA. Nie tworzymy wariantu ustawowej większości jako wzorca.
+Przy zastosowaniu reguły ogólnej: obecnych >= 230 oraz za > przeciw.
+Wstrzymanie się nie jest głosem przeciw; źródło musi jednak pozwalać
+ustalić obecność i znaczenie każdej kategorii głosu. Brak danych
+o głosujących nie jest dowodem niespełnienia kworum.
+
+W8 (publikacja): czas oczekiwania jest liczbą; ocena "niezwłocznie"
+wymaga jawnej interpretacji art. 190 ust. 2 z autorem i uzasadnieniem.
+Bez niej nieustalenie nie jest zastępowane progiem 14 albo 30 dni.
+
+Nie wszystkie pola muszą wpływać na każdy krok. Zależności i utożsamienia
+wariantów trzeba wykazać przed skróceniem przeglądu. Nie przenosimy liczby
+192 z testu ogólnego: niniejszy zakres ma inny zbiór założeń.
+
+
+7. FORMALNA POSTAĆ OBLICZENIA
+
+Niech I oznacza wariant, B stan początkowy, D fakty z dokumentów,
+A przyporządkowanie wyborów do miejsc, a U spójne uzupełnienie niepewności.
+Wspólnie dopuszczalne uzupełnienia zależą od całego I/B/D/A, a nie od
+niezależnego losowania statusu każdej osoby bez pozostałych ograniczeń.
+
+  S0 = stanPoczatkowy(B, D, U)
+  S(k+1) = krok(I, S(k), zdarzenie(k+1), A, U)
+  wynik(k, W) = ocenaKonstytucyjna(W, I, B, D, A, U, S(k))
+
+W jednym wariancie wszystkie moduły korzystają z tej samej historii.
+Nie wolno łączyć wyniku obsady z jednej interpretacji z orzeczeniem
+policzonym przy innej.
+
+Warunek z brakującą daną lub brakującą przesłanką normatywną nie staje
+się spełniony. Dla każdego wymogu agregacja po dopuszczalnych U daje:
+- SPEŁNIONY, gdy każde dopuszczalne uzupełnienie spełnia wymóg;
+- NARUSZONY, gdy każde dopuszczalne uzupełnienie go narusza;
+- NIEUSTALONY, gdy wyniki są różne albo nie da się rozstrzygnąć warunku.
+Pusty zbiór dopuszczalnych uzupełnień oznacza niespójne dane/założenia,
+a nie wynik pozytywny wynikający z pustej kwantyfikacji.
+
+Dla każdego miejsca i dnia zapisujemy oddzielnie:
+  roszczenia(m,t), skuteczneWybory(m,t), tytuly(m,t), aktywnosc(osoba,t).
+Liczba roszczeń nie jest liczbą sędziów. Zaistnienie dwóch konkurujących
+wyborów nie oznacza, że obie osoby mają prawidłowy tytuł.
+
+Granice liczników to minimum i maksimum po wspólnie dopuszczalnych
+historiach. Ilorazów, np. udziału osób bez tytułu, nie wyznaczamy przez
+nieuzasadnione połączenie niezależnych skrajnych liczników.
+
+
+8. TESTOWANIE KROK PO KROKU
+
+Każdy krok wykonujemy dla wszystkich dopuszczalnych I/B/A/U. Zapisujemy
+stan przed i po zdarzeniu, źródła, spełnione/naruszone/nieustalone wymogi
+oraz dokładną regułę przejścia. Zdarzenia tego samego dnia wymagają
+ustalonej kolejności albo wszystkich spójnych wariantów kolejności.
+
+K0  1.10.2015 — zamrożenie wejścia.
+    Sprawdzić tożsamość osób, dokumenty i brak podwójnego zaliczenia.
+    Wydzielić pięć badanych miejsc. Potwierdzić albo jawnie pozostawić
+    nieustalony stan pozostałych dziesięciu. Nie korygować liczby 16 do 15
+    przez arbitralne usunięcie osoby z niekompletnego rejestru.
+
+K1  8.10.2015 — pięć wyborów Sejmu VII kadencji.
+    Sprawdzić wybierający organ, indywidualność i ogólną regułę W3.
+    Sprawdzić I-WAKAT, przyporządkowania i brak wcześniejszego tytułu.
+    Utworzyć roszczenia, oczekiwanie i skuteczność zgodnie z I, bez
+    automatycznego utożsamienia wyboru z faktycznym wykonywaniem funkcji.
+    Zamierzone daty z uchwał: 7.11, 3.12 i 9.12 — nie dowody wakatu.
+
+K2  23.10.2015 — publikacja uchwał wyborczych.
+    Odnotować fakt. Konstytucja nie ustanawia tu wprost identycznego
+    mechanizmu wejścia w życie jak art. 190 ust. 3 dla orzeczeń TK.
+    Nie nadawać publikacji uchwały skutku konstytutywnego przez analogię
+    bez osobnego, ujawnionego uzasadnienia.
+
+K3  Listopadowy koniec trzech kadencji — warianty dat.
+    Zakończyć przedziały poprzedników; otworzyć miejsca według I-DATY.
+    Przeliczyć oczekujące wybory, E i T według I-WAKAT oraz I-TYTUL.
+    Nie przedłużać tytułu poprzednika przez brak ślubowania następcy.
+
+K4  12.11.2015 — pierwsze posiedzenie Sejmu VIII kadencji.
+    Według W2 zamknąć kadencję VII z końcem 11.11.2015. Sprawdzić
+    relację tej granicy do dat wszystkich pięciu wakatów.
+
+K5  19–20.11.2015 — uchwalenie i publikacja nowelizacji.
+    Zapisać odrębne fakty i treść aktu. Nie stosować jego treści jako
+    nowego wzorca i nie zmieniać statusu osób samą datą uchwalenia.
+
+K6  25.11.2015 — pięć uchwał o "braku mocy prawnej".
+    Sprawdzić fakt, zakres i organ. Zastosować I-UCHWALY-25XI.
+    Zachować wcześniejsze wybory w rejestrze. Nie zastępować dowodu
+    kompetencji przytoczeniem treści uchwały ani wynikiem głosowania.
+
+K7  30.11.2015 — postanowienie zabezpieczające.
+    Zapisać treść i działania adresata. Osobno zbadać, co w tym zakresie
+    wynika z W7–W9: kompetencję, charakter czynności i zastosowanie W8.
+    Nie dopisywać kompetencji z ustawy i nie odrzucać art. 190 tylko
+    dlatego, że dokument jest postanowieniem. Jeśli Konstytucja i dane
+    nie wystarczają do rozstrzygnięcia, wynik jest NIEUSTALONY.
+
+K8  2.12.2015 — pięć wyborów Sejmu VIII kadencji.
+    Dla każdej osoby powtórzyć test K1 na stanie po K7. Sprawdzić
+    pierwszeństwo, oczekujące roszczenia i wszystkie przeszkody łącznie.
+    Przy I-SKUTEK-WYBORU rozdzielić ocenę czynności w dniu wyboru od
+    ewentualnej późniejszej skuteczności. Nie uzdrawiać innych wad
+    samym zwolnieniem miejsca.
+
+K9  2–3.12.2015 — ślubowania i grudniowy wakat D1.
+    Zachować kolejność w obrębie nocy i dnia, jeżeli ma znaczenie.
+    Oddzielnie przeliczyć O, E, T i F. O nie jest dowodem F.
+    Brak pozytywnego warunku ślubowania w tekście Konstytucji nie daje
+    podstawy do automatycznego stwierdzenia zakazu jego ustawowego
+    uregulowania; jego szczegóły nadal pozostają poza wzorcami testu.
+
+K10 3.12.2015 — K 34/15.
+    Sprawdzić zakres kontroli ustawy według W7, skład według wyników
+    tytułów oraz większość według W8. Zapisać sentencję jako fakt.
+    Nie utożsamiać kontroli przepisu ustawy z konstytucyjnie dowiedzioną
+    oceną każdego indywidualnego wyboru. Skutki orzeczenia z W8 oceniać
+    odrębnie, bez uznawania samego faktu publikacji za dowód składu.
+
+K11 5.12.2015 — wejście nowelizacji w życie według dokumentów.
+    Odnotować datę jako fakt, odrębny od K5. Nie rozszerzać na tej
+    podstawie katalogu konstytucyjnych wymogów i sankcji.
+
+K12 9.12.2015 — wakat D2, ślubowanie i K 35/15.
+    Sprawdzić kolejność. Powtórzyć właściwe części K3, K9 i K10.
+    Nie wybierać kolejności zdarzeń ze względu na oczekiwany wynik.
+
+K13 16 i 18.12.2015 — publikacje K 34/15 i K 35/15.
+    Obliczyć odpowiednio 13 i 9 dni oczekiwania, jeżeli dokumenty
+    potwierdzają podane daty. To rachunek, nie definicja "niezwłocznie".
+    Sprawdzić dziennik i zgodność treści. Oddzielić zapowiedź odmowy,
+    odmowę wykonaną i późniejsze ogłoszenie. Ustalić skutki według W8,
+    a ocenę pojęć wymagających wykładni pozostawić jawną i uzasadnioną.
+
+K14 31.12.2015 — zamknięcie okna i synteza.
+    Wypisać stan pięciu miejsc, tytuły, roszczenia i aktywność. Jeżeli
+    stan pozostałych miejsc jest nieustalony, nie przedstawiać dokładnej
+    liczby dla całego TK. Koniec danych nie jest przywróceniem stanu.
+
+
+9. TESTY KONTROLNE PRZED UŻYCIEM DANYCH HISTORYCZNYCH
+
+T01 Model fikcyjny: granica kadencji Sejmu w dniu N, wakat w N-1/N/N+1.
+    Sprawdzić I-WAKAT bez przesunięcia granicy o dzień.
+T02 Model fikcyjny: te same trzy przyszłe miejsca i dwa późniejsze.
+    Sprawdzić rozróżnienie A/B/C. Wynik dotyczy wyprzedzenia wakatu,
+    nie pełnej ważności wyboru.
+T03 Dwa wybory do jednego miejsca: wcześniejsze roszczenie, brak objęcia,
+    późniejsze ślubowanie konkurenta. Sprawdzić każdy wariant
+    I-PIERWSZENSTWO i brak automatycznego pierwszeństwa ślubowania.
+T04 Zajęte miejsce oraz niezależna wada wyboru jednocześnie. Usunięcie
+    pierwszej przeszkody nie usuwa drugiej.
+T05 Ślubowanie bez dowodu wykonywania funkcji: nie powstaje pewne F.
+T06 E5 bez znanego dopuszczenia: potwierdzony zakres E5 i nieustalenie
+    dalszej aktywności do potwierdzonego końca albo granicy danych.
+T07 Utrata tytułu przy dalszej aktywności: znika T, nie dowód F; liczba
+    osób działających bez tytułu może wzrosnąć. Ostatnie E5 nie zamyka
+    okresu niepewności.
+T08 Brak składu, głosów, daty lub dokumentu: NIEUSTALONY, nie automatyczne
+    SPEŁNIONY ani NARUSZONY. Suma głosów sprzeczna z danymi: błąd wejścia.
+T09 Przyporządkowania do różnych i tych samych miejsc o identycznych
+    marginalnych statusach: cache nie może pomijać różnicy korelacji.
+T10 Dwie zbiorcze skrajności nie zastępują mieszanego uzupełnienia.
+    Sprawdzić kontrprzykład kworum 4/8 i zachowanie całego zbioru uzupełnień.
+    To syntetyczny test algorytmu przy zadanej regule kworum, a nie
+    dodatkowy wzorzec konstytucyjny ani zdarzenie z Etapu I.
+T11 Wariant niespełnialny i historia naruszenia są różnymi przypadkami.
+    Filtr nie odrzuca historii tylko dlatego, że zawiera wadliwy wybór.
+T12 Niezależne wskaźniki czasu publikacji nie zmieniają oceny W8 bez
+    przesłanki interpretacyjnej. Porównać ten sam fakt przy różnych
+    sposobach prezentacji liczby dni.
+T13 Dopisanie zdarzenia z 2016 r. nie zmienia przejść dotyczących 2015 r.
+    Osobno dopuszczamy uściślenie wcześniejszego faktu nowym dokumentem;
+    wtedy raport wskazuje nową wersję danych, a nie zmianę przeszłości.
+T14 Przemianowanie nierozróżnialnych miejsc nie zmienia wyniku po
+    odpowiednim przemianowaniu wszystkich powiązanych danych. Dopiero
+    taki dowód uzasadnia utożsamienie permutacji.
+
+
+10. KONTROLA WARIANTÓW I ODPORNOŚCI
+
+Wyniki porównujemy w dwóch osiach:
+  (a) różne uzupełnienia faktów przy tej samej interpretacji;
+  (b) różne interpretacje przy tych samych faktach.
+Nie nazywamy niepewności źródła sporem interpretacyjnym ani odwrotnie.
+
+Przeglądamy wszystkie wspólnie dopuszczalne kombinacje I/B/A/U.
+Zbiór, liczbę odrzuconych kombinacji i powody odrzucenia zapisujemy.
+Przy ograniczeniu zasobów wynik musi wskazywać niepełne pokrycie.
+
+Odporność wyniku oznacza zgodność w zadeklarowanym zbiorze modeli.
+Zgodność dwóch wariantów "najłagodniejszego" i "najsurowszego" nie wystarcza.
+Każde skrócenie wymaga dowodu odpowiedniej niezależności, równoważności
+albo monotoniczności, z zachowaniem korelacji niepewności.
+
+Raport rozdziela:
+- wynik pozytywny wspólny modelom,
+- naruszenie wspólne modelom,
+- różnicę wynikającą z interpretacji,
+- różnicę wynikającą z danych,
+- jednolite NIEUSTALONE, które nie jest rozstrzygnięciem sprawy.
+
+
+11. FORMALIZACJA W LEAN
+
+Docelowy moduł: LEAN/Konstytucja/TK/Test/Etap1.lean.
+To nowy zakres do zaimplementowania, a nie opis już gotowej komendy.
+Wykorzystać sprawdzone składniki dat, CSV i logiki, ale nie przenosić
+domyślnych założeń danych ani reguł ustawowych z silnika ogólnego.
+
+Typy:
+  Okno, Osoba, Miejsce5, Dokument, Fakt, Pewnosc, Zdarzenie,
+  StanPoczatkowy, InterpretacjaEtapu1, Alternatywa, Uzupelnienie,
+  StanOsoby (C/A/R/E/T/O/F), StanMiejsca, Ocena, Pokrycie, KrokSladu.
+
+Czyste funkcje:
+  dopuszczalnoscWyboru, krokEtapu1, ocenaWymogu, spójneUzupelnienia,
+  granicePoHistoriach, porownajWarianty, raportSladu.
+Funkcje IO tylko odczytują dane i zapisują wynik.
+
+Warunki i twierdzenia do kontroli:
+F01 Źródłowe ID są unikalne; odwołania osób, dokumentów i miejsc poprawne.
+F02 Wariant ma spełnialne przesłanki i co najmniej jedną dopuszczalną
+    historię albo otrzymuje jawną diagnozę niespójności.
+F03 Każde przejście wskazuje fakt, wariant i konstytucyjną przesłankę.
+    Czynność wadliwa pozostaje faktem i nie jest usuwana z historii.
+F04 Tytuł, roszczenie, ślubowanie i aktywność są różnymi składowymi.
+F05 Brakujące dane nie powodują wyniku pozytywnego przez domyślne zero,
+    pustą listę lub pustą kwantyfikację.
+F06 Pierwszeństwo i wariant późniejszej skuteczności zachowują wszystkie
+    pozostałe warunki; brak niejawnego resetu kadencji.
+F07 Granice i ilorazy są poprawne względem wspólnie dopuszczalnych historii.
+F08 Skróty wariantów i klucze cache zachowują wynik, w tym korelacje miejsc.
+F09 Wynik po kroku zgadza się ze złożeniem funkcji przejść od S0.
+F10 Daty i pierwszeństwo zmian są ograniczone do zadeklarowanego okna.
+F11 Ślad dowodowy każdej oceny zachowuje W/I/B/D/A/U i wersję danych.
+F12 Brak sorryAx i niedozwolonych aksjomatów; założenia jako parametry.
+
+Dowód sprawdza konsekwencje modelu, nie poprawność każdej jego wykładni
+ani treść dokumentów źródłowych. Nie oznaczamy F01–F12 jako wykonanych
+na podstawie samego sporządzenia niniejszego planu.
+
+
+12. FORMAT RAPORTU
+
+Docelowo: TK/Etap_I_wyniki_robocze.md. Każdy wynik ma status warunkowy.
+
+A. Źródła konstytucyjne i pokrycie każdego badanego przepisu.
+B. Stan początkowy, pięć miejsc i pozostałe dziesięć (albo jawne luki).
+C. Fakty: identyfikator, czynność, data, źródło, pewność, alternatywy.
+D. Warianty: treść, przepisy, uzasadnienie, status, zależności i liczby.
+E. Ślad K0–K14: przed → zdarzenie → reguła → po; każda osoba i miejsce.
+F. Oceny: wymóg W, czynność, czas, SPEŁNIONY/NARUSZONY/NIEUSTALONY,
+   wariant i źródła; wykrycie wady oddzielone od jej skutku.
+G. K 34/15 i K 35/15: skład, głosowanie, przedmiot, treść oraz osobno W8.
+H. Publikacja: fakty, dni oczekiwania i jawna ocena konstytucyjna.
+I. Różnice wariantów i minimalny zestaw zmienionych przesłanek, który
+   zmienia dane ustalenie. Braki danych oddzielone od różnic wykładni.
+J. Koniec okna: roszczenia, tytuły i faktyczna aktywność. Bez syntetycznego
+   werdyktu o utracie tożsamości całego TK.
+
+
+13. KOLEJNOŚĆ REALIZACJI
+
+1. Sprawdzić źródła i stan początkowy; przygotować zamknięty rejestr
+   LEAN/dane/tk_etap_1.csv oraz manifest powiązań z dokumentami.
+2. Zdefiniować warianty i zakresy niepewności. Przejrzeć, czy żadna reguła
+   ustawowa nie została ukryta w założeniu, kodzie lub domyślnej wartości.
+3. Dodać jawne okno do modelu; tStart/tEnd testu ogólnego nie wystarczają.
+   Ograniczenie liczby wariantów przez --limit-m1 nie ogranicza czasu.
+4. Zaimplementować i sprawdzić testy syntetyczne T01–T14 oraz twierdzenia
+   w zakresie koniecznym przed zastosowaniem optymalizacji.
+5. Przeprowadzić recenzję wykładni, wariantów i stanu początkowego,
+   zgodnie z przyjętą w plan_tk.txt kolejnością prac.
+6. Na wyraźne polecenie obliczenia roboczego przejść K0–K14, zachowując
+   wyniki każdego wariantu i wszystkie nierozstrzygnięcia.
+7. Wygenerować raport z pkt 12 i sprawdzić jego odtwarzalność.
+
+Sporządzenie tego planu nie uruchamia testu, nie uzupełnia brakujących
+faktów i nie zatwierdza interpretacji. Kryterium ukończenia obliczenia
+to kompletny, odtwarzalny ślad dla zadeklarowanych wariantów, także wtedy,
+gdy część ocen pozostaje NIEUSTALONA.

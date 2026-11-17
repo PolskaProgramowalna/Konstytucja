@@ -1,6 +1,6 @@
 PLAN FORMALIZACJI I TESTU ETAPU I KRYZYSU TK
 Podwójna obsada: październik–grudzień 2015
-Wersja 1, stan na 2026-11-17
+Wersja 2, stan na 2026-11-17
 
 Dokument jest planem badania. Nie zawiera wyników historycznego testu
 ani werdyktu o TK. Wszystkie warianty interpretacyjne mają status roboczy.
@@ -25,6 +25,11 @@ październikowe wybory były prawidłowe ani że trzy grudniowe były wadliwe.
 Okno wyników: [2015-10-01, 2016-01-01), czyli do końca 31.12.2015.
 Badanie obsady dotyczy pięciu miejsc zwalnianych w 2015 r. Pełne liczniki
 TK podajemy dopiero po udokumentowaniu stanu pozostałych dziesięciu miejsc.
+Dotyczy to także oceny składów K 34/15 i K 35/15: tytuły oceniamy tylko
+dla osób powiązanych z badanymi miejscami. Osoby z pozostałych miejsc
+mają status NIEUSTALONY albo oznaczenie NIEPOKRYTY, bez domniemania
+prawidłowości. Nie wydajemy pozytywnej oceny całego składu na podstawie
+samego sprawdzenia jego części (szczegóły K10 i pkt 12).
 
 Orzeczenia objęte testem: K 34/15 i K 35/15. Nie jest to pełne badanie
 orzecznictwa całego IV kwartału 2015 r. Zmiany ustawowe z dalszych etapów
@@ -57,6 +62,9 @@ P7  Brak dokumentu nie dowodzi braku czynności. Ślubowanie nie dowodzi
 P8  Nie stosujemy domyślnych AD1–AD7 z testu ogólnego. Brakujące fakty
     pozostają nieustalone. Ewentualne założenie o kompletności określonego
     zbioru danych wymaga osobnego identyfikatora B i ujawnienia w wyniku.
+    W szczególności koniec kadencji poprzednika nie dowodzi zakończenia
+    jego aktywności: bez dowodu ustania F może pozostawać NIEUSTALONE
+    aż do końca okna. Raport uprzedza o tej przyczynie szerokich granic.
 P9  Każda niepewna osoba, data, treść i kolejność zdarzeń ma własne
     dopuszczalne uzupełnienia. Przeglądamy ich wspólnie spójne kombinacje,
     z zachowaniem korelacji i jednej spójnej historii statusów osoby.
@@ -151,6 +159,37 @@ Rejestr główny jest źródłem kandydatów danych, a nie gotowym wejściem:
 Dokument późniejszy może potwierdzić wcześniejszy fakt. Późniejsze zdarzenie
 nie staje się przez to wcześniejszą czynnością ani automatyczną sankcją.
 
+Mapa uzupełnienia danych (wskazane źródło nie oznacza, że dokument już mamy):
+  D0: początki poprzedników — M.P. 2006 poz. 792 (§ 2), 842 (§ 2),
+      918 i 919; odejście Bagińskiej — akta osobowe/uchwały ZO TK,
+      urzędowe archiwum TK oraz dokumenty wyboru Granata (M.P. 2007
+      poz. 320). Sama data wyboru Granata nie dowodzi daty odejścia.
+      792: https://eli.gov.pl/api/acts/MP/2006/792/text.pdf
+      842: https://eli.gov.pl/api/acts/MP/2006/842/text.pdf
+      918: https://eli.gov.pl/api/acts/MP/2006/918/text.pdf
+      919: https://eli.gov.pl/api/acts/MP/2006/919/text.pdf
+  D1: indywidualne głosowania — API Sejmu VII kadencji, posiedzenie
+      102, głosowania 3–7; VIII kadencji, posiedzenie 3, głosowania
+      6, 8, 10, 12, 13. Oddzielić głosujących od obecnych.
+  D4: pełne postanowienie 30.11.2015 — portal IPO, dokumenty K 34/15;
+      pomocniczo urzędowe archiwum TK, nie sam opis w chronologii.
+  D5: godziny ślubowań 2/3.12.2015 — komunikat, nagranie lub protokół
+      Kancelarii Prezydenta; przy braku dokładnego czasu zachować zakres
+      i alternatywy kolejności. Materiały prasowe oznaczyć pomocniczo.
+  D6: dopuszczenia i aktywność — zarządzenia Prezesa TK, protokoły,
+      dokumenty spraw; brak dokumentu o odejściu nie zamyka aktywności.
+  D7: składy i wyniki głosowania K 34/15 i K 35/15 — portal IPO,
+      sentencje i urzędowe protokoły spraw. Zdania odrębne nie zastępują
+      wyniku nad poszczególnymi częściami sentencji. Pełne publikacje
+      Dz.U. 2015 poz. 2129 i 2147 są dodatkowymi danymi o orzeczeniach.
+      IPO: https://ipo.trybunal.gov.pl/ipo/Sprawa?&pokaz=dokumenty&sygnatura=K%2034/15
+      IPO: https://ipo.trybunal.gov.pl/ipo/Sprawa?&pokaz=dokumenty&sygnatura=K%2035/15
+
+Nieudane pobranie, w tym wcześniejsze przekroczenie czasu dostępu do IPO,
+zapisujemy jako błąd dostępu, nie jako nieistnienie dokumentu. Informację
+z rejestru lub recenzji trzeba powiązać z dokumentem przed zamrożeniem
+wejścia; samo wpisanie adresu nie oznacza zweryfikowania jego treści.
+
 
 5. MIEJSCA, CZAS I STAN
 
@@ -164,16 +203,27 @@ Dla każdego miejsca zapisujemy:
 - skuteczne wybory oraz tytuły według wariantu,
 - dowody i granice niepewności.
 
-Daty robocze wymagające dokumentów i właściwej konwencji końca kadencji:
-  grupa  ostatni dzień poprzednika  pierwszy dzień wakatu
-  N1–N3  2015-11-06                2015-11-07
-  D1     2015-12-02                2015-12-03
-  D2     2015-12-08                2015-12-09
+Tabela danych źródłowych i odrębnych wariantów rachunku końca kadencji:
+  grupa  początek z dokumentu  I-DATY=A: ostatni / wakat   I-DATY=B: ostatni / wakat
+  N1–N3  2006-11-06           2015-11-05 / 2015-11-06     2015-11-06 / 2015-11-07
+  D1     2006-12-02           2015-12-01 / 2015-12-02     2015-12-02 / 2015-12-03
+  D2     NIEUSTALONY          NIEUSTALONY                 NIEUSTALONY
+
+N1–N3: § 2 uchwały z 27.10.2006, M.P. poz. 792. D1: § 2 uchwały
+z 17.11.2006, M.P. poz. 842. Dla D2 uchwały o wyborze Bagińskiej
+i Liszcz (M.P. 2006 poz. 918, 919) nie dostarczają daty początku
+w dotychczasowych danych; trzeba ustalić poprzednika, historię odejścia
+i dokument początku jego kadencji. Nie podstawiać 8.12.2006 za początek
+wyłącznie dlatego, że to dzień wyboru. Przy obu I-DATY koniec D2 pozostaje
+NIEUSTALONY, dopóki nie ma niezależnych przesłanek.
 
 Początki kadencji wskazane w październikowych uchwałach są zamierzonymi
 datami z tych uchwał. Same nie dowodzą faktycznego opróżnienia stanowiska.
 Rozbieżności z liczeniem dziewięciu lat od wcześniejszego początku
 zachowujemy jako wariant danych/wykładni daty, bez cichego wyboru konwencji.
+W szczególności 8/9.12.2015 nie jest ustaloną parą koniec/wakat dla D2:
+9.12 to zamierzony początek z uchwał następców. Rachunek wstecz od tej
+daty nie stanowi niezależnego dowodu końca kadencji poprzednika.
 
 Przedziały przechowujemy jako [od, do). Zmiana reprezentacji przedziału
 nie może zmieniać daty ostatniego dnia ani dodawać dnia do kadencji bez
@@ -185,11 +235,22 @@ Stan osoby ma osobne składowe:
   R: oczekujące lub konkurujące roszczenie do określonego miejsca,
   E: skuteczność wyboru od określonej chwili,
   T: tytuł do urzędu i jego przedział,
+  J: konstytucyjnie rozumiane objęcie urzędu według I-TYTUL,
   O: ślubowanie jako zdarzenie faktyczne,
   F: faktyczne wykonywanie funkcji (potwierdzone / wykluczone / nieustalone).
 
 T nie wynika automatycznie z F, a F nie wynika automatycznie z T ani O.
-Zmianę tytułu i zmianę funkcji zapisujemy odrębnie.
+Zmianę tytułu, J i zmianę funkcji zapisujemy odrębnie. J nie jest nowym
+zdarzeniem historycznym utworzonym przez program: jest skutkiem modelu,
+który musi mieć jawne przesłanki I-TYTUL i dowody z D.
+E oznacza tutaj skuteczność wyboru jako podstawy do objęcia, ocenianą
+bez uzależniania jej od J. Dopiero J jest dodatkowym warunkiem w C.
+Rozstrzygnięcie pierwszeństwa nie może zakładać tytułu zwycięzcy jako
+przesłanki tego samego rozstrzygnięcia. I-PIERWSZENSTWO wskazuje, czy
+wcześniejsza skuteczność rezerwuje miejsce przed J, czy tylko tytuł
+albo objęcie zamyka konkurencję. Zależności oceniamy na stanie przed
+zdarzeniem, a przy zdarzeniach równoczesnych po wszystkich spójnych
+kolejnościach, bez uzasadniania wyboru późniejszym stanem jako faktem.
 
 
 6. WARIANTY INTERPRETACYJNE
@@ -205,27 +266,58 @@ I-WAKAT (W1, W2, W4): dopuszczalność wyboru na przyszłe miejsce:
   Art. 98 określa granice kadencji, ale sam nie wybiera A, B albo C.
 
 I-TYTUL (W1, W9, W10): znaczenie wyboru dla uzyskania tytułu:
-  A: skuteczny wybór i rozpoczęcie odpowiedniej kadencji wystarczają
-     w konstytucyjnym modelu; ślubowanie jest osobno rejestrowanym faktem;
+  A: nie potrzeba dodatkowego aktu objęcia. J następuje, gdy dopuszczalny
+     wybór uzyskuje skuteczność na otwartym miejscu. Ślubowanie jest
+     osobno rejestrowanym faktem;
   B: odesłania konstytucyjne pozostawiają część warunków objęcia urzędu
      niedookreśloną; dopóki nie da się ich ustalić z Konstytucji, wynik
-     dotyczący objęcia pozostaje NIEUSTALONY.
+     dotyczący J pozostaje NIEUSTALONY;
+  C: J wymaga osobistego przyjęcia wyboru i zadeklarowania gotowości
+     podjęcia obowiązków, udokumentowanego i skierowanego do organu
+     państwa albo publicznie ogłoszonego. J następuje najwcześniej przy
+     skutecznym wyborze na otwartym miejscu; wcześniejsza deklaracja
+     oczekuje do tego dnia. To jawna hipoteza wykładni indywidualnego
+     wyboru i urzędu z art. 194 ust. 1, nie dosłowny wymóg Konstytucji.
+     J-C oceniamy na podstawie treści dokumentu, z autorem i uzasadnieniem.
+     Ślubowanie może dokumentować przyjęcie wyboru, jeżeli wynika to
+     z jego treści; nie tworzymy wymogu adresata ani kompetencji
+     Prezydenta z przepisu ustawowego. Deklaracja innego rodzaju może
+     spełnić ten sam warunek. Brak dokumentu daje NIEUSTALONY, nie "brak J".
   B nie jest regułą "Prezydent może blokować urząd" ani nakazem konkretnego
   ślubowania. Nie importujemy ustawowego warunku ani skutku bezczynności.
+  C ma umożliwić zbadanie hipotezy objęcia jako dodatkowej przesłanki;
+  kontrargumentem jest brak wyraźnego warunku przyjęcia w art. 194.
+  W każdym wariancie J, tytuł T, jego okres i faktyczne F są odrębne.
 
 I-KADENCJA (W1): początek dziewięcioletniego okresu nowo wybranej osoby:
   A: od otwarcia miejsca przeznaczonego dla tego wyboru;
-  B: od konstytucyjnie rozumianego objęcia urzędu.
+  B: od J według I-TYTUL.
   Jeżeli nie da się ustalić daty w danej kombinacji, pozostaje nieustalona.
   Nie zakładamy, że warianty są równoważne w 2015 r. bez sprawdzenia.
+  Nie definiować J przez początek kadencji, jeżeli ten sam początek jest
+  wyznaczany przez J. Przy I-TYTUL=A datę J daje zdarzenie skuteczności,
+  przy I-TYTUL=C warunek przyjęcia wyboru, a przy I-TYTUL=B pozostaje
+  ona niedookreślona.
 
 I-PIERWSZENSTWO (W1, W4): konkurencja wcześniejszego i późniejszego wyboru:
   A: wcześniejszy dopuszczalny i skuteczny wybór rezerwuje miejsce,
      także gdy wykonywanie funkcji przez wybraną osobę jest zablokowane;
   B: pierwszeństwo wiążemy z tytułem do urzędu; przy nieustalonym tytule
-     zachowujemy wspólnie dopuszczalne rozstrzygnięcia konkurencji.
-  Wariant B nie stwierdza sam, że drugi wybór jest dopuszczalny. Nie wolno
-  rozstrzygnąć konfliktu samym faktem późniejszego ślubowania.
+     zachowujemy wspólnie dopuszczalne rozstrzygnięcia konkurencji;
+  C: samo oczekujące roszczenie wcześniejszego wybranego nie rezerwuje
+     miejsca. Spośród konkurujących wyborów pierwszeństwo ma osoba,
+     która jako pierwsza spełni J przy otwartym miejscu i pozostałych
+     przesłankach. Późniejszy wybór może zatem wygrać konkurencję.
+     Przesłanki proceduralne, indywidualność i zakaz ponownego wyboru
+     nadal obowiązują; nie naprawia ich samo objęcie. Brak albo remis
+     dat J wymaga wszystkich spójnych uzupełnień, bez arbitralnego wyboru.
+  A chroni rezultat wcześniejszego wyboru; C traktuje podjęcie urzędu
+  jako rozstrzygające przy niedokończonym obsadzeniu miejsca. Dla C trzeba
+  rozważyć kontrargument ochrony dokonanego wyboru, dziewięcioletniej
+  kadencji i niezależności (W1, W4–W6). To wariant roboczy, nie norma.
+  B i C nie stwierdzają same, że drugi wybór jest dopuszczalny.
+  O rozstrzyga konkurencję tylko poprzez jawny warunek J w odpowiedniej
+  kombinacji I-TYTUL/I-PIERWSZENSTWO, nigdy jako ukryta reguła ustawowa.
 
 I-SKUTEK-WYBORU (W1, W4): późniejsze opróżnienie miejsca po wadliwym wyborze:
   A: wada zajętego miejsca lub niedopuszczalnego wyprzedzenia nie znika
@@ -243,21 +335,56 @@ I-UCHWALY-25XI (W1, W4): znaczenie późniejszej uchwały personalnej:
      identyfikuje w tekście Konstytucji takiej samodzielnej kompetencji;
   B: konstytucyjny zakres kompetencji i skutku pozostaje nieustalony;
      stan po uchwale jest odpowiednio nieustalony, a nie automatycznie
-     wyczyszczony. Brak rozstrzygnięcia nie jest przyznaniem kompetencji.
+     wyczyszczony. Brak rozstrzygnięcia nie jest przyznaniem kompetencji;
+  C: hipoteza aktu przeciwnego do wyboru — art. 194 ust. 1 odczytujemy
+     jako dopuszczający cofnięcie wyboru przed J. Uchwała odpowiedniego
+     organu z udokumentowanym zakresem kończy od jej podjęcia oczekujące
+     skutki wskazanego wyboru; jeżeli J już nastąpiło, nie cofa tytułu;
+  D: szersza hipoteza aktu przeciwnego — cofnięcie działa od uchwały
+     także po J, przerywając tytuł. Jest to odrębna, szczególnie sporna
+     hipoteza skutku, którą należy skonfrontować z kadencją dziewięciu
+     lat (W1), zasadą legalizmu oraz niezależnością (W4–W6).
+  C i D są jawnymi interpretacjami kompetencji, nie wnioskami z samego
+  głosowania ani dosłownego brzmienia Konstytucji. Argument za: kompetencja
+  dokonania wyboru miałaby obejmować jego odwrócenie. Argument przeciw:
+  art. 194 nie ustanawia odwołania, a kadencyjność i niezależność mogą
+  wykluczać taką kompetencję. Rejestrujemy argumenty i ocenę recenzenta.
+  Skutek w modelu i ocena zgodności samego cofnięcia są osobnymi polami:
+  wariant działającego cofnięcia nie oznacza automatycznie SPEŁNIONY W1.
+  C i D nie kasują faktu wyboru, aktywności F ani ocen przed 25.11.
+  Nie przyjmujemy skutku wstecznego, uznania wyboru za niebyły ani
+  sanowania wszystkich jego wad przez uchwałę. Te hipotezy są wyłączone
+  z tej wersji, z powodu konieczności dodatkowej analizy W1 i W4–W6;
+  raport wymienia to ograniczenie. Odrzucenie C lub D w recenzji wymaga
+  zapisanego uzasadnienia, wersji katalogu i ponownego podania liczności.
 
-I-DATY: dopuszczalne konwencje granic kadencji z uzasadnieniem według W1.
+I-DATY (W1): dwie jawne konwencje, obie zapisane technicznie jako [od, do):
+  A: do = początek + 9 lat kalendarzowych; ostatni dzień = do - 1 dzień;
+  B: ostatni dzień = początek + 9 lat kalendarzowych; do = ostatni + 1 dzień.
+     B odtwarza granice odpowiadające datom zamierzonym w uchwałach 2015,
+     ale zgodność z tą praktyką nie dowodzi zgodności z art. 194 ust. 1.
+     Dodatkowego dnia nie przedstawiamy jako zwykłej konwersji zapisu.
   Zawsze zapisujemy osobno zamierzony początek z uchwały, ustalony lub
   nieustalony koniec poprzedniej kadencji i wynik rachunku lat. Zbioru dat
   nie zawężamy do jednej wartości tylko dlatego, że ułatwia obliczenie.
+  Przy nieustalonym początku albo przedwczesnym odejściu poprzednika
+  sama konwencja nie ustala wakatu: potrzebne są D0/B/U. D2 nie otrzymuje
+  daty z uchwały następcy w żadnym z dwóch wariantów.
 
 W3 (tryb wyboru): liczymy spełnienie ogólnej konstytucyjnej reguły
 głosowania, warunkowo przy jej zastosowaniu. Ocena pełnej procedury,
 w tym ewentualnych wyjątków z aktów niższego rzędu, pozostaje NIEUSTALONA
 lub NIEPOKRYTA. Nie tworzymy wariantu ustawowej większości jako wzorca.
 Przy zastosowaniu reguły ogólnej: obecnych >= 230 oraz za > przeciw.
-Wstrzymanie się nie jest głosem przeciw; źródło musi jednak pozwalać
-ustalić obecność i znaczenie każdej kategorii głosu. Brak danych
-o głosujących nie jest dowodem niespełnienia kworum.
+Wstrzymanie się nie jest głosem przeciw. Z API ustalamy g = za + przeciw
++ wstrzymujący się. g jest dolną granicą liczby obecnych, nie ich liczbą:
+  g >= 230: kworum SPEŁNIONE, jeżeli dane o głosach są wiarygodne;
+  g < 230: kworum NIEUSTALONE przy braku osobnego dowodu obecności;
+  osobny wiarygodny dowód obecnych p: oceniamy p >= 230 bez utożsamienia
+    p z g; sprzeczność p < g jest błędem danych.
+"Niegłosujący" nie oznacza "nieobecni". Brak danych nie dowodzi braku
+kworum. Pełną ocenę W3 zawsze oznaczamy jako WARUNKOWĄ: sam rachunek
+nie rozstrzyga klauzuli "jeżeli ustawa lub uchwała Sejmu nie stanowi inaczej".
 
 W8 (publikacja): czas oczekiwania jest liczbą; ocena "niezwłocznie"
 wymaga jawnej interpretacji art. 190 ust. 2 z autorem i uzasadnieniem.
@@ -266,6 +393,64 @@ Bez niej nieustalenie nie jest zastępowane progiem 14 albo 30 dni.
 Nie wszystkie pola muszą wpływać na każdy krok. Zależności i utożsamienia
 wariantów trzeba wykazać przed skróceniem przeglądu. Nie przenosimy liczby
 192 z testu ogólnego: niniejszy zakres ma inny zbiór założeń.
+
+6.1. LICZNOŚĆ I MAPA ZALEŻNOŚCI
+
+Wersja 1 miała nominalnie 3*2*2*2*3*2 = 144 kombinacje bez I-DATY;
+przy dwóch konwencjach dat 288. Nie obejmowała dodatnich hipotez
+cofnięcia wyboru ani pierwszeństwa objęcia. Nie podtrzymujemy deklaracji
+neutralności tej zawężonej przestrzeni bez tego zastrzeżenia.
+
+Katalog wersji 2 przed filtrami i utożsamieniami:
+  I-WAKAT            3: A/B/C
+  I-TYTUL            3: A/B/C
+  I-KADENCJA         2: A/B
+  I-PIERWSZENSTWO    3: A/B/C
+  I-SKUTEK-WYBORU    3: A/B-zajęcie/B-zajęcie-i-wyprzedzenie
+  I-UCHWALY-25XI     4: A/B/C/D
+  I-DATY             2: A/B
+  Razem: 3*3*2*3*3*4*2 = 1296 konfiguracji interpretacyjnych.
+
+To liczba konfiguracji, nie liczba rozstrzygających wyników ani wszystkich
+historii. Nie mnożymy dodatkowo raz jeszcze wspólnych parametrów kroków.
+Przyporządkowania A, stan początkowy B, kolejność i niepewności U mają
+własne, raportowane liczby. Przykład granicy kombinatorycznej: gdy obie
+trójki wyborów mają wszystkie bijekcje do trzech ustalonych miejsc,
+jest 3!*3! = 36 przyporządkowań. Dwie hipotezy poprzednika D2 dają
+warunkowo 72, a 1296*72 = 93312 par I/A przed pozostałymi uzupełnieniami.
+Nie jest to ustalona liczba dla danych: dowód wspólnego miejsca może
+zmniejszyć zbiór, a brak podstaw przypisania do grupy — go poszerzyć.
+Alternatywa Bagińska/Liszcz nie oznacza, że obie faktycznie kończyły
+kadencję w grudniu 2015; musi być zgodna z odejściem i następstwem Granata.
+Permutacji pomocniczych etykiet nie utożsamiamy bez T14/F08.
+
+Znana zależność do sprawdzenia w F02: I-TYTUL=B i I-KADENCJA=B nie
+dostarczają same ustalonej daty J, a więc początku nowej kadencji.
+Gdy trzeba wyznaczyć początek dla wyboru, którego skuteczność pozostaje
+możliwa, oczekujemy NIEUSTALONY. Nie jest to niespójność do usunięcia.
+Jest 3*1*1*3*3*4*2 = 216 takich konfiguracji przed dalszymi filtrami.
+Nie znaczy to, że każdy ich wynik jest nieustalony: np. udowodniona wada
+wyboru nadal może dawać NARUSZONY, a wykluczenie objęcia — brak kadencji.
+Pozostałe kombinacje także mogą być nieustalone z powodu braków D/B/U.
+
+Mapa bezpośredniego wpływu (do tego dochodzi dziedziczenie całego stanu):
+  parametr          miejsca zastosowania
+  I-WAKAT           K1, K3, K4, K8; otwarcia miejsc przy K8/K9/K12
+  I-TYTUL           każda ocena J i skutków dla T: K1, K3, K6, K8–K12
+  I-KADENCJA        wyznaczenie początku/końca nowych tytułów: K1, K3, K8–K12
+  I-PIERWSZENSTWO   konkurujące wybory/objęcia: K1, K3, K8–K12
+  I-SKUTEK-WYBORU   odpadnięcie przeszkody: K3, K6, K8/K9/K12
+  I-UCHWALY-25XI    K6, po czym skutki dziedziczą K7–K14
+  I-DATY            K0, K3 i każda granica kadencji; w grudniu K8/K9/K12
+  B, A, U           K0–K14 w zakresie faktów i osób, których dotyczą
+
+K2 i K5/K11 rejestrują fakty bez nowych reguł ustawowych. K7 bada charakter
+postanowienia; nie ma tu dodatkowego przełącznika skutku z ustawy.
+K10/K12 przy ocenie składów korzystają ze wszystkich zależności tytułu;
+K13 z W8, D8 i jawnej oceny pojęć, nie z samej liczby tytułów. K14 zbiera
+cały przebieg. Pośrednich zależności nie wolno usuwać z cache ani generatora.
+Mapa jest specyfikacją do potwierdzenia przez analizę zależności kodu;
+nie jest gotowym dowodem niezależności modułów.
 
 
 7. FORMALNA POSTAĆ OBLICZENIA
@@ -307,6 +492,11 @@ Każdy krok wykonujemy dla wszystkich dopuszczalnych I/B/A/U. Zapisujemy
 stan przed i po zdarzeniu, źródła, spełnione/naruszone/nieustalone wymogi
 oraz dokładną regułę przejścia. Zdarzenia tego samego dnia wymagają
 ustalonej kolejności albo wszystkich spójnych wariantów kolejności.
+K0–K14 są punktami kontrolnymi, nie zamkniętym wykazem wszystkich
+zdarzeń. Deklaracje istotne dla J, dodatkowe dowody aktywności i granice
+kadencji wstawiamy chronologicznie jako podkroki, także pomiędzy punktami.
+Otwarcie miejsca na początku doby poprzedza późniejsze głosowanie tej
+doby. Dla nieustalonej daty wakatu nie narzucamy kolejności z tabeli kroków.
 
 K0  1.10.2015 — zamrożenie wejścia.
     Sprawdzić tożsamość osób, dokumenty i brak podwójnego zaliczenia.
@@ -328,9 +518,12 @@ K2  23.10.2015 — publikacja uchwał wyborczych.
     bez osobnego, ujawnionego uzasadnienia.
 
 K3  Listopadowy koniec trzech kadencji — warianty dat.
+    Dla N1–N3 sprawdzić oba rachunki: wakat 6.11 w A, 7.11 w B,
+    warunkowo przy przyjęciu początku poprzednika z dokumentu.
     Zakończyć przedziały poprzedników; otworzyć miejsca według I-DATY.
-    Przeliczyć oczekujące wybory, E i T według I-WAKAT oraz I-TYTUL.
+    Przeliczyć oczekujące wybory, E, J i T według całego I.
     Nie przedłużać tytułu poprzednika przez brak ślubowania następcy.
+    Nie kończyć F poprzednika samą utratą tytułu (P8).
 
 K4  12.11.2015 — pierwsze posiedzenie Sejmu VIII kadencji.
     Według W2 zamknąć kadencję VII z końcem 11.11.2015. Sprawdzić
@@ -344,6 +537,10 @@ K6  25.11.2015 — pięć uchwał o "braku mocy prawnej".
     Sprawdzić fakt, zakres i organ. Zastosować I-UCHWALY-25XI.
     Zachować wcześniejsze wybory w rejestrze. Nie zastępować dowodu
     kompetencji przytoczeniem treści uchwały ani wynikiem głosowania.
+    W C sprawdzić, czy J już nastąpiło; w D odnotować także ewentualne
+    przerwanie tytułu. Oddzielić założony skutek od oceny W1 i W4–W6.
+    W A/B nie usuwać z katalogu hipotez dodatnich C/D z samego powodu,
+    że dają inny wynik.
 
 K7  30.11.2015 — postanowienie zabezpieczające.
     Zapisać treść i działania adresata. Osobno zbadać, co w tym zakresie
@@ -353,15 +550,19 @@ K7  30.11.2015 — postanowienie zabezpieczające.
     nie wystarczają do rozstrzygnięcia, wynik jest NIEUSTALONY.
 
 K8  2.12.2015 — pięć wyborów Sejmu VIII kadencji.
+    W I-DATY=A przetworzyć otwarcie D1 2.12 przed głosowaniami; w B
+    nie traktować D1 jako już wolnego wyłącznie z powodu zamierzonego
+    początku następcy. D2 nadal ma niezależną niepewność.
     Dla każdej osoby powtórzyć test K1 na stanie po K7. Sprawdzić
     pierwszeństwo, oczekujące roszczenia i wszystkie przeszkody łącznie.
     Przy I-SKUTEK-WYBORU rozdzielić ocenę czynności w dniu wyboru od
     ewentualnej późniejszej skuteczności. Nie uzdrawiać innych wad
     samym zwolnieniem miejsca.
 
-K9  2–3.12.2015 — ślubowania i grudniowy wakat D1.
+K9  2–3.12.2015 — ślubowania; otwarcie D1 w I-DATY=B.
     Zachować kolejność w obrębie nocy i dnia, jeżeli ma znaczenie.
-    Oddzielnie przeliczyć O, E, T i F. O nie jest dowodem F.
+    W A nie otwierać D1 drugi raz. Oddzielnie przeliczyć O, E, J, T i F.
+    O nie jest dowodem F; w I-TYTUL=C sprawdzić treść deklaracji J.
     Brak pozytywnego warunku ślubowania w tekście Konstytucji nie daje
     podstawy do automatycznego stwierdzenia zakazu jego ustawowego
     uregulowania; jego szczegóły nadal pozostają poza wzorcami testu.
@@ -369,6 +570,12 @@ K9  2–3.12.2015 — ślubowania i grudniowy wakat D1.
 K10 3.12.2015 — K 34/15.
     Sprawdzić zakres kontroli ustawy według W7, skład według wyników
     tytułów oraz większość według W8. Zapisać sentencję jako fakt.
+    Dla każdej osoby składu podać miejsce i pokrycie. Status osób spoza
+    pięciu miejsc: NIEUSTALONY/NIEPOKRYTY, bez automatycznego "prawowity".
+    Nie nadawać całemu składowi wyniku SPEŁNIONY na podstawie częściowej
+    kontroli. Udokumentowany udział osoby bez tytułu można wskazać jako
+    naruszenie badanego wymogu także przy nieustaleniu pozostałych osób;
+    ostateczny skutek dla orzeczenia wymaga osobnej reguły konstytucyjnej.
     Nie utożsamiać kontroli przepisu ustawy z konstytucyjnie dowiedzioną
     oceną każdego indywidualnego wyboru. Skutki orzeczenia z W8 oceniać
     odrębnie, bez uznawania samego faktu publikacji za dowód składu.
@@ -377,8 +584,11 @@ K11 5.12.2015 — wejście nowelizacji w życie według dokumentów.
     Odnotować datę jako fakt, odrębny od K5. Nie rozszerzać na tej
     podstawie katalogu konstytucyjnych wymogów i sankcji.
 
-K12 9.12.2015 — wakat D2, ślubowanie i K 35/15.
+K12 9.12.2015 — zamierzony początek następcy D2, ślubowanie i K 35/15.
     Sprawdzić kolejność. Powtórzyć właściwe części K3, K9 i K10.
+    Nie tworzyć w tym dniu wakatu D2 na podstawie samej uchwały
+    następcy. Otwarcie umieścić w przebiegu zgodnie z niezależnymi
+    danymi/uzupełnieniami albo pozostawić je NIEUSTALONE.
     Nie wybierać kolejności zdarzeń ze względu na oczekiwany wynik.
 
 K13 16 i 18.12.2015 — publikacje K 34/15 i K 35/15.
@@ -403,7 +613,8 @@ T02 Model fikcyjny: te same trzy przyszłe miejsca i dwa późniejsze.
     nie pełnej ważności wyboru.
 T03 Dwa wybory do jednego miejsca: wcześniejsze roszczenie, brak objęcia,
     późniejsze ślubowanie konkurenta. Sprawdzić każdy wariant
-    I-PIERWSZENSTWO i brak automatycznego pierwszeństwa ślubowania.
+    I-PIERWSZENSTWO. W A/B samo O nie rozstrzyga; w C wynik może zależeć
+    od J i I-TYTUL. Nie oczekiwać identycznego wyniku dla wszystkich I.
 T04 Zajęte miejsce oraz niezależna wada wyboru jednocześnie. Usunięcie
     pierwszej przeszkody nie usuwa drugiej.
 T05 Ślubowanie bez dowodu wykonywania funkcji: nie powstaje pewne F.
@@ -431,6 +642,31 @@ T13 Dopisanie zdarzenia z 2016 r. nie zmienia przejść dotyczących 2015 r.
 T14 Przemianowanie nierozróżnialnych miejsc nie zmienia wyniku po
     odpowiednim przemianowaniu wszystkich powiązanych danych. Dopiero
     taki dowód uzasadnia utożsamienie permutacji.
+T15 Początki 6.11.2006 i 2.12.2006: dokładnie obie pary końca/wakatu
+    z tabeli pkt 5. D2 z nieznanym początkiem pozostaje NIEUSTALONY
+    w obu konwencjach. Data następcy 9.12 nie wypełnia tego braku.
+T16 I-UCHWALY-25XI: cofnięcie przed J, cofnięcie po J i J nieustalone.
+    Porównać A/B/C/D; w D sprawdzić przerwanie tytułu, zachowanie faktu
+    wyboru, ocen przed uchwałą i niezależności F. Ocena skutku nie nadaje
+    automatycznie SPEŁNIONY ocenie samego cofnięcia.
+T17 I-TYTUL=C i I-PIERWSZENSTWO=C: wcześniejszy wybór bez J, późniejszy
+    z potwierdzonym J przy otwartym miejscu i pozostałych warunkach.
+    Przynajmniej w spójnym uzupełnieniu z brakiem wcześniejszego J późniejszy
+    wybrany może uzyskać pierwszeństwo. Przy nieustaleniu wcześniejszego J
+    zachować konkurujące uzupełnienia. Tę samą ocenę przyjęcia wyboru
+    mogą dokumentować ślubowanie i deklaracja innej formy; nie tworzą F.
+T18 Kworum: g=230 daje SPEŁNIONY, g=229 bez danych o obecności daje
+    NIEUSTALONY, a osobny dowód p=229 pozwala stwierdzić NARUSZONY.
+    "Niegłosujący" nie zmienia wyniku w dowód nieobecności; p<g daje
+    błąd danych. Ocena całego W3 zachowuje zastrzeżenie warunkowości.
+T19 Skład z osobą z badanego miejsca i osobą spoza zakresu. Pewny tytuł
+    pierwszej nie daje pozytywnej oceny całego składu. Brak dowodu odejścia
+    poprzednika pozostawia niepewność aktywności w podsumowaniu K14.
+T20 Generator: 1296 konfiguracji i 216 ze znaną zależnością B/B (pkt 6.1).
+    B/B pozostają w raporcie; nieustalona data J nie determinuje wszystkich
+    innych ocen. Nie są odrzucane za brak rozstrzygnięcia. Brak ukrytego
+    filtra usuwającego C/D uchwał lub
+    historię tylko dlatego, że daje naruszenie. Utożsamienia dopiero po dowodzie.
 
 
 10. KONTROLA WARIANTÓW I ODPORNOŚCI
@@ -443,6 +679,11 @@ Nie nazywamy niepewności źródła sporem interpretacyjnym ani odwrotnie.
 Przeglądamy wszystkie wspólnie dopuszczalne kombinacje I/B/A/U.
 Zbiór, liczbę odrzuconych kombinacji i powody odrzucenia zapisujemy.
 Przy ograniczeniu zasobów wynik musi wskazywać niepełne pokrycie.
+Raport wymienia również wyłączone hipotezy, w szczególności skutki
+wsteczne uchwał, i uzasadnienie każdego wyłączenia. Wersja 2 poszerza
+katalog, ale nie dowodzi jego kompletności ani równorzędności prawnej
+interpretacji. "Wspólny wszystkim modelom" znaczy wyłącznie wspólny
+temu opisanemu zbiorowi, z podaniem jego wersji i liczności.
 
 Odporność wyniku oznacza zgodność w zadeklarowanym zbiorze modeli.
 Zgodność dwóch wariantów "najłagodniejszego" i "najsurowszego" nie wystarcza.
@@ -467,7 +708,7 @@ domyślnych założeń danych ani reguł ustawowych z silnika ogólnego.
 Typy:
   Okno, Osoba, Miejsce5, Dokument, Fakt, Pewnosc, Zdarzenie,
   StanPoczatkowy, InterpretacjaEtapu1, Alternatywa, Uzupelnienie,
-  StanOsoby (C/A/R/E/T/O/F), StanMiejsca, Ocena, Pokrycie, KrokSladu.
+  StanOsoby (C/A/R/E/T/J/O/F), StanMiejsca, Ocena, Pokrycie, KrokSladu.
 
 Czyste funkcje:
   dopuszczalnoscWyboru, krokEtapu1, ocenaWymogu, spójneUzupelnienia,
@@ -478,13 +719,16 @@ Warunki i twierdzenia do kontroli:
 F01 Źródłowe ID są unikalne; odwołania osób, dokumentów i miejsc poprawne.
 F02 Wariant ma spełnialne przesłanki i co najmniej jedną dopuszczalną
     historię albo otrzymuje jawną diagnozę niespójności.
+    Znane niedookreślenia (np. I-TYTUL=B z I-KADENCJA=B) opisujemy
+    przed obliczeniem; nie utożsamiamy ich z niespójnością ani naruszeniem.
 F03 Każde przejście wskazuje fakt, wariant i konstytucyjną przesłankę.
     Czynność wadliwa pozostaje faktem i nie jest usuwana z historii.
-F04 Tytuł, roszczenie, ślubowanie i aktywność są różnymi składowymi.
+F04 Tytuł, roszczenie, J, ślubowanie i aktywność są różnymi składowymi.
 F05 Brakujące dane nie powodują wyniku pozytywnego przez domyślne zero,
     pustą listę lub pustą kwantyfikację.
 F06 Pierwszeństwo i wariant późniejszej skuteczności zachowują wszystkie
     pozostałe warunki; brak niejawnego resetu kadencji.
+    Skutek C/D uchwały nie działa przed uchwałą i nie zmienia F.
 F07 Granice i ilorazy są poprawne względem wspólnie dopuszczalnych historii.
 F08 Skróty wariantów i klucze cache zachowują wynik, w tym korelacje miejsc.
 F09 Wynik po kroku zgadza się ze złożeniem funkcji przejść od S0.
@@ -504,16 +748,24 @@ Docelowo: TK/Etap_I_wyniki_robocze.md. Każdy wynik ma status warunkowy.
 A. Źródła konstytucyjne i pokrycie każdego badanego przepisu.
 B. Stan początkowy, pięć miejsc i pozostałe dziesięć (albo jawne luki).
 C. Fakty: identyfikator, czynność, data, źródło, pewność, alternatywy.
-D. Warianty: treść, przepisy, uzasadnienie, status, zależności i liczby.
+D. Warianty: treść, przepisy, uzasadnienie i kontrargumenty, status,
+   zależności, liczby konfiguracji, uzupełnień i wyłączeń; wskazać hipotezy
+   poza katalogiem. Znane B/B: nieustalenie daty J, bez pozornej
+   niespójności i bez narzucania wyniku pozostałym ocenom.
 E. Ślad K0–K14: przed → zdarzenie → reguła → po; każda osoba i miejsce.
 F. Oceny: wymóg W, czynność, czas, SPEŁNIONY/NARUSZONY/NIEUSTALONY,
    wariant i źródła; wykrycie wady oddzielone od jej skutku.
 G. K 34/15 i K 35/15: skład, głosowanie, przedmiot, treść oraz osobno W8.
+   Tytuł i pokrycie każdej osoby oddzielnie; wyraźne ograniczenie oceny
+   do pięciu miejsc. Nie przedstawiać częściowej oceny jako pełnej.
 H. Publikacja: fakty, dni oczekiwania i jawna ocena konstytucyjna.
 I. Różnice wariantów i minimalny zestaw zmienionych przesłanek, który
    zmienia dane ustalenie. Braki danych oddzielone od różnic wykładni.
 J. Koniec okna: roszczenia, tytuły i faktyczna aktywność. Bez syntetycznego
    werdyktu o utracie tożsamości całego TK.
+   Uprzedzić, że bez AD i dowodów zakończenia funkcji duża część aktywności
+   poprzedników pozostanie NIEUSTALONA do końca okna. Nie jest to dowód,
+   że osoby te rzeczywiście nadal orzekały.
 
 
 13. KOLEJNOŚĆ REALIZACJI
@@ -523,8 +775,8 @@ J. Koniec okna: roszczenia, tytuły i faktyczna aktywność. Bez syntetycznego
 2. Zdefiniować warianty i zakresy niepewności. Przejrzeć, czy żadna reguła
    ustawowa nie została ukryta w założeniu, kodzie lub domyślnej wartości.
 3. Dodać jawne okno do modelu; tStart/tEnd testu ogólnego nie wystarczają.
-   Ograniczenie liczby wariantów przez --limit-m1 nie ogranicza czasu.
-4. Zaimplementować i sprawdzić testy syntetyczne T01–T14 oraz twierdzenia
+   --limit-m1 ogranicza liczbę wariantów, a nie okno czasowe badania.
+4. Zaimplementować i sprawdzić testy syntetyczne T01–T20 oraz twierdzenia
    w zakresie koniecznym przed zastosowaniem optymalizacji.
 5. Przeprowadzić recenzję wykładni, wariantów i stanu początkowego,
    zgodnie z przyjętą w plan_tk.txt kolejnością prac.
@@ -536,3 +788,23 @@ Sporządzenie tego planu nie uruchamia testu, nie uzupełnia brakujących
 faktów i nie zatwierdza interpretacji. Kryterium ukończenia obliczenia
 to kompletny, odtwarzalny ślad dla zadeklarowanych wariantów, także wtedy,
 gdy część ocen pozostaje NIEUSTALONA.
+
+
+14. MAPA POPRAWEK PO RECENZJI WERSJI 1
+
+Uwaga 1: pkt 6 — dodatnie hipotezy cofnięcia C/D, przyjęcie wyboru J
+         w I-TYTUL=C i pierwszeństwo objęcia w I-PIERWSZENSTWO=C;
+         kontrargumenty, wyłączenia i zakres odporności w pkt 10.
+Uwaga 2: pkt 5 i I-DATY — dwie konwencje; D2 NIEUSTALONY; K8/K9
+         uwzględniają wakat D1 już 2.12 w wariancie A; K12 bez fikcji daty.
+Uwaga 3: W3 w pkt 6 i T18 — głosujący jako dolna granica obecności,
+         kworum warunkowe; bez utożsamiania niegłosujących z nieobecnymi.
+Uwaga 4: pkt 1, P8, K10/K12, F02, raport G/J — częściowy zakres składów,
+         jawne niedookreślenie B/B i niepewność aktywności poprzedników.
+Uwaga 5: pkt 6.1 i T20 — 1296 konfiguracji, 216 znanych B/B, osobne
+         przyporządkowania/uzupełnienia oraz mapa zależności K0–K14.
+Uwaga 6: pkt 4 — mapa braków do źródeł; pkt 13.3 — precyzyjnie okno
+         czasowe; ostrożność dotycząca K2 zachowana.
+
+To aktualizacja specyfikacji. T01–T20 i F01–F12 są wymaganiami do
+implementacji, nie wykonanymi testami ani gotowymi dowodami Etapu I.

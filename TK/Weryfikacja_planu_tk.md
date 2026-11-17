@@ -536,3 +536,70 @@ wykonano próby techniczne z `--limit-m1 1`, a nie ponowne pełne obliczenie
 historyczne. Zastane pliki
 wyniku, raportu przygotowawczego i CSV są chronione porównaniem SHA-256
 przed i po sprawdzeniach; nie są odświeżane w ramach tych poprawek.
+
+## 21. Recenzja planu Etapu I i stan po poprawkach (17 listopada 2026 r.)
+
+Ocena użytkownika dotyczyła wersji 1 `plan_tk_etap_1.txt`, przed
+implementacją `Etap1.lean`. Zachowane zalety: Konstytucja jako jedyny
+wzorzec, oddzielenie faktów od norm, brak domyślnych AD1–AD7, rozdzielenie
+tytułu i aktywności oraz wspólne uzupełnienia niepewności. Dwie zasadnicze
+uwagi dotyczyły asymetrii wariantów i tabeli końców kadencji. Pozostałe:
+kworum, zależności od osób poza pięcioma miejscami, brak liczności i mapy
+zależności oraz przypisanie luk do źródeł.
+
+### 21.1. Sprawdzenie przesłanek recenzji
+
+- Wersja 1 rzeczywiście zawierała tylko brak skutku lub nieustalenie
+  skutku uchwał z 25.11 oraz nie miała dodatniej hipotezy pierwszeństwa
+  objęcia. Nie uzasadniało to deklaracji odporności poza takim katalogiem.
+- [M.P. 2006 poz. 792, § 2](https://eli.gov.pl/api/acts/MP/2006/792/text.pdf)
+  wskazuje początek trzech kadencji 6.11.2006, a
+  [poz. 842, § 2](https://eli.gov.pl/api/acts/MP/2006/842/text.pdf) początek
+  kadencji Cieślaka 2.12.2006. Rachunek `początek + 9 lat` jako wyłączny
+  koniec daje wakaty odpowiednio 6.11 i 2.12.2015. Dzień później jest
+  odrębnym założeniem, a nie samą zmianą zapisu przedziału.
+- Odczytano też [poz. 918](https://eli.gov.pl/api/acts/MP/2006/918/text.pdf):
+  uchwała wybiera Bagińską, bez wskazania początku kadencji. Tekstu poz.
+  919 nie udało się ponownie pobrać; informacja o braku daty pochodzi
+  tutaj z rejestru i recenzji. D2 pozostaje nieustalony, a jego niezależne
+  źródła wymagają uzupełnienia. Daty z uchwał następców nie wystarczają.
+- Art. 98, 120 i 194–195 porównano z tekstem w `Senat/`. Z art. 120
+  wynika warunek obecności, a nie utożsamienie obecnych z głosującymi;
+  jego zdanie drugie zachowuje klauzulę wyjątków. Wersja 1 nie opisywała
+  dostatecznie sposobu oceny na podstawie niepełnych danych o obecności.
+- Rachunek konfiguracji wersji 1 potwierdzono: 144 bez konwencji dat,
+  288 przy dwóch konwencjach. Nowy katalog i jego liczność to zmiana
+  specyfikacji, nie wynik historyczny ani zatwierdzenie wykładni.
+
+### 21.2. Zmiany w wersji 2
+
+| Uwaga | Zmiana |
+| --- | --- |
+| 1. Asymetria | Dodano I-UCHWALY-25XI=C (cofnięcie przed objęciem) oraz D (także po objęciu), I-TYTUL=C (udokumentowane przyjęcie wyboru) i I-PIERWSZENSTWO=C (pierwszeństwo objęcia). Każda hipoteza ma argument i kontrargument konstytucyjny. Skutek cofnięcia nie oznacza automatycznie jego zgodności z Konstytucją. Skutek wsteczny pozostaje jawnie poza katalogiem; odporność dotyczy wyłącznie zadeklarowanego zbioru. |
+| 2. Daty | Tabela zawiera obie konwencje oraz nieustalenie D2. K8/K9 uwzględniają otwarcie D1 już 2.12 w wariancie A. K12 nie tworzy wakatu D2 z samej daty następcy. |
+| 3. Kworum | Liczba głosujących jest dolną granicą obecności: co najmniej 230 dowodzi spełnienia ogólnego kworum; mniej daje nieustalenie bez dodatkowego źródła. Osobny dowód obecności pozwala ocenić warunek bez tego przybliżenia. Pełna ocena W3 pozostaje warunkowa wobec klauzuli wyjątków. |
+| 4. Zakres i zależności | Ocena tytułów w składach jest częściowa; osoby spoza pięciu miejsc nie są domyślnie prawowite. J (objęcie) jest odrębne od ślubowania i aktywności. Z góry opisano niedookreślenie daty J dla I-TYTUL=B z I-KADENCJA=B oraz możliwą niepewność aktywności poprzedników do końca okna. |
+| 5. Liczność i mapa | Pkt 6.1 podaje 1296 konfiguracji interpretacyjnych przed filtrami: `3*3*2*3*3*4*2`. Zawierają 216 konfiguracji z wymienioną zależnością B/B. Wyliczenie sprawdzono przez enumerację iloczynu. Przyporządkowania i uzupełnienia liczy się osobno; mapa podaje zastosowania w K0–K14 i wymóg zachowania zależności pośrednich. |
+| 6. Doprecyzowania | Pkt 4 przypisuje brakujące dokumenty do źródeł. `--limit-m1` ogranicza liczbę wariantów, a nie okno czasowe. Zachowano ostrożność przy publikacji uchwał w K2. |
+
+Przykład `3!*3!*2 = 72` przyporządkowań i `1296*72 = 93312` par jest
+wyłącznie warunkowym rachunkiem przy określonych domenach przyporządkowań;
+nie jest liczbą ustaloną dla obecnego rejestru. Zależność B/B nie powoduje
+odrzucenia konfiguracji ani nie narzuca nieustalenia wszystkim jej ocenom.
+
+Dodano wymagania testów T15–T20 i zmieniono T03, aby obejmowały nowe
+hipotezy, obie konwencje dat, kworum, częściowe pokrycie składów oraz
+liczność i znane niedookreślenia. K0–K14 są punktami kontrolnymi;
+dodatkowe zdarzenia istotne dla objęcia trzeba wstawiać chronologicznie.
+Na końcu planu jest mapa zmian do wszystkich sześciu uwag.
+
+### 21.3. Granice tej aktualizacji
+
+Nie zaimplementowano modułu Etapu I, nie uruchomiono jego testu
+historycznego ani nie wydano werdyktu o TK. T01–T20 i F01–F12 są
+wymaganiami, nie wykonanymi testami lub dowodami. Poszerzenie katalogu
+nie dowodzi, że wszystkie warianty są dopuszczalne prawnie lub wyczerpują
+wykładnie Konstytucji. W szczególności hipoteza odwołania po objęciu
+wymaga oceny w świetle kadencyjności i niezależności; żadnej nie
+zatwierdzono przez samo dopisanie do planu. Braki danych i recenzja
+interpretacji pozostają do wykonania przed obliczeniem wyników.

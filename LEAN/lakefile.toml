@@ -4,3 +4,7 @@ defaultTargets = ["Konstytucja"]
 [[lean_lib]]
 name = "Konstytucja"
 globs = ["Konstytucja", "Konstytucja.*"]
+
+[[lean_exe]]
+name = "tk_test"
+root = "Skrypty.TK"

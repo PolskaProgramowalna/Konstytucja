@@ -1,12 +1,6 @@
--- PLIK GENEROWANY przez `python3 tk_test.py lean` - nie edytować ręcznie.
+-- PLIK GENEROWANY przez `tk_test lean` (Lean); nie edytować ręcznie.
 -- Źródło: dane/tk_rejestr.csv, SHA-256 f719f49f2e215c8ed24ac966b25d2098b87b94644f5665a58e1fb200e1236e91
 import Konstytucja.TK.Ciaglosc
-
-/-! # Rejestr zdarzeń testu ciągłości TK (dane, plan_tk.txt pkt 6 i 12)
-
-Kontrola F2 w Lean: identyfikatory zdarzeń są unikalne, a każde zdarzenie osobowe
-odnosi się do osoby, która ma wybór (E1). Daty: dni od 1970-01-01.
--/
 
 namespace Konstytucja.TK.CiagloscDane
 
@@ -248,22 +242,22 @@ def rejestr : List Zdarzenie := [
   ⟨135, .t9, 14946, 4⟩  -- L09 E7 2010-12-03 biernat
 ]
 
-/-- Liczba zdarzeń w rejestrze. -/
 theorem liczba_zdarzeń : rejestr.length = 136 := by decide
 
-/-- F2: identyfikatory zdarzeń są unikalne. -/
+/-- Numery porządkowe; odrębny dowód poniżej sprawdza źródłowe ID. -/
 theorem identyfikatory_unikalne : (rejestr.map (·.nr)).Nodup :=
   Konstytucja.TK.Ciaglosc.nodup_z_bezPowtórzeń _ (by decide)
 
-/-- Osoby, które mają zdarzenie E1. -/
 def wybrani : List Nat := (rejestr.filter (·.typ == .t1)).map (·.osoba)
 
-/-- F2: każda osoba ma co najwyżej jeden wybór (brak podwójnego zaliczenia). -/
 theorem jeden_wybór : wybrani.Nodup :=
   Konstytucja.TK.Ciaglosc.nodup_z_bezPowtórzeń _ (by decide)
 
-/-- F2: każde zdarzenie osobowe odnosi się do osoby z wyborem. -/
-theorem osoby_mają_wybór : rejestr.all (fun z => z.osoba == 0 || wybrani.contains z.osoba) = true := by
-  decide
+theorem osoby_mają_wybór : rejestr.all (fun z => z.osoba == 0 || wybrani.contains z.osoba) = true := by decide
+
+def źródłoweId : List String := ["S5", "S6", "S7", "S8", "S9", "S10", "W01", "W02", "W03", "W04", "W05", "W06", "W07", "W08", "W09", "W10", "W11", "W12", "W13", "W14", "W15", "W16", "W17", "W18", "W19", "W20", "W21", "W22", "W23", "W24", "W25", "W26", "W27", "W28", "W29", "W30", "W31", "W32", "W33", "W34", "W35", "W36", "W37", "W38", "W39", "W40", "W41", "W42", "W43", "W44", "W45", "W46", "W47", "U01", "U02", "U03", "P01", "P02", "P03", "P04", "P05", "P06", "P07", "P08", "P09", "P10", "P11", "P12", "P13", "P14", "P15", "P16", "P17", "P18", "P19", "P20", "P21", "P22", "P23", "D01", "D02", "D03", "D04", "D05", "D06", "D07", "D08", "K01", "K02", "K03", "K04", "O01", "O02", "O03", "O04", "O05", "L01", "L02", "L03", "L04", "L05", "L06", "L07", "Z01", "Z02", "Z03", "Z04", "R01", "R02", "R03", "R04", "R05", "R06", "R07", "R08", "R09", "R10", "B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "F01", "F02", "F03", "F04", "F05", "F06", "F07", "F08", "L08", "L09"]
+
+/-- F2: także źródłowe identyfikatory zdarzeń są unikalne. -/
+theorem źródłowe_id_unikalne : źródłoweId.Nodup := by decide
 
 end Konstytucja.TK.CiagloscDane

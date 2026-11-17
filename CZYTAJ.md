@@ -54,6 +54,12 @@ Skrypt kompiluje dowody, odrzuca `sorry` i niedozwolone aksjomaty oraz sprawdza,
 
 Samo `lake build` nie wystarcza, bo nie wykryje `sorry` w dowodach.
 
+Test TK działa w całości w Lean: `./tk_test.sh waliduj`, `./tk_test.sh testy`
+i `./tk_test.sh przygotuj` z katalogu głównego. `./oblicz_tk.sh` wykonuje
+pełny przegląd roboczy; `--limit-m1 2 -o /tmp/proba.md` uruchamia oznaczoną
+próbę techniczną. Parametry nadal wymagają recenzji prawnika. Szczegóły
+w `LEAN/dane/CZYTAJ.txt`. Python dotyczy niezależnego generatora tekstu Konstytucji.
+
 ## Licencja
 
 Kod jest na licencji [Apache 2.0](LICENSE), a dokumenty i dane projektu na [CC BY 4.0](LICENSE-CC-BY-4.0.txt). Tekst Konstytucji oraz pliki w `Sejm/`, `Senat/` i `inne/*.pdf` nie są nimi objęte. Szczegóły są w [LICENCJE.md](LICENCJE.md).

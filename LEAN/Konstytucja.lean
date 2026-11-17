@@ -22,3 +22,4 @@ import Konstytucja.Modele.Wybory
 import Konstytucja.Modele.StanyNadzwyczajne
 import Konstytucja.TK.Ciaglosc
 import Konstytucja.TK.CiagloscDane
+import Konstytucja.TK.Test.Raport

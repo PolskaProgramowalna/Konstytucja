@@ -3,11 +3,13 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 lake build
+lake build tk_test
 lake env lean --run Skrypty/KontrolaProjektu.lean
 stan=$(sha256sum dane/*.csv dane/artykuly.txt)
 (cd dane && python3 -I generuj.py)
-# Test ciągłości TK (plan_tk.txt): walidacja rejestru, testy, aktualność CiagloscDane.lean
-(cd dane && python3 -I tk_test.py waliduj && python3 -I tk_test.py testy)
+# Test TK działa w Lean; Python powyżej dotyczy tylko danych tekstu Konstytucji.
+./.lake/build/bin/tk_test waliduj --repo ..
+./.lake/build/bin/tk_test testy --repo ..
 [ "$stan" = "$(sha256sum dane/*.csv dane/artykuly.txt)" ] || {
   echo "Dane były nieaktualne względem rejestru lub PDF" >&2
   exit 1

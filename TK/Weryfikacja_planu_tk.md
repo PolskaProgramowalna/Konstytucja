@@ -478,3 +478,21 @@ Wszystkie usterki z sekcji 17 poprawiono. Do każdej dodano test regresyjny odtw
 Nadal otwarte, zgodnie z 17.3: F3 (dowód zgodności Pythona z funkcją `krok` w Lean), F7, F8 i ograniczony zakres F2 w Lean (numer, typ, dzień, osoba - bez źródeł i atrybutów).
 
 Plik `TK/Wynik_testu_ciaglosci.md` powstał przy uruchomieniu `./oblicz_tk.sh` na prośbę użytkownika (wcześniejsze stwierdzenie, że wynik istnieje tylko w scratchpadzie, dotyczyło stanu sprzed napisania skryptu). Został odtworzony po poprawkach; nadal jest oznaczony jako roboczy i nie jest werdyktem.
+
+## 19. Migracja testu TK z Pythona do Lean
+
+Migrację oparto na aktualnej implementacji z `11ca2dd`, zawierającej poprawki TKI-1–TKI-7, AD7 i obliczanie K4. Silnik Python i `tk_test.py` zostały zastąpione przez czyste funkcje w `LEAN/Konstytucja/TK/Test/` oraz program `LEAN/Skrypty/TK.lean`. Polecenia uruchamia `./tk_test.sh`; `./oblicz_tk.sh` zachowuje dotychczasowe etapy. Python nie jest już zależnością testu TK. Pozostaje w niezależnym `generuj.py`, używanym przez pełną kontrolę danych tekstu Konstytucji.
+
+Zachowano CSV, parametry, założenia danych i ograniczenia modelu. Zapis `CiagloscDane.lean` generuje program Lean; oprócz numerów wierszy sprawdza on oryginalne identyfikatory zdarzeń. Porównanie aktualności obejmuje cały wygenerowany tekst. Logika trójwartościowa używana przez silnik ma także dowody przemienności i podwójnej negacji, sprawdzane przez jądro Lean. Nie oznacza to zamknięcia wszystkich otwartych kontroli.
+
+Kontrole migracji:
+
+- Wzorzec pobrano z bieżącego Pythona przed jego usunięciem. Dla próby technicznej dwóch wariantów M1 × cztery alternatywy porównano 301 agregatów ocen, 47 punktów obwiedni, 36 rozkładów K4 oraz liczby M1=8, M2=1152, M3=73728. Wyniki są identyczne.
+- Dla wszystkich 192 wariantów M1 × cztery alternatywy porównano 270 agregatów i 77 punktów obwiedni; wyniki również są identyczne.
+- Przeniesiono dotychczasowe testy, w tym regresje TKI-1–TKI-7 i K4. Dodano testy CSV, kalendarza gregoriańskiego, brakujących i błędnych atrybutów oraz AD7. Są łącznie 46 kontroli, wliczając aktualność danych Lean.
+- Program uruchomiono przy podmienionych poleceniach `python` i `python3`, które kończą się błędem 99. Walidacja, testy, raport przygotowawczy, generator danych Lean i cały skrypt obliczeń dla jawnej próby technicznej działają bez ich wywołania.
+- Pełne złączenie 192 / 27648 / 1769472 wariantów sprawdzono na małym rejestrze syntetycznym, bez danych historycznych. Progi K4 są liczone arytmetyką całkowitą, bez zaokrągleń zmiennoprzecinkowych.
+
+Próby techniczne przyjmują `--limit-m1 N` lub `--moduł M1|M2|M3` i mają w raporcie wyraźne oznaczenie **NIEPEŁNY PRZEGLĄD**. Polecenie `oblicz` nadal wymaga `--roboczo`. Parametry Z, AD i R-PUB pozostają robocze; F1 (osiągalność), F3 (zgodność algorytmu z modelem pomocniczym), F5, F7 i F8 pozostają otwarte. Zgodność wybranych wyników podczas migracji jest testem, a nie dowodem pełnej równoważności.
+
+Nie zmieniono danych `tk_rejestr.csv` ani istniejącego `TK/Wynik_testu_ciaglosci.md`. Nowe raporty prób zapisano do `/tmp`; odświeżono wyłącznie raport przygotowawczy. Nie wydano nowego werdyktu o TK. Odwołania do plików Pythona w sekcjach 17–18 są historyczne; ich kod można odczytać np. przez `git show 11ca2dd:LEAN/dane/tk/oceny.py`.

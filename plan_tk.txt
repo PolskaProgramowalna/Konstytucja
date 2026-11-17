@@ -774,14 +774,14 @@ F9  Rozdzielono na F9a (każda kompletna historia: utrata tytułu zmienia
 
 18. STAN IMPLEMENTACJI (2026-11-16)
 
-Kod: LEAN/dane/tk/ (Python, bez zależności zewnętrznych), polecenia przez
-LEAN/dane/tk_test.py; dane: LEAN/dane/tk_rejestr.csv; Lean:
+Kod: LEAN/Konstytucja/TK/Test/ (Lean, bez bibliotek zewnętrznych), polecenia
+przez ./tk_test.sh (Skrypty/TK.lean); dane: LEAN/dane/tk_rejestr.csv; dowody:
 LEAN/Konstytucja/TK/Ciaglosc.lean i CiagloscDane.lean (generowany).
 Kontrola: LEAN/sprawdź.sh (budowa Lean, aksjomaty, walidacja rejestru, testy).
 Raport prac przygotowawczych: TK/Przygotowanie_testu.md.
 
 Zrealizowane elementy planu:
-- pkt 10.1-10.3: format rejestru i walidator (krok 1, F2 w Pythonie i w Lean),
+- pkt 10.1-10.3: format rejestru i walidator w Lean (krok 1, F2),
   generator wariantów z grafem zależności i filtrem F1 (5.1), propagacja
   niepewności (P10) - przegląd uzupełnień dla ZO i Z13b, granice liczników,
 - pkt 4: model S1-S8, S6*, S6?, przejścia T1-T10, konkurujące roszczenia,
@@ -795,10 +795,10 @@ Zrealizowane elementy planu:
   przygotowawczy, sekcja 2).
 
 Odstępstwa i dodatki wymagające decyzji recenzenta:
-I1  Założenia danych AD1-AD7 (model.ZałożeniaDanych). Plan ich nie przewiduje.
+I1  Założenia danych AD1-AD7 (Test.Assumptions). Plan ich nie przewiduje.
     Zastępują brakujące dane (np. ślubowania sędziów wybranych przed 2015 r.,
     kompletność E6), są przełączalne i raportowane. Bez nich wynik byłby
-    niemal w całości NIEUSTALONY. Wyłączenie: tk_test.py --bez-ad <nazwa>.
+    niemal w całości NIEUSTALONY. Wyłączenie: ./tk_test.sh POLECENIE --bez-ad <nazwa>.
 I2  Konwencja dat (4.5): uchwały Sejmu wyznaczają początek kadencji następcy
     na dzień po rocznicy początku kadencji poprzednika (np. 6.11.2006 ->
     7.11.2015), czyli stosują przedziały domknięte. Implementacja trzyma się
@@ -806,7 +806,7 @@ I2  Konwencja dat (4.5): uchwały Sejmu wyznaczają początek kadencji następcy
     przygotowawczy, sekcja 5) i wpływa na H1 oraz H5.
 I3  Granice liczników T, F, B, W, Z, U liczone metodą przedziałową
     z korelacją na miejscu pomocniczym; niepewne chwile badane na całych
-    zakresach (Przedział.zawiera_chwilę). Bezpieczeństwo i ścisłość tej
+    zakresach (Przedzial.containsTime). Bezpieczeństwo i ścisłość tej
     metody nie są dowiedzione - kontrola F8 dla liczników pozostaje otwarta.
     Dokładny przegląd uzupełnień (P10) zaimplementowano dla ZO i Z13b.
 I4  Wpływ parametrów w tabeli F: dla wyników M1 - test zmiany jednego
@@ -827,7 +827,7 @@ I8  Wakaty: 18 wyborów (2007 r. i 2017-2026) ma wakat nieustalony w dokumentach
     i tytuł są NIEUSTALONE.
 
 Poprawki po recenzji implementacji (TK/Weryfikacja_planu_tk.md, sekcja 17),
-każda z testem regresyjnym w tk/test_tk.py (klasy Regresja i K4):
+każda z testem regresyjnym w LEAN/Konstytucja/TK/Test/Testy.lean:
 TKI-1 klucz pamięci ZO zawiera miejsce pomocnicze każdej osoby,
 TKI-2 brak danych o głosach ZO daje NIEUSTALONY; walidator odrzuca więcej
       głosów niż głosujących,
@@ -843,9 +843,38 @@ K4    obliczane: kierownictwo NARUSZONE w roku ∧ udział WADLIWYCH ≥ X, z
       bez D6_ROK udział jest NIEUSTALONY,
 ślad  tabela C raportu podaje wzorce W, źródła D i przedziały kierownictwa.
 
-Otwarte: F1 (osiągalność w Lean), F3 (zgodność Pythona z `krok` w Lean), F5,
+Otwarte: F1 (osiągalność w Lean), F3 (zgodność algorytmu z modelem `krok`), F5,
 F7, F8 (pkt 12); dane D3, D5, D6 (w tym D6_ROK), D11; zatwierdzenie parametrów,
 R-PUB, AD1-AD7 i konwencji dat. Skrypt ./oblicz_tk.sh wykonuje walidację,
-testy i pełny przegląd (ok. 2,5 min, 7 077 888 wariantów M3 x A) i zapisuje
+testy i pełny przegląd (7 077 888 wariantów M3 x A) i zapisuje
 WYNIK ROBOCZY w TK/Wynik_testu_ciaglosci.md - na wyraźne polecenie
 użytkownika, mimo że parametry nie są zatwierdzone (pkt 10).
+
+
+19. MIGRACJA TESTU TK DO LEAN (2026-11-16)
+
+Migracja oparta na aktualnej implementacji z commita 11ca2dd, z poprawkami
+TKI-1–TKI-7, AD7 i obliczaniem K4. Usunięto silnik i CLI testu TK w Pythonie.
+CSV pozostaje źródłem danych; czyta go bezpośrednio program Lean.
+
+- Konstytucja/TK/Test/Podstawy.lean: CSV, walidator, daty, W3, parametry i AD;
+- Model.lean: przyporządkowania, przejścia i liczniki;
+- Oceny.lean: kroki 5–8, P10 i R-PUB;
+- Przebieg.lean: złączenia wariantów, tablicowanie, K1–K4 i agregacja;
+- Raport.lean: raporty, ślad W/D i generator CiagloscDane.lean;
+- Testy.lean: testy techniczne i regresyjne;
+- Skrypty/TK.lean: IO i CLI (waliduj / przygotuj / lean / testy / oblicz).
+
+Funkcje silnika są czystymi funkcjami Lean; uruchamia je natywny program
+budowany przez `lake build tk_test`. Shell uruchamia program i etapy kontroli.
+CiagloscDane.lean sprawdza też unikalność oryginalnych ID z CSV. Wersję danych
+identyfikuje SHA-256; test aktualności porównuje cały wygenerowany tekst.
+
+Migracja nie zatwierdza parametrów ani nie zamyka automatycznie F1/F3/F5/F7/F8.
+F3 dotyczy teraz zgodności algorytmu Lean z modelem pomocniczym, bez mostu
+między Pythonem a Lean. `--limit-m1 N` i `--moduł M1|M2|M3` służą jawnym
+próbom technicznym oznaczonym jako NIEPEŁNY PRZEGLĄD. Bez `--roboczo` polecenie
+oblicz nadal odmawia. Nie nadpisano istniejącego wyniku historycznego.
+
+Python pozostaje wyłącznie w niezależnym LEAN/dane/generuj.py, przygotowującym
+tekst Konstytucji. Nie jest zależnością uruchomieniową testu TK.

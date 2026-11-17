@@ -42,14 +42,32 @@ Test ciągłości Trybunału Konstytucyjnego (plan_tk.txt w katalogu głównym r
 
 tk_rejestr.csv  rejestr zdarzeń E1-E10, kadencji Sejmu, orzeczeń i zdarzeń publikacyjnych;
                 każdy wiersz ma źródło (ELI:, SEJM-GL:, IPO:, API-SEJM:, DOC:, WIKI:)
-                i pewność (ustalone / nieustalone); format opisuje tk/rejestr.py
-tk_test.py      polecenia: waliduj, przygotuj, lean, testy, oblicz --roboczo
-tk/             silnik: daty i logika trójwartościowa, rejestr z walidatorem (F2),
-                parametry Z1-Z14 z grafem zależności, model stanów (T1-T10),
-                oceny kroków 5-8 z przeglądem uzupełnień (P10), przebieg wariantów,
-                raporty i generator Konstytucja/TK/CiagloscDane.lean
+                i pewność (ustalone / nieustalone).
+                CSV czyta i waliduje Konstytucja/TK/Test/Podstawy.lean.
+Test TK nie wymaga Pythona. Polecenia z katalogu głównego repozytorium:
+  ./tk_test.sh waliduj
+  ./tk_test.sh przygotuj
+  ./tk_test.sh lean
+  ./tk_test.sh testy
+  ./tk_test.sh oblicz --roboczo --wyjście /tmp/wynik.md
+  ./oblicz_tk.sh                    # walidacja, testy, przygotowanie i obliczenie
+
+Silnik: Konstytucja/TK/Test/ (Podstawy, Model, Oceny, Przebieg, Raport, Testy).
+Program wykonywalny: Skrypty/TK.lean, budowany przez `lake build tk_test`.
+CSV pozostaje źródłem danych; generator `lean` zapisuje CiagloscDane.lean,
+w tym dowód unikalności źródłowych ID. Test aktualności porównuje cały
+wygenerowany tekst. SHA-256 pobierany przez sha256sum.
+Daty, warianty, stany, oceny, K1-K4 i raporty wykonują funkcje Lean używane
+również w testach. Nie ma drugiej implementacji silnika w Pythonie.
 
 sprawdź.sh uruchamia walidację rejestru i testy; test sprawdza też, że
-CiagloscDane.lean odpowiada bieżącemu rejestrowi (python3 tk_test.py lean).
+CiagloscDane.lean odpowiada bieżącemu rejestrowi (./tk_test.sh lean).
 `oblicz` bez flagi --roboczo kończy się błędem, bo parametry testu nie są
 zatwierdzone (plan_tk.txt, pkt 10).
+`--bez-ad NAZWA` wyłącza AD1-AD7. `--limit-m1 N` wykonuje tylko jawną
+próbę techniczną, oznaczoną jako NIEPEŁNY PRZEGLĄD. `--moduł M1|M2|M3`
+ogranicza moduły obliczeń. Nie zmienia to statusu parametrów ani otwartych
+kontroli F1, F3, F5, F7 i F8. Istniejące dowody F9 dotyczą modelu
+Ciaglosc.lean, a nie automatycznie całego algorytmu obliczeniowego.
+Python 3 i pdftotext pozostają wymagane dla niezależnego generuj.py
+(przygotowanie tekstu Konstytucji) i dlatego dla pełnego sprawdź.sh.

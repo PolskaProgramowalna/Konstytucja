@@ -1,8 +1,8 @@
 # Weryfikacja planu testu ciągłości TK
 
-Stan weryfikacji: 16 listopada 2026 r. Przedmiot: [plan_tk.txt](../plan_tk.txt), porównany z [plan.txt](../plan.txt) i tekstem Konstytucji. Numery wierszy poniżej odnoszą się do wersji planu ocenionej tego dnia.
+Stan weryfikacji: 16 listopada 2026 r. Przedmiot: [plan_tk.txt](../plan_tk.txt), porównany z [plan.txt](../plan.txt) i tekstem Konstytucji. Sekcje 1–9 dotyczą wersji 1 planu, sekcja 10 opisuje wprowadzenie wersji 2, a sekcja 11 zawiera jej ponowną weryfikację. Numery wierszy w sekcjach 1–9 odnoszą się do wersji 1; w sekcji 11 — do wersji 2.
 
-**Ocena: plan wymaga poprawek przed przeprowadzeniem testu.** Może służyć do badania konsekwencji jawnych założeń, ale obecna procedura nie uzasadnia zapowiedzianego wniosku o utracie tożsamości organu ani niezależności wyniku od interpretacji. Jest to ocena projektu badania, bez rozstrzygnięcia o statusie TK, jego sędziów lub orzeczeń.
+**Ocena wersji 1: plan wymaga poprawek przed przeprowadzeniem testu.** Może służyć do badania konsekwencji jawnych założeń, ale jego pierwotna procedura nie uzasadnia zapowiedzianego wniosku o utracie tożsamości organu ani niezależności wyniku od interpretacji. Jest to ocena projektu badania, bez rozstrzygnięcia o statusie TK, jego sędziów lub orzeczeń.
 
 ## 1. Co można zachować
 
@@ -159,3 +159,86 @@ Plan zmieniono do wersji 2 ([plan_tk.txt](../plan_tk.txt), pkt 14 zawiera mapę 
 | B6 | Wynik trójwartościowy SPEŁNIONY / NARUSZONY / NIEUSTALONY oraz pola nieustalone w danych. |
 
 Otwarte pozostają: kompletność danych (D3 ślubowania, D5 protokoły ZO, D6 składy wszystkich orzeczeń, D1 wybory sprzed 2015 r.) oraz recenzja prawnika, która zatwierdzi parametry. Status wszystkich parametrów to „roboczy”. Testu nadal nie przeprowadzono.
+
+## 11. Ponowna weryfikacja wersji 2
+
+**Ocena:** główne kierunki korekt B1–B6 zostały uwzględnione. Oddzielenie kryteriów K od wymogów konstytucyjnych, analiza wszystkich wariantów, rozdzielenie obowiązku przyjęcia ślubowania od fikcji jego przyjęcia i wynik trójwartościowy usuwają zasadnicze problemy wersji 1. Mapa zmian nie oznacza jednak, że model jest już kompletnie określony. Pozostają poniższe korekty i doprecyzowania.
+
+### 11.1. N1 nadal staje się wzorcem naruszenia w H7
+
+W pkt 5 (wiersze 246–248) N1 jest poprawnie nazwany wskaźnikiem analitycznym. Jednak H7 (wiersze 414–417) określa początek **naruszenia W6b** przez nieogłoszenie orzeczenia w terminie N1. Te dwa zapisy są niespójne: wskaźnik ponownie zaczyna pełnić rolę definicji konstytucyjnej niezwłoczności.
+
+Przykład logiczny: publikacja po 20 dniach przekracza N1 = 14, lecz nie przekracza N1 = 30. Bez dodatkowej przesłanki o wykładni „niezwłocznie” ustala to różnicę wskaźników, a nie dwa rozstrzygnięcia o naruszeniu Konstytucji.
+
+**Korekta:** H7 i tabelę E opisać jako czas oczekiwania oraz przekroczenia wskaźników N1. Ocenę W6b uzasadniać odrębnie albo pozostawić nieustaloną. Podstawą jest [art. 190 ust. 2](https://www.prezydent.pl/prawo/konstytucja-rp/viii-sady-i-trybunaly), który nie podaje tych liczbowych terminów.
+
+### 11.2. H1 myli ostatni dzień kadencji z pierwszym dniem wakatu
+
+H1 (wiersz 398) wymienia wakaty powstające 6 listopada, 2 grudnia i 8 grudnia 2015 r. Są to daty podawane jako ostatnie dni kadencji poprzedników. Przy konwencji z pkt 4.5 pierwszymi dniami wakatów są odpowiednio **7 listopada, 3 grudnia i 9 grudnia**.
+
+Odczytane lokalne PDF uchwał z 8 października 2015 r. wskazują w § 2 planowane początki nowych kadencji: [M.P. poz. 1038](https://eli.gov.pl/eli/MP/2015/1038/ogl) — 7 listopada, [poz. 1041](https://eli.gov.pl/eli/MP/2015/1041/ogl) — 3 grudnia, [poz. 1042](https://eli.gov.pl/eli/MP/2015/1042/ogl) — 9 grudnia. Kopie: `dokumenty/TK/ELI/MP/2015/{1038,1041,1042}.pdf`. Zapis uchwały jest tu danymi o zamierzonym terminie, bez przesądzania jej skuteczności. Rozróżnienie listopadowych dat potwierdza również [informacja RPO](https://bip.brpo.gov.pl/pl/content/rpo-krzysztof-slebzak-tk-pozew-przystapienie).
+
+**Korekta:** w H1 rozdzielić ostatnie dni kadencji poprzedników, pierwsze dni wakatów i zamierzone daty początku nowych kadencji. Ta różnica wpływa na Z7a, a więc nie jest wyłącznie redakcyjna.
+
+### 11.3. Z9 ma zbyt szeroki zakres w procedurze
+
+Z9 dotyczy L10, czyli skutku wadliwego **wyznaczenia składu** (wiersze 238–240). Tymczasem krok 7 i tabela D uzależniają od Z9 skutek wszystkich czterech rodzajów wad: tytułu członka składu, wyznaczenia składu, większości oraz konfliktu interesów (wiersze 320–327, 358–359).
+
+Z9b w obecnym brzmieniu może być odczytane tak, że orzeczenie jest wadliwe tylko przy udziale osoby bez tytułu. Wówczas stwierdzony brak wymaganej większości albo osobisty konflikt interesów zostaje pominięty w ocenie skutku, mimo że Z9 miał regulować inne zagadnienie.
+
+**Korekta:** ograniczyć Z9 do skutków wadliwego wyznaczenia składu. Pozostałym naruszeniom przypisać własne jawne reguły skutku albo wynik „skutek nieustalony”. K4 musi wskazywać, jaki rodzaj wad i skutków obejmuje jego odsetek.
+
+### 11.4. Część reguł pozostaje poza tabelą parametrów
+
+- L3 deklaruje lukę dotyczącą kworum i liczebności składów, ale Z1–Z10 jej nie parametryzują, a krok 7 nie sprawdza tych warunków. Trzeba dodać regułę albo jawnie wyłączyć ten zakres z badania.
+- P2 zapowiada parametry odesłań, lecz krok 5 nie ma jeszcze skonkretyzowanej reguły większości wyborczej i pozostałych sprawdzanych warunków procedury Sejmu. Sama obecność W12 nie zamyka modelu tej procedury.
+- Z3a podaje próg większości, ale nie opisuje osobno kworum; L4 obejmuje też zwołanie ZO, którego Z3 nie reguluje. Z3b wymaga doprecyzowania, czy większość liczy się z obecnych, głosujących czy ważnie oddanych głosów i jak traktuje się osoby o nieustalonym tytule.
+- Z4b i Z7 wymagają tabeli współdziałania: czy późniejsza skuteczność może naprawiać również wybór niedopuszczalny z powodu wyboru wyprzedzającego wakat poza kadencję Sejmu? Obecny tekst nie rozstrzyga wyraźnie zakresu tej konwalidacji. Może to być jawny wariant, ale nie powinno zależeć od kolejności instrukcji przyszłego programu.
+- Automat powinien określać wygaśnięcie tytułu po E6 i upływie kadencji oraz stan osoby składającej ślubowanie dopiero po końcu kadencji liczonej według Z2a. Same nazwy S1–S6 nie zastępują tych przejść.
+
+Są to wymagania doprecyzowania modelu, nie żądanie przyjęcia określonej wykładni. Jeśli dany warunek pozostaje poza testem, raport musi wskazywać brak jego pokrycia.
+
+### 11.5. Wariant T1 nie jest jeszcze zgodny z regułami czasu
+
+W14 oraz D1 poprawnie uwzględniają kadencje sprzed 17 października 1997 r., ale pkt 4.5 opisuje wszystkie kadencje jako dziewięcioletnie, bez wyjątku. Dla T1 trzeba stosować historyczną długość kadencji tam, gdzie wymaga tego art. 238.
+
+W15 mówi, że wyjątek z art. 239 nie dotyczy okresu badania. Jest to prawidłowe dla T2 od 2015 r.; **T1 rozpoczyna jednak okres badania w 1997 r.** Należy więc albo ograniczyć historyczną rekonstrukcję do obsady i pozostawić ocenę orzeczeń od 2015 r., albo stosować art. 239 do odpowiednich dawnych orzeczeń. [Przepisy przejściowe Konstytucji](https://www.prezydent.pl/prawo/konstytucja-rp/xiii-przepisy-przejsciowe-i-koncowe).
+
+Ponadto `[tStart, 2026-11-16)` kończy się na 15 listopada. Jeżeli dane mają obejmować cały 16 listopada, tEnd powinno wynosić 17 listopada; jeśli stan jest zamknięty na początek 16 listopada, wystarczy tak go nazwać. Jest to rozbieżność z opisem kolejności prac „do 16.11.2026”, nie zarzut wobec samych przedziałów półotwartych.
+
+### 11.6. Rachunek wariantów jest poprawny, zakres wymaga opisania
+
+Sprawdzono rachunkowo:
+
+| Zakres nominalnego przeglądu | Liczba |
+| --- | ---: |
+| Z1–Z10, jedna wartość T dla Z1d, bez N1 | 9216 |
+| Dwie dodatkowe wartości T wyłącznie dla Z1d | 4608 |
+| Razem z trzema wartościami T | 13824 |
+| Razem z T i trzema wskaźnikami N1 | 41472 |
+
+Są to liczby dla obecnie wymienionych wymiarów, przed filtrowaniem dopuszczalności, alternatywami danych i kolejności zdarzeń. T1/T2 stanowią jeszcze osobne zakresy badania. Po uzupełnieniu reguł z pkt 11.4 iloczyn trzeba przeliczyć; nie należy nazywać 13824 kompletnym zbiorem wszystkich modeli dopuszczonych przez samą zasadę P2.
+
+Dodatkowo K3 potrzebuje wyniku dla F(t) = 0, a K4 — zakresu X oraz sposobu liczenia lat z niepełnym zbiorem orzeczeń i roku 2026 uciętego datą końca badania. Roczny odsetek w K4 opisuje cały badany rok lub jego część, a nie sam stan w konkretnym dniu; trzeba jawnie określić tę zależność czasową.
+
+### 11.7. Co faktycznie blokują brakujące dane i recenzja
+
+Zgodnie z pkt 10 planu recenzja prawnika jest warunkiem przyjęcia parametrów przed właściwym obliczeniem. Ta kolejność pozostaje zachowana. Braki danych blokują pełny, rozstrzygający wynik dla dotkniętych nimi warunków, ale nie oznaczają, że żadnej części procedury nie da się przygotować lub sprawdzić.
+
+Można przygotować format rejestru, kontrolę źródeł i kompletności, generator wariantów oraz model propagacji niepewności. Wyniki częściowe, jeśli zostaną później obliczone zgodnie z przyjętą kolejnością prac, powinny wskazywać dokładnie, które warunki są nieustalone. Nie trzeba wymagać kompletnego D6 do każdego ustalenia dotyczącego samego wyboru sędziego.
+
+W tej ponownej weryfikacji sprawdzono tekst wersji 2, zakres parametrów, rachunek kombinacji, granicę półotwartego okna oraz trzy lokalne PDF uchwał. Nie przeprowadzono historycznego testu. Pliki wynikowe, moduły `Ciaglosc.lean`, `CiagloscDane.lean` i rejestr CSV nadal nie istnieją. Sam plan pozostawiono bez zmian.
+
+## 12. Stan po poprawkach wersji 3 (16 listopada 2026 r.)
+
+Plan zmieniono do wersji 3. Mapa zmian do pkt 11.1–11.7 znajduje się w pkt 15 planu. Najważniejsze rozstrzygnięcia:
+
+- **11.1:** dodano zasadę P9 „wskaźnik ≠ wzorzec”. N1 opisuje tylko czas oczekiwania. Ocena W6b ma odrębną regułę: NARUSZONY przy udokumentowanej odmowie ogłoszenia lub ogłoszeniu ze zmienionym charakterem, a domyślnie NIEUSTALONY.
+- **11.2:** H1 rozdziela ostatnie dni kadencji, pierwsze dni wakatów i zamierzone początki kadencji. Te ostatnie sprawdzono w § 2 uchwał M.P. 2015 poz. 1038–1042: 7.11 (poz. 1038–1040), 3.12 i 9.12.2015. Dodano koniec kadencji Sejmu VII (11.11.2015; pierwsze posiedzenie Sejmu VIII 12.11.2015, według API Sejmu).
+- **11.3:** Z9 obejmuje wyłącznie wadliwe wyznaczenie składu. Dodano Z13, Z14 i L15 oraz tabelę „wada → skutek” w kroku 7.
+- **11.4:** dodano Z11 (kworum i liczebność składów albo NIEPOKRYTY), Z12 (tryb wyboru przez Sejm), rozbicie Z3 na zwołanie, kworum i większość z obsługą tytułów nieustalonych, tabelę współdziałania Z4/Z7 (Z4.R), jawne przejścia T1–T9 ze stanami S7 i S8 oraz zasadę pokrycia P8 z tabelą G.
+- **11.5:** wariant T1 obejmuje tylko rekonstrukcję obsady, a ocena orzeczeń biegnie zawsze od 2015-10-01. tEnd = 2026-11-17.
+- **11.6:** liczby wariantów liczy skrypt dla każdego modułu z grafem zależności; dla modułu obsady 216, a po utożsamieniach 192. Uzupełniono K3 (F(t) = 0) i K4 (zakres X, granice, rok 2026 niepełny, miara roczna).
+- **11.7:** kolejność prac oddziela przygotowanie rejestru, walidatora, generatora wariantów i propagacji niepewności od obliczeń wymagających zatwierdzenia parametrów.
+
+Testu historycznego nadal nie przeprowadzono. Status parametrów: roboczy.

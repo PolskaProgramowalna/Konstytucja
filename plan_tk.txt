@@ -1,6 +1,7 @@
 PLAN TESTU CIĄGŁOŚCI TRYBUNAŁU KONSTYTUCYJNEGO
-Wersja 2, stan na 2026-11-16
-Poprawki według recenzji TK/Weryfikacja_planu_tk.md (zob. pkt 14)
+Wersja 3, stan na 2026-11-16
+Poprawki według recenzji TK/Weryfikacja_planu_tk.md, sekcje 2-9 (wersja 2,
+mapa w pkt 14) i sekcja 11 (wersja 3, mapa w pkt 15)
 
 
 1. PYTANIE I ZASADY
@@ -18,24 +19,30 @@ założenia modelu, a wynik według K jest wynikiem warunkowym.
 P1  Jedynym wzorcem oceny jest Konstytucja (pkt 2). Ustawy, regulamin
     Sejmu, uchwały, orzeczenia TK, SN, NSA, ETPCz i TSUE oraz opinie
     służą wyłącznie jako DANE o faktach.
-P2  Tam, gdzie Konstytucja odsyła do ustawy (art. 197, art. 126 ust. 3,
-    art. 112, art. 120), treść odesłania jest PARAMETREM modelu (zasada
-    Z4 z plan.txt). Ustawa nie staje się przez to wzorcem. Model jawnie
-    mówi, co przyjmuje w zakresie pozostawionym ustawodawcy.
+P2  Tam, gdzie Konstytucja odsyła do ustawy lub regulaminu (art. 197,
+    126 ust. 3, 112, 120), treść odesłania jest PARAMETREM modelu
+    (zasada Z4 z plan.txt). Ustawa nie staje się przez to wzorcem.
+    Każdy parametr odesłania ma wartość "reguła z aktu obowiązującego
+    w dniu czynności" (dana z identyfikatorem aktu) albo jawnie
+    zdefiniowaną regułę zastępczą.
 P3  Milczenie Konstytucji nie oznacza ani zakazu, ani dowolności. Jeżeli
     z dopuszczonych przesłanek nie da się ustalić skutku, wynik brzmi
     NIEUSTALONY (zasada Z5 z plan.txt).
 P4  Każda ocena ma trzy wartości: SPEŁNIONY / NARUSZONY / NIEUSTALONY.
-    "Nie znaleziono dowodu naruszenia" to NIEUSTALONY, a nie SPEŁNIONY.
-    Brak danych nigdy nie daje automatycznego TAK ani NIE.
-P5  Każda ocena wskazuje trzy rzeczy: wzorzec (W), założenia (Z) i
-    konkretne dane źródłowe (D, z identyfikatorem dokumentu).
+    "Nie znaleziono dowodu naruszenia" to NIEUSTALONY. Brak danych
+    nigdy nie daje automatycznego TAK ani NIE.
+P5  Każda ocena wskazuje: wzorzec (W), założenia (Z) i konkretne dane
+    źródłowe (D, z identyfikatorem dokumentu).
 P6  Wynik nie ma mocy prawnej i znaczy zawsze: "przy tych założeniach
-    i danych wynika, że...". Konstytucja nie wskazuje organu, który
-    wiążąco ocenia ważność wyboru sędziego TK (luka L5). Test jest
-    modelem, a nie rozstrzygnięciem.
-P7  Hipotezy H1-H9 (pkt 11) są kolejką przypadków do zbadania. Nie sterują
-    przyporządkowaniem miejsc ani nie uzupełniają brakujących reguł.
+    i danych wynika, że...". Luka L5 (pkt 13).
+P7  Hipotezy H1-H9 (pkt 11) są kolejką przypadków do zbadania. Nie
+    sterują przyporządkowaniem miejsc ani nie uzupełniają reguł.
+P8  POKRYCIE. Każdy warunek, którego test nie sprawdza, raport wymienia
+    jako NIEPOKRYTY, z powodem. Brak sprawdzenia nie jest wynikiem
+    SPEŁNIONY.
+P9  WSKAŹNIK ≠ WZORZEC. Wielkości liczbowe przyjęte do analizy (N1, X
+    w K4, T w Z1d) opisują dane. Nie definiują pojęć konstytucyjnych.
+    Ich przekroczenie nie oznacza samo przez się naruszenia wzorca.
 
 
 2. WZORCE KONSTYTUCYJNE (zamknięta lista)
@@ -61,9 +68,9 @@ W4   art. 10 i art. 173 - TK należy do władzy sądowniczej ("sądy
      i trybunały") i jest władzą odrębną i niezależną od innych władz
 W5   art. 188, 189, 79, 193, 191, 192, art. 131 ust. 1 - zakres funkcji
      i krąg wnioskodawców. ZAKRES TESTU: orzeczenia w sprawach z art.
-     188 i 189 (w tym skargi z art. 79 i pytania z art. 193). Zadanie
-     z art. 131 ust. 1 jest poza testem, bo w okresie badania nie było
-     przypadków jego wykonania.
+     188 i 189 (w tym skargi z art. 79 i pytania z art. 193). Art. 131
+     ust. 1 jest poza testem (P8: NIEPOKRYTY, brak przypadków
+     w okresie badania).
 W6a  art. 190 ust. 1 - orzeczenia ostateczne, o mocy powszechnie
      obowiązującej
 W6b  art. 190 ust. 2 - obowiązek NIEZWŁOCZNEGO ogłoszenia orzeczeń
@@ -72,8 +79,7 @@ W6c  art. 190 ust. 3 - wejście orzeczenia w życie z dniem ogłoszenia
      i możliwość odroczenia utraty mocy aktu
 W6d  art. 190 ust. 5 - orzeczenia zapadają większością głosów
 W7   art. 197 w zw. z art. 8 ust. 1 - organizację i tryb określa ustawa,
-     w granicach Konstytucji. Ustawowe kształtowanie organizacji TK
-     jest konstytucyjnie dopuszczalne.
+     w granicach Konstytucji
 W8   art. 7 - organy działają na podstawie i w granicach prawa
 W9   art. 122 ust. 3-4 i art. 126 ust. 3 - kontrola prewencyjna
      i odesłanie do ustawowych zasad wykonywania zadań Prezydenta
@@ -82,411 +88,514 @@ W10  podstawa istnienia TK (rozdz. VIII) nie została zniesiona.
      Art. 235 określa tryb zmiany Konstytucji i sam nie dowodzi
      faktycznej ciągłości obsady ani zdolności działania.
 W11  art. 45 ust. 1 - "niezależny, bezstronny i niezawisły sąd".
-     Stosowanie do TK jest parametrem Z6. Bezstronność jest wymieniona
-     wprost tylko tutaj.
+     Stosowanie do TK jest parametrem Z6.
 W12  art. 120 i art. 112 - Sejm podejmuje uchwały zwykłą większością
      w obecności co najmniej połowy ustawowej liczby posłów, "jeżeli
-     ustawa lub uchwała Sejmu nie stanowi inaczej". Regulamin Sejmu
-     określa tryb powoływania organów. To jest wzorzec trybu uchwał
-     o wyborze sędziów TK.
+     ustawa lub uchwała Sejmu nie stanowi inaczej"; regulamin Sejmu
+     określa tryb powoływania organów
 W13  art. 98 ust. 1 - kadencja Sejmu trwa od dnia pierwszego posiedzenia
      do dnia poprzedzającego pierwsze posiedzenie Sejmu następnej
-     kadencji. Wzorzec do parametru Z7.
+     kadencji
 W14  art. 238 ust. 1-3 - kadencje osób wybranych przed 17.10.1997 kończą
-     się według przepisów dotychczasowych. Nie przypisujemy im
-     automatycznie 9 lat.
+     się według przepisów dotychczasowych (ust. 1) albo według ust. 2-3
 W15  art. 239 - przejściowa nieostateczność orzeczeń w latach
-     1997-1999. Ma znaczenie tylko historyczne i nie przenosimy go
-     na okres badania.
+     1997-1999. Nie ma zastosowania, bo ocena orzeczeń obejmuje
+     wyłącznie okres od 2015-10-01 (pkt 4.5).
 
 
-3. LUKI (czego Konstytucja nie rozstrzyga)
+3. LUKI (czego Konstytucja nie rozstrzyga) i ich pokrycie
 
 L1   Ślubowanie sędziego TK. Konstytucja go nie przewiduje. Dla
      porównania:
      - poseł i senator składają ślubowanie, a odmowa oznacza zrzeczenie
        się mandatu (art. 104 ust. 2-3, art. 108),
      - Prezydent obejmuje urząd po złożeniu przysięgi (art. 130), bez
-       wyraźnej sankcji odmowy; inne przyczyny nieobjęcia urzędu
-       wymienia art. 131 ust. 2 pkt 3.
-     Brak ślubowania w Konstytucji nie dowodzi, że ustawa nie może go
-     wprowadzić (W7, P2), ani że może nadać mu dowolne skutki.
-L2   Początek biegu 9-letniej kadencji.
-L3   Kworum i liczebność składów orzekających. Większość orzekania
-     NIE jest luką, bo określa ją W6d.
-L4   Reguły Zgromadzenia Ogólnego: kworum, większość, kto zwołuje.
-L5   Organ właściwy do wiążącej oceny ważności wyboru sędziego TK.
-     To ograniczenie modelu, NIE parametr (pkt 13).
-L6   Skutek wyboru na miejsce zajęte i jego ewentualna późniejsza
-     skuteczność.
+       wyraźnej sankcji odmowy (art. 131 ust. 2 pkt 3: inne przyczyny
+       nieobjęcia urzędu).
+     Pokrycie: Z1.
+L2   Początek biegu 9-letniej kadencji. Pokrycie: Z2.
+L3   Kworum i liczebność składów orzekających. Większość NIE jest luką
+     (W6d). Pokrycie: Z11.
+L4   Reguły Zgromadzenia Ogólnego: zwołanie, kworum, większość, liczenie
+     osób o nieustalonym tytule. Pokrycie: Z3.
+L5   Organ właściwy do wiążącej oceny ważności wyboru. To ograniczenie,
+     a nie parametr (pkt 13).
+L6   Skutek wyboru na wakat zajęty i jego ewentualnej późniejszej
+     skuteczności. Pokrycie: Z4.
 L7   Dopuszczalność wyboru na przyszły wakat i właściwość Sejmu danej
-     kadencji.
-L8   Kadencja Prezesa i Wiceprezesa oraz zasady zastępstwa Prezesa.
-L9   Skutek udziału osoby wadliwie umocowanej w Zgromadzeniu Ogólnym.
-L10  Skutek wadliwego wyznaczenia składu orzekającego (np. przez
-     wadliwie powołanego Prezesa).
-L11  Treść pojęcia "niezwłocznie" w W6b.
-L12  Reguła wyłączenia sędziego (konflikt interesów) w sprawach
-     dotyczących jego własnego statusu.
+     kadencji. Pokrycie: Z7.
+L8   Kadencja Prezesa i Wiceprezesa oraz zastępstwo Prezesa.
+     Pokrycie: Z5.
+L9   Skutek udziału osoby bez tytułu w ZO. Pokrycie: Z8.
+L10  Skutek wadliwego wyznaczenia składu. Pokrycie: Z9.
+L11  Treść pojęcia "niezwłocznie" (W6b). Pokrycie: brak parametru
+     definicyjnego. N1 jest wyłącznie wskaźnikiem (P9), a ocena W6b
+     ma regułę w kroku 8.
+L12  Wyłączenie sędziego w sprawach o jego własny status. Pokrycie:
+     Z10 (co jest wadą) i Z14 (skutek).
+L13  Większość i kworum przy wyborze sędziego TK oraz pozostałe warunki
+     procedury Sejmu. Pokrycie: Z12.
+L14  Skutek udziału osoby bez tytułu w składzie orzekającym.
+     Pokrycie: Z13.
+L15  Skutek orzeczenia bez wymaganej większości (W6d). Pokrycie:
+     brak parametru, skutek NIEUSTALONY (krok 7).
 
 
 4. MODEL STANÓW OSOBY I MIEJSCA
 
 4.1  MIEJSCA są konstrukcją POMOCNICZĄ (zasada Z1 z plan.txt). Z liczby
-     15 nie wynika konstytucyjna numeracja miejsc. Każdy wybór ma
-     przypisany ZAMIERZONY WAKAT, czyli poprzednika lub kończącą się
-     kadencję, wyłącznie na podstawie dokumentów (uchwała, druk
-     sejmowy, uzasadnienie). Jeżeli dokumenty nie rozstrzygają,
-     rejestr przechowuje WSZYSTKIE dopuszczalne przyporządkowania jako
-     alternatywy danych (A1, A2, ...). Nie stosujemy heurystyki
-     "najbliższej daty". Remisy i konkurujące wybory zostają jawne.
+     15 nie wynika konstytucyjna numeracja. Każdy wybór ma przypisany
+     ZAMIERZONY WAKAT, czyli poprzednika lub kończącą się kadencję,
+     wyłącznie z dokumentów (uchwała, w tym jej przepis o początku
+     kadencji, druk sejmowy, uzasadnienie). Jeżeli dokumenty nie
+     rozstrzygają, rejestr przechowuje wszystkie dopuszczalne
+     przyporządkowania (A1, A2, ...). Bez heurystyki "najbliższej daty".
 
 4.2  ZDARZENIA (fakty z datą; kolejność w obrębie dnia zapisujemy,
      a gdy jest nieznana, liczymy warianty kolejności):
-     E1 WYBÓR      - uchwała Sejmu o wyborze osoby p (indywidualność
-                     badamy jako odrębne głosowanie nad każdym
-                     kandydatem; formę dokumentu oceniamy osobno)
+     E1 WYBÓR      - uchwała Sejmu o wyborze osoby p, z wynikiem
+                     głosowania (obecni, za, przeciw, wstrzymujący się)
+                     i zamierzonym początkiem kadencji, jeżeli uchwała
+                     go podaje
      E2 ŚLUBOWANIE - wobec Prezydenta, w innej formie albo brak
      E3 ODMOWA     - odmowa przyjęcia ślubowania lub bezczynność
-     E4 DOPUSZCZENIE do wykonywania funkcji (np. przydział spraw)
+     E4 DOPUSZCZENIE do wykonywania funkcji (np. przydział spraw);
+                     E4- to cofnięcie dopuszczenia
      E5 UDZIAŁ     - udział w konkretnym orzeczeniu (skład z dokumentu
-                     orzeczenia, nie z metryki sprawy)
-     E6 KONIEC     - upływ kadencji, śmierć, zrzeczenie, stan spoczynku,
-                     wygaśnięcie
+                     orzeczenia)
+     E6 KONIEC     - śmierć, zrzeczenie, stan spoczynku, wygaśnięcie
+                     (upływ kadencji jest liczony, a nie zapisywany)
      E7 POWOŁANIE  - postanowienie Prezydenta o Prezesie lub Wiceprezesie
                      albo o powierzeniu obowiązków
-     E8 UCHWAŁA ZO - przedstawienie kandydatów (skład, głosy, kworum)
+     E8 UCHWAŁA ZO - kto zwołał, obecni, głosujący, głosy, kandydaci
+     E9 PRZEJĘCIE KIEROWANIA bez E7 (np. zastępstwo)
 
-4.3  STANY wyboru (rozdzielone, zgodnie z recenzją B3):
-     S1 DOKONANY       - zaszło zdarzenie E1 (fakt),
-     S2 DOPUSZCZALNY   - wybór zgodny z W1, W12 i Z7 w chwili czynności
-                         (wartości: tak / nie / nieustalone),
-     S3 OCZEKUJĄCY     - dopuszczalny, ale zamierzony wakat jeszcze nie
-                         powstał,
-     S4 SKUTECZNY od daty d - wakat powstał i nie ma wcześniejszego
-                         skutecznego tytułu do tego wakatu,
-     S5 TYTUŁ DO URZĘDU - S4 i warunek objęcia według Z1,
-     S6 W FUNKCJI      - tytuł i dopuszczenie (E4); faktyczne
-                         dopuszczenie bez tytułu to osobny stan S6*.
-     Z4 nie jest wyjątkiem. Jest REGUŁĄ PRZEJŚCIA ze stanu "niedopuszczalny
-     z powodu zajętego wakatu" do S4, z datą przejścia.
+4.3  STANY wyboru i osoby:
+     S1 DOKONANY        - zaszło E1
+     S2 DOPUSZCZALNY    - wybór zgodny z W1, W12, Z7 i Z12 w chwili E1
+                          (tak / nie / nieustalone; przy "nie" zapisujemy
+                          POWÓD: zajęty wakat, wybór wyprzedzający,
+                          tryb uchwały, ponowny wybór)
+     S3 OCZEKUJĄCY      - dopuszczalny, wakat jeszcze nie powstał
+     S4 SKUTECZNY od d  - wakat powstał i nie ma do niego wcześniejszego
+                          skutecznego tytułu
+     S5 TYTUŁ           - S4 i warunek objęcia według Z1
+     S6 W FUNKCJI       - S5 i E4
+     S6* W FUNKCJI BEZ TYTUŁU - E4 przy ustalonym braku S5
+     S6? W FUNKCJI PRZY TYTULE NIEUSTALONYM - E4, gdy S5 jest
+                          NIEUSTALONY (np. Z1c); do licznika B(t)
+                          wchodzi tylko w granicy górnej
+     S7 WYGASŁY         - koniec tytułu
+     S8 NIEOBJĘTY       - kadencja upłynęła przed spełnieniem warunku Z1
 
-4.4  KONKURUJĄCE TYTUŁY. Do jednego wakatu może rościć tytuł więcej niż
-     jedna osoba. Model przechowuje zbiór roszczeń i rozstrzyga je regułą
-     pierwszeństwa zależną od Z4 i Z7. Jeżeli reguła nie rozstrzyga,
-     wynik dla wakatu jest NIEUSTALONY.
+4.4  PRZEJŚCIA (jawne, deterministyczne dla danej Interpretacji):
+     T1  E1 → S1; S2 obliczone w chwili E1
+     T2  S2=tak, wakat jeszcze nie powstał → S3; z dniem wakatu → S4
+     T3  S2=nie z powodu "zajęty wakat" → S4 z dniem zwolnienia wakatu
+         od skutecznego tytułu innej osoby, tylko przy Z4b
+     T4  S2=nie z powodu "wybór wyprzedzający" (Z7) → S4 z dniem wakatu
+         tylko przy Z4b z zakresem Z4.R2 (tabela 4.6)
+     T5  S2=nie z innych powodów (tryb, ponowny wybór) → brak przejścia
+     T6  S4 → S5 według Z1 (a: od razu; b: z E2 wobec Prezydenta;
+         c: z E2 wobec Prezydenta, a do tego czasu tytuł NIEUSTALONY;
+         d: z E2 albo po T dniach od S4)
+     T7  S5/S6 → S7 przy E6 albo z końcem kadencji (pkt 4.5)
+     T8  S4 bez spełnienia Z1 przed końcem kadencji → S8. Ślubowanie
+         złożone po końcu kadencji (liczonej według Z2a) nie daje S5.
+     T9  E4- albo S7 → koniec S6/S6*/S6?
+     Konkurujące tytuły: do jednego wakatu w danym dniu może prowadzić
+     co najwyżej jedno S4. Pierwszeństwo ma wcześniejszy dzień przejścia
+     do S4; przy równym dniu - wcześniejsze E1. Jeżeli dane nie
+     rozstrzygają kolejności, wynik dla wakatu jest NIEUSTALONY.
 
 4.5  CZAS:
-     - okno badania [tStart, tEnd); tEnd = 2026-11-16,
-     - tStart: wariant T1 = 1997-10-17, czyli pełna rekonstrukcja
-       z W14; wariant T2 = 2015-10-01 z udokumentowanym stanem
-       wyjściowym (kto zasiadał, od kiedy, na jakiej podstawie)
-       i danymi do kontroli zakazu ponownego wyboru,
+     - stan danych zamknięty na KONIEC dnia 2026-11-16, więc okno
+       badania to [tStart, tEnd) z tEnd = 2026-11-17,
+     - tStart: T2 = 2015-10-01 (wariant podstawowy) z udokumentowanym
+       stanem wyjściowym (kto zasiadał, od kiedy, na jakiej podstawie)
+       oraz danymi do kontroli zakazu ponownego wyboru,
+     - T1 = 1997-10-17 (wariant rozszerzony) dotyczy WYŁĄCZNIE
+       rekonstrukcji obsady (kroki 1-5). Kroki 6-8 (kierownictwo,
+       orzeczenia, publikacja) zawsze zaczynają się od 2015-10-01.
+       Dzięki temu art. 239 (W15) nie wchodzi do oceny orzeczeń,
+     - długość kadencji: osoby wybrane od 17.10.1997 - 9 lat (W1);
+       osoby wybrane wcześniej - według W14. Długość kadencji z przepisów
+       dotychczasowych jest DANĄ z identyfikatorem aktu, a przy braku
+       danej - NIEUSTALONA,
      - kadencje to przedziały półotwarte [początek, początek + 9 lat
-       kalendarzowych); dodawanie lat kalendarzowych, a 29 lutego
-       przechodzi na 28 lutego,
-     - "ostatni dzień urzędowania" i "pierwszy dzień wakatu" to różne
-       daty; pierwszy dzień wakatu = koniec przedziału.
+       kalendarzowych); 29 lutego przechodzi na 28 lutego,
+     - ostatni dzień kadencji i pierwszy dzień wakatu to różne daty:
+       pierwszy dzień wakatu = koniec przedziału kadencji poprzednika.
 
-4.6  KADENCJA SEJMU (W13): dla każdej kadencji Sejmu zapisujemy
-     przedział [pierwsze posiedzenie, pierwsze posiedzenie następnej).
-     Dane: protokoły pierwszych posiedzeń (api.sejm.gov.pl).
+4.6  WSPÓŁDZIAŁANIE Z4 i Z7 (zakres przejścia T3/T4):
+     Z4a                -> brak T3 i T4
+     Z4b, zakres Z4.R1  -> T3 tak, T4 nie
+     Z4b, zakres Z4.R2  -> T3 tak, T4 tak
+     Przy Z7c powód "wybór wyprzedzający" nie występuje, więc Z4.R nie
+     ma znaczenia. Takie kombinacje się utożsamia, aby ich nie liczyć
+     podwójnie.
+
+4.7  KADENCJA SEJMU (W13): przedziały [pierwsze posiedzenie, pierwsze
+     posiedzenie następnej kadencji). Dane: api.sejm.gov.pl
+     (np. Sejm VIII kadencji - pierwsze posiedzenie 2015-11-12, więc
+     kadencja Sejmu VII trwała do 2015-11-11 włącznie).
 
 
-5. PARAMETRY (każdy z identyfikatorem, zakresem, uzasadnieniem i statusem;
-   status wszystkich: ROBOCZY w rozumieniu Z9 z plan.txt)
+5. PARAMETRY (identyfikator, zakres, uzasadnienie; status wszystkich:
+   ROBOCZY w rozumieniu Z9 z plan.txt)
 
-Z1  Objęcie urzędu (L1):
-    Z1a wybór skuteczny (S4) wystarcza; ślubowanie ustawowe nie warunkuje
-        tytułu,
-    Z1b ślubowanie wobec Prezydenta warunkuje tytuł, a odmowa lub
-        bezczynność blokuje objęcie,
-    Z1c ślubowanie warunkuje tytuł, a Prezydent ma obowiązek je przyjąć
-        (W8, W9); skutek bezczynności NIE jest wyprowadzalny, więc
-        tytuł jest NIEUSTALONY do czasu ślubowania,
-    Z1d jak Z1c oraz dodatkowa REGUŁA MODELU (niewyprowadzona
-        z Konstytucji): fikcja przyjęcia ślubowania po T dniach od
-        wyboru. T to parametr Z1d.T ∈ {14, 30, 90}.
-Z2  Początek kadencji (L2): Z2a dzień powstania wakatu, na który
-    dokonano wyboru; Z2b dzień objęcia urzędu (S5).
-    Kombinacja Z2b z Z1b może wydłużać kadencję o okres blokady.
-    Badamy ją jako dopuszczalną, ale oznaczoną.
-Z3  Zgromadzenie Ogólne (L4): Z3a kandydatów przedstawia większość
-    pełnego składu konstytucyjnego (15); Z3b większość obecnych przy
-    kworum ponad połowy osób z tytułem.
-Z4  Wybór na wakat zajęty (L6): Z4a trwale niedopuszczalny, bez
-    przejścia do S4; Z4b przejście do S4 z dniem, w którym zamierzony
-    wakat staje się wolny od skutecznego tytułu innej osoby.
-Z5  Kadencja i zastępstwo Prezesa (L8): Z5a Konstytucja nie ogranicza
-    kadencji Prezesa, więc obowiązuje do końca kadencji sędziego;
-    Z5b ustawowa kadencja Prezesa jest parametrem P2 (wartość
-    z ustawy jako dana, np. 6 lat). Zastępstwo: Z5.Z ∈ {wiceprezes,
-    najstarszy stażem sędzia z tytułem, nieustalone}.
-Z6  Art. 45 wobec TK: Z6a stosuje się odpowiednio (bezstronność
-    jest wymogiem); Z6b nie stosuje się (pozostaje W3: niezawisłość).
-Z7  Wybór na przyszły wakat (L7, W13):
-    Z7a dopuszczalny tylko, gdy wakat istnieje w dniu wyboru;
-    Z7b dopuszczalny, gdy wakat powstaje w czasie kadencji Sejmu
-        dokonującego wyboru;
-    Z7c dopuszczalny na każdy przyszły wakat.
-    UWAGA: dopiero ten parametr pozwala rozróżnić wybory z 8.10.2015
-    na wakaty powstające przed i po początku kadencji następnego Sejmu
-    (H1).
-Z8  Skutek udziału osoby bez tytułu w ZO (L9): Z8a wadliwa jest cała
-    uchwała; Z8b uchwała jest wadliwa tylko wtedy, gdy bez tej osoby
-    nie byłoby wymaganego kworum lub większości.
-Z9  Skutek wadliwego wyznaczenia składu (L10): Z9a orzeczenie
-    wadliwe; Z9b orzeczenie wadliwe tylko wtedy, gdy skład obejmuje
-    osobę bez tytułu.
-Z10 Konflikt interesów (L12): Z10a wadliwy jest udział osoby, której
-    WŁASNY tytuł jest przedmiotem sprawy (interes osobisty); Z10b jak
-    Z10a oraz sprawy o przepisach przesądzających tytuł konkretnych
-    członków składu. Sama tematyka ustawy o TK NIE jest konfliktem.
-    Wzorzec: W3 (niezawisłość), a przy Z6a także W11 (bezstronność).
-N1  Wskaźnik niezwłoczności (L11): N1 ∈ {14, 30, 60} dni od wydania
-    orzeczenia. To wskaźnik analityczny, a NIE definicja pojęcia
-    "niezwłocznie".
-K   Kryteria klasyfikacji tożsamości (pkt 9). Nie wchodzą do rachunku
-    naruszeń.
+Z1  Objęcie urzędu (L1): Z1a wybór skuteczny wystarcza; Z1b ślubowanie
+    wobec Prezydenta warunkuje tytuł, a odmowa blokuje; Z1c ślubowanie
+    warunkuje tytuł, Prezydent ma obowiązek je przyjąć (W8, W9), ale
+    skutek bezczynności nie jest wyprowadzalny, więc tytuł jest
+    NIEUSTALONY do czasu ślubowania; Z1d jak Z1c oraz REGUŁA MODELU
+    (niewyprowadzona z Konstytucji): fikcja przyjęcia po T dniach,
+    T ∈ {14, 30, 90}.
+Z2  Początek kadencji (L2): Z2a dzień wakatu; Z2b dzień objęcia (S5).
+Z3  Zgromadzenie Ogólne (L4), cztery składowe:
+    Z3.C zwołanie: a) przez Prezesa z tytułem albo zastępcę według Z5.Z;
+         b) wadliwość zwołania nie wpływa na ważność uchwały.
+    Z3.Q kworum: a) co najmniej 8 osób z tytułem (większość z 15);
+         b) więcej niż połowa osób mających w danym dniu tytuł.
+    Z3.M większość: a) co najmniej 8 głosów osób z tytułem;
+         b) większość głosujących osób z tytułem;
+         c) większość obecnych osób z tytułem.
+    Osoby o tytule NIEUSTALONYM nie są parametrem. Liczymy dwa warianty
+    (wliczone / niewliczone) i podajemy wynik dolny i górny.
+Z4  Wybór na wakat zajęty (L6): Z4a trwale niedopuszczalny; Z4b przejście
+    do S4 (T3), z zakresem Z4.R1 / Z4.R2 (tabela 4.6).
+Z5  Prezes (L8): Z5a Konstytucja nie ogranicza kadencji Prezesa; Z5b
+    kadencja Prezesa według ustawy obowiązującej w dniu powołania (P2).
+    Z5.Z zastępstwo: a) wiceprezes; b) sędzia z tytułem o najdłuższym
+    stażu; c) zasada nieustalona, więc ocena E9 jest NIEUSTALONA.
+Z6  Art. 45 wobec TK: Z6a stosuje się odpowiednio; Z6b nie stosuje się.
+Z7  Wybór na przyszły wakat (L7, W13): Z7a tylko wakat istniejący
+    w dniu wyboru; Z7b wakat powstający w czasie kadencji Sejmu
+    dokonującego wyboru; Z7c każdy przyszły wakat.
+Z8  Udział osoby bez tytułu w ZO (L9): Z8a wadliwa cała uchwała;
+    Z8b wadliwa tylko wtedy, gdy bez tej osoby nie byłoby kworum lub
+    większości (według Z3).
+Z9  Wadliwe WYZNACZENIE składu (L10), np. przez osobę kierującą bez
+    prawidłowego tytułu do kierowania: Z9a orzeczenie wadliwe;
+    Z9b wada wyznaczenia nie przenosi się na orzeczenie (wtedy skutek
+    zależy tylko od Z11, Z13 i Z14). Z9 NIE reguluje skutków innych wad.
+Z10 Co jest konfliktem interesów (L12): Z10a udział osoby, której WŁASNY
+    tytuł jest przedmiotem sprawy; Z10b jak Z10a oraz sprawy o przepisach
+    przesądzających tytuł konkretnych członków składu. Sama tematyka
+    ustawy o TK nie jest konfliktem. Wzorzec: W3, a przy Z6a także W11.
+Z11 Kworum i liczebność składów (L3): Z11a reguła ustawowa obowiązująca
+    w dniu orzekania (P2, dana z identyfikatorem aktu); Z11b warunek
+    poza testem, raportowany jako NIEPOKRYTY (P8).
+Z12 Tryb wyboru przez Sejm (L13, W12): Z12a reguła z art. 120 zdanie
+    drugie (zwykła większość w obecności co najmniej 230 posłów);
+    Z12b reguła ustawy lub regulaminu Sejmu obowiązująca w dniu wyboru
+    (P2, dana). Sprawdzane warunki: kworum, większość, odrębne
+    głosowanie nad każdym kandydatem. Zgłoszenie kandydata i opinia
+    komisji sprawdzamy tylko w Z12b, inaczej NIEPOKRYTE.
+Z13 Skutek udziału osoby bez tytułu w składzie (L14): Z13a orzeczenie
+    wadliwe; Z13b wadliwe tylko wtedy, gdy bez głosu tej osoby nie
+    byłoby większości (W6d) albo kworum (Z11).
+Z14 Skutek konfliktu interesów (L12): Z14a orzeczenie wadliwe;
+    Z14b skutek NIEUSTALONY.
+N1  Wskaźnik czasu oczekiwania na ogłoszenie (P9): N1 ∈ {14, 30, 60} dni.
+    Służy wyłącznie do tabeli E. Nie definiuje "niezwłocznie" i nie
+    rozstrzyga o W6b.
+K   Kryteria klasyfikacji (pkt 9). Nie wchodzą do rachunku naruszeń.
 
-Liczba nominalnych kombinacji naruszeń (bez K, T i N1):
-Z1(4) x Z2(2) x Z3(2) x Z4(2) x Z5(2 x Z5.Z 3) x Z6(2) x Z7(3) x Z8(2)
-x Z9(2) x Z10(2) = 9216. Do tego dochodzą T (3, tylko dla Z1d, czyli
-+2 x 9216/4 = 4608 kombinacji), N1 (3, tylko krok 8) oraz alternatywy
-danych A i warianty kolejności zdarzeń. Rachunek należy powtórzyć
-skryptem po każdej zmianie tabeli parametrów.
+5.1  LICZBA WARIANTÓW. Liczy ją skrypt z tabeli parametrów. Iloczyn
+     wszystkich wymiarów nie jest celem obliczeń. Każdy wynik zależy
+     tylko od części parametrów (GRAF ZALEŻNOŚCI), więc przegląd
+     wykonujemy dla każdego modułu na iloczynie jego parametrów:
+     M1 obsada (kroki 3-5):     Z1(a,b,c,d×T: 6) × Z2(2) × Z4(1 + 2 = 3)
+                                 × Z7(3) × Z12(2) = 216 (po utożsamieniu
+                                 z 4.6: 216 - 24 = 192)
+     M2 kierownictwo (krok 6):  M1 × Z3(C2 × Q2 × M3 = 12) × Z5(2 × Z5.Z 3)
+                                 × Z8(2)
+     M3 orzeczenia (krok 7):    M1 × M2 × Z6(2) × Z9(2) × Z10(2) × Z11(2)
+                                 × Z13(2) × Z14(2)
+     M4 publikacja (krok 8):    niezależna od Z; N1(3) tylko w tabeli E
+     Liczby dla M2 i M3 skrypt przelicza po filtrze dopuszczalności (F1).
+     Dla porównania z recenzją, w poprzednim zakresie wymiarów (wersja 2)
+     było 9216 / 13824 (z T) / 41472 (z T i N1). Wersja 3 dodaje Z3.C,
+     Z3.M(3), Z4.R, Z11-Z14. Żadna z tych liczb nie jest "zbiorem
+     wszystkich modeli dopuszczonych przez P2". To zbiór zbadany.
 
 
 6. DANE WEJŚCIOWE (fakty, z identyfikatorem źródła i statusem
    kompletności)
 
-D1  Uchwały Sejmu o wyborze sędziów TK (M.P.; api.sejm.gov.pl/eli)
-    wraz z drukami i głosowaniami. Dla T1: od 1985/1997, z kadencjami
-    sprzed 17.10.1997 według W14.
+D1  Uchwały Sejmu o wyborze sędziów TK (M.P.; api.sejm.gov.pl/eli,
+    kopie w dokumenty/TK/ELI) z głosowaniami i zamierzonym początkiem
+    kadencji. Dla T1: od 1985 r., z długościami kadencji sprzed
+    17.10.1997 według W14.
 D2  Uchwały Sejmu dotyczące statusu sędziów (25.11.2015, 6.03.2024,
     13.03.2026). To dane o stanowisku Sejmu, a nie wzorzec.
-D3  Ślubowania, odmowy i bezczynność Prezydenta (E2, E3). Brak
-    dokumentu zapisujemy jako NIEUSTALONY.
+D3  Ślubowania, odmowy i bezczynność Prezydenta (E2, E3). Brak dokumentu
+    oznacza NIEUSTALONY.
 D4  Postanowienia Prezydenta (E7) z M.P.
-D5  Uchwały i protokoły ZO (E8). Kompletność jest obecnie niska.
-D6  Orzeczenia: zbiór = wyroki i postanowienia kończące postępowanie
-    w sprawach z art. 188 i 189 (z 79 i 193), z bazy IPO TK.
-    Skład bierzemy z dokumentu każdego orzeczenia. Deduplikacja po
-    sygnaturze i dacie. Mianownik rocznych odsetków to liczba orzeczeń
-    w zbiorze w danym roku. Kompletność kontrolujemy z OTK ZU.
-D7  Ogłoszenia orzeczeń (Dz.U., M.P.) oraz dane o przekazaniu orzeczenia
-    do ogłoszenia. Bez nich przyczyna braku ogłoszenia jest NIEUSTALONA.
-D8  Zdarzenia E6 (koniec kadencji, śmierć, zrzeczenie, stan spoczynku).
-D9  Przedziały kadencji Sejmu (pkt 4.6).
-D10 Dopuszczenia do funkcji (E4): przydział spraw, komunikaty TK.
-Dane robocze: TK/KryzysKonstytucyjny.md (kroki 1-42). To NIE jest
-kompletny rejestr. Brakuje m.in. wyborów sprzed 2015 r., większości
-ślubowań (D3), protokołów ZO (D5) i składów wszystkich orzeczeń (D6).
+D5  Uchwały i protokoły ZO (E8), w tym kto zwołał oraz liczby obecnych,
+    głosujących i głosów. Kompletność obecnie niska.
+D6  Orzeczenia: wyroki i postanowienia kończące postępowanie w sprawach
+    z art. 188 i 189 (z 79 i 193), z bazy IPO TK. Skład z dokumentu
+    orzeczenia, większość z informacji o zdaniach odrębnych. Deduplikacja
+    po sygnaturze i dacie; kompletność kontrolowana z OTK ZU.
+D7  Ogłoszenia orzeczeń (Dz.U., M.P.) oraz dane o przekazaniu do
+    ogłoszenia i o decyzjach w sprawie ogłoszenia (np. oświadczenia
+    organu o odmowie). Bez nich przyczyna jest NIEUSTALONA.
+D8  Zdarzenia E6.
+D9  Przedziały kadencji Sejmu (4.7).
+D10 Dopuszczenia do funkcji i ich cofnięcia (E4, E4-).
+D11 Akty ustawowe i regulaminowe dla parametrów P2 (Z5b, Z11a, Z12b),
+    z wersją obowiązującą w dniu czynności.
+Dane robocze: TK/KryzysKonstytucyjny.md (kroki 1-42) i dokumenty/TK.
+To NIE jest kompletny rejestr.
 
 
 7. PROCEDURA
 
-Krok 1  Rejestr zdarzeń E1-E8 i D9 z identyfikatorami osób, zdarzeń
-        i dokumentów. Kontrola: jeden identyfikator na osobę, brak
-        podwójnego zaliczenia, jawne pola NIEUSTALONE.
-Krok 2  Przyporządkowanie wyborów do zamierzonych wakatów (4.1), z
-        alternatywami A tam, gdzie dokumenty nie rozstrzygają.
-Krok 3  Dla każdej kombinacji parametrów i alternatywy danych:
-        przejścia stanów S1-S6 (4.3) dla każdej osoby i rozstrzygnięcie
-        konkurujących tytułów (4.4).
-Krok 4  Liczniki dzienne w oknie [tStart, tEnd). Liczymy je z rejestru
-        tytułów i dopuszczeń, NIE z dni rozpraw:
-        T(t)  - osoby z tytułem (S5),
-        F(t)  - osoby w funkcji (S6 i S6*),
-        B(t)  - osoby w funkcji bez tytułu (S6*),
-        W(t)  - wakaty bez żadnego roszczenia,
-        Z(t)  - wakaty z wybranym, ale nieobjętym kandydatem (np. Z1b),
-        U(t)  - wakaty ze sprzecznymi lub nieustalonymi roszczeniami.
-        Liczniki NIE muszą sumować się do 15. Rozbieżność z 15
-        raportujemy jako wynik.
-Krok 5  Ocena wymogów obsady: W1 (liczba, indywidualność, 9 lat, zakaz
-        ponownego wyboru) i W12 (tryb uchwały). Wynik dla każdej osoby
-        i dnia: SPEŁNIONY / NARUSZONY / NIEUSTALONY.
-Krok 6  Ocena kierownictwa: W2 dla każdego E7. Rozdzielamy:
+Krok 1  Rejestr zdarzeń E1-E9 i danych D9, D11 z identyfikatorami osób,
+        zdarzeń i dokumentów. Walidator: jeden identyfikator na osobę,
+        brak podwójnego zaliczenia, pola NIEUSTALONE jawne, każde pole
+        ze źródłem.
+Krok 2  Przyporządkowanie wyborów do zamierzonych wakatów (4.1),
+        z alternatywami A.
+Krok 3  Dla każdego wariantu M1 i alternatywy danych: przejścia T1-T9
+        (4.4) i rozstrzygnięcie konkurujących tytułów.
+Krok 4  Liczniki dzienne w oknie (4.5), liczone z rejestru tytułów
+        i dopuszczeń, NIE z dni rozpraw:
+        T(t)  osoby z tytułem (S5, S6),
+        F(t)  osoby w funkcji (S6, S6*, S6?),
+        B(t)  osoby w funkcji bez tytułu (S6*) - wynik dolny i górny przy
+              tytułach NIEUSTALONYCH,
+        W(t)  wakaty bez żadnego roszczenia,
+        Z(t)  wakaty z wybranym, ale nieobjętym kandydatem,
+        U(t)  wakaty z roszczeniami sprzecznymi lub nieustalonymi.
+        Liczniki nie muszą sumować się do 15. Rozbieżność jest wynikiem.
+Krok 5  Ocena obsady: W1 (liczba, indywidualność, długość kadencji, zakaz
+        ponownego wyboru) i W12/Z12 (tryb uchwały) dla każdego E1.
+        Kryterium "wiedzy prawniczej" jest NIEPOKRYTE (P8).
+Krok 6  Ocena kierownictwa (M2) dla każdego E7 i E9:
         (a) czy ZO przedstawiło kandydatów (fakt E8),
-        (b) czy uchwała ZO była prawidłowa według Z3 i Z8,
+        (b) prawidłowość zwołania, kworum i większości ZO (Z3, Z8),
         (c) czy powołany był spośród przedstawionych,
-        (d) okres pełnienia funkcji według Z5.
-        "Powierzenie obowiązków Prezesa" nie ma odpowiednika
-        w Konstytucji i zapisujemy je jako osobny wynik:
-        NIEPRZEWIDZIANE (nie automatycznie NARUSZONY).
-        Zmianę osoby kierującej bez E7 (np. 30.10.2026) oceniamy według
-        Z5.Z.
-Krok 7  Ocena orzeczeń: dla każdego orzeczenia z D6 i daty orzekania
-        sprawdzamy:
-        (a) skład - każdy członek ma tytuł (Z9b),
-        (b) wyznaczenie składu - status osoby wyznaczającej (Z9a),
-        (c) większość - W6d,
-        (d) konflikt interesów - Z10 (W3, przy Z6a także W11).
-        WYKRYCIE wady i SKUTEK wady to osobne kolumny. Skutek jest
-        zawsze zależny od Z9 i nie wynika z samego wykrycia.
-Krok 8  Ocena publikacji (W6b): dla każdego orzeczenia z art. 188
-        opóźnienie ogłoszenia według N1. Przyczynę przypisujemy organowi
-        tylko przy danych D7 o przekazaniu, inaczej NIEUSTALONA.
-        Rozdzielamy W6a (ostateczność), W6b (obowiązek ogłoszenia)
-        i W6c (wejście w życie lub odroczenie).
-Krok 9  Raport przedziałów. Dla każdej oceny z kroków 5-8 raportujemy
-        WSZYSTKIE przedziały SPEŁNIONY / NARUSZONY / NIEUSTALONY w oknie
-        badania, nie tylko pierwszą zmianę. Koniec danych NIE jest
-        przywróceniem.
-Krok 10 Odporność. Pełne przeliczenie wszystkich dopuszczalnych
-        kombinacji parametrów (pkt 5) i alternatyw danych. Dopuszczalność
-        kombinacji sprawdzamy przed przeliczeniem: wykluczamy
-        kombinacje sprzeczne i nieosiągalne (zasada Z11 z plan.txt).
-        Skrócenie przeglądu jest dozwolone tylko po UDOWODNIENIU
-        porządku i monotoniczności wyniku względem danego parametru.
-        Zgodność dwóch "skrajnych" wariantów nie wystarcza (kontrprzykład
-        f(a,b) = (a ≠ b) w recenzji B4). Wynik jednolity oznacza
-        odporność W OBRĘBIE ZBADANEGO ZBIORU MODELI, a nie niezależność
-        od każdej interpretacji Konstytucji.
-Krok 11 Klasyfikacja pomocnicza K (pkt 9), osobno od kroków 5-10.
+        (d) okres pełnienia funkcji (Z5),
+        (e) "powierzenie obowiązków" bez odpowiednika w Konstytucji:
+            wynik NIEPRZEWIDZIANE,
+        (f) E9: według Z5.Z i statusu tytułu osoby przejmującej.
+Krok 7  Ocena orzeczeń (M3), od 2015-10-01. Dla każdego orzeczenia
+        z D6 osobno WYKRYCIE i SKUTEK:
+        wada                          wykrycie      skutek
+        (a) członek bez tytułu        krok 3        Z13
+        (b) wadliwe wyznaczenie       krok 6        Z9
+        (c) brak większości           W6d, D6       NIEUSTALONY (L15)
+        (d) kworum / liczebność       Z11           przy Z11a NIEUSTALONY,
+                                                    przy Z11b NIEPOKRYTY
+        (e) konflikt interesów        Z10           Z14
+        Skutek łączny orzeczenia: WADLIWE, jeżeli którykolwiek skutek
+        to "wadliwe"; NIEUSTALONE, jeżeli żaden nie jest "wadliwe", ale
+        któryś jest nieustalony; w pozostałych przypadkach BEZ WYKRYTEJ
+        WADY. Nie używamy słowa "prawidłowe" (P4).
+Krok 8  Publikacja (M4), od 2015-10-01, dla orzeczeń w sprawach z art. 188:
+        (a) czas oczekiwania na ogłoszenie (w dniach) i przekroczenia
+            wskaźników N1 - wyłącznie opis danych (P9),
+        (b) ocena W6b:
+            NARUSZONY - gdy dane D7 wskazują decyzję lub oświadczenie
+                        organu o odmowie ogłoszenia, albo gdy orzeczenie
+                        ogłoszono z zastrzeżeniem zmieniającym jego treść
+                        lub charakter,
+            SPEŁNIONY - gdy ogłoszono bez takich okoliczności, a czas
+                        oczekiwania nie budzi wątpliwości,
+            NIEUSTALONY - w pozostałych przypadkach, w tym przy samym
+                        upływie czasu bez danych D7,
+        (c) przyczyna i organ - tylko z danych D7,
+        (d) W6a i W6c oceniane osobno: ostateczność, wejście w życie
+            i odroczenie.
+Krok 9  Raport WSZYSTKICH przedziałów SPEŁNIONY / NARUSZONY / NIEUSTALONY /
+        NIEPOKRYTY w oknie badania. Koniec danych nie jest przywróceniem.
+Krok 10 Odporność: pełny przegląd dopuszczalnych wariantów każdego modułu
+        (5.1) po filtrze F1, albo udowodniona monotoniczność względem
+        parametru. Zgodność wariantów "skrajnych" nie wystarcza.
+        Odporność dotyczy tylko zbadanego zbioru.
+Krok 11 Klasyfikacja pomocnicza K (pkt 9).
 Krok 12 Formalizacja w Lean (pkt 12).
 
 
 8. WYNIK PODSTAWOWY (TK/Wynik_testu_ciaglosci.md)
 
 Tabela A  Rejestr zdarzeń i przyporządkowań wakatów, z alternatywami A.
-Tabela B  Liczniki T, F, B, W, Z, U w punktach zmiany, osobno dla
-          każdej kombinacji lub z zakresem min-max.
+Tabela B  Liczniki T, F, B, W, Z, U w punktach zmiany (zakres min-max).
 Tabela C  Naruszenia: wymóg (W) x osoba/czynność x przedział x status
           x założenia (Z) x źródło (D).
-Tabela D  Orzeczenia: wady wykryte (krok 7 a-d) rocznie, z mianownikiem,
-          oraz osobno ich skutek według Z9.
-Tabela E  Publikacja: opóźnienia według N1 i przyczyny (lub NIEUSTALONA).
-Tabela F  Odporność: dla każdego wyniku zbiór kombinacji, w których
+Tabela D  Orzeczenia: wady wykryte (a-e) i skutki według Z9/Z13/Z14
+          rocznie, z mianownikiem i statusem kompletności roku.
+Tabela E  Publikacja: czas oczekiwania, przekroczenia N1 (opis), ocena
+          W6b według kroku 8 b, przyczyna (lub NIEUSTALONA).
+Tabela F  Odporność: dla każdego wyniku zbiór wariantów, w których
           zachodzi, oraz parametry, które go zmieniają.
+Tabela G  Pokrycie: warunki NIEPOKRYTE (P8) z powodem.
 
 
 9. KLASYFIKACJA POMOCNICZA "CIĄGŁOŚCI" (kryteria K)
 
-Kryteria K NIE są normą konstytucyjną. Każde ma identyfikator, treść
-i uzasadnienie, a wynik podajemy jako "według Kx: ...". Przejście od
-naruszenia do skutku dla organu to osobne założenie, zapisane w Kx.
-K1  Obsada: przedział, w którym T(t) < 8 (mniej niż większość z 15).
-    Uzasadnienie robocze: bez większości osób z tytułem nie da się
-    utworzyć prawidłowo umocowanej większości pełnego składu.
-K2  Udział: przedział, w którym B(t) > 0 (w funkcji jest co najmniej
-    jedna osoba bez tytułu). Kryterium najbardziej rygorystyczne.
-K3  Proporcja: przedział, w którym B(t)/F(t) ≥ 1/3.
-K4  Kierownictwo i orzekanie: przedział, w którym kierownictwo jest
-    NARUSZONE (krok 6) ORAZ co najmniej X% orzeczeń w roku ma wadę
-    według Z9 (X jest parametrem K4.X).
-Każde Kx podaje: przedziały spełnienia, zależność od Z, wpływ
-NIEUSTALONYCH (wynik dolny i górny). Sama wada powołania Prezesa nie
-przesądza o skutkach wszystkich wyznaczonych przez niego składów
-(zależy od Z9). Publikacja (krok 8) nie wchodzi do żadnego Kx. Brak
-ogłaszania to zakłócenie skuteczności orzeczeń, a nie wada obsady.
+Kryteria K nie są normą konstytucyjną. Wynik zapisujemy jako "według Kx:
+...". Przejście od naruszenia do skutku dla organu to osobne założenie,
+zapisane w Kx.
+K1  Obsada: przedziały, w których T(t) < 8. Uzasadnienie robocze: bez
+    większości osób z tytułem nie da się utworzyć umocowanej większości
+    pełnego składu.
+K2  Udział: przedziały, w których B(t) > 0. Najbardziej rygorystyczne.
+K3  Proporcja: przedziały, w których F(t) > 0 i B(t)/F(t) ≥ 1/3. Przy
+    F(t) = 0 wynik brzmi "BRAK OSÓB W FUNKCJI" i jest raportowany
+    osobno, a nie jako spełnienie ani niespełnienie.
+K4  Kierownictwo i orzekanie: lata kalendarzowe, w których przez cały
+    rok lub jego część kierownictwo jest NARUSZONE (krok 6) ORAZ odsetek
+    orzeczeń ze skutkiem łącznym WADLIWE (krok 7) wynosi co najmniej X.
+    - X ∈ {10%, 25%, 50%} (wskaźnik, P9),
+    - liczone są skutki według Z9, Z13 i Z14; NIEUSTALONE podajemy
+      jako granice: dolna (NIEUSTALONE = bez wady), górna (NIEUSTALONE
+      = wadliwe),
+    - rok 2026 liczony na [2026-01-01, tEnd) i oznaczony jako niepełny,
+    - lata z niepełnym D6 mają status NIEUSTALONY dla K4, chyba że
+      granice dolna i górna dają ten sam wynik,
+    - K4 opisuje CAŁY rok (miarę okresową), a nie stan w konkretnym
+      dniu. Nie łączymy go z dziennymi K1-K3 bez tej adnotacji.
+Każde Kx podaje: przedziały spełnienia, zależność od Z i wpływ
+NIEUSTALONYCH (wynik dolny i górny). Publikacja (krok 8) nie wchodzi do
+żadnego Kx.
 
 
 10. KOLEJNOŚĆ PRAC
 
-1. Uzupełnić dane D1-D10 do poziomu pozwalającego obliczyć wariant
-   T2 (stan na 1.10.2015 + wszystkie zdarzenia do 16.11.2026).
-2. Zatwierdzić parametry pkt 5 i ich dopuszczalne kombinacje
-   (recenzja prawnika).
-3. Obliczyć wynik podstawowy (pkt 8), potem klasyfikację K (pkt 9).
-4. Dopiero potem formalizacja i dowody w Lean (pkt 12).
+Możliwe już teraz, przed recenzją prawnika i bez kompletnych danych:
+1. Format rejestru (CSV), walidator kroku 1, kontrola źródeł
+   i kompletności (status pola: ustalone / nieustalone / brak źródła).
+2. Generator wariantów z grafem zależności (5.1) i filtrem F1.
+3. Model propagacji niepewności (wyniki dolne i górne).
+4. Uzupełnianie danych D1-D11 dla wariantu T2.
+Wymaga zatwierdzenia parametrów (recenzja prawnika):
+5. Obliczenie wyniku podstawowego (pkt 8). Wyniki częściowe są dozwolone,
+   o ile wskazują dokładnie warunki NIEUSTALONE. Np. ocena wyborów
+   (krok 5) nie wymaga kompletnego D6.
+6. Klasyfikacja K (pkt 9).
+7. Formalizacja i dowody w Lean (pkt 12).
 
 
 11. HIPOTEZY DO ZBADANIA (kolejka przypadków, nie wyniki)
 
-H1  8.10.2015 - pięć wyborów na wakaty powstające 6.11, 2.12 i 8.12.2015.
-    Rozstrzygają: Z7 (a/b/c) i dane D9, czyli dzień pierwszego
-    posiedzenia Sejmu VIII kadencji.
+H1  8.10.2015 - pięć wyborów (M.P. 2015 poz. 1038-1042). Dane:
+      poprzednicy        ostatni dzień kadencji  pierwszy dzień wakatu
+      3 sędziów          2015-11-06              2015-11-07
+      1 sędzia           2015-12-02              2015-12-03
+      1 sędzia           2015-12-08              2015-12-09
+    Zamierzony początek kadencji według § 2 uchwał: 7.11.2015
+    (poz. 1038-1040), 3.12.2015 (poz. 1041), 9.12.2015 (poz. 1042).
+    Kadencja Sejmu VII: do 2015-11-11 włącznie (4.7). Zastosowanie
+    parametrów:
+      Z7a - żaden z wakatów nie istnieje 8.10.2015,
+      Z7b - wakaty 7.11 mieszczą się w kadencji Sejmu VII, a wakaty 3.12
+            i 9.12 nie,
+      Z7c - wszystkie dopuszczalne.
+    To zastosowanie reguł do danych, a nie rozstrzygnięcie. Wynik
+    zależy dalej od Z4 (4.6) i Z1.
 H2  2-3.12.2015 - wybory i ślubowania osób, których zamierzone wakaty
-    mogą być objęte skutecznymi wyborami z H1. Wynik warunkowy
-    względem H1, Z4 i Z1.
-H3  20-21.12.2016 - powierzenie obowiązków i powołanie Prezesa.
-    Potrzebne dane D5 (skład i głosy ZO) oraz Z3, Z8 i Z5.
-H4  2017-2018 - wybory po zmarłych osobach z H2. Ich status zależy
-    od wyniku H2 i od Z4 (4.4). Nie przesądzać.
-H5  Zakończenie kadencji osób wybranych 8.10.2015 przy różnych Z2
-    i Z1: osobno ostatni dzień kadencji i pierwszy dzień wakatu.
+    mogą być objęte skutecznymi wyborami z H1. Wynik warunkowy względem
+    H1, Z4 i Z1.
+H3  20-21.12.2016 - powierzenie obowiązków i powołanie Prezesa. Potrzebne
+    dane D5 oraz Z3, Z5 i Z8.
+H4  2017-2018 - wybory po zmarłych osobach z H2. Status zależy od H2,
+    Z4 i reguły konkurujących tytułów (4.4).
+H5  Zakończenie kadencji osób wybranych 8.10.2015 przy różnych Z2 i Z1:
+    ostatni dzień kadencji, pierwszy dzień wakatu i ewentualne S8.
 H6  XII 2024 - koniec kadencji kilku osób i zmiana Prezesa. Przy Z4b
-    późniejsze uaktywnienie wyborów może zmienić status kolejnych
-    wyborów, więc potrzebna jest pełna rekonstrukcja zależności,
-    a nie ocena punktowa.
-H7  Publikacja: 4.03.2024 to data OSTATNIEJ ustalonej publikacji
-    wyroku TK w Dz.U., a nie początek naruszenia. Początek naruszenia
-    W6b ustalamy dla pierwszego KONKRETNEGO orzeczenia z art. 188
-    nieogłoszonego w terminie N1. Przyczyna wymaga danych D7.
+    potrzebna jest pełna rekonstrukcja zależności, a nie ocena punktowa.
+H7  Publikacja: 4.03.2024 to data OSTATNIEJ ustalonej publikacji wyroku
+    TK w Dz.U. Dla każdego późniejszego orzeczenia z art. 188: czas
+    oczekiwania i przekroczenia wskaźników N1 (opis) oraz odrębna ocena
+    W6b według kroku 8 b. Sam upływ czasu bez danych D7 daje
+    NIEUSTALONY.
 H8  13.03-14.10.2026 - wybory na wolne miejsca, ślubowania wobec
-    Prezydenta, w Sejmie i odmowy. Wynik wprost zależny od Z1
-    (i Z1d.T). Potrzebne dane D3 i D10.
-H9  30.10.2026 - zmiana osoby kierującej TK bez zdarzenia E7. Ocena
-    według Z5.Z i statusu tytułu osoby przejmującej (H8).
+    Prezydenta, w Sejmie i odmowy. Wynik wprost zależny od Z1 (i T).
+    Potrzebne dane D3 i D10.
+H9  30.10.2026 - przejęcie kierowania bez E7 (E9). Ocena według Z5.Z
+    i statusu tytułu osoby przejmującej (H8).
 
 
 12. FORMALIZACJA W LEAN 4 (zgodnie z plan.txt)
 
 Moduły: LEAN/Konstytucja/TK/Ciaglosc.lean (model) i
 LEAN/Konstytucja/TK/CiagloscDane.lean (dane generowane z
-LEAN/dane/tk_rejestr.csv; wersja danych w nagłówku pliku).
-- Typy: Osoba, Zdarzenie, Wakat, Stan (S1-S6, S6*), Wynik3
-  (spelniony | naruszony | nieustalony), Interpretacja (Z1-Z10, N1).
-- Miejsca/wakaty oznaczone jako definicje pomocnicze (Z1 plan.txt).
+LEAN/dane/tk_rejestr.csv; wersja danych w nagłówku).
+- Typy: Osoba, Zdarzenie, Wakat, Stan (S1-S8, S6*, S6?), Wynik3, Pokrycie,
+  Interpretacja (Z1-Z14 jako pola struktury; N1 i K poza nią).
+- Przejścia T1-T9 jako funkcja totalna stanu i zdarzenia.
+- Miejsca/wakaty oznaczone jako definicje pomocnicze.
 Kontrole przed twierdzeniami o datach:
 F1  Dopuszczalność i osiągalność każdej analizowanej kombinacji
-    założeń; brak dowodów opartych na niespełnialnych przesłankach
-    (Z7 i Z11 plan.txt).
-F2  Poprawność rejestru: unikalne identyfikatory, brak podwójnego
-    zaliczenia, konkurujące tytuły jawne, pola nieustalone.
-F3  Zgodność funkcji liczących (liczniki z kroku 4) z predykatami
-    modelu, udowodniona twierdzeniem, oraz granice czasu.
-F4  Twierdzenia o pierwszeństwie dat tylko w oknie danych:
-    tStart ≤ t ∧ t < t1, a nie dla wszystkich wcześniejszych dat.
-F5  Twierdzenia obejmują wszystkie przedziały naruszeń i przywróceń
-    oraz zakres odporności (krok 10).
-F6  Kontrola braku sorryAx i niedozwolonych aksjomatów
-    (Skrypty/KontrolaProjektu.lean), parametry zamiast `axiom`.
+    (Z7 i Z11 plan.txt) oraz utożsamienia z 4.6.
+F2  Poprawność rejestru (unikalność, brak podwójnego zaliczenia,
+    konkurujące tytuły, pola nieustalone).
+F3  Zgodność liczników (krok 4) z predykatami modelu oraz granice czasu.
+F4  Pierwszeństwo dat tylko w oknie danych: tStart ≤ t ∧ t < t1.
+F5  Wszystkie przedziały naruszeń, przywróceń i nieustaleń oraz zakres
+    odporności.
+F6  Brak sorryAx i niedozwolonych aksjomatów (Skrypty/KontrolaProjektu.lean).
+F7  Graf zależności (5.1) - twierdzenie, że wynik modułu nie zależy od
+    parametrów spoza jego listy (uzasadnia przegląd modułowy).
 Lean potwierdza konsekwencje definicji i danych. NIE potwierdza, że
-definicje (w szczególności kryteria K) wiernie odtwarzają Konstytucję.
+definicje (w szczególności K) wiernie odtwarzają Konstytucję.
 
 
 13. OGRANICZENIA
 
-- Luka L5: model nie wskazuje organu, który wiążąco rozstrzyga o
-  ważności wyboru. Wynik nie przesądza o obowiązywaniu orzeczeń.
-- Wszystkie wyniki są warunkowe względem parametrów pkt 5 i danych pkt 6.
-- Kryteria ocenne (wiedza prawnicza, niezależność osobista w części
-  ocennej) są poza obliczeniem. Można je opisać, ale nie liczyć.
-- Odporność dotyczy tylko zbadanego zbioru modeli (krok 10).
+- L5: model nie wskazuje organu wiążąco rozstrzygającego o ważności
+  wyboru. Wynik nie przesądza o obowiązywaniu orzeczeń.
+- Wyniki są warunkowe względem parametrów (pkt 5) i danych (pkt 6).
+- Warunki NIEPOKRYTE (P8, tabela G), w tym "wiedza prawnicza"
+  i niezależność osobista w części ocennej.
+- Odporność dotyczy tylko zbadanego zbioru wariantów (krok 10).
 
 
-14. ZMIANY WZGLĘDEM WERSJI 1 (mapa do recenzji)
+14. ZMIANY: WERSJA 1 → 2 (recenzja, sekcje 2-9)
 
-B1  Wynik podstawowy to naruszenia wymogów (pkt 8). "Utrata ciągłości"
-    jest tylko klasyfikacją K (pkt 9), z jawnym założeniem o skutku.
-    Usunięto regułę "C1 albo (C2 i C3)" i progi Z5 (stara numeracja).
-B2  Usunięto heurystykę "najbliższej daty"; zamierzony wakat pochodzi
-    z dokumentów, z alternatywami A (4.1). Dodano Z7 i W13 (art. 98).
-B3  Rozdzielono stany wyboru S1-S6; Z4 jest regułą przejścia (4.3, 4.4).
-B4  Krok 11 (dwa warianty skrajne) zastąpiony pełnym przeglądem
-    dopuszczalnych kombinacji albo dowodem monotoniczności (krok 10);
-    liczba kombinacji podana jawnie.
-B5  Dodano zasadę P2 (odesłania jako parametry). Z1 rozdzielone:
-    obowiązek przyjęcia ślubowania (Z1c) od fikcji przyjęcia (Z1d,
-    jawna reguła modelu).
-B6  Wynik trójwartościowy (P4) i pola NIEUSTALONE w danych (pkt 6).
-Pkt 3 recenzji: poprawiono W10 (zmiany Konstytucji 2006 i 2009, art. 235
-    nie dowodzi ciągłości, art. 197 dopuszcza ustawowe kształtowanie
-    organizacji); L3 vs art. 190 ust. 5 (W6d); L1 (art. 130, 131 ust. 2
-    pkt 3); W3 (związek zawodowy); indywidualność wyboru (E1); dodano
-    W12 (art. 120, 112), rozszerzono W5 (art. 191, 192, 131 ust. 1)
-    z jawnym zakresem; dodano W14 (art. 238) i W15 (art. 239).
-Pkt 4 recenzji: dodano L7-L12 i parametry Z5, Z7-Z10, N1, Z1d.T;
-    każdy parametr ma status; L5 to ograniczenie, a nie parametr.
-Pkt 5 recenzji: punkt początkowy T1/T2, przedziały półotwarte, lata
-    kalendarzowe, kolejność zdarzeń w dniu, liczniki z rejestru
-    tytułów i dopuszczeń, nierozłączne liczniki, definicja zbioru
-    orzeczeń i mianownika, raport wszystkich przedziałów.
-Pkt 6 recenzji: rozdzielono W6a-W6d; N1 to wskaźnik, a nie definicja;
-    H7 poprawiona; przyczyna braku publikacji wymaga danych D7;
-    konflikt interesów jako Z10 (interes osobisty vs tematyka ustawy).
-Pkt 7 recenzji: H1-H9 przeformułowane warunkowo (pkt 11, P7).
-Pkt 8 recenzji: kontrole F1-F6 (pkt 12).
+B1  Wynik podstawowy to naruszenia wymogów, a "ciągłość" to tylko
+    klasyfikacja K.
+B2  Zamierzony wakat z dokumentów, z alternatywami; dodano Z7 i W13.
+B3  Rozdzielono stany wyboru; Z4 jako reguła przejścia.
+B4  Pełny przegląd wariantów albo dowód monotoniczności.
+B5  Odesłania jako parametry (P2); Z1c (obowiązek) oddzielone od Z1d
+    (fikcja).
+B6  Wynik trójwartościowy i pola nieustalone.
+Pkt 3-8 recenzji: korekty wzorców W3, W5, W6, W10, dodane W12-W15,
+luki L7-L12, czas, liczniki, zbiór orzeczeń, publikacja, hipotezy,
+kontrole F1-F6.
+
+
+15. ZMIANY: WERSJA 2 → 3 (recenzja, sekcja 11)
+
+11.1 N1 (wskaźnik) oddzielony od oceny W6b. Dodano zasadę P9. H7, krok 8
+     i tabela E opisują czas oczekiwania i przekroczenia N1, a W6b ma
+     odrębną regułę (krok 8 b), domyślnie NIEUSTALONY.
+11.2 H1: rozdzielono ostatnie dni kadencji (6.11, 2.12, 8.12),
+     pierwsze dni wakatów (7.11, 3.12, 9.12) i zamierzone początki
+     kadencji z § 2 uchwał (M.P. 2015 poz. 1038-1042, sprawdzone w PDF).
+     Dodano koniec kadencji Sejmu VII (2015-11-11) i zastosowanie Z7.
+11.3 Z9 ograniczony do wadliwego wyznaczenia składu. Dodano Z13 (skutek
+     udziału osoby bez tytułu), Z14 (skutek konfliktu interesów), L15
+     (skutek braku większości: NIEUSTALONY) i tabelę wada → skutek
+     (krok 7). K4 wskazuje rodzaje wad i granice przy nieustaleniu.
+11.4 L3 → Z11 (kworum składów lub NIEPOKRYTY). Procedura Sejmu → L13/Z12
+     (kworum, większość, odrębne głosowanie). Z3 rozbity na C/Q/M
+     i obsługę tytułów nieustalonych. Tabela współdziałania Z4 i Z7 (4.6,
+     Z4.R). Jawne przejścia T1-T9 ze stanami S7 (wygasły) i S8
+     (nieobjęty). Dodano zasadę pokrycia P8 i tabelę G.
+11.5 T1 ograniczony do rekonstrukcji obsady. Ocena orzeczeń zawsze od
+     2015-10-01, więc art. 239 nie wchodzi do testu. Kadencje sprzed
+     17.10.1997 według W14 (dana). tEnd = 2026-11-17, czyli stan
+     zamknięty na koniec 16.11.2026.
+11.6 Liczba wariantów liczona skryptem per moduł z grafem zależności
+     (5.1, kontrola F7). Podano wartości z recenzji dla zakresu wersji 2.
+     K3: przypadek F(t) = 0. K4: zakres X, granice, rok 2026 niepełny,
+     miara roczna.
+11.7 Kolejność prac (pkt 10) rozdziela prace możliwe już teraz (rejestr,
+     walidator, generator wariantów, propagacja niepewności) od obliczeń
+     wymagających zatwierdzenia parametrów. Wyniki częściowe są dozwolone.

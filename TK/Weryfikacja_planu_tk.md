@@ -1,6 +1,6 @@
 # Weryfikacja planu testu ciągłości TK
 
-Stan weryfikacji: 16 listopada 2026 r. Przedmiot: [plan_tk.txt](../plan_tk.txt), porównany z [plan.txt](../plan.txt) i tekstem Konstytucji. Sekcje 1–9 dotyczą wersji 1 planu, sekcja 10 opisuje wprowadzenie wersji 2, a sekcja 11 zawiera jej ponowną weryfikację. Sekcja 12 opisuje wprowadzenie wersji 3, a sekcja 13 zawiera jej ponowną weryfikację. Numery wierszy w sekcjach 1–9 odnoszą się do wersji 1; w sekcji 11 — do wersji 2; w sekcji 13 — do wersji 3.
+Stan weryfikacji: 16 listopada 2026 r. Przedmiot: [plan_tk.txt](../plan_tk.txt), porównany z [plan.txt](../plan.txt) i tekstem Konstytucji. Sekcje 1–9 dotyczą wersji 1 planu, sekcja 10 opisuje wprowadzenie wersji 2, a sekcja 11 zawiera jej ponowną weryfikację. Sekcja 12 opisuje wprowadzenie wersji 3, a sekcja 13 zawiera jej ponowną weryfikację. Sekcja 14 opisuje wprowadzenie wersji 4, a sekcja 15 zawiera jej ponowną weryfikację. Numery wierszy w sekcjach 1–9 odnoszą się do wersji 1; w sekcji 11 — do wersji 2; w sekcji 13 — do wersji 3; w sekcji 15 — do wersji 4.
 
 **Ocena wersji 1: plan wymaga poprawek przed przeprowadzeniem testu.** Może służyć do badania konsekwencji jawnych założeń, ale jego pierwotna procedura nie uzasadnia zapowiedzianego wniosku o utracie tożsamości organu ani niezależności wyniku od interpretacji. Jest to ocena projektu badania, bez rozstrzygnięcia o statusie TK, jego sędziów lub orzeczeń.
 
@@ -326,3 +326,38 @@ Plan zmieniono do wersji 4. Mapa zmian do pkt 13.1–13.5 znajduje się w pkt 16
 - **13.5:** zasada P11 wprowadza ocenę interpretacyjną (autor, uzasadnienie, źródło, status). Krok 8 (b) jest regułą R-PUB do zatwierdzenia przez prawnika. Wynik SPEŁNIONY wymaga zatwierdzonej oceny P11. D7 rozdziela zapowiedź odmowy, odmowę wykonaną, ogłoszenie i adnotację.
 
 Testu historycznego nadal nie przeprowadzono. Status parametrów i reguły R-PUB: roboczy.
+
+## 15. Ponowna weryfikacja wersji 4
+
+Sprawdzono wersję 4 z bieżącego checkoutu: commit `27e3934` („czwarta wersja planu tk po poprawkach”). Na początku tej kontroli plan i recenzja nie miały zmian względem `HEAD`. Poniższa ocena dotyczy tego zastanego stanu repozytorium.
+
+**Ocena:** wszystkie pięć uwag z sekcji 13 zostało uwzględnionych w konstrukcji planu. Można przygotowywać rejestr, walidator i generator wariantów zgodnie z pkt 10. Pozostaje jedno doprecyzowanie T10 przed implementacją granic aktywności; nie wymaga ono wyboru nowej wykładni prawnej.
+
+| Uwaga | Stan w wersji 4 |
+| --- | --- |
+| 13.1 — tytuł i funkcja | Rozdzielono składowe stanu, skutki E6a/E6b oraz przejścia T7/T9/T10. Przykład z dalszym orzekaniem zachowuje F=1 i zmienia T=1 na T=0 oraz B=0 na B=1. Doprecyzowania wymaga końcówka przedziału niepewności opisana poniżej. |
+| 13.2 — niepewność ZO | P10 i Z3 wymagają wszystkich wspólnie dopuszczalnych uzupełnień, osobnych statusów obecnych i nieobecnych oraz korelacji. Usunięto skrót do dwóch zbiorczych przypadków. F8 ma kontrolować poprawność granic. |
+| 13.3 — zależności modułów | Użyto sumy zbiorów parametrów i jednej wartości każdego wspólnego pola. Rachunek 216 → 192 → 27 648 → 1 769 472 zgadza się z tabelą, przed dodatkowymi filtrami i alternatywami. F7 poprzedza wykorzystanie przeglądu jako dowodu odporności; F1 nie eliminuje scenariuszy za samo wystąpienie naruszeń. |
+| 13.4 — dane o głosowaniu | D6 odróżnia wynik nad każdą częścią sentencji, indywidualne głosy i zakres zdań odrębnych. Z13b usuwa osoby bez tytułu łącznie i zachowuje nieustalenie przy niewystarczających danych. |
+| 13.5 — publikacja | P11 przewiduje ocenę interpretacyjną z autorem i uzasadnieniem. R-PUB jest jawnie roboczą regułą do zatwierdzenia; rozdzielono zdarzenia O1–O4, a wskaźnik N1 nie zastępuje oceny. |
+
+### Doprecyzowanie T10: ostatnia czynność nie zamyka niepewnej aktywności
+
+Wiersze 238–241 opisują niepewną funkcję jako przedział „od końca tytułu do ostatniego E5”. Tymczasem E5 oznacza dowód aktywności, a nie jej zakończenia. Sam plan stwierdza to w definicji E10 (wiersze 190–192).
+
+Przykład modelowy: tytuł kończy się w dniu 10, ostatnia udokumentowana czynność następuje w dniu 15, brak E4-, śmierci i E10, a tEnd wynosi 20. Dla dni 16–19 nadal trzeba dopuścić dalszą aktywność w granicy górnej. Ucięcie niepewności na ostatnim E5 usuwałoby te dni bez dowodu zakończenia funkcji. Analogicznie wcześniejsze E5 nie może powodować powstania przedziału z końcem sprzed utraty tytułu.
+
+**Proponowane brzmienie końcówki T10:** „Jeżeli dalsza aktywność nie jest ustalona, niepewność utrzymujemy do udokumentowanego zakończenia funkcji albo tEnd. E5 potwierdza aktywność w zakresie wynikającym z dokumentu; ostatnie E5 nie zamyka niepewności dla późniejszych dni. Granice F(t) i B(t) wyznaczamy po wspólnie dopuszczalnych uzupełnieniach według P10”.
+
+Przy implementacji F9 trzeba precyzyjnie wskazać, czy twierdzenie dotyczy każdej kompletnej historii, czy granic liczników. Wymóg ma zapobiegać usuwaniu faktycznej aktywności przez samo wygaśnięcie tytułu, bez utożsamiania nieustalonej aktywności z potwierdzoną.
+
+**Zakres kontroli:** przeczytano wersję 4, mapę zmian i zapis recenzji. Ponownie sprawdzono rachunek wariantów; przeanalizowano rozdzielenie tytułu i funkcji, korelacje niepewności, dane o głosowaniu oraz status R-PUB. F1–F9 są wymaganiami dla przyszłej implementacji, a nie wykonanymi dowodami. Nie uruchomiono historycznego testu ani nie zatwierdzono parametrów. Plan pozostawiono bez zmian; uzupełniono wyłącznie tę recenzję.
+
+## 16. Stan po poprawce wersji 4.1 (16 listopada 2026 r.)
+
+Doprecyzowanie z sekcji 15 wprowadzono do planu (wersja 4.1, mapa zmian w pkt 17 planu):
+
+- **T10:** przyjęto proponowane brzmienie. Ostatnie E5 nie zamyka niepewności. Aktywność nieustalona trwa do udokumentowanego zakończenia funkcji (E4-, E6a, E10) albo do tEnd. E5 potwierdza aktywność tylko w zakresie dokumentu, a E5 sprzed utraty tytułu nie wyznacza końca przedziału. Do planu dodano przykład kontrolny z tej recenzji (tytuł do dnia 10, ostatnie E5 w dniu 15, tEnd = 20): dni 10–14 i 16–19 mają aktywność nieustaloną, a dzień 15 potwierdzoną.
+- **F9:** rozdzielono na F9a, dotyczące każdej kompletnej historii z ustaloną aktywnością, i F9b, dotyczące granic liczników (granica górna nie maleje przez samą utratę tytułu, a granica dolna obejmuje tylko aktywność potwierdzoną).
+
+Pozostałe ustalenia sekcji 15 są aktualne. Można przygotowywać narzędzia (rejestr, walidator, generator wariantów). Obliczenia historyczne wymagają zatwierdzenia parametrów i reguły R-PUB, a F1–F9 to wymagania dla implementacji, a nie wykonane dowody.

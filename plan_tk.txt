@@ -1,8 +1,8 @@
 PLAN TESTU CIĄGŁOŚCI TRYBUNAŁU KONSTYTUCYJNEGO
-Wersja 4, stan na 2026-11-16
+Wersja 4.1, stan na 2026-11-16
 Poprawki według recenzji TK/Weryfikacja_planu_tk.md, sekcje 2-9 (wersja 2,
-mapa w pkt 14), sekcja 11 (wersja 3, mapa w pkt 15) i sekcja 13
-(wersja 4, mapa w pkt 16)
+mapa w pkt 14), sekcja 11 (wersja 3, mapa w pkt 15), sekcja 13
+(wersja 4, mapa w pkt 16) i sekcja 15 (wersja 4.1, mapa w pkt 17)
 
 
 1. PYTANIE I ZASADY
@@ -234,11 +234,24 @@ L15  Skutek orzeczenia bez wymaganej większości (W6d). Pokrycie:
      T10 Koniec funkcji (S6, S6*, S6? → brak funkcji) TYLKO przy:
          E4- (cofnięcie dopuszczenia), E6a (śmierć) albo E10
          (udokumentowane zaprzestanie). Po E6b lub końcu kadencji bez
-         E4-/E10: jeżeli są dowody dalszej aktywności (E5), osoba
-         pozostaje w S6*; jeżeli dalsza aktywność jest NIEUSTALONA,
-         przedział od końca tytułu do ostatniego E5 (lub do tEnd, jeżeli
-         brak danych) ma status "funkcja NIEUSTALONA" i wchodzi do B(t)
-         tylko w granicy górnej.
+         E4-, E6a i E10:
+         - E5 POTWIERDZA aktywność (stan S6*) w zakresie wynikającym
+           z dokumentu, np. w dniu orzeczenia lub posiedzenia,
+         - w pozostałych dniach dalsza aktywność jest NIEUSTALONA.
+           Niepewność utrzymujemy do udokumentowanego zakończenia
+           funkcji (E4-, E6a, E10) albo do tEnd. Ostatnie E5 NIE zamyka
+           niepewności dla późniejszych dni, bo E5 dowodzi aktywności,
+           a nie jej zakończenia (por. E10),
+         - E5 sprzed utraty tytułu nie wyznacza końca żadnego przedziału
+           po utracie tytułu,
+         - granice F(t) i B(t) wyznaczamy po wspólnie dopuszczalnych
+           uzupełnieniach według P10: dzień z niepewną aktywnością
+           wchodzi do granicy górnej F(t) i B(t), a do granicy dolnej
+           tylko dzień z aktywnością potwierdzoną.
+         Przykład kontrolny: tytuł kończy się w dniu 10, ostatnie E5
+         przypada na dzień 15, nie ma E4-, E6a ani E10, a tEnd = 20.
+         Dni 10-14 i 16-19: aktywność NIEUSTALONA (granica górna). Dzień
+         15: S6* potwierdzony. Nic nie kończy się w dniu 15.
      Konkurujące tytuły: do jednego wakatu w danym dniu może prowadzić
      co najwyżej jedno S4. Pierwszeństwo ma wcześniejszy dzień przejścia
      do S4; przy równym dniu - wcześniejsze E1. Jeżeli dane nie
@@ -634,8 +647,17 @@ F7  Graf zależności (5.1) - twierdzenie, że wynik modułu nie zależy od
 F8  Granice niepewności (P10) - albo pełny przegląd wspólnie
     dopuszczalnych uzupełnień, albo twierdzenie o monotoniczności miary
     względem statusu pojedynczego elementu, uzasadniające skrót.
-F9  Rozdzielenie tytułu i funkcji (T7, T9, T10) - twierdzenie, że utrata
-    tytułu bez E4-, E6a lub E10 nie zmniejsza F(t).
+F9  Rozdzielenie tytułu i funkcji (T7, T9, T10), w dwóch twierdzeniach:
+    F9a (każda kompletna historia): jeżeli w historii z ustaloną
+        aktywnością nie ma E4-, E6a ani E10, to utrata tytułu nie zmienia
+        składowej "funkcja" stanu osoby. Zmienia tylko składową "tytuł"
+        (S6 → S6*);
+    F9b (granice liczników): utrata tytułu bez E4-, E6a lub E10 nie
+        zmniejsza GÓRNEJ granicy F(t) ani B(t) w żadnym dniu do
+        udokumentowanego zakończenia funkcji lub tEnd. DOLNA granica
+        obejmuje wyłącznie aktywność potwierdzoną (E5, E4 przed utratą
+        tytułu).
+    F9 nie utożsamia aktywności nieustalonej z potwierdzoną.
 Lean potwierdza konsekwencje definicji i danych. NIE potwierdza, że
 definicje (w szczególności K) wiernie odtwarzają Konstytucję.
 
@@ -731,3 +753,20 @@ kontrole F1-F6.
      D7: zapowiedź odmowy (O1), odmowa wykonana (O2), ogłoszenie (O3)
      i adnotacja (O4) to osobne zdarzenia; przedział naruszenia biegnie
      od O2 do O3.
+
+
+17. ZMIANY: WERSJA 4 → 4.1 (recenzja, sekcja 15)
+
+T10 Ostatnia udokumentowana czynność (E5) nie zamyka już przedziału
+    niepewnej aktywności. Po utracie tytułu bez E4-, E6a i E10:
+    - E5 potwierdza aktywność w zakresie dokumentu,
+    - pozostałe dni mają aktywność NIEUSTALONĄ aż do udokumentowanego
+      zakończenia funkcji albo tEnd,
+    - E5 sprzed utraty tytułu nie wyznacza końca żadnego przedziału.
+    Granice F(t) i B(t) według P10 (granica górna: dni niepewne,
+    granica dolna: tylko dni potwierdzone). Dodano przykład kontrolny
+    z recenzji (dni 10/15/20).
+F9  Rozdzielono na F9a (każda kompletna historia: utrata tytułu zmienia
+    tylko składową "tytuł") i F9b (granice liczników: utrata tytułu nie
+    zmniejsza granicy górnej F(t) i B(t), a granica dolna obejmuje tylko
+    aktywność potwierdzoną).

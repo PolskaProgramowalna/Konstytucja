@@ -1,6 +1,6 @@
 # Weryfikacja planu testu ciągłości TK
 
-Stan weryfikacji: 16 listopada 2026 r. Przedmiot: [plan_tk.txt](../plan_tk.txt), porównany z [plan.txt](../plan.txt) i tekstem Konstytucji. Sekcje 1–9 dotyczą wersji 1 planu, sekcja 10 opisuje wprowadzenie wersji 2, a sekcja 11 zawiera jej ponowną weryfikację. Numery wierszy w sekcjach 1–9 odnoszą się do wersji 1; w sekcji 11 — do wersji 2.
+Stan weryfikacji: 16 listopada 2026 r. Przedmiot: [plan_tk.txt](../plan_tk.txt), porównany z [plan.txt](../plan.txt) i tekstem Konstytucji. Sekcje 1–9 dotyczą wersji 1 planu, sekcja 10 opisuje wprowadzenie wersji 2, a sekcja 11 zawiera jej ponowną weryfikację. Sekcja 12 opisuje wprowadzenie wersji 3, a sekcja 13 zawiera jej ponowną weryfikację. Numery wierszy w sekcjach 1–9 odnoszą się do wersji 1; w sekcji 11 — do wersji 2; w sekcji 13 — do wersji 3.
 
 **Ocena wersji 1: plan wymaga poprawek przed przeprowadzeniem testu.** Może służyć do badania konsekwencji jawnych założeń, ale jego pierwotna procedura nie uzasadnia zapowiedzianego wniosku o utracie tożsamości organu ani niezależności wyniku od interpretacji. Jest to ocena projektu badania, bez rozstrzygnięcia o statusie TK, jego sędziów lub orzeczeń.
 
@@ -242,3 +242,87 @@ Plan zmieniono do wersji 3. Mapa zmian do pkt 11.1–11.7 znajduje się w pkt 15
 - **11.7:** kolejność prac oddziela przygotowanie rejestru, walidatora, generatora wariantów i propagacji niepewności od obliczeń wymagających zatwierdzenia parametrów.
 
 Testu historycznego nadal nie przeprowadzono. Status parametrów: roboczy.
+
+## 13. Ponowna weryfikacja wersji 3
+
+Sprawdzono wersję 3 z bieżącego checkoutu, zapisaną w `HEAD` jako `b2e3928` („trzecia wersja planu tk po poprawkach”). W chwili tej kontroli `plan_tk.txt` nie miał niezapisanych w commicie zmian. Jest to stan repozytorium zastany podczas weryfikacji, niezależny od wcześniejszego opisu prac.
+
+**Domknięte korekty:** H1 rozdziela trzy rodzaje dat, okno obejmuje cały 16 listopada, T1 służy rekonstrukcji obsady, a zakres Z9 został ograniczony. Dodano pokrycie, parametry procedur i rozdzielenie przygotowania narzędzi od właściwego obliczenia. N1 nie wyznacza już automatycznie daty naruszenia. Przedstawiony rachunek **216 → 192** dla M1 jest poprawny jako rachunek wariantów zapisanych w tabeli, z zadeklarowanym utożsamieniem Z4.R przy Z7c.
+
+Pozostają cztery istotne kwestie poprawności przyszłych obliczeń.
+
+### 13.1. Wygaśnięcie tytułu nie oznacza automatycznie zakończenia faktycznej funkcji
+
+**Miejsce:** przejścia T7 i T9, wiersze 202–205.
+
+T7 kończy tytuł wraz z kadencją. T9 następnie kończy S6/S6*/S6? przy samym S7. Jest to niezgodne z rozdzieleniem tytułu i faktycznego wykonywania funkcji: osoba może nadal faktycznie pełnić funkcję po wygaśnięciu tytułu, jeżeli jej dopuszczenie nie zostało cofnięte i istnieją dowody dalszej aktywności.
+
+Przykład modelowy: jedna osoba ma tytuł i jest dopuszczona do funkcji. Kadencja upływa, ale osoba nadal orzeka. Przed upływem: `T=1, F=1, B=0`; po upływie przy dalszym pełnieniu: `T=0, F=1, B=1`. T9 zapisane jako automatyczne zakończenie funkcji może zamiast tego dać `F=0, B=0`, ukrywając właśnie takie naruszenie, które test ma wykrywać.
+
+**Korekta:** przy utracie tytułu przeliczać stan wykonywania funkcji do S6* lub S6?, zamiast automatycznie kończyć faktyczne dopuszczenie. Oddzielić faktyczne zakończenie aktywności, cofnięcie dopuszczenia, śmierć i zdarzenie mające jedynie skutek dla tytułu. Gdy dalsza aktywność nie jest ustalona, zachować niepewność.
+
+### 13.2. Dwa zbiorcze warianty nie wyznaczają granic kworum
+
+**Miejsce:** Z3, wiersze 263–264.
+
+Zdanie „liczymy dwa warianty (wliczone / niewliczone) i podajemy wynik dolny i górny” wymaga doprecyzowania. Jeśli oznacza jednoczesne włączenie albo wyłączenie wszystkich osób o nieustalonym tytule, metoda jest błędna dla Z3.Qb. Kworum zależy zarówno od tytułów osób obecnych, jak i nieobecnych.
+
+Kontrprzykład: siedem osób ma ustalony tytuł, cztery z nich są obecne. Dwie dalsze osoby mają tytuł nieustalony; jedna jest obecna, druga nieobecna. Przy kworum „więcej niż połowa osób z tytułem”:
+
+| Tytuł osoby niepewnej obecnej | Tytuł osoby niepewnej nieobecnej | Obecni z tytułem / wszyscy z tytułem | Kworum |
+| --- | --- | --- | --- |
+| Nie | Nie | 4/7 | Spełnione |
+| Tak | Tak | 5/9 | Spełnione |
+| Nie | Tak | 4/8 | Niespełnione |
+| Tak | Nie | 5/8 | Spełnione |
+
+Dwa zbiorcze przypadki dają zgodny wynik, ale pomijają wariant naruszenia. Jest to przykład logiczny, nie ustalenie dotyczące rzeczywistego ZO.
+
+**Korekta:** niepewność rozstrzygać dla każdej osoby, badając wszystkie wspólnie dopuszczalne uzupełnienia danych albo stosując udowodnioną metodę wyznaczania granic. Uwzględnić korelacje, np. konkurujące tytuły do tego samego miejsca. Jeśli taki właśnie przegląd był zamierzony, trzeba zapisać to wprost zamiast mówić o dwóch wariantach globalnych.
+
+### 13.3. M3 nie powinien mnożyć dwukrotnie wspólnych parametrów M1
+
+**Miejsce:** graf zależności, wiersze 305–317, i F7.
+
+M2 obejmuje już M1. Zapis `M3 = M1 × M2 × ...`, odczytany jako zapowiedziany iloczyn, dubluje parametry obsady i może łączyć sprzeczne ustawienia tej samej interpretacji. M3 powinien używać **sumy zbiorów identyfikatorów parametrów** zależności M1 i M2, z jedną wartością każdego wspólnego parametru.
+
+Rachunek wyłącznie dla wymiarów wymienionych w tabeli, po wskazanym utożsamieniu M1, ale przed dalszymi filtrami:
+
+- M1: 192;
+- M2: `192 × 12 × 6 × 2 = 27648`;
+- M3 ze wspólną obsadą: `27648 × 2^6 = 1769472`;
+- dosłowne dodatkowe mnożenie przez M1: `192 × 1769472 = 339738624`.
+
+Nie są to liczby końcowe po wszystkich kontrolach. Pokazują różnicę między wspólną interpretacją a niezależnym powieleniem jej pól. Generator musi wykonywać złączenie po wspólnych identyfikatorach, nie niezależne losowanie tych samych parametrów drugi raz.
+
+F7 jest właściwą kontrolą, ale jej dowód powinien poprzedzać użycie ograniczonego przeglądu jako dowodu odporności. Obliczenia przygotowawcze można oznaczyć jako oczekujące na tę kontrolę. Należy też odróżniać logiczną spełnialność wariantu od występowania naruszeń w danym wariancie; samo wykrycie naruszenia nie może być powodem odrzucenia modelu przez F1.
+
+### 13.4. Zdania odrębne nie są pełną tabelą głosowania
+
+**Miejsce:** D6, wiersze 338–341; ocena W6d i wariant Z13b.
+
+Założenie „większość z informacji o zdaniach odrębnych” jest zbyt mocne. Zdanie odrębne może dotyczyć uzasadnienia albo tylko części rozstrzygnięcia. Brak zdania odrębnego nie musi dokumentować indywidualnego głosu za każdą częścią sentencji.
+
+Potwierdza to również treść dokumentu proceduralnego: art. 106 ust. 3 ustawy z 30 listopada 2016 r. mówi o możliwości zgłoszenia zdania odrębnego i obejmuje nim samo uzasadnienie; art. 108 ust. 1 pkt 7 odróżnia wynik głosowania od informacji o zgłoszeniu zdania odrębnego w pkt 9. Źródło: [Dz.U. 2016 poz. 2072](https://eli.gov.pl/api/acts/DU/2016/2072/text.html), odczytane także z lokalnego PDF. Jest to kontrola zawartości i znaczenia danych źródłowych, bez przyjmowania ustawy jako konstytucyjnego wzorca.
+
+**Korekta:** zapisywać wynik głosowania nad odpowiednią częścią rozstrzygnięcia z dokumentu, a zakres zdań odrębnych jako osobne dane. Przy braku wyniku zachować nieustalenie. Z13b może wymagać znajomości indywidualnego głosu osoby bez tytułu; sama liczba zdań odrębnych jej nie zapewnia. Usunięcie kilku osób i ich głosów należy rozpatrywać łącznie, według jawnej reguły, zamiast wykonywać wyłącznie osobne testy każdej osoby.
+
+### 13.5. Ocena publikacji pozostaje częściowo oceną ręczną
+
+Krok 8(b) stosuje już odrębną regułę, ale „czas oczekiwania nie budzi wątpliwości” (wiersze 406–407) nie jest warunkiem obliczalnym na podstawie samych dat. Także określenie, czy adnotacja zmienia „charakter” orzeczenia, wymaga oceny treści. W rejestrze trzeba zatem przewidzieć jawną, uzasadnioną ocenę interpretacyjną z autorem i źródłem albo pozostawić wynik NIEUSTALONY. N1 nie może pośrednio zastąpić tej oceny.
+
+Regułę z kroku 8(b) należy przedstawić prawnikowi jako regułę interpretacyjną do zatwierdzenia, a nie dosłowne brzmienie art. 190 ust. 2. Rozdzielić też zdarzenie odmowy od późniejszej publikacji i wyznaczania przedziału naruszenia. Zapowiedź działania i jego wykonanie są różnymi danymi.
+
+**Zakres wykonanej kontroli:** odczytano plan i mapę zmian; rachunkowo sprawdzono 216 → 192, zależności M2/M3 oraz cztery przypadki kontrprzykładu kworum. Są to kontrole planu i przykłady modelowe. Nie przeprowadzono historycznego testu, nie zatwierdzono parametrów i nie zmieniono `plan_tk.txt`.
+
+## 14. Stan po poprawkach wersji 4 (16 listopada 2026 r.)
+
+Plan zmieniono do wersji 4. Mapa zmian do pkt 13.1–13.5 znajduje się w pkt 16 planu.
+
+- **13.1:** tytuł i faktyczna funkcja są teraz osobnymi składowymi stanu. T7 kończy wyłącznie tytuł, a nowe T9 przenosi osobę do S6* (lub S6?) przy trwającym dopuszczeniu. Nowe T10 kończy funkcję tylko przy cofnięciu dopuszczenia, śmierci (E6a) albo udokumentowanym zaprzestaniu (E10). Kontrprzykład z pkt 13.1 daje teraz `T=0, F=1, B=1`. Dodano kontrolę F9.
+- **13.2:** zasada P10 wymaga rozstrzygania niepewności osobno dla każdego elementu, po wszystkich wspólnie dopuszczalnych uzupełnieniach i z uwzględnieniem korelacji. Zbiorcze warianty są dozwolone tylko przy dowodzie monotoniczności (F8). Z3.Qb uwzględnia osoby nieobecne. W kontrprzykładzie z pkt 13.2 wariant 4/8 prowadzi więc do wyniku NIEUSTALONY z listą uzupełnień dających naruszenie.
+- **13.3:** graf zależności zapisano jako sumę zbiorów `dep(M)`, z jedną wartością wspólnego parametru. Przyjęto liczby z recenzji: 192, 27 648 i 1 769 472. F7 poprzedza użycie przeglądu modułowego jako dowodu odporności. F1 nie odrzuca wariantów z powodu wykrytych naruszeń.
+- **13.4:** D6 rozdziela wynik głosowania (dla każdej części sentencji) od zdań odrębnych (autor, zakres). Krok 7 (c) i Z13b korzystają z wyniku głosowania, a Z13b usuwa wszystkie osoby bez tytułu łącznie. Brzmienie art. 106 ust. 3 i art. 108 ust. 1 pkt 7 i 9 ustawy z 30.11.2016 sprawdzono w tekście z API Sejmu.
+- **13.5:** zasada P11 wprowadza ocenę interpretacyjną (autor, uzasadnienie, źródło, status). Krok 8 (b) jest regułą R-PUB do zatwierdzenia przez prawnika. Wynik SPEŁNIONY wymaga zatwierdzonej oceny P11. D7 rozdziela zapowiedź odmowy, odmowę wykonaną, ogłoszenie i adnotację.
+
+Testu historycznego nadal nie przeprowadzono. Status parametrów i reguły R-PUB: roboczy.

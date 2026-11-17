@@ -1,7 +1,8 @@
 PLAN TESTU CIĄGŁOŚCI TRYBUNAŁU KONSTYTUCYJNEGO
-Wersja 3, stan na 2026-11-16
+Wersja 4, stan na 2026-11-16
 Poprawki według recenzji TK/Weryfikacja_planu_tk.md, sekcje 2-9 (wersja 2,
-mapa w pkt 14) i sekcja 11 (wersja 3, mapa w pkt 15)
+mapa w pkt 14), sekcja 11 (wersja 3, mapa w pkt 15) i sekcja 13
+(wersja 4, mapa w pkt 16)
 
 
 1. PYTANIE I ZASADY
@@ -43,6 +44,23 @@ P8  POKRYCIE. Każdy warunek, którego test nie sprawdza, raport wymienia
 P9  WSKAŹNIK ≠ WZORZEC. Wielkości liczbowe przyjęte do analizy (N1, X
     w K4, T w Z1d) opisują dane. Nie definiują pojęć konstytucyjnych.
     Ich przekroczenie nie oznacza samo przez się naruszenia wzorca.
+P10 NIEPEWNOŚĆ ELEMENT PO ELEMENCIE. Fakt NIEUSTALONY (tytuł osoby,
+    obecność, głos, kolejność zdarzeń) rozstrzygamy dla każdego elementu
+    osobno. Badamy wszystkie WSPÓLNIE DOPUSZCZALNE uzupełnienia danych,
+    czyli takie, które są spójne z wariantem Interpretacji i
+    z ograniczeniami korelacji. Przykład korelacji: dwie osoby roszczące
+    sobie prawo do tego samego wakatu nie mogą mieć tytułu jednocześnie, a
+    status osoby musi być taki sam we wszystkich modułach. Granice
+    dolna i górna to minimum i maksimum po tym zbiorze. Skrót przez
+    zbiorcze warianty "wszyscy wliczeni / wszyscy niewliczeni" jest
+    niedozwolony, chyba że dla danej miary udowodniono monotoniczność
+    (kontrola F8). Kontrprzykład dla kworum: recenzja, pkt 13.2.
+P11 OCENA INTERPRETACYJNA. Jeżeli warunek wymaga oceny treści, a nie
+    obliczenia z danych (np. czy adnotacja zmienia charakter orzeczenia),
+    rejestr przechowuje jawną ocenę z polami: autor, data, uzasadnienie,
+    źródło, status (robocza / zatwierdzona przez recenzenta). Bez takiej
+    oceny wynik jest NIEUSTALONY. Wskaźnik liczbowy (P9) nie zastępuje
+    oceny.
 
 
 2. WZORCE KONSTYTUCYJNE (zamknięta lista)
@@ -162,9 +180,16 @@ L15  Skutek orzeczenia bez wymaganej większości (W6d). Pokrycie:
      E4 DOPUSZCZENIE do wykonywania funkcji (np. przydział spraw);
                      E4- to cofnięcie dopuszczenia
      E5 UDZIAŁ     - udział w konkretnym orzeczeniu (skład z dokumentu
-                     orzeczenia)
-     E6 KONIEC     - śmierć, zrzeczenie, stan spoczynku, wygaśnięcie
-                     (upływ kadencji jest liczony, a nie zapisywany)
+                     orzeczenia) lub inna udokumentowana czynność
+                     w funkcji (np. udział w ZO); dowód aktywności
+     E6 KONIEC TYTUŁU, rozdzielony według skutku:
+        E6a ŚMIERĆ        - kończy tytuł i funkcję
+        E6b ZRZECZENIE, STAN SPOCZYNKU, WYGAŚNIĘCIE - kończą tylko tytuł
+                            (upływ kadencji jest liczony, a nie
+                            zapisywany, i ma ten sam skutek co E6b)
+     E10 ZAKOŃCZENIE AKTYWNOŚCI - udokumentowane faktyczne zaprzestanie
+                     wykonywania funkcji (np. opuszczenie TK, przekazanie
+                     spraw); data ostatniego E5 nie jest sama w sobie E10
      E7 POWOŁANIE  - postanowienie Prezydenta o Prezesie lub Wiceprezesie
                      albo o powierzeniu obowiązków
      E8 UCHWAŁA ZO - kto zwołał, obecni, głosujący, głosy, kandydaci
@@ -199,10 +224,21 @@ L15  Skutek orzeczenia bez wymaganej większości (W6d). Pokrycie:
      T6  S4 → S5 według Z1 (a: od razu; b: z E2 wobec Prezydenta;
          c: z E2 wobec Prezydenta, a do tego czasu tytuł NIEUSTALONY;
          d: z E2 albo po T dniach od S4)
-     T7  S5/S6 → S7 przy E6 albo z końcem kadencji (pkt 4.5)
+     T7  S5/S6 → S7 (koniec tytułu) przy E6a, E6b albo z końcem kadencji
+         (pkt 4.5). T7 dotyczy TYTUŁU, a nie faktycznej funkcji.
      T8  S4 bez spełnienia Z1 przed końcem kadencji → S8. Ślubowanie
          złożone po końcu kadencji (liczonej według Z2a) nie daje S5.
-     T9  E4- albo S7 → koniec S6/S6*/S6?
+     T9  Utrata tytułu przy trwającym dopuszczeniu: S6 → S6*, gdy koniec
+         tytułu jest ustalony, albo S6 → S6?, gdy jest NIEUSTALONY.
+         Faktyczna funkcja trwa dalej do T10.
+     T10 Koniec funkcji (S6, S6*, S6? → brak funkcji) TYLKO przy:
+         E4- (cofnięcie dopuszczenia), E6a (śmierć) albo E10
+         (udokumentowane zaprzestanie). Po E6b lub końcu kadencji bez
+         E4-/E10: jeżeli są dowody dalszej aktywności (E5), osoba
+         pozostaje w S6*; jeżeli dalsza aktywność jest NIEUSTALONA,
+         przedział od końca tytułu do ostatniego E5 (lub do tEnd, jeżeli
+         brak danych) ma status "funkcja NIEUSTALONA" i wchodzi do B(t)
+         tylko w granicy górnej.
      Konkurujące tytuły: do jednego wakatu w danym dniu może prowadzić
      co najwyżej jedno S4. Pierwszeństwo ma wcześniejszy dzień przejścia
      do S4; przy równym dniu - wcześniejsze E1. Jeżeli dane nie
@@ -260,8 +296,13 @@ Z3  Zgromadzenie Ogólne (L4), cztery składowe:
     Z3.M większość: a) co najmniej 8 głosów osób z tytułem;
          b) większość głosujących osób z tytułem;
          c) większość obecnych osób z tytułem.
-    Osoby o tytule NIEUSTALONYM nie są parametrem. Liczymy dwa warianty
-    (wliczone / niewliczone) i podajemy wynik dolny i górny.
+    Osoby o tytule NIEUSTALONYM nie są parametrem. Ich status
+    rozstrzygamy osobno dla każdej osoby (P10), obecnej i nieobecnej,
+    po wszystkich wspólnie dopuszczalnych uzupełnieniach. Kworum według
+    Z3.Qb zależy także od osób nieobecnych. Wynik uchwały ZO:
+    SPEŁNIONY / NARUSZONY tylko wtedy, gdy jest jednakowy we wszystkich
+    uzupełnieniach; w przeciwnym razie NIEUSTALONY z listą uzupełnień
+    prowadzących do naruszenia.
 Z4  Wybór na wakat zajęty (L6): Z4a trwale niedopuszczalny; Z4b przejście
     do S4 (T3), z zakresem Z4.R1 / Z4.R2 (tabela 4.6).
 Z5  Prezes (L8): Z5a Konstytucja nie ogranicza kadencji Prezesa; Z5b
@@ -292,9 +333,13 @@ Z12 Tryb wyboru przez Sejm (L13, W12): Z12a reguła z art. 120 zdanie
     (P2, dana). Sprawdzane warunki: kworum, większość, odrębne
     głosowanie nad każdym kandydatem. Zgłoszenie kandydata i opinia
     komisji sprawdzamy tylko w Z12b, inaczej NIEPOKRYTE.
-Z13 Skutek udziału osoby bez tytułu w składzie (L14): Z13a orzeczenie
-    wadliwe; Z13b wadliwe tylko wtedy, gdy bez głosu tej osoby nie
-    byłoby większości (W6d) albo kworum (Z11).
+Z13 Skutek udziału osób bez tytułu w składzie (L14): Z13a orzeczenie
+    wadliwe; Z13b wadliwe tylko wtedy, gdy po ŁĄCZNYM usunięciu
+    wszystkich osób bez tytułu i ich głosów (osoby z tytułem
+    NIEUSTALONYM - według P10) nie byłoby większości (W6d) albo kworum
+    (Z11). Z13b wymaga indywidualnych głosów tych osób (D6). Bez nich
+    wynik Z13b jest NIEUSTALONY, chyba że rozstrzyga go każdy możliwy
+    rozkład głosów zgodny z danymi.
 Z14 Skutek konfliktu interesów (L12): Z14a orzeczenie wadliwe;
     Z14b skutek NIEUSTALONY.
 N1  Wskaźnik czasu oczekiwania na ogłoszenie (P9): N1 ∈ {14, 30, 60} dni.
@@ -302,23 +347,29 @@ N1  Wskaźnik czasu oczekiwania na ogłoszenie (P9): N1 ∈ {14, 30, 60} dni.
     rozstrzyga o W6b.
 K   Kryteria klasyfikacji (pkt 9). Nie wchodzą do rachunku naruszeń.
 
-5.1  LICZBA WARIANTÓW. Liczy ją skrypt z tabeli parametrów. Iloczyn
-     wszystkich wymiarów nie jest celem obliczeń. Każdy wynik zależy
-     tylko od części parametrów (GRAF ZALEŻNOŚCI), więc przegląd
-     wykonujemy dla każdego modułu na iloczynie jego parametrów:
-     M1 obsada (kroki 3-5):     Z1(a,b,c,d×T: 6) × Z2(2) × Z4(1 + 2 = 3)
-                                 × Z7(3) × Z12(2) = 216 (po utożsamieniu
-                                 z 4.6: 216 - 24 = 192)
-     M2 kierownictwo (krok 6):  M1 × Z3(C2 × Q2 × M3 = 12) × Z5(2 × Z5.Z 3)
-                                 × Z8(2)
-     M3 orzeczenia (krok 7):    M1 × M2 × Z6(2) × Z9(2) × Z10(2) × Z11(2)
-                                 × Z13(2) × Z14(2)
-     M4 publikacja (krok 8):    niezależna od Z; N1(3) tylko w tabeli E
-     Liczby dla M2 i M3 skrypt przelicza po filtrze dopuszczalności (F1).
-     Dla porównania z recenzją, w poprzednim zakresie wymiarów (wersja 2)
-     było 9216 / 13824 (z T) / 41472 (z T i N1). Wersja 3 dodaje Z3.C,
-     Z3.M(3), Z4.R, Z11-Z14. Żadna z tych liczb nie jest "zbiorem
-     wszystkich modeli dopuszczonych przez P2". To zbiór zbadany.
+5.1  LICZBA WARIANTÓW. Liczy ją skrypt z tabeli parametrów. Każdy wynik
+     zależy tylko od części parametrów (GRAF ZALEŻNOŚCI). Zależności
+     modułu to SUMA ZBIORÓW identyfikatorów parametrów, a nie iloczyn
+     modułów. Wspólny parametr ma w jednym wariancie JEDNĄ wartość.
+     Generator wykonuje złączenie po wspólnych identyfikatorach, a nie
+     ponowne losowanie tych samych pól:
+     dep(M1) = {Z1(z T), Z2, Z4(z Z4.R), Z7, Z12}
+               216 wariantów, po utożsamieniu z 4.6: 192
+     dep(M2) = dep(M1) ∪ {Z3(C, Q, M), Z5(z Z5.Z), Z8}
+               192 × 12 × 6 × 2 = 27 648
+     dep(M3) = dep(M2) ∪ {Z6, Z9, Z10, Z11, Z13, Z14}
+               27 648 × 2^6 = 1 769 472
+     dep(M4) = ∅ (N1 tylko w tabeli E, 3 wartości)
+     Są to liczby PRZED filtrem F1, przed alternatywami danych A,
+     uzupełnieniami niepewności (P10) i wariantami kolejności zdarzeń.
+     Dla porównania: dosłowne mnożenie M1 × M2 × ... dawałoby
+     339 738 624 i łączyło sprzeczne ustawienia tej samej interpretacji.
+     Wersja 2 miała 9216 / 13824 (z T) / 41472 (z T i N1) w węższym
+     zakresie wymiarów. Żadna z tych liczb nie jest "zbiorem wszystkich
+     modeli dopuszczonych przez P2". To zbiór zbadany.
+     Przegląd modułowy można uznać za dowód odporności dopiero po
+     udowodnieniu F7. Wcześniejsze obliczenia przygotowawcze mają status
+     "oczekuje na F7".
 
 
 6. DANE WEJŚCIOWE (fakty, z identyfikatorem źródła i statusem
@@ -336,12 +387,32 @@ D4  Postanowienia Prezydenta (E7) z M.P.
 D5  Uchwały i protokoły ZO (E8), w tym kto zwołał oraz liczby obecnych,
     głosujących i głosów. Kompletność obecnie niska.
 D6  Orzeczenia: wyroki i postanowienia kończące postępowanie w sprawach
-    z art. 188 i 189 (z 79 i 193), z bazy IPO TK. Skład z dokumentu
-    orzeczenia, większość z informacji o zdaniach odrębnych. Deduplikacja
-    po sygnaturze i dacie; kompletność kontrolowana z OTK ZU.
+    z art. 188 i 189 (z 79 i 193), z bazy IPO TK. Dla każdego
+    orzeczenia osobno:
+    - skład z dokumentu orzeczenia,
+    - WYNIK GŁOSOWANIA dla każdej części sentencji (np. "jednogłośnie",
+      "większością głosów", liczby głosów, jeżeli dokument je podaje),
+    - indywidualne głosy, tylko jeżeli wynikają z dokumentu,
+    - ZDANIA ODRĘBNE jako osobne dane: autor i zakres (cała sentencja,
+      jej część, wyłącznie uzasadnienie).
+    Zdanie odrębne NIE zastępuje wyniku głosowania, bo może dotyczyć
+    samego uzasadnienia. Brak zdania odrębnego nie dokumentuje głosu
+    "za" każdą częścią sentencji. Uwaga o źródle: według ustawy
+    z 30.11.2016 (Dz.U. 2016 poz. 2072, art. 106 ust. 3 i art. 108 ust. 1
+    pkt 7 i 9) zdanie odrębne "może dotyczyć także samego uzasadnienia",
+    a wynik głosowania i informacja o zdaniu odrębnym to różne elementy
+    orzeczenia. To opis znaczenia danych źródłowych, a nie wzorzec (P1).
+    Brak wyniku głosowania oznacza NIEUSTALONY. Deduplikacja po
+    sygnaturze i dacie; kompletność kontrolowana z OTK ZU.
 D7  Ogłoszenia orzeczeń (Dz.U., M.P.) oraz dane o przekazaniu do
-    ogłoszenia i o decyzjach w sprawie ogłoszenia (np. oświadczenia
-    organu o odmowie). Bez nich przyczyna jest NIEUSTALONA.
+    ogłoszenia i o decyzjach w sprawie ogłoszenia, rozdzielone na:
+    O1 ZAPOWIEDŹ odmowy (oświadczenie o zamiarze),
+    O2 ODMOWA WYKONANA (decyzja lub czynność organu właściwego
+       do ogłoszenia, z datą),
+    O3 OGŁOSZENIE (data, organ urzędowy, ewentualna adnotacja),
+    O4 ADNOTACJA przy ogłoszeniu (treść; jej ocenę zapisujemy według P11).
+    Zapowiedź nie jest wykonaniem. Bez tych danych przyczyna jest
+    NIEUSTALONA.
 D8  Zdarzenia E6.
 D9  Przedziały kadencji Sejmu (4.7).
 D10 Dopuszczenia do funkcji i ich cofnięcia (E4, E4-).
@@ -353,20 +424,22 @@ To NIE jest kompletny rejestr.
 
 7. PROCEDURA
 
-Krok 1  Rejestr zdarzeń E1-E9 i danych D9, D11 z identyfikatorami osób,
+Krok 1  Rejestr zdarzeń E1-E10 i danych D9, D11 z identyfikatorami osób,
         zdarzeń i dokumentów. Walidator: jeden identyfikator na osobę,
         brak podwójnego zaliczenia, pola NIEUSTALONE jawne, każde pole
         ze źródłem.
 Krok 2  Przyporządkowanie wyborów do zamierzonych wakatów (4.1),
         z alternatywami A.
-Krok 3  Dla każdego wariantu M1 i alternatywy danych: przejścia T1-T9
-        (4.4) i rozstrzygnięcie konkurujących tytułów.
+Krok 3  Dla każdego wariantu M1, alternatywy danych i uzupełnienia
+        niepewności (P10): przejścia T1-T10 (4.4) i rozstrzygnięcie
+        konkurujących tytułów.
 Krok 4  Liczniki dzienne w oknie (4.5), liczone z rejestru tytułów
         i dopuszczeń, NIE z dni rozpraw:
         T(t)  osoby z tytułem (S5, S6),
         F(t)  osoby w funkcji (S6, S6*, S6?),
-        B(t)  osoby w funkcji bez tytułu (S6*) - wynik dolny i górny przy
-              tytułach NIEUSTALONYCH,
+        B(t)  osoby w funkcji bez tytułu (S6*, w tym po utracie tytułu
+              przy trwającej aktywności - T9, T10); S6? i "funkcja
+              NIEUSTALONA" tylko w granicy górnej; granice według P10,
         W(t)  wakaty bez żadnego roszczenia,
         Z(t)  wakaty z wybranym, ale nieobjętym kandydatem,
         U(t)  wakaty z roszczeniami sprzecznymi lub nieustalonymi.
@@ -387,7 +460,10 @@ Krok 7  Ocena orzeczeń (M3), od 2015-10-01. Dla każdego orzeczenia
         wada                          wykrycie      skutek
         (a) członek bez tytułu        krok 3        Z13
         (b) wadliwe wyznaczenie       krok 6        Z9
-        (c) brak większości           W6d, D6       NIEUSTALONY (L15)
+        (c) brak większości           W6d, wynik    NIEUSTALONY (L15)
+                                      głosowania
+                                      (D6, nie
+                                      zdania odr.)
         (d) kworum / liczebność       Z11           przy Z11a NIEUSTALONY,
                                                     przy Z11b NIEPOKRYTY
         (e) konflikt interesów        Z10           Z14
@@ -398,15 +474,22 @@ Krok 7  Ocena orzeczeń (M3), od 2015-10-01. Dla każdego orzeczenia
 Krok 8  Publikacja (M4), od 2015-10-01, dla orzeczeń w sprawach z art. 188:
         (a) czas oczekiwania na ogłoszenie (w dniach) i przekroczenia
             wskaźników N1 - wyłącznie opis danych (P9),
-        (b) ocena W6b:
-            NARUSZONY - gdy dane D7 wskazują decyzję lub oświadczenie
-                        organu o odmowie ogłoszenia, albo gdy orzeczenie
-                        ogłoszono z zastrzeżeniem zmieniającym jego treść
-                        lub charakter,
-            SPEŁNIONY - gdy ogłoszono bez takich okoliczności, a czas
-                        oczekiwania nie budzi wątpliwości,
+        (b) ocena W6b według REGUŁY INTERPRETACYJNEJ R-PUB. To reguła
+            modelu do zatwierdzenia przez prawnika, a nie dosłowne
+            brzmienie art. 190 ust. 2:
+            NARUSZONY - od dnia ODMOWY WYKONANEJ (D7 O2) do dnia
+                        ogłoszenia (D7 O3) albo do tEnd; także przy
+                        ogłoszeniu z adnotacją, którą ocena
+                        interpretacyjna (P11) uznała za zmieniającą treść
+                        lub charakter orzeczenia; sama ZAPOWIEDŹ (D7 O1)
+                        nie wystarcza,
+            SPEŁNIONY - tylko wtedy, gdy istnieje zatwierdzona ocena
+                        interpretacyjna (P11), że ogłoszenie nastąpiło
+                        niezwłocznie, z uzasadnieniem odnoszącym się do
+                        danych tej sprawy; czas oczekiwania i wskaźniki
+                        N1 mogą być jej materiałem, ale jej nie zastępują,
             NIEUSTALONY - w pozostałych przypadkach, w tym przy samym
-                        upływie czasu bez danych D7,
+                        upływie czasu bez danych D7 i bez oceny P11,
         (c) przyczyna i organ - tylko z danych D7,
         (d) W6a i W6c oceniane osobno: ostateczność, wejście w życie
             i odroczenie.
@@ -429,7 +512,8 @@ Tabela C  Naruszenia: wymóg (W) x osoba/czynność x przedział x status
 Tabela D  Orzeczenia: wady wykryte (a-e) i skutki według Z9/Z13/Z14
           rocznie, z mianownikiem i statusem kompletności roku.
 Tabela E  Publikacja: czas oczekiwania, przekroczenia N1 (opis), ocena
-          W6b według kroku 8 b, przyczyna (lub NIEUSTALONA).
+          W6b według R-PUB (krok 8 b), zdarzenia O1-O4 osobno, oceny
+          interpretacyjne P11 z autorem, przyczyna (lub NIEUSTALONA).
 Tabela F  Odporność: dla każdego wyniku zbiór wariantów, w których
           zachodzi, oraz parametry, które go zmieniają.
 Tabela G  Pokrycie: warunki NIEPOKRYTE (P8) z powodem.
@@ -527,11 +611,15 @@ LEAN/Konstytucja/TK/CiagloscDane.lean (dane generowane z
 LEAN/dane/tk_rejestr.csv; wersja danych w nagłówku).
 - Typy: Osoba, Zdarzenie, Wakat, Stan (S1-S8, S6*, S6?), Wynik3, Pokrycie,
   Interpretacja (Z1-Z14 jako pola struktury; N1 i K poza nią).
-- Przejścia T1-T9 jako funkcja totalna stanu i zdarzenia.
+- Przejścia T1-T10 jako funkcja totalna stanu i zdarzenia; tytuł
+  i faktyczna funkcja jako dwie osobne składowe stanu.
 - Miejsca/wakaty oznaczone jako definicje pomocnicze.
 Kontrole przed twierdzeniami o datach:
 F1  Dopuszczalność i osiągalność każdej analizowanej kombinacji
-    (Z7 i Z11 plan.txt) oraz utożsamienia z 4.6.
+    (Z7 i Z11 plan.txt) oraz utożsamienia z 4.6. F1 odrzuca wariant
+    WYŁĄCZNIE z powodu logicznej niespełnialności lub nieosiągalności,
+    NIGDY z powodu wykrytych w nim naruszeń. Spełnialność modelu
+    i występowanie naruszeń to różne własności.
 F2  Poprawność rejestru (unikalność, brak podwójnego zaliczenia,
     konkurujące tytuły, pola nieustalone).
 F3  Zgodność liczników (krok 4) z predykatami modelu oraz granice czasu.
@@ -540,7 +628,14 @@ F5  Wszystkie przedziały naruszeń, przywróceń i nieustaleń oraz zakres
     odporności.
 F6  Brak sorryAx i niedozwolonych aksjomatów (Skrypty/KontrolaProjektu.lean).
 F7  Graf zależności (5.1) - twierdzenie, że wynik modułu nie zależy od
-    parametrów spoza jego listy (uzasadnia przegląd modułowy).
+    parametrów spoza dep(M), oraz że wspólny parametr ma jedną wartość
+    w złączeniu modułów. Dowód F7 POPRZEDZA użycie przeglądu modułowego
+    jako dowodu odporności (5.1).
+F8  Granice niepewności (P10) - albo pełny przegląd wspólnie
+    dopuszczalnych uzupełnień, albo twierdzenie o monotoniczności miary
+    względem statusu pojedynczego elementu, uzasadniające skrót.
+F9  Rozdzielenie tytułu i funkcji (T7, T9, T10) - twierdzenie, że utrata
+    tytułu bez E4-, E6a lub E10 nie zmniejsza F(t).
 Lean potwierdza konsekwencje definicji i danych. NIE potwierdza, że
 definicje (w szczególności K) wiernie odtwarzają Konstytucję.
 
@@ -599,3 +694,40 @@ kontrole F1-F6.
 11.7 Kolejność prac (pkt 10) rozdziela prace możliwe już teraz (rejestr,
      walidator, generator wariantów, propagacja niepewności) od obliczeń
      wymagających zatwierdzenia parametrów. Wyniki częściowe są dozwolone.
+
+
+16. ZMIANY: WERSJA 3 → 4 (recenzja, sekcja 13)
+
+13.1 Tytuł oddzielony od faktycznej funkcji. T7 kończy wyłącznie tytuł.
+     Nowe T9: utrata tytułu przy trwającym dopuszczeniu prowadzi do S6*
+     (lub S6?). Nowe T10: koniec funkcji tylko przy E4-, E6a (śmierć)
+     albo E10 (udokumentowane zaprzestanie). E6 rozdzielono na E6a
+     i E6b. E5 obejmuje każdą udokumentowaną czynność w funkcji.
+     Niepewna dalsza aktywność daje "funkcja NIEUSTALONA" (granica
+     górna B(t)). Kontrola F9.
+13.2 Dodano zasadę P10: niepewność rozstrzygana osobno dla każdego
+     elementu, z korelacjami (konkurujące tytuły, spójność między
+     modułami). Zakazano zbiorczych wariantów "wszyscy wliczeni /
+     niewliczeni" bez dowodu monotoniczności (F8). Z3: kworum Z3.Qb
+     uwzględnia osoby nieobecne, a wynik ZO jest rozstrzygnięty tylko
+     przy zgodności wszystkich uzupełnień. Z13b: łączne usunięcie
+     wszystkich osób bez tytułu.
+13.3 Graf zależności jako suma zbiorów parametrów (dep), z jedną
+     wartością wspólnego parametru i złączeniem po identyfikatorach.
+     Liczby: M1 192, M2 27 648, M3 1 769 472 (przed F1, A, P10
+     i kolejnością zdarzeń). F7 musi być udowodnione przed użyciem
+     przeglądu modułowego jako dowodu odporności. F1 nie odrzuca
+     wariantów z powodu wykrytych naruszeń.
+13.4 D6: wynik głosowania dla każdej części sentencji i zdania odrębne
+     (autor, zakres) jako osobne dane. Brak wyniku głosowania daje
+     NIEUSTALONY. Krok 7 (c) i Z13b korzystają z wyniku głosowania,
+     a nie ze zdań odrębnych. Sprawdzono w Dz.U. 2016 poz. 2072:
+     art. 106 ust. 3 ("Zdanie odrębne może dotyczyć także samego
+     uzasadnienia") i art. 108 ust. 1 pkt 7 i 9.
+13.5 Dodano zasadę P11 (ocena interpretacyjna z autorem, uzasadnieniem
+     i statusem). Krok 8 b jako reguła interpretacyjna R-PUB do
+     zatwierdzenia. SPEŁNIONY tylko przy zatwierdzonej ocenie P11. Usunięto
+     nieobliczalny warunek "czas oczekiwania nie budzi wątpliwości".
+     D7: zapowiedź odmowy (O1), odmowa wykonana (O2), ogłoszenie (O3)
+     i adnotacja (O4) to osobne zdarzenia; przedział naruszenia biegnie
+     od O2 do O3.

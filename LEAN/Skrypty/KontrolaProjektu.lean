@@ -2,11 +2,13 @@ import Lean
 
 /-! # Kontrola projektu (zasada Z6)
 
-Uruchomienie z katalogu LEAN/, po `lake build`:
+Uruchomienie z katalogu LEAN/, po zbudowaniu biblioteki i `lake build tk_test`:
 `lake env lean --run Skrypty/KontrolaProjektu.lean`
 
-Lista modułów pochodzi z dysku, a nie z importów, więc obejmuje też pliki niezaimportowane.
-Plik `.lean` spoza biblioteki nie ma skompilowanej wersji, dlatego kończy kontrolę błędem.
+Lista modułów biblioteki pochodzi z dysku, a nie z importów, więc obejmuje też pliki
+niezaimportowane. Dodajemy program `Skrypty.TK`, budowany przez `lake build tk_test`.
+Pozostałe skrypty oraz katalog `.lake` nie są objęte kontrolą.
+Brak skompilowanej wersji któregokolwiek z badanych modułów kończy kontrolę błędem.
 Każda deklaracja może zależeć tylko od trzech standardowych aksjomatów Lean. Skrypt sprawdza
 też, czy nazwy z `dane/rejestr.csv` istnieją w skompilowanym środowisku, a nie tylko w tekście.
 -/
@@ -22,8 +24,9 @@ def nazwaModułu (plik : System.FilePath) : Name :=
 def plikiProjektu : IO (Array System.FilePath) := do
   let wszystkie ← System.FilePath.walkDir "." fun k =>
     pure !(pominięte.contains (k.fileName.getD ""))
-  return wszystkie.filter (·.extension == some "lean") |>.map fun p =>
-    ⟨(p.toString.dropPrefix "./").toString⟩
+  let biblioteka := wszystkie.filter (·.extension == some "lean") |>.map fun p =>
+    (⟨(p.toString.dropPrefix "./").toString⟩ : System.FilePath)
+  return biblioteka.push "Skrypty/TK.lean"
 
 def złeAksjomaty (env : Environment) (nazwa : Name) : IO (Array Name) := do
   let dozwolone := [``propext, ``Classical.choice, ``Quot.sound]

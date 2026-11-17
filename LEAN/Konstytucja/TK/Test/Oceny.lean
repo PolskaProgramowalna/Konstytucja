@@ -266,6 +266,8 @@ def step8 (r : Registry) : Array Publication := Id.run do
       let res := match e.a "wynik" with | "spelniony" => fulfilled | "naruszony" => violated | _ => unknown
       p := {p with result := res,cause := if res == violated then e.a "organ" "-" else if res == unknown then unknown else "-",notes := #[s!"ocena {e.id} ({e.a "autor"})"]}
     else
+      if events.any (fun e => e.a "zdarzenie" == "O2") then
+        p := {p with notes := p.notes.push "O2 o pewności nieustalonej - wymaga oceny P11"}
       if events.any (fun e => e.a "zdarzenie" == "O1") && !events.any (fun e => e.a "zdarzenie" == "O2") then
         p := {p with notes := p.notes.push "tylko zapowiedź (O1); nie jest odmową wykonaną"}
       if p3.isNone then p := {p with notes := p.notes.push "sam upływ czasu nie rozstrzyga W6b (R-PUB)"}

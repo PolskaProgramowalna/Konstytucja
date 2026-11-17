@@ -14,3 +14,4 @@ stan=$(sha256sum dane/*.csv dane/artykuly.txt)
   echo "Dane były nieaktualne względem rejestru lub PDF" >&2
   exit 1
 }
+bash ../skrypty/test_oblicz_tk.sh

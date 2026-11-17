@@ -3,7 +3,7 @@
 #
 # Użycie (z dowolnego katalogu):
 #   ./oblicz_tk.sh                          # wynik -> TK/Wynik_testu_ciaglosci.md
-#   ./oblicz_tk.sh -o /tmp/wynik.md         # inny plik wynikowy
+#   ./oblicz_tk.sh -o /tmp/wynik.md         # wynik i /tmp/wynik.przygotowanie.md
 #   ./oblicz_tk.sh --bez-ad ad1_brak_innych_E6   # wyłączenie założenia danych (można powtarzać)
 #   ./oblicz_tk.sh --limit-m1 2 -o /tmp/proba.md  # jawna próba techniczna
 #
@@ -13,13 +13,16 @@ set -euo pipefail
 
 KATALOG="$(cd "$(dirname "$0")" && pwd)"
 WYJSCIE="$KATALOG/TK/Wynik_testu_ciaglosci.md"
+PRZYGOTOWANIE="$KATALOG/TK/Przygotowanie_testu.md"
 DODATKOWE=()
 
 while [ $# -gt 0 ]; do
   case "$1" in
     -o|--wyjście)
       [ "$#" -ge 2 ] || { echo "Brak ścieżki po $1" >&2; exit 2; }
-      WYJSCIE="$(realpath -m "$2")"; shift 2 ;;
+      WYJSCIE="$(realpath -m "$2")"
+      PRZYGOTOWANIE="${WYJSCIE%.md}.przygotowanie.md"
+      shift 2 ;;
     --bez-ad|--limit-m1)
       [ "$#" -ge 2 ] || { echo "Brak wartości po $1" >&2; exit 2; }
       DODATKOWE+=("$1" "$2"); shift 2 ;;
@@ -39,7 +42,7 @@ echo "== 2/4 Testy jednostkowe"
 "$TK_TEST" testy --repo "$KATALOG"
 
 echo "== 3/4 Raport przygotowawczy"
-"$TK_TEST" przygotuj --repo "$KATALOG" "${DODATKOWE[@]}"
+"$TK_TEST" przygotuj --repo "$KATALOG" --wyjście "$PRZYGOTOWANIE" "${DODATKOWE[@]}"
 
 echo "== 4/4 Obliczenie skompilowanym programem Lean"
 start=$(date +%s)

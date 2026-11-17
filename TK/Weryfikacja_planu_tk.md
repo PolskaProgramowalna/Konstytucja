@@ -496,3 +496,43 @@ Kontrole migracji:
 Próby techniczne przyjmują `--limit-m1 N` lub `--moduł M1|M2|M3` i mają w raporcie wyraźne oznaczenie **NIEPEŁNY PRZEGLĄD**. Polecenie `oblicz` nadal wymaga `--roboczo`. Parametry Z, AD i R-PUB pozostają robocze; F1 (osiągalność), F3 (zgodność algorytmu z modelem pomocniczym), F5, F7 i F8 pozostają otwarte. Zgodność wybranych wyników podczas migracji jest testem, a nie dowodem pełnej równoważności.
 
 Nie zmieniono danych `tk_rejestr.csv` ani istniejącego `TK/Wynik_testu_ciaglosci.md`. Nowe raporty prób zapisano do `/tmp`; odświeżono wyłącznie raport przygotowawczy. Nie wydano nowego werdyktu o TK. Odwołania do plików Pythona w sekcjach 17–18 są historyczne; ich kod można odczytać np. przez `git show 11ca2dd:LEAN/dane/tk/oceny.py`.
+
+## 20. Korekty po weryfikacji migracji (17 listopada 2026 r.)
+
+Migracja znajduje się w commicie `00d9a19` („kod python zastąpiony lean 4”);
+stan zastany przy tych poprawkach to `d21ed9d`. Stwierdzenie o niezmienionym
+wyniku w sekcji 19 nie opisuje całego późniejszego stanu drzewa: już przed
+rozpoczęciem tej rundy `TK/Wynik_testu_ciaglosci.md` różnił się od commitu.
+Nie ustalono w tej rundzie autora ani czasu jego przeliczenia. Informacja
+„nie commitowano” dotyczy czynności danej rundy, a nie braku commitu migracji.
+
+Poprawki do uwag o implementacji:
+
+- **Uwaga przy R-PUB:** przy nieustalonej odmowie O2 i braku zatwierdzonej
+  oceny ponownie wypisywane jest „O2 o pewności nieustalonej - wymaga oceny
+  P11”. Wynik pozostaje NIEUSTALONY. Testy obejmują wskazówkę dla K 34/15,
+  jej zapis w tabeli E oraz odróżnienie od samej zapowiedzi O1 i pewnej O2.
+- **Walidator:** testy porównują dokładny zestaw komunikatów, z zachowaniem
+  ich krotności i bez zależności od kolejności. Obejmują też osobno błędny
+  wakat i status oceny oraz poprawne dane, które nie powinny dawać błędów.
+  Rekord z błędną pewnością nie zastępuje już testu odwołania do wakatu:
+  parser odrzuca taki rekord przed właściwą walidacją.
+- **Kontrola aksjomatów:** obok modułów biblioteki kontrola importuje
+  skompilowany `Skrypty.TK`. Pozostałe skrypty nadal są poza jej zakresem.
+  Nie oznacza to dowodu poprawności obsługi IO ani zamknięcia F3.
+- **Wyjście skryptu:** `oblicz_tk.sh -o /tmp/wynik.md` zapisuje raport
+  przygotowawczy do `/tmp/wynik.przygotowanie.md`. Bez `-o` zachowuje
+  standardowe ścieżki. `--wyjście` działa tak samo; dla nazwy bez `.md`
+  końcówka `.przygotowanie.md` jest dopisywana. Test integracyjny sprawdza
+  oba przełączniki, ścieżkę względną, spacje, nowy podkatalog i brak zmian
+  obu standardowych raportów. Wchodzi do `LEAN/sprawdź.sh`.
+
+Pełne `LEAN/sprawdź.sh` przeszło: 53 moduły, 6018 deklaracji bez
+niedozwolonych aksjomatów, 136 wierszy CSV bez błędów i ostrzeżeń,
+52 kontrole Lean (wliczając aktualność wygenerowanych danych) oraz testy
+integracyjne obu przełączników wyjścia. Wymagania F1, F3, F5, F7 i F8
+oraz status parametrów i założeń pozostają otwarte. W tej rundzie
+wykonano próby techniczne z `--limit-m1 1`, a nie ponowne pełne obliczenie
+historyczne. Zastane pliki
+wyniku, raportu przygotowawczego i CSV są chronione porównaniem SHA-256
+przed i po sprawdzeniach; nie są odświeżane w ramach tych poprawek.

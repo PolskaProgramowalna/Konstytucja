@@ -51,6 +51,11 @@ Test TK nie wymaga Pythona. Polecenia z katalogu głównego repozytorium:
   ./tk_test.sh testy
   ./tk_test.sh oblicz --roboczo --wyjście /tmp/wynik.md
   ./oblicz_tk.sh                    # walidacja, testy, przygotowanie i obliczenie
+  ./oblicz_tk.sh -o /tmp/wynik.md    # wynik i /tmp/wynik.przygotowanie.md
+
+Bez -o raporty trafiają do standardowych plików w TK/. Opcja -o/--wyjście
+przenosi oba raporty: wynik do wskazanego pliku, raport przygotowawczy do
+ścieżki z końcówką .przygotowanie.md (zamiast końcowego .md, jeśli jest).
 
 Silnik: Konstytucja/TK/Test/ (Podstawy, Model, Oceny, Przebieg, Raport, Testy).
 Program wykonywalny: Skrypty/TK.lean, budowany przez `lake build tk_test`.
@@ -62,6 +67,9 @@ również w testach. Nie ma drugiej implementacji silnika w Pythonie.
 
 sprawdź.sh uruchamia walidację rejestru i testy; test sprawdza też, że
 CiagloscDane.lean odpowiada bieżącemu rejestrowi (./tk_test.sh lean).
+Kontrola aksjomatów obejmuje bibliotekę oraz program Skrypty.TK; pozostałe
+skrypty są poza jej zakresem. Test skrypty/test_oblicz_tk.sh sprawdza zapis
+obu raportów poza TK/ przy -o i --wyjście, także ze ścieżką względną.
 `oblicz` bez flagi --roboczo kończy się błędem, bo parametry testu nie są
 zatwierdzone (plan_tk.txt, pkt 10).
 `--bez-ad NAZWA` wyłącza AD1-AD7. `--limit-m1 N` wykonuje tylko jawną

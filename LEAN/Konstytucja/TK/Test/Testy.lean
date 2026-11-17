@@ -5,6 +5,8 @@ namespace Konstytucja.TK.Test
 def csvHeader := "id,typ,data,osoba,wakat,atrybuty,zrodlo,pewnosc,uwagi\n"
 def fixture (body : String) : Registry := validate ((parseRegistry
   (csvHeader ++ "S,SEJM,2000-01-01,,,kadencja=1;do=,API-SEJM:test,ustalone,\n" ++ body)).toOption.getD {errors := #["błąd parsowania fixture"]})
+def errorsMatch (r : Registry) (expected : Array String) : Bool :=
+  r.errors.qsort (· < ·) == expected.qsort (· < ·)
 def roots (n : Nat) (extra := "") : Registry := fixture (String.join ((List.range n).map fun k =>
   s!"E{k},E1,2009-12-01,p{k},,poczatek=2010-01-10;glosowanie=odrebne,ELI:MP/{k},ustalone,\n") ++ extra)
 def basicI : Interpretation := #[("z1","a"),("z2","a"),("z4","a"),("z7","c"),("z12","a")]
@@ -37,10 +39,16 @@ def testCases (registry : Registry) : Array (String × Bool) := Id.run do
   ts := ts.push (add "niepewny koniec" ((Przedzial.contains ⟨exactDate (mkDate 2016 1 1),some ⟨mkDate 2017 1 1,none⟩⟩ (mkDate 2018 1 1)) == .nieust))
   ts := ts.push (add "logika trójwartościowa" ((W3.tak.and .nieust) == .nieust && (W3.nie.and .nieust) == .nie && (W3.tak.or .nieust) == .tak && W3.nieust.not == .nieust))
   ts := ts.push (add "rejestr bez błędów" registry.errors.isEmpty)
+  ts := ts.push (add "walidator: poprawne dane bez fałszywych błędów" (errorsMatch (roots 2) #[]))
   let bad := fixture "A,E1,2010-01-01,x,,poczatek=2010-01-10,ELI:MP/1,ustalone,\nA,E2,2010-01-02,x,,forma=wobec_prezydenta,,ustalone,\nB,E4,2010-01-03,missing,,,DOC:x,ustalone,\nC,E1,2011-01-01,y,W.zzz,,ELI:MP/2,pewne,\n"
-  ts := ts.push (add "walidator: błędne ID, źródła i odwołania" (bad.errors.size ≥ 4))
+  ts := ts.push (add "walidator: błędne ID, źródła i odwołania" (errorsMatch bad #[
+    "wiersz 6: nieznana pewność", "A: identyfikator powtórzony lub pusty",
+    "A: brak źródła (P5)", "B: osoba bez zdarzenia E1"]))
+  let bad := fixture "C,E1,2011-01-01,y,W.zzz,,ELI:MP/2,ustalone,\n"
+  ts := ts.push (add "walidator: nieznany poprzednik" (errorsMatch bad #["C: wakat nie wskazuje innej osoby z E1"]))
   let bad := fixture "A,E1,2010-01-01,x,,poczatek=2010-02-30;za=abc,DOC:x,ustalone,\n"
-  ts := ts.push (add "walidator: daty i liczby w atrybutach" (bad.errors.size ≥ 2))
+  ts := ts.push (add "walidator: daty i liczby w atrybutach" (errorsMatch bad #[
+    "A: niepoprawna data w polu poczatek", "A: niepoprawna liczba w polu za"]))
   ts := ts.push (add "nieznany wynik wyboru pozostaje nieustalony" (electionProcedure basicI {attrs := #[("za","?")]} == .nieust))
   ts := ts.push (add "warianty: 216/192/27648/1769472" (totalVariants 1 == 216 && (variants 1).size == 192 && (variants 2).size == 27648 && (variants 2).size*64 == 1769472))
   let first := (variants 1)[0]!
@@ -74,7 +82,7 @@ def testCases (registry : Registry) : Array (String × Bool) := Id.run do
   let (r,s) := zoFixture true false
   ts := ts.push (add "TKI-2: brak głosów nie dowodzi naruszenia" ((evaluateZO s zoI ((r.byId "Z").getD {}) #[] {} "p0").1.result == unknown))
   let r := roots 2 "Z,E8,2012-01-01,,,obecni=p0+p1;glosujacy=p0+p1;glosy=p0:3,DOC:x,ustalone,\n"
-  ts := ts.push (add "walidator: nadmiar głosów ZO" (!r.errors.isEmpty))
+  ts := ts.push (add "walidator: nadmiar głosów ZO" (errorsMatch r #["Z: więcej głosów niż głosujących"]))
   let p : Przedzial := ⟨exactDate (mkDate 2016 1 10),some (exactDate (mkDate 2016 1 20))⟩
   let ch : Chwila := ⟨mkDate 2016 1 1,some (mkDate 2016 1 31)⟩
   ts := ts.push (add "TKI-3: całe zakresy dat" (p.containsTime ch == .nieust && occupied #[("x",p.start,p.stop,.tak)] ch == .nieust && p.containsTime ⟨mkDate 2016 1 11,some (mkDate 2016 1 12)⟩ == .tak && p.containsTime ⟨mkDate 2016 2 1,none⟩ == .nie))
@@ -92,14 +100,25 @@ def testCases (registry : Registry) : Array (String × Bool) := Id.run do
   let r := fixture (pubBase ++ "O,OCENA,2016-02-01,,,warunek=W6b:K 1/16;wynik=nieustalony;autor=recenzent;status=zatwierdzona;uzasadnienie=brak danych,DOC:x,ustalone,\n")
   ts := ts.push (add "TKI-6: zatwierdzone nieustalenie" (r.errors.isEmpty && (step8 r)[0]!.result == unknown))
   let r := fixture (pubBase ++ "O,OCENA,2016-02-01,,,warunek=W6b:K 1/16;wynik=zle;autor=a;status=zatwierdzona;uzasadnienie=u,DOC:x,ustalone,\n")
-  ts := ts.push (add "walidator: nieznana ocena" (!r.errors.isEmpty))
+  ts := ts.push (add "walidator: nieznana ocena" (errorsMatch r #["O: nieznany wynik oceny"]))
+  let r := fixture (pubBase ++ "O,OCENA,2016-02-01,,,warunek=W6b:K 1/16;wynik=nieustalony;autor=a;status=zle;uzasadnienie=u,DOC:x,ustalone,\n")
+  ts := ts.push (add "walidator: nieznany status oceny" (errorsMatch r #["O: nieznany status oceny"]))
   let s := emptyTitle (emptyTitle (fixtureState (roots 3)) "p1") "p2"
   ts := ts.push (add "TKI-7: Z13b nie pomija kworum" (z13Unanimous #["p0","p1","p2"] s (mkDate 2012 1 1) #[("z11","a")] == unknown && z13Unanimous #["p0","p1","p2"] s (mkDate 2012 1 1) #[("z11","b")] == uncovered && z13Unanimous #["p1","p2"] s (mkDate 2012 1 1) #[("z11","a")] == "WADLIWE"))
   let pubs := step8 registry
+  let p := (pubs.find? (fun p => p.row.a "sprawa" == "K 34/15")).getD {}
+  ts := ts.push (add "R-PUB: niepewna odmowa wymaga oceny P11" (p.result == unknown &&
+    p.notes.contains "O2 o pewności nieustalonej - wymaga oceny P11" && p.violationStart.isNone))
+  let r := fixture (pubBase ++ "P,PUB,2016-01-20,,,sprawa=K 1/16;zdarzenie=O1;organ=prm,DOC:x,ustalone,\n")
+  let p := (step8 r)[0]!
+  ts := ts.push (add "R-PUB: zapowiedź nie jest niepewną odmową" (p.result == unknown &&
+    p.notes.contains "tylko zapowiedź (O1); nie jest odmową wykonaną" &&
+    !p.notes.contains "O2 o pewności nieustalonej - wymaga oceny P11"))
   let p := (pubs.find? (fun p => p.row.a "sprawa" == "K 47/15")).getD {}
   ts := ts.push (add "R-PUB: 818 dni to wskaźnik, nie ocena" (p.elapsed == 818 && p.result == unknown))
   let r := fixture (pubBase ++ "P,PUB,2016-01-20,,,sprawa=K 1/16;zdarzenie=O2;organ=prm,DOC:x,ustalone,\nQ,PUB,2016-05-01,,,sprawa=K 1/16;zdarzenie=O3;organ=prm,ELI:DU/1,ustalone,\n")
-  ts := ts.push (add "R-PUB: odmowa wykonana" ((step8 r)[0]!.result == violated && (step8 r)[0]!.violationStart == some (mkDate 2016 1 20)))
+  ts := ts.push (add "R-PUB: odmowa wykonana" ((step8 r)[0]!.result == violated && (step8 r)[0]!.violationStart == some (mkDate 2016 1 20) &&
+    !(step8 r)[0]!.notes.contains "O2 o pewności nieustalonej - wymaga oceny P11"))
   ts := ts.push (add "K4: granice udziału" (defectiveShare 1 0 1 none 10 == .nieust && defectiveShare 3 0 4 (some 4) 50 == .tak && defectiveShare 0 0 4 (some 4) 10 == .nie && defectiveShare 0 0 4 (some 10) 50 == .nieust))
   let badLeader : Leader := ⟨"a","prezes",mkDate 2018 3 1,some (mkDate 2019 1 1),violated,#[]⟩
   let okLeader : Leader := ⟨"a","prezes",mkDate 2010 1 1,none,fulfilled,#[]⟩
@@ -117,6 +136,8 @@ def testCases (registry : Registry) : Array (String × Bool) := Id.run do
   let ds2 := step7 registry st (put i "z10" "b") ks
   ts := ts.push (add "Z10b: przepisy o tytule" (((ds2.find? (fun d => d.row.a "sprawa" == "Kp 3/24")).getD {}).detected[4]! == "TAK"))
   let result := run registry {} (some 2)
+  ts := ts.push (add "raport: tabela E zachowuje wskazówkę P11" (((report registry result "test").splitOn
+    "O2 o pewności nieustalonej - wymaga oceny P11").length == 2))
   ts := ts.push (add "przebieg techniczny: złączenie i agregacja" (result.counts == #[2*alts.size,2*alts.size*144,2*alts.size*144*64] && result.aggregates.contains "orzeczenie:K 1/17" && result.partialRun))
   ts := ts.push (add "raport próby nie deklaruje pełnego przeglądu" (((report registry result "test").splitOn "NIEPEŁNY PRZEGLĄD").length == 2))
   return ts

@@ -1,0 +1,137 @@
+id,typ,data,osoba,wakat,atrybuty,zrodlo,pewnosc,uwagi
+S5,SEJM,2005-10-19,,,kadencja=5;do=2007-11-04,API-SEJM:term5,ustalone,
+S6,SEJM,2007-11-05,,,kadencja=6;do=2011-11-07,API-SEJM:term6,ustalone,
+S7,SEJM,2011-11-08,,,kadencja=7;do=2015-11-11,API-SEJM:term7,ustalone,
+S8,SEJM,2015-11-12,,,kadencja=8;do=2019-11-11,API-SEJM:term8,ustalone,
+S9,SEJM,2019-11-12,,,kadencja=9;do=2023-11-12,API-SEJM:term9,ustalone,
+S10,SEJM,2023-11-13,,,kadencja=10;do=,API-SEJM:term10,ustalone,kadencja trwa
+W01,E1,2006-10-27,gintowt,,poczatek=2006-11-06;glosowanie=nieustalone;grupa=MP2006-792;uchwala=wspolna,ELI:MP/2006/792,ustalone,jedna uchwała dla trzech osób
+W02,E1,2006-10-27,hermelinski,,poczatek=2006-11-06;glosowanie=nieustalone;grupa=MP2006-792;uchwala=wspolna,ELI:MP/2006/792,ustalone,jedna uchwała dla trzech osób
+W03,E1,2006-10-27,kotlinowski,,poczatek=2006-11-06;glosowanie=nieustalone;grupa=MP2006-792;uchwala=wspolna,ELI:MP/2006/792,ustalone,jedna uchwała dla trzech osób
+W04,E1,2006-11-17,cieslak,,poczatek=2006-12-02;glosowanie=nieustalone,ELI:MP/2006/842,ustalone,
+W05,E1,2006-12-08,baginska,,glosowanie=nieustalone,ELI:MP/2006/918,ustalone,uchwała nie podaje początku kadencji
+W06,E1,2006-12-08,liszcz,,glosowanie=nieustalone,ELI:MP/2006/919,ustalone,uchwała nie podaje początku kadencji
+W07,E1,2007-04-27,granat,?,glosowanie=nieustalone,ELI:MP/2007/320,ustalone,uchwała nie podaje początku kadencji ani wakatu
+W08,E1,2007-12-18,rzeplinski,,poczatek=2007-12-19;glosowanie=nieustalone,ELI:MP/2007/1079,ustalone,
+W09,E1,2008-06-13,biernat,,poczatek=2008-06-26;glosowanie=nieustalone,ELI:MP/2008/420,ustalone,
+W10,E1,2010-05-06,wronkowska,,glosowanie=nieustalone,ELI:MP/2010/525,ustalone,uchwała nie podaje początku kadencji
+W11,E1,2010-11-26,rymar,,poczatek=2010-12-03;glosowanie=nieustalone;grupa=MP2010-1067;uchwala=wspolna,ELI:MP/2010/1067,ustalone,jedna uchwała dla trzech osób
+W12,E1,2010-11-26,tuleja,,poczatek=2010-12-03;glosowanie=nieustalone;grupa=MP2010-1067;uchwala=wspolna,ELI:MP/2010/1067,ustalone,jedna uchwała dla trzech osób
+W13,E1,2010-11-26,zubik,,poczatek=2010-12-03;glosowanie=nieustalone;grupa=MP2010-1067;uchwala=wspolna,ELI:MP/2010/1067,ustalone,jedna uchwała dla trzech osób
+W14,E1,2011-01-05,pyziak,,glosowanie=nieustalone,ELI:MP/2011/39,ustalone,uchwała nie podaje początku kadencji
+W15,E1,2011-05-27,wrobel,,poczatek=2011-05-29;glosowanie=nieustalone,ELI:MP/2011/492,ustalone,
+W16,E1,2012-07-13,kieres,,poczatek=2012-07-23;glosowanie=nieustalone,ELI:MP/2012/506,ustalone,
+W17,E1,2015-10-08,hauser,W.gintowt|W.hermelinski|W.kotlinowski,poczatek=2015-11-07;za=274;przeciw=137;wstrz=2;glosowanie=odrebne;grupa=2015-10-listopad,ELI:MP/2015/1038;SEJM-GL:7/102/3,ustalone,wakat według daty początku kadencji w § 2
+W18,E1,2015-10-08,slebzak,W.gintowt|W.hermelinski|W.kotlinowski,poczatek=2015-11-07;za=268;przeciw=149;wstrz=3;glosowanie=odrebne;grupa=2015-10-listopad,ELI:MP/2015/1040;SEJM-GL:7/102/4,ustalone,wakat według daty początku kadencji w § 2
+W19,E1,2015-10-08,jakubecki,W.gintowt|W.hermelinski|W.kotlinowski,poczatek=2015-11-07;za=272;przeciw=146;wstrz=1;glosowanie=odrebne;grupa=2015-10-listopad,ELI:MP/2015/1039;SEJM-GL:7/102/5,ustalone,wakat według daty początku kadencji w § 2
+W20,E1,2015-10-08,sitek,W.cieslak,poczatek=2015-12-03;za=244;przeciw=167;wstrz=7;glosowanie=odrebne,ELI:MP/2015/1041;SEJM-GL:7/102/6,ustalone,jedyny wakat o pasującej dacie
+W21,E1,2015-10-08,sokala,W.baginska|W.liszcz,poczatek=2015-12-09;za=264;przeciw=151;wstrz=3;glosowanie=odrebne,ELI:MP/2015/1042;SEJM-GL:7/102/7,ustalone,kandydaci: wybrani 8.12.2006 bez daty początku
+W22,E1,2015-12-02,cioch,W.gintowt|W.hermelinski|W.kotlinowski,za=236;przeciw=167;wstrz=6;glosowanie=odrebne;grupa=2015-12-listopad,ELI:MP/2015/1182;SEJM-GL:8/3/6;DOC:TK/Chronologia_Kryzysu.md,ustalone,uchwała bez daty początku; wakaty listopadowe według D1
+W23,E1,2015-12-02,morawski,W.gintowt|W.hermelinski|W.kotlinowski,za=232;przeciw=156;wstrz=4;glosowanie=odrebne;grupa=2015-12-listopad;wspolny_wakat=slebzak,ELI:MP/2015/1183;SEJM-GL:8/3/8;WIKI:81177984#Wyrok_K_12/18,ustalone,Wikipedia: następca Piskorski wybrany na miejsce zajęte przez K. Ślebzaka
+W24,E1,2015-12-02,muszynski,W.gintowt|W.hermelinski|W.kotlinowski,za=236;przeciw=170;wstrz=4;glosowanie=odrebne;grupa=2015-12-listopad,ELI:MP/2015/1184;SEJM-GL:8/3/10;DOC:TK/Chronologia_Kryzysu.md,ustalone,uchwała bez daty początku
+W25,E1,2015-12-02,przylebska,W.baginska|W.liszcz,poczatek=2015-12-09;za=234;przeciw=166;wstrz=7;glosowanie=odrebne,ELI:MP/2015/1185;SEJM-GL:8/3/12,ustalone,
+W26,E1,2015-12-02,pszczolkowski,W.cieslak,poczatek=2015-12-03;za=233;przeciw=166;wstrz=8;glosowanie=odrebne,ELI:MP/2015/1186;SEJM-GL:8/3/13,ustalone,
+W27,E1,2016-04-14,jedrzejewski,W.granat,poczatek=2016-04-28;za=227;przeciw=0;wstrz=6;glosowanie=odrebne,ELI:MP/2016/393;SEJM-GL:8/16/61;DOC:TK/Chronologia_Kryzysu.md,ustalone,D1: w miejsce M. Granata
+W28,E1,2016-12-15,warcinski,W.rzeplinski,poczatek=2016-12-20;za=231;przeciw=179;wstrz=5;glosowanie=odrebne,ELI:MP/2016/1206;SEJM-GL:8/32/143,ustalone,data początku odpowiada końcowi kadencji 2007-12-19
+W29,E1,2017-02-24,jedrejek,?,za=234;przeciw=154;wstrz=26;glosowanie=odrebne,ELI:MP/2017/224;SEJM-GL:8/36/51,ustalone,dokumenty nie wskazują wakatu
+W30,E1,2017-06-08,zielonacki,?,za=227;przeciw=175;wstrz=4;glosowanie=odrebne,ELI:MP/2017/610;SEJM-GL:8/43/69,ustalone,dokumenty nie wskazują wakatu
+W31,E1,2017-09-15,piskorski,W.morawski,za=248;przeciw=3;wstrz=18;glosowanie=odrebne,ELI:MP/2017/873;SEJM-GL:8/47/3;DOC:TK/KryzysKonstytucyjny.md,ustalone,na miejsce zmarłego L. Morawskiego
+W32,E1,2018-01-26,wyrembak,W.cioch,za=228;przeciw=25;wstrz=2;glosowanie=odrebne,ELI:MP/2018/134;SEJM-GL:8/57/93;DOC:TK/KryzysKonstytucyjny.md,ustalone,na miejsce zmarłego H. Ciocha
+W33,E1,2019-04-26,sych,?,za=228;przeciw=118;wstrz=19;glosowanie=odrebne,ELI:MP/2019/414;SEJM-GL:8/80/80,ustalone,dokumenty nie wskazują wakatu
+W34,E1,2019-11-21,pawlowicz,?,za=230;przeciw=213;wstrz=0;glosowanie=odrebne,ELI:MP/2019/1132;SEJM-GL:9/1/48,ustalone,dokumenty nie wskazują wakatu
+W35,E1,2019-11-21,piotrowicz,?,za=230;przeciw=218;wstrz=0;glosowanie=odrebne,ELI:MP/2019/1133;SEJM-GL:9/1/50,ustalone,dokumenty nie wskazują wakatu
+W36,E1,2019-11-21,stelina,?,za=233;przeciw=209;wstrz=8;glosowanie=odrebne,ELI:MP/2019/1134;SEJM-GL:9/1/51,ustalone,dokumenty nie wskazują wakatu
+W37,E1,2019-12-20,wojciechowski,?,za=239;przeciw=190;wstrz=3;glosowanie=odrebne,ELI:MP/2019/1197;SEJM-GL:9/2/152,ustalone,dokumenty nie wskazują wakatu
+W38,E1,2020-04-06,sochanski,?,za=234;przeciw=223;wstrz=2;glosowanie=odrebne,ELI:MP/2020/340;SEJM-GL:9/9/33,ustalone,dokumenty nie wskazują wakatu
+W39,E1,2022-02-08,swieczkowski,?,za=233;przeciw=219;wstrz=2;glosowanie=odrebne,ELI:MP/2022/203;SEJM-GL:9/48/33,ustalone,dokumenty nie wskazują wakatu
+W40,E1,2026-03-13,bentkowska,?,za=236;przeciw=186;wstrz=4;glosowanie=odrebne,ELI:MP/2026/300;SEJM-GL:10/53/125,ustalone,dokumenty nie wskazują wakatu
+W41,E1,2026-03-13,dziurda,?,za=237;przeciw=182;wstrz=6;glosowanie=odrebne,ELI:MP/2026/301;SEJM-GL:10/53/126,ustalone,dokumenty nie wskazują wakatu
+W42,E1,2026-03-13,korwin,?,za=236;przeciw=185;wstrz=4;glosowanie=odrebne,ELI:MP/2026/302;SEJM-GL:10/53/127,ustalone,dokumenty nie wskazują wakatu
+W43,E1,2026-03-13,markiewicz,?,za=236;przeciw=187;wstrz=4;glosowanie=odrebne,ELI:MP/2026/303;SEJM-GL:10/53/129,ustalone,dokumenty nie wskazują wakatu
+W44,E1,2026-03-13,szostek,?,za=237;przeciw=185;wstrz=4;glosowanie=odrebne,ELI:MP/2026/304;SEJM-GL:10/53/131,ustalone,dokumenty nie wskazują wakatu
+W45,E1,2026-03-13,taborowski,?,za=237;przeciw=185;wstrz=4;glosowanie=odrebne,ELI:MP/2026/305;SEJM-GL:10/53/132,ustalone,dokumenty nie wskazują wakatu
+W46,E1,2026-06-11,patyra,?,za=235;przeciw=184;wstrz=5;glosowanie=odrebne,ELI:MP/2026/603;SEJM-GL:10/59/69,ustalone,dokumenty nie wskazują wakatu
+W47,E1,2026-09-04,berek,?,lista=226/184;glosowanie=lista,ELI:MP/2026/900;SEJM-GL:10/64/14,ustalone,głosowanie listą; dokumenty nie wskazują wakatu
+U01,UCHWALA_STATUS,2015-11-25,,,dotyczy=hauser+jakubecki+slebzak+sitek+sokala;tresc=brak_mocy_prawnej,ELI:MP/2015/1131;ELI:MP/2015/1132;ELI:MP/2015/1133;ELI:MP/2015/1134;ELI:MP/2015/1135,ustalone,dana o stanowisku Sejmu (D2); nie wzorzec
+U02,UCHWALA_STATUS,2024-03-06,,,dotyczy=muszynski+piskorski+wyrembak;tresc=nie_sa_sedziami,ELI:MP/2024/198,ustalone,dana o stanowisku Sejmu (D2); nie wzorzec
+U03,UCHWALA_STATUS,2026-03-13,,,dotyczy=piskorski+wyrembak+swieczkowski;tresc=wymogi_niespelnione,ELI:MP/2026/299,ustalone,dana o stanowisku Sejmu (D2); nie wzorzec
+P01,E2,2015-12-03,cioch,,forma=wobec_prezydenta,DOC:TK/Chronologia_Kryzysu.md#przypisy-45-47,ustalone,noc z 2 na 3.12.2015
+P02,E2,2015-12-03,morawski,,forma=wobec_prezydenta,DOC:TK/Chronologia_Kryzysu.md#przypisy-45-47,ustalone,
+P03,E2,2015-12-03,muszynski,,forma=wobec_prezydenta,DOC:TK/Chronologia_Kryzysu.md#przypisy-45-47,ustalone,
+P04,E2,2015-12-03,pszczolkowski,,forma=wobec_prezydenta,DOC:TK/Chronologia_Kryzysu.md#przypisy-45-47,ustalone,
+P05,E2,2015-12-09,przylebska,,forma=wobec_prezydenta,DOC:TK/Chronologia_Kryzysu.md#przypis-47,ustalone,
+P06,E3,2015-12-03,hauser,,rodzaj=odmowa,DOC:TK/Chronologia_Kryzysu.md#przypisy-11-52,ustalone,Prezydent nie przyjął ślubowania; data pierwszej udokumentowanej odmowy
+P07,E3,2015-12-03,jakubecki,,rodzaj=odmowa,DOC:TK/Chronologia_Kryzysu.md#przypisy-11-52,ustalone,
+P08,E3,2015-12-03,slebzak,,rodzaj=odmowa,DOC:TK/Chronologia_Kryzysu.md#przypisy-11-52,ustalone,
+P09,E3,2015-12-03,sitek,,rodzaj=odmowa,DOC:TK/Chronologia_Kryzysu.md#przypisy-11-52,ustalone,
+P10,E3,2015-12-03,sokala,,rodzaj=odmowa,DOC:TK/Chronologia_Kryzysu.md#przypisy-11-52,ustalone,
+P11,E2,2026-04-01,bentkowska,,forma=wobec_prezydenta,DOC:TK/KryzysKonstytucyjny.md#krok-34,ustalone,
+P12,E2,2026-04-01,szostek,,forma=wobec_prezydenta,DOC:TK/KryzysKonstytucyjny.md#krok-34,ustalone,
+P13,E2,2026-04-09,dziurda,,forma=sejm,DOC:TK/KryzysKonstytucyjny.md#krok-34;IPO:Kpt 1/26,ustalone,ślubowanie w Sejmie bez udziału Prezydenta
+P14,E2,2026-04-09,korwin,,forma=sejm,DOC:TK/KryzysKonstytucyjny.md#krok-34;IPO:Kpt 1/26,ustalone,
+P15,E2,2026-04-09,markiewicz,,forma=sejm,DOC:TK/KryzysKonstytucyjny.md#krok-34;IPO:Kpt 1/26,ustalone,
+P16,E2,2026-04-09,taborowski,,forma=sejm,DOC:TK/KryzysKonstytucyjny.md#krok-34;IPO:Kpt 1/26,ustalone,
+P17,E3,2026-04-01,dziurda,,rodzaj=odmowa,DOC:TK/KryzysKonstytucyjny.md#krok-34,ustalone,Prezydent nie zaprosił do ślubowania
+P18,E3,2026-04-01,korwin,,rodzaj=odmowa,DOC:TK/KryzysKonstytucyjny.md#krok-34,ustalone,
+P19,E3,2026-04-01,markiewicz,,rodzaj=odmowa,DOC:TK/KryzysKonstytucyjny.md#krok-34,ustalone,
+P20,E3,2026-04-01,taborowski,,rodzaj=odmowa,DOC:TK/KryzysKonstytucyjny.md#krok-34,ustalone,
+P21,E2,2026-07-28,patyra,,forma=wobec_prezydenta,DOC:TK/Weryfikacja_Chronologii.md#sekcja-3,nieustalone,źródło medialne cytowane w D2
+P22,E2,2026-10-14,berek,,forma=sejm,DOC:TK/Weryfikacja_Chronologii.md#sekcja-3,ustalone,ślubowanie w Sejmie z formułą wobec Prezydenta
+P23,E3,2026-10-14,berek,,rodzaj=bezczynnosc,DOC:TK/Weryfikacja_Chronologii.md#sekcja-3,ustalone,Prezydent nie uznaje ślubowania
+D01,E4,2016-01-12,przylebska,,,DOC:TK/Chronologia_Kryzysu.md#przypis-49,ustalone,dopuszczenie do orzekania przez prezesa TK
+D02,E4,2016-01-12,pszczolkowski,,,DOC:TK/Chronologia_Kryzysu.md#przypis-49,ustalone,
+D03,E4,2016-12-20,cioch,,,DOC:TK/Chronologia_Kryzysu.md#przypis-233,ustalone,pierwsza decyzja p.o. prezesa
+D04,E4,2016-12-20,morawski,,,DOC:TK/Chronologia_Kryzysu.md#przypis-233,ustalone,
+D05,E4,2016-12-20,muszynski,,,DOC:TK/Chronologia_Kryzysu.md#przypis-233,ustalone,
+D06,E4,2026-04-09,bentkowska,,,DOC:TK/KryzysKonstytucyjny.md#krok-34,ustalone,prezes TK przydzielił sprawy dwojgu zaprzysiężonym przez Prezydenta
+D07,E4,2026-04-09,szostek,,,DOC:TK/KryzysKonstytucyjny.md#krok-34,ustalone,
+D08,E4,2026-10-30,korwin,,rodzaj=faktyczne,DOC:TK/Chronologia_Kryzysu.md#przypis-333,ustalone,przejęcie kierowania TK oznacza faktyczne wykonywanie funkcji
+K01,E6a,2017-07-12,morawski,,,DOC:TK/Chronologia_Kryzysu.md#przypis-266,ustalone,śmierć
+K02,E6a,2017-12-20,cioch,,,DOC:TK/Chronologia_Kryzysu.md#przypis-270,ustalone,śmierć
+K03,E6b,2016-12-19,wrobel,,data_do=2017-02-24;rodzaj=zrzeczenie,DOC:TK/Chronologia_Kryzysu.md#przypisy-232-249,nieustalone,zapowiedź rezygnacji 19.12.2016; dzień skuteczności nieustalony
+K04,E6b,2025-12-05,pawlowicz,,rodzaj=stan_spoczynku,DOC:TK/Weryfikacja_Chronologii.md#poz-9,ustalone,
+O01,E5,2017-10-24,muszynski,,rodzaj=orzeczenie;sprawa=K 1/17,ELI:DU/2017/2001;DOC:TK/Chronologia_Kryzysu.md#przypisy-271-274,ustalone,
+O02,E5,2017-10-24,jedrzejewski,,rodzaj=orzeczenie;sprawa=K 1/17,ELI:DU/2017/2001;DOC:TK/Chronologia_Kryzysu.md#przypisy-271-274,ustalone,
+O03,E5,2017-10-24,cioch,,rodzaj=orzeczenie;sprawa=K 1/17,ELI:DU/2017/2001;DOC:TK/Chronologia_Kryzysu.md#przypisy-271-274,ustalone,
+O04,E5,2017-10-24,kieres,,rodzaj=orzeczenie;sprawa=K 1/17,ELI:DU/2017/2001;DOC:TK/Chronologia_Kryzysu.md#przypisy-271-274,ustalone,
+O05,E5,2017-10-24,zielonacki,,rodzaj=orzeczenie;sprawa=K 1/17,ELI:DU/2017/2001;DOC:TK/Chronologia_Kryzysu.md#przypisy-271-274,ustalone,
+L01,E7,2016-12-20,przylebska,,funkcja=po_prezesa,ELI:MP/2016/1229,ustalone,powierzenie obowiązków Prezesa
+L02,E7,2016-12-21,przylebska,,funkcja=prezes;zo=Z02,ELI:MP/2016/1237,ustalone,
+L03,E7,2017-07-05,muszynski,,funkcja=wiceprezes;zo=?,ELI:MP/2017/684;DOC:TK/KryzysKonstytucyjny.md#krok-18,ustalone,osoba według D1
+L04,E7,2024-12-10,swieczkowski,,funkcja=prezes;zo=Z03;data_od=2024-12-09,DOC:TK/Weryfikacja_Chronologii.md#poz-4,nieustalone,data powołania według mediów
+L05,E9,2026-10-30,korwin,,funkcja=kierowanie;podstawa=zastepstwo_najdluzszy_staz,DOC:TK/Chronologia_Kryzysu.md#przypis-333,ustalone,bez postanowienia Prezydenta
+L06,E10P,2024-11-29,przylebska,,funkcja=prezes;rodzaj=zrzeczenie_funkcji,ELI:MP/2026/299,ustalone,okres kierowania do 29.11.2024 według uchwały Sejmu
+L07,E10P,2026-10-30,swieczkowski,,funkcja=prezes;rodzaj=przerwa_w_czynnosciach,DOC:TK/Chronologia_Kryzysu.md#przypis-333,ustalone,zarządzenie przerwy (art. 130 u.s.p. według komunikatu TK)
+Z01,E8,2016-11-30,,,obecni=9;glosujacy=?;kandydaci=zubik+rymar+tuleja;zwolal=rzeplinski,DOC:TK/Chronologia_Kryzysu.md#przypisy-213-215,ustalone,lista obecnych nieustalona; 3 sędziów na zwolnieniach
+Z02,E8,2016-12-20,,,obecni=przylebska+muszynski+cioch+morawski+jedrzejewski+warcinski+pszczolkowski+kieres+wrobel+pyziak+zubik+tuleja+wronkowska+biernat;glosujacy=przylebska+muszynski+cioch+morawski+jedrzejewski+warcinski;glosy=przylebska:5+muszynski:1;kandydaci=przylebska+muszynski;zwolal=przylebska;nieobecni=rymar,DOC:TK/Chronologia_Kryzysu.md#przypisy-236-241,ustalone,ośmioro odmówiło głosowania; skład obecnych według D1
+Z03,E8,2024-12-09,,,obecni=?;glosujacy=?;kandydaci=swieczkowski+sochanski;zwolal=przylebska,DOC:TK/Weryfikacja_Chronologii.md#poz-4,nieustalone,liczby głosów nieustalone
+Z04,E8,2026-11-10,,,obecni=?;glosujacy=?;uchwala=regulamin;zwolal=korwin,ELI:MP/2026/1133,ustalone,podpis: sędzia zastępująca Prezesa
+R01,ORZ,2015-12-03,,,sprawa=K 34/15;art188=tak;sklad=?;wynik=?,ELI:DU/2015/2129,ustalone,skład nieustalony w rejestrze
+R02,ORZ,2015-12-09,,,sprawa=K 35/15;art188=tak;sklad=?;wynik=?,ELI:DU/2015/2147,ustalone,
+R03,ORZ,2016-03-09,,,sprawa=K 47/15;art188=tak;sklad=?;wynik=wiekszoscia;zdania_odrebne=przylebska:?+pszczolkowski:?,ELI:DU/2018/1077;DOC:TK/Chronologia_Kryzysu.md#przypisy-99-101,ustalone,skład 12 sędziów (nazwiska nieustalone w rejestrze)
+R04,ORZ,2016-08-11,,,sprawa=K 39/16;art188=tak;sklad=?;wynik=?,ELI:DU/2018/1078,ustalone,
+R05,ORZ,2016-11-07,,,sprawa=K 44/16;art188=tak;sklad=?;wynik=?,ELI:DU/2018/1079,ustalone,
+R06,ORZ,2017-10-24,,,sprawa=K 1/17;art188=tak;sklad=muszynski+jedrzejewski+cioch+kieres+zielonacki;wynik=?;zdania_odrebne=kieres:?;dotyczy_tytulu=muszynski+cioch,ELI:DU/2017/2001;DOC:TK/Chronologia_Kryzysu.md#przypisy-271-274,ustalone,
+R07,ORZ,2024-05-28,,,sprawa=U 5/24;art188=tak;sklad=swieczkowski+piotrowicz+sochanski;wynik=jednoglosnie,IPO:U 5/24,ustalone,
+R08,ORZ,2025-05-06,,,sprawa=K 2/25;art188=tak;sklad=wojciechowski+pawlowicz+piotrowicz+swieczkowski+zielonacki;wynik=?,IPO:K 2/25,ustalone,
+R09,ORZ,2025-07-29,,,sprawa=Kp 3/24;art188=nie;sklad=swieczkowski+pawlowicz+piotrowicz+piskorski+sochanski+stelina+sych+warcinski+wojciechowski+wyrembak+zielonacki;wynik=wiekszoscia;zdania_odrebne=stelina:czesc+?:?+?:?;przepisy_tytulu=piskorski+wyrembak,IPO:Kp 3/24,ustalone,kontrola prewencyjna (art. 122 ust. 3) - poza W6b
+R10,ORZ,2026-05-12,,,sprawa=K 3/26;art188=tak;sklad=swieczkowski+piskorski+sochanski+wojciechowski+wyrembak;wynik=wiekszoscia;przepisy_tytulu=dziurda+korwin+markiewicz+taborowski,IPO:K 3/26,ustalone,
+B01,PUB,2015-12-10,,,sprawa=K 34/15;zdarzenie=O2;organ=prezes_rady_ministrow,DOC:TK/Chronologia_Kryzysu.md#przypisy-56-58,nieustalone,wstrzymanie publikacji; charakter jako odmowy wykonanej do oceny P11
+B02,PUB,2015-12-16,,,sprawa=K 34/15;zdarzenie=O3;organ=prezes_rady_ministrow,ELI:DU/2015/2129,ustalone,
+B03,PUB,2015-12-18,,,sprawa=K 35/15;zdarzenie=O3;organ=prezes_rady_ministrow,ELI:DU/2015/2147,ustalone,
+B04,PUB,2016-03-09,,,sprawa=K 47/15;zdarzenie=O1;organ=prezes_rady_ministrow,DOC:TK/Chronologia_Kryzysu.md#przypisy-102-104,ustalone,zapowiedź odmowy
+B05,PUB,2018-06-05,,,sprawa=K 47/15;zdarzenie=O3;organ=prezes_rady_ministrow,ELI:DU/2018/1077,ustalone,
+B06,PUB,2016-08-10,,,sprawa=K 39/16;zdarzenie=O1;organ=niewlasciwy,DOC:TK/Chronologia_Kryzysu.md#przypisy-190-191,ustalone,zapowiedź osoby spoza organu właściwego
+B07,PUB,2018-06-05,,,sprawa=K 39/16;zdarzenie=O3;organ=prezes_rady_ministrow,ELI:DU/2018/1078,ustalone,
+B08,PUB,2018-06-05,,,sprawa=K 44/16;zdarzenie=O3;organ=prezes_rady_ministrow,ELI:DU/2018/1079,ustalone,
+B09,PUB,2017-10-27,,,sprawa=K 1/17;zdarzenie=O3;organ=prezes_rady_ministrow,ELI:DU/2017/2001,ustalone,
+F01,E10,2024-12-03,muszynski,,rodzaj=koniec_kadencji,DOC:TK/Chronologia_Kryzysu.md#przypisy-304-309,ustalone,zakończenie funkcji z końcem kadencji (D1)
+F02,E10,2024-12-03,pszczolkowski,,rodzaj=koniec_kadencji,DOC:TK/Chronologia_Kryzysu.md#przypisy-304-309,ustalone,
+F03,E10,2024-12-09,przylebska,,rodzaj=koniec_kadencji,DOC:TK/Chronologia_Kryzysu.md#przypisy-304-309,ustalone,
+F04,E10,2025-04-28,jedrzejewski,,rodzaj=koniec_kadencji,DOC:TK/Chronologia_Kryzysu.md#przypisy-315-318,ustalone,
+F05,E10,2025-12-20,warcinski,,rodzaj=koniec_kadencji,DOC:TK/Chronologia_Kryzysu.md#przypisy-315-318,ustalone,
+F06,E10,2025-12-05,pawlowicz,,rodzaj=stan_spoczynku,DOC:TK/Weryfikacja_Chronologii.md#poz-9,ustalone,
+F07,E10,2026-06-28,zielonacki,,rodzaj=koniec_kadencji,DOC:TK/Chronologia_Kryzysu.md#przypis-319,ustalone,
+F08,E10,2026-09-18,piskorski,,rodzaj=koniec_kadencji,DOC:TK/Chronologia_Kryzysu.md#przypis-320,ustalone,
+L08,E7,2010-12-03,rzeplinski,,funkcja=prezes;zo=?,ELI:MP/2010/1140,ustalone,powołanie z dniem 3.12.2010; uchwała ZO poza rejestrem
+L09,E7,2010-12-03,biernat,,funkcja=wiceprezes;zo=?,ELI:MP/2010/1141,ustalone,powołanie z dniem 3.12.2010

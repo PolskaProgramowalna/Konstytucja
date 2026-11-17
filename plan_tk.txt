@@ -770,3 +770,62 @@ F9  Rozdzielono na F9a (każda kompletna historia: utrata tytułu zmienia
     tylko składową "tytuł") i F9b (granice liczników: utrata tytułu nie
     zmniejsza granicy górnej F(t) i B(t), a granica dolna obejmuje tylko
     aktywność potwierdzoną).
+
+
+18. STAN IMPLEMENTACJI (2026-11-16)
+
+Kod: LEAN/dane/tk/ (Python, bez zależności zewnętrznych), polecenia przez
+LEAN/dane/tk_test.py; dane: LEAN/dane/tk_rejestr.csv; Lean:
+LEAN/Konstytucja/TK/Ciaglosc.lean i CiagloscDane.lean (generowany).
+Kontrola: LEAN/sprawdź.sh (budowa Lean, aksjomaty, walidacja rejestru, testy).
+Raport prac przygotowawczych: TK/Przygotowanie_testu.md.
+
+Zrealizowane elementy planu:
+- pkt 10.1-10.3: format rejestru i walidator (krok 1, F2 w Pythonie i w Lean),
+  generator wariantów z grafem zależności i filtrem F1 (5.1), propagacja
+  niepewności (P10) - przegląd uzupełnień dla ZO i Z13b, granice liczników,
+- pkt 4: model S1-S8, S6*, S6?, przejścia T1-T10, konkurujące roszczenia,
+  tabela 4.6, alternatywy danych A z utożsamieniem wakatów nierozróżnialnych,
+- kroki 5-9 i tabele A-G, klasyfikacja K1-K4 (K4: NIEUSTALONY przy
+  niekompletnym D6), reguła R-PUB,
+- pkt 12: F2 (unikalność, jeden wybór, odwołania osób), F4 (okno), F6
+  (sprawdź.sh), F9a i F9b, przykład kontrolny T10, kontrprzykłady 13.2 i B4,
+  liczby M1 = 192 (dowód), M2 i M3 (arytmetyka) - w Lean.
+- pkt 10.4: dane D1-D10 uzupełnione częściowo z dokumentów (stan: raport
+  przygotowawczy, sekcja 2).
+
+Odstępstwa i dodatki wymagające decyzji recenzenta:
+I1  Założenia danych AD1-AD6 (model.ZałożeniaDanych). Plan ich nie przewiduje.
+    Zastępują brakujące dane (np. ślubowania sędziów wybranych przed 2015 r.,
+    kompletność E6), są przełączalne i raportowane. Bez nich wynik byłby
+    niemal w całości NIEUSTALONY. Wyłączenie: tk_test.py --bez-ad <nazwa>.
+I2  Konwencja dat (4.5): uchwały Sejmu wyznaczają początek kadencji następcy
+    na dzień po rocznicy początku kadencji poprzednika (np. 6.11.2006 ->
+    7.11.2015), czyli stosują przedziały domknięte. Implementacja trzyma się
+    przedziałów półotwartych z planu; rozbieżność jest raportowana (raport
+    przygotowawczy, sekcja 5) i wpływa na H1 oraz H5.
+I3  Granice liczników T, F, B, W, Z, U liczone metodą przedziałową
+    z korelacją na miejscu pomocniczym: wynik bezpieczny (nadzbiór), nie
+    zawsze ścisły. Dokładny przegląd uzupełnień (P10) zaimplementowano dla
+    ZO i Z13b. Kontrola F8 dla liczników pozostaje otwarta.
+I4  Wpływ parametrów w tabeli F: dla wyników M1 - test zmiany jednego
+    parametru (dokładny); dla M2 i M3 - miara marginalna. Gdy żadna
+    pojedyncza zmiana nie zmienia zbioru wyników, raport podaje "łącznie
+    kilka parametrów".
+I5  Krok 7 tablicowany po (alternatywa, wariant M1, kierujący w dniach
+    orzeczeń) i 64 rozszerzeniach - wynik równy pełnemu przeglądowi, bez
+    korzystania z F7 (tożsamość wariantu M1 jest częścią klucza). Twierdzenie
+    F7 w Lean pozostaje do udowodnienia.
+I6  Z3.M ocenia poparcie dla osoby następnie powołanej (kandydat E7), a nie
+    dla każdego kandydata. Odrębne głosowanie nad uchwałą ZO (wymóg ustawowy)
+    jest NIEPOKRYTE (P2, D11 nie wczytane).
+I7  Z12b i Z11a dają NIEUSTALONY, dopóki akty D11 (regulamin Sejmu, ustawy
+    o TK w brzmieniu z dnia czynności) nie są wczytane.
+I8  Wakaty: 18 wyborów (2007 r. i 2017-2026) ma wakat nieustalony w dokumentach
+    ("?"), więc nie są przeglądane alternatywy ich przypisania. Ich S2, S4
+    i tytuł są NIEUSTALONE.
+
+Otwarte: F1 (osiągalność w Lean), F3, F5, F7, F8 (pkt 12); dane D3, D5, D6,
+D11; zatwierdzenie parametrów, R-PUB, AD1-AD6 i konwencji dat. Obliczenie
+`tk_test.py oblicz --roboczo` działa (pełny przegląd: ok. 80 s, 7 077 888
+wariantów M3 x A), lecz zgodnie z pkt 10 jego wyniku nie zapisano w TK/.

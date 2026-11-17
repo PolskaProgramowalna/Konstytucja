@@ -20,3 +20,5 @@ import Konstytucja.Modele.Kalendarz30
 import Konstytucja.Modele.Procedury
 import Konstytucja.Modele.Wybory
 import Konstytucja.Modele.StanyNadzwyczajne
+import Konstytucja.TK.Ciaglosc
+import Konstytucja.TK.CiagloscDane

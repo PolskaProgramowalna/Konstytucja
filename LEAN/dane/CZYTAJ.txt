@@ -37,3 +37,19 @@ recenzenta. Dowód dla wariantu nie przesądza o jego prawnej dopuszczalności.
 pojecia.csv   pojęcia ocenne z etapu 5 i ich frazy z tekstu
 klauzule.csv  klauzule ograniczeń i ich frazy z tekstu
               generuj.py sprawdza, że każda fraza występuje w danym przepisie
+
+Test ciągłości Trybunału Konstytucyjnego (plan_tk.txt w katalogu głównym repozytorium)
+
+tk_rejestr.csv  rejestr zdarzeń E1-E10, kadencji Sejmu, orzeczeń i zdarzeń publikacyjnych;
+                każdy wiersz ma źródło (ELI:, SEJM-GL:, IPO:, API-SEJM:, DOC:, WIKI:)
+                i pewność (ustalone / nieustalone); format opisuje tk/rejestr.py
+tk_test.py      polecenia: waliduj, przygotuj, lean, testy, oblicz --roboczo
+tk/             silnik: daty i logika trójwartościowa, rejestr z walidatorem (F2),
+                parametry Z1-Z14 z grafem zależności, model stanów (T1-T10),
+                oceny kroków 5-8 z przeglądem uzupełnień (P10), przebieg wariantów,
+                raporty i generator Konstytucja/TK/CiagloscDane.lean
+
+sprawdź.sh uruchamia walidację rejestru i testy; test sprawdza też, że
+CiagloscDane.lean odpowiada bieżącemu rejestrowi (python3 tk_test.py lean).
+`oblicz` bez flagi --roboczo kończy się błędem, bo parametry testu nie są
+zatwierdzone (plan_tk.txt, pkt 10).

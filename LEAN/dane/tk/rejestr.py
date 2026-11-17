@@ -37,6 +37,7 @@ TYPY = {
     "PUB": "zdarzenie publikacyjne O1-O4 (D7)",
     "UCHWALA_STATUS": "uchwała Sejmu o statusie sędziów (D2, dana, nie wzorzec)",
     "OCENA": "ocena interpretacyjna (P11)",
+    "D6_ROK": "liczba orzeczeń TK w roku (kompletność D6, K4)",
 }
 WYMAGA_OSOBY = {"E1", "E2", "E3", "E4", "E4-", "E5", "E6a", "E6b", "E7", "E9", "E10", "E10P"}
 PREFIKSY_ŹRÓDEŁ = ("ELI:", "SEJM-GL:", "IPO:", "API-SEJM:", "DOC:", "WIKI:")
@@ -211,6 +212,25 @@ def waliduj(rej: Rejestr) -> None:
         for k in ("warunek", "wynik", "autor", "status", "uzasadnienie"):
             if not w.a(k):
                 B.append(f"{w.id}: ocena interpretacyjna bez pola {k} (zasada P11)")
+        if w.a("wynik") and w.a("wynik") not in ("spelniony", "naruszony", "nieustalony"):
+            B.append(f"{w.id}: wynik oceny {w.a('wynik')!r} spoza spelniony/naruszony/nieustalony")
+        if w.a("status") and w.a("status") not in ("robocza", "zatwierdzona"):
+            B.append(f"{w.id}: status oceny {w.a('status')!r} spoza robocza/zatwierdzona")
+    for w in rej.typu("E8"):
+        głosujący = [o for o in w.lista("glosujacy") if not o.isdigit()]
+        suma = 0
+        for para in (w.a("glosy") or "").split("+"):
+            if ":" in para:
+                k, v = para.split(":")
+                if not v.isdigit():
+                    B.append(f"{w.id}: liczba głosów {para!r} nie jest liczbą")
+                    continue
+                suma += int(v)
+        if głosujący and suma > len(głosujący):
+            B.append(f"{w.id}: więcej głosów ({suma}) niż głosujących ({len(głosujący)})")
+    for w in rej.typu("D6_ROK"):
+        if not (w.a("rok", "").isdigit() and w.a("liczba", "").isdigit()):
+            B.append(f"{w.id}: D6_ROK wymaga liczbowych pól rok i liczba")
 
 
 def kompletność(rej: Rejestr) -> dict[str, tuple[int, int]]:

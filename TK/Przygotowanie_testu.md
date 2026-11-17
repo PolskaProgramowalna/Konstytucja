@@ -31,6 +31,7 @@ Wygenerowano: 2026-11-16 przez `LEAN/dane/tk_test.py przygotuj` na podstawie `LE
 | AD4 | gdy uchwała nie podaje początku kadencji, a dane nie wskazują wakatu, faktyczny początek liczony od dnia wyboru | tak |
 | AD5 | osoby spoza sporu zakończyły funkcję z faktycznym końcem kadencji, jeżeli brak E5 po tym dniu | tak |
 | AD6 | postanowienia E7 w oknie badania są w rejestrze kompletne | tak |
+| AD7 | osoby z E3 (odmowa przyjęcia ślubowania), bez E4, nie wykonywały funkcji przed pierwszym udokumentowanym E5 | tak |
 
 Każde AD zastępuje brakującą daną. Wyłączenie AD daje w odpowiednich miejscach wynik NIEUSTALONY (P4). AD nie są parametrami interpretacji Konstytucji.
 

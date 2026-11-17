@@ -7,9 +7,11 @@ wyborów do wakatów) i jednego zestawu założeń danych AD model wyznacza:
 - dla każdej osoby: przedziały funkcji (TAK / NIEUSTALONA) zgodnie z T9 i T10;
 - dla każdego miejsca pomocniczego: roszczenia (S4) z przedziałami.
 
-Daty niepewne są przedziałami (Chwila). Granice liczników wyznacza `liczniki()`
-metodą przedziałową: wynik jest bezpieczny (nadzbiór), lecz nie zawsze ścisły
-- to wymaga kontroli F8 (pkt 12 planu).
+Daty niepewne są przedziałami (Chwila). Przynależność niepewnej chwili do
+przedziału sprawdza `Przedział.zawiera_chwilę` na całych zakresach. Granice
+liczników wyznacza `liczniki()` metodą przedziałową z korelacją na miejscu
+pomocniczym; ścisłość i bezpieczeństwo tej metody dla wszystkich przypadków
+nie są dowiedzione - to otwarta kontrola F8 (pkt 12 planu).
 """
 from __future__ import annotations
 
@@ -43,6 +45,7 @@ class ZałożeniaDanych:
     ad4_początek_od_wyboru: bool = True  # brak daty w uchwale: kadencja liczona od wyboru
     ad5_odejście_niespornych: bool = True  # osoby bez sporu: E10 z faktycznym końcem kadencji
     ad6_kompletność_E7: bool = True  # E7 w oknie badania są kompletne
+    ad7_brak_funkcji_po_odmowie: bool = True  # E3 bez E4 i bez E5: brak funkcji przed E5
 
     def opis(self) -> list[tuple[str, str, bool]]:
         return [
@@ -56,6 +59,8 @@ class ZałożeniaDanych:
             ("AD5", "osoby spoza sporu zakończyły funkcję z faktycznym końcem kadencji, "
                     "jeżeli brak E5 po tym dniu", self.ad5_odejście_niespornych),
             ("AD6", "postanowienia E7 w oknie badania są w rejestrze kompletne", self.ad6_kompletność_E7),
+            ("AD7", "osoby z E3 (odmowa przyjęcia ślubowania), bez E4, nie wykonywały funkcji przed "
+                    "pierwszym udokumentowanym E5", self.ad7_brak_funkcji_po_odmowie),
         ]
 
 
@@ -261,16 +266,12 @@ def _zgon_lub_odejście(rej: Rejestr, o: str) -> Chwila | None:
 
 
 def _zajęty(roszczenia, miejsce: str, chwila: Chwila) -> W3:
-    """Czy w chwili `chwila` miejsce jest zajęte przez wcześniejsze roszczenie (S4)."""
+    """Czy w chwili `chwila` miejsce jest zajęte przez wcześniejsze roszczenie (S4).
+
+    Niepewna chwila jest badana na całym zakresie (TKI-3)."""
     wynik = W3.NIE
     for _, s4, kon, st in roszczenia.get(miejsce, []):
-        p = Przedział(s4, kon)
-        for d in {chwila.lo} | ({chwila.hi} if chwila.hi else set()):
-            z = p.zawiera(d)
-            if z is not W3.NIE:
-                wynik = wynik | (z & st)
-                if z is W3.NIEUST or st is W3.NIEUST:
-                    wynik = wynik | W3.NIEUST
+        wynik = wynik | (Przedział(s4, kon).zawiera_chwilę(chwila) & st)
     return wynik
 
 
@@ -278,7 +279,7 @@ def _koniec_zajęcia(roszczenia, miejsce: str, chwila: Chwila) -> Chwila | None:
     """Najpóźniejszy koniec roszczeń zajmujących miejsce w danej chwili (T3)."""
     końce = []
     for _, s4, kon, st in roszczenia.get(miejsce, []):
-        if Przedział(s4, kon).zawiera(chwila.lo) is not W3.NIE:
+        if Przedział(s4, kon).zawiera_chwilę(chwila) is not W3.NIE:
             końce.append(kon)
     if not końce:
         return None
@@ -440,45 +441,73 @@ def _tryb(i: Interpretacja, w: Wiersz) -> W3:
 
 
 def _funkcja(rej: Rejestr, ad: ZałożeniaDanych, wb: Wybór) -> None:
-    """Przedziały funkcji według T9 i T10 (tytuł i funkcja to osobne składowe)."""
+    """Przedziały funkcji według T9 i T10 (tytuł i funkcja to osobne składowe).
+
+    Dopuszczenia (E4) i zakończenia (E4-, E6a, E10) są przetwarzane chronologicznie,
+    więc ponowne dopuszczenie otwiera nowy przedział (TKI-5). Brak daty dopuszczenia
+    nie jest dowodem braku funkcji: od pierwszego E5 aktywność pozostaje możliwa do
+    udokumentowanego zakończenia albo tEnd (TKI-4).
+    """
     o = wb.osoba
-    e4 = rej.dla(o, "E4")
+    e4 = [x.chwila() for x in rej.dla(o, "E4")]
     e3 = rej.dla(o, "E3")
-    dop: Chwila | None = None
-    if e4:
-        dop = e4[0].chwila()
-    elif not e3 and ad.ad3_dopuszczenie:
-        x, _, _ = _ślubowanie(rej, ad, wb)
-        if x is None and wb.korzeń:
-            x = wb.f
-        dop = x
-    e5 = [x.data for x in rej.dla(o, "E5")]
-    stopy = [x.chwila() for x in rej.dla(o, "E4-", "E6a", "E10")]
+    e5 = sorted(x.data for x in rej.dla(o, "E5"))
+    jawne_stopy = [x.chwila() for x in rej.dla(o, "E4-", "E6a", "E10")]
     fakt_koniec = faktyczny_początek(wb.wiersz, ad).plus_lata(KADENCJA_LAT)
+    stopy = list(jawne_stopy)
     if not stopy and ad.ad5_odejście_niespornych and not wb.sporna:
         if not any(d >= fakt_koniec.lo for d in e5):
             stopy.append(fakt_koniec)
-    stop = None
-    for s in stopy:
-        stop = s if stop is None else mini(stop, s)
-    if dop is None:
-        for d in e5:
-            wb.funkcja.append((Przedział(Chwila.dokładnie(d), Chwila.dokładnie(d + _1)), W3.TAK))
-        return
-    # wyzwalacz T10: koniec tytułu (gdy był) albo faktyczny koniec kadencji
-    if wb.tytuł:
-        koniec_t = wb.tytuł[-1][0].do
-    else:
-        koniec_t = fakt_koniec
-    if koniec_t is None or (stop is not None and nie_później(stop, koniec_t) is W3.TAK):
-        wb.funkcja.append((Przedział(dop, stop), W3.TAK))
-        return
-    wb.funkcja.append((Przedział(dop, Chwila(koniec_t.lo, koniec_t.lo)), W3.TAK))
-    niep = Przedział(Chwila(koniec_t.lo, koniec_t.lo), stop)
-    wb.funkcja.append((niep, W3.NIEUST))
+    starty = list(e4)
+    if not starty and not e3 and ad.ad3_dopuszczenie:
+        x, _, _ = _ślubowanie(rej, ad, wb)
+        if x is None and wb.korzeń:
+            x = wb.f
+        if x is not None:
+            starty.append(x)
+    # 1. Przedziały z dopuszczeń i zakończeń (chronologicznie)
+    zdarzenia = sorted([(c, 0) for c in starty] + [(c, 1) for c in stopy],
+                       key=lambda z: (z[0].lo, z[1]))
+    pewne: list[Przedział] = []
+    otwarty: Chwila | None = None
+    for c, rodzaj in zdarzenia:
+        if rodzaj == 0 and otwarty is None:
+            otwarty = c
+        elif rodzaj == 1 and otwarty is not None:
+            pewne.append(Przedział(otwarty, c))
+            otwarty = None
+    if otwarty is not None:
+        pewne.append(Przedział(otwarty, None))
+    segmenty: list[tuple[Przedział, W3]] = []
+    # 2. Brak dopuszczenia w danych: E5 otwiera możliwą aktywność (TKI-4)
+    if not starty:
+        pierwszy_e5 = e5[0] if e5 else None
+        if e3 and ad.ad7_brak_funkcji_po_odmowie:
+            początek_niep = pierwszy_e5
+        else:
+            początek_niep = wb.wiersz.data  # dopuszczenie nieustalone od dnia wyboru
+        if początek_niep is not None:
+            koniec = None
+            for st in sorted(jawne_stopy, key=lambda c: c.lo):
+                if st.lo >= początek_niep:
+                    koniec = st
+                    break
+            segmenty.append((Przedział(Chwila.dokładnie(początek_niep), koniec), W3.NIEUST))
+    # 3. T10: po końcu tytułu (albo faktycznym końcu kadencji) aktywność nieustalona
+    koniec_t = wb.tytuł[-1][0].do if wb.tytuł else fakt_koniec
+    for p in pewne:
+        if koniec_t is None or (p.do is not None and nie_później(p.do, koniec_t) is W3.TAK):
+            segmenty.append((p, W3.TAK))
+            continue
+        if koniec_t.lo <= p.od.lo:
+            segmenty.append((p, W3.NIEUST))
+            continue
+        segmenty.append((Przedział(p.od, Chwila(koniec_t.lo, koniec_t.lo)), W3.TAK))
+        segmenty.append((Przedział(Chwila(koniec_t.lo, koniec_t.lo), p.do), W3.NIEUST))
+    # 4. E5 potwierdza aktywność w swoim zakresie
     for d in e5:
-        if d >= koniec_t.lo:
-            wb.funkcja.append((Przedział(Chwila.dokładnie(d), Chwila.dokładnie(d + _1)), W3.TAK))
+        segmenty.append((Przedział(Chwila.dokładnie(d), Chwila.dokładnie(d + _1)), W3.TAK))
+    wb.funkcja = segmenty
 
 
 # --- Liczniki (krok 4) ----------------------------------------------------------------

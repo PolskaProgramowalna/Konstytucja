@@ -1,6 +1,6 @@
 # Weryfikacja planu testu ciągłości TK
 
-Stan weryfikacji: 16 listopada 2026 r. Przedmiot: [plan_tk.txt](../plan_tk.txt), porównany z [plan.txt](../plan.txt) i tekstem Konstytucji. Sekcje 1–9 dotyczą wersji 1 planu, sekcja 10 opisuje wprowadzenie wersji 2, a sekcja 11 zawiera jej ponowną weryfikację. Sekcja 12 opisuje wprowadzenie wersji 3, a sekcja 13 zawiera jej ponowną weryfikację. Sekcja 14 opisuje wprowadzenie wersji 4, a sekcja 15 zawiera jej ponowną weryfikację. Numery wierszy w sekcjach 1–9 odnoszą się do wersji 1; w sekcji 11 — do wersji 2; w sekcji 13 — do wersji 3; w sekcji 15 — do wersji 4.
+Stan weryfikacji: 16 listopada 2026 r. Przedmiot: [plan_tk.txt](../plan_tk.txt), porównany z [plan.txt](../plan.txt) i tekstem Konstytucji. Sekcje 1–9 dotyczą wersji 1 planu, sekcja 10 opisuje wprowadzenie wersji 2, a sekcja 11 zawiera jej ponowną weryfikację. Sekcja 12 opisuje wprowadzenie wersji 3, a sekcja 13 zawiera jej ponowną weryfikację. Sekcja 14 opisuje wprowadzenie wersji 4, a sekcja 15 zawiera jej ponowną weryfikację. Sekcja 16 opisuje poprawkę 4.1, a sekcja 17 zawiera weryfikację pierwszej implementacji. Numery wierszy w sekcjach 1–9 odnoszą się do wersji 1; w sekcji 11 — do wersji 2; w sekcji 13 — do wersji 3; w sekcji 15 — do wersji 4; w sekcji 17 — do wskazanego tam commita implementacji.
 
 **Ocena wersji 1: plan wymaga poprawek przed przeprowadzeniem testu.** Może służyć do badania konsekwencji jawnych założeń, ale jego pierwotna procedura nie uzasadnia zapowiedzianego wniosku o utracie tożsamości organu ani niezależności wyniku od interpretacji. Jest to ocena projektu badania, bez rozstrzygnięcia o statusie TK, jego sędziów lub orzeczeń.
 
@@ -361,3 +361,120 @@ Doprecyzowanie z sekcji 15 wprowadzono do planu (wersja 4.1, mapa zmian w pkt 17
 - **F9:** rozdzielono na F9a, dotyczące każdej kompletnej historii z ustaloną aktywnością, i F9b, dotyczące granic liczników (granica górna nie maleje przez samą utratę tytułu, a granica dolna obejmuje tylko aktywność potwierdzoną).
 
 Pozostałe ustalenia sekcji 15 są aktualne. Można przygotowywać narzędzia (rejestr, walidator, generator wariantów). Obliczenia historyczne wymagają zatwierdzenia parametrów i reguły R-PUB, a F1–F9 to wymagania dla implementacji, a nie wykonane dowody.
+
+## 17. Weryfikacja pierwszej implementacji
+
+Sprawdzono kod i dane z zastanego commita `278d38e` („pierwwsza wersja planu tk”). **Kontrola projektu przechodzi, ale implementacja ma odtworzone błędy, które mogą zmieniać oceny i granice wyników.** Otwarte F3/F7/F8 trafnie sygnalizują brak części dowodów; nie zastępują jednak poprawek przypadków, w których obecny program zwraca już niewłaściwy wynik.
+
+### 17.1. Wyniki wykonanych kontroli
+
+- `./LEAN/sprawdź.sh`: powodzenie. Budowa 48 zadań; kontrola 46 modułów i 5216 deklaracji bez niedozwolonych aksjomatów; walidacja 136 wierszy bez błędów i ostrzeżeń; 25 testów Python zakończonych powodzeniem.
+- `python3 -I LEAN/dane/tk_test.py oblicz --wyjście /tmp/tk-review-no-authorization.md`, **bez** `--roboczo`: kod wyjścia 2, brak pliku wynikowego. Potwierdzono również brak zmiany istniejącego wyniku w TK.
+- Wykonano małe reprodukcje na danych syntetycznych, bez pełnego przeglądu historycznego. Sesyjny skrypt: `/tmp/tk_implementation_review.py`. Odtwarza osiem rozbieżności: siedem różnych usterek, w tym dwie reprodukcje tego samego błędu pamięci podręcznej ZO. Skrypt pokazuje wynik zaobserwowany i oczekiwany; nie jest częścią istniejących 25 testów.
+
+### 17.2. Usterki wymagające poprawy
+
+#### TKI-1 — P1: pamięć podręczna ZO pomija korelacje między tytułami
+
+**Kod:** [oceny.py](../LEAN/dane/tk/oceny.py), wiersze 145–150; wspólna pamięć w [przebieg.py](../LEAN/dane/tk/przebieg.py), wiersze 122 i 145.
+
+Klucz zawiera marginalne statusy tytułów, ale nie zawiera przyporządkowania osób do miejsc ani alternatywy danych. Dwa stany mogą mieć identyczną listę `TAK/NIEUSTALONY`, lecz inne wspólnie dopuszczalne uzupełnienia. Zwrócenie zapisanej wcześniej oceny pomija te różnice.
+
+Reprodukcja: osiem osób ma pewny tytuł, pięć jest obecnych i popiera kandydata. Dwie dalsze, nieobecne osoby mają tytuł nieustalony. Gdy roszczą tytuł do tego samego miejsca, nie mogą być jednocześnie wliczone: przy Z3.Qb kworum jest spełnione dla wszystkich uzupełnień. Gdy chodzi o dwa różne miejsca, dopuszczalne jest wliczenie obu i uzyskanie 5/10, bez kworum.
+
+Świeże oceny to odpowiednio `SPEŁNIONY` i `NIEUSTALONY`. Po użyciu wspólnej pamięci druga ocena staje się błędnie `SPEŁNIONY`. Odtworzono to także na dwóch stanach wygenerowanych przez `model.oblicz`, z niezmienionymi parametrami i różnymi przyporządkowaniami wakatów.
+
+**Poprawka:** uwzględnić w kluczu pełną istotną korelację, w tym przyporządkowanie do miejsc, albo rozdzielić pamięć między stanami/alternatywami. Dodać porównanie oceny z pamięcią i bez niej dla tych danych.
+
+#### TKI-2 — P1: brak danych o głosach ZO daje naruszenie
+
+**Kod:** [oceny.py](../LEAN/dane/tk/oceny.py), wiersze 165–178 i 200–205.
+
+Gdy lista obecnych i głosujących jest znana, ale brak `glosy`, `_przydziały` zwraca pusty przydział, a `ocena_zo` ustawia `ok = False`. Brak informacji zostaje potraktowany jako brak poparcia.
+
+Reprodukcja: osiem osób z pewnym tytułem jest obecnych i głosuje; dane nie podają liczby głosów. Przy pominięciu wady zwołania i bez wad tytułu wynik to `NARUSZONY`, choć powinien być `NIEUSTALONY`.
+
+**Poprawka:** odróżnić nieznany wynik od udokumentowanych zerowych głosów. Zastosować uzupełnienia zgodne z dostępnymi danymi albo zwrócić nieustalenie. Sprzeczne liczby głosów powinien wykrywać walidator; nie należy zamieniać ich w pusty przydział i ocenę negatywną.
+
+#### TKI-3 — P1: test zajęcia miejsca nie zachowuje bezpiecznej granicy niepewności
+
+**Kod:** [model.py](../LEAN/dane/tk/model.py), wiersze 263–274.
+
+`_zajęty` sprawdza tylko końce niepewnej chwili. Oba mogą leżeć poza przedziałem zajęcia, mimo że jego wnętrze leży wewnątrz zakresu możliwych dat.
+
+Reprodukcja: miejsce jest zajęte w `[2016-01-10, 2016-01-20)`, a badana chwila może przypadać między 1 a 31 stycznia. Program zwraca `NIE`; poprawny wynik to `NIEUSTALONY`, bo niektóre dopuszczalne daty należą do przedziału zajęcia.
+
+**Poprawka:** badać przecięcie całych zakresów oraz warunki pewnego zawierania, z uwzględnieniem korelacji. Ten przypadek obala ogólną deklarację z docstringa, że metoda zawsze daje bezpieczny nadzbiór. Otwarte F8 nie oznacza wyłącznie braku dowodu ścisłości: najpierw trzeba usunąć to zaniżenie niepewności.
+
+#### TKI-4 — P1: brak daty E4 usuwa możliwość późniejszej aktywności
+
+**Kod:** [model.py](../LEAN/dane/tk/model.py), wiersze 464–467.
+
+Gdy `dop is None`, funkcja dodaje wyłącznie potwierdzone dni E5 i kończy obliczenie. Po tych dniach `w_funkcji` zwraca `NIE`, choć brak E4 oznacza nieustaloną datę dopuszczenia, a nie dowód zakończenia funkcji.
+
+Reprodukcja: znany wybór, brak E4 i ślubowania; wyłączone AD2/AD3/AD5; E5 potwierdza aktywność 15 stycznia 2019 r., po zakończeniu tytułu. Dla 16 stycznia program zwraca `NIE`, zamiast `NIEUSTALONY`. Zaniża to górne granice F i B oraz przeczy deklaracji, że wyłączenie założeń danych zachowuje brak wiedzy.
+
+**Poprawka:** E5 musi ustanawiać dowód aktywności w swoim zakresie, a po nim zachować możliwą aktywność do potwierdzonego zakończenia lub końca danych także wtedy, gdy brakuje wcześniejszego E4.
+
+#### TKI-5 — P2: model ignoruje ponowne dopuszczenie E4
+
+**Kod:** [model.py](../LEAN/dane/tk/model.py), wiersze 445–449 i 455–474.
+
+Program wybiera pierwsze E4 i najwcześniejsze zakończenie funkcji. Kolejne E4 nie otwiera nowego przedziału.
+
+Reprodukcja: dopuszczenie 1 stycznia 2010 r., cofnięcie 1 stycznia 2011 r., ponowne udokumentowane dopuszczenie 1 stycznia 2012 r.; tytuł nadal trwa. Dla 2 stycznia 2012 r. otrzymujemy `NIE`, zamiast `TAK`.
+
+**Poprawka:** przetwarzać sekwencję dopuszczeń i zakończeń chronologicznie, tworząc wiele przedziałów, zamiast jednego początku i pierwszego końca.
+
+#### TKI-6 — P2: R-PUB zamienia każdą ocenę inną niż pozytywna w naruszenie
+
+**Kod:** [oceny.py](../LEAN/dane/tk/oceny.py), wiersze 456–478; [rejestr.py](../LEAN/dane/tk/rejestr.py), wiersze 210–213.
+
+Wyrażenie `SPEŁNIONY if ... == "spelniony" else NARUSZONY` nie obsługuje wyniku nieustalonego ani błędnej wartości. Walidator wymaga jedynie niepustego pola `wynik`.
+
+Reprodukcja: zatwierdzona ocena z `wynik=nieustalony`, autorem i uzasadnieniem niewystarczających danych daje `NARUSZONY`.
+
+**Poprawka:** zdefiniować dozwolone wartości i mapować je jawnie, z zachowaniem `NIEUSTALONY`. Nieznana wartość powinna być błędem walidacji, a nie dowodem naruszenia. Zatwierdzenie oceny przez recenzenta nie oznacza automatycznie rozstrzygającego wyniku tej oceny.
+
+#### TKI-7 — P2: Z13b pomija kworum po usunięciu osób bez tytułu
+
+**Kod:** [oceny.py](../LEAN/dane/tk/oceny.py), wiersze 428–440.
+
+`_z13b_jednogłośnie` sprawdza wyłącznie `len(pozostali) >= 1`. Parametr `i` nie jest używany. Zachowanie większości przy jednomyślności nie dowodzi zachowania wymaganego kworum lub liczebności.
+
+Reprodukcja: po usunięciu dwóch osób bez tytułu pozostaje jedna. Przy Z11a, którego reguła nie jest jeszcze wczytana, funkcja zwraca `BEZ WADY`, zamiast `NIEUSTALONY`. Osobna ocena 7(d) może obecnie utrzymać nieustalenie skutku łącznego, ale nie naprawia błędnego szczegółowego wyniku Z13b.
+
+**Poprawka:** oceniać oba warunki Z13b; bez reguły kworum zachować nieustalenie albo wskazać brak pokrycia. Docelowo korzystać z reguły obowiązującej dla badanego rodzaju orzeczenia i daty.
+
+### 17.3. Zakres implementacji i dowodów
+
+- **K4 nie jest jeszcze obliczane:** `przebieg.k4` (wiersze 186–193) bezwarunkowo wpisuje nieustalenie dla każdego roku. To uzasadniony komunikat przy obecnym niekompletnym D6, ale nie implementacja kryterium, która zacznie działać po samym uzupełnieniu danych. Potrzebna jest obsługa kompletności, odsetków, progu X i powiązania z kierownictwem.
+- **Lean sprawdza model pomocniczy:** F9a/F9b dotyczą funkcji `krok` w `Ciaglosc.lean`. Nie ma jeszcze dowodu, że Python realizuje tę funkcję; otwarte F3 jest tu zasadnicze. Błędy TKI-4/TKI-5 mogą istnieć mimo poprawnych dowodów pomocniczych w Lean.
+- **F2 jest kontrolą ograniczonej reprezentacji:** generator przenosi do Lean numer porządkowy, typ, dzień i osobę. Źródła, niepewność, przyporządkowania wakatów i pozostałe atrybuty nie są częścią tej struktury. Unikalność numerów wierszy nie jest samodzielnym dowodem poprawności wszystkich identyfikatorów źródłowego CSV ani zgodności faktów z dokumentami. Python sprawdza szerszy zakres syntaktyczny, ale brak błędów walidatora nie potwierdza treści każdego źródła.
+- **Raport agreguje i traci część śladu oceny:** `raport.wynik` podaje rozkłady wyników, lecz nie zachowuje dla każdej oceny pól W/Z/D, które posiada `Ocena`, ani pełnych przedziałów kierownictwa. Tabele C/D wymagają uzupełnienia przed traktowaniem ich jako docelowego raportu z pkt 8 planu.
+
+### 17.4. Zastany stan plików i granice weryfikacji
+
+W repozytorium był już nieśledzony `TK/Wynik_testu_ciaglosci.md`, oznaczony jako roboczy i opisujący M3 = 7 077 888, oraz `oblicz_tk.sh`. Nie utworzono ani nie nadpisano tych plików podczas recenzji. Ich obecność różni się od opisu, że wynik istnieje wyłącznie w scratchpadzie; nie rozstrzyga to, kiedy i przez kogo został skopiowany.
+
+Nie wykonano pełnego przeglądu historycznego, nie zatwierdzono parametrów i nie wydano werdyktu o TK. Kontrola dotyczy implementacji, spójności modelu i działania testów; nie jest ponownym audytem treści wszystkich 136 rekordów w zewnętrznych dokumentach. Kod i dane pozostawiono bez zmian. Do poprawienia są najpierw odtworzone usterki, następnie ich testy regresyjne i zakres otwartych kontroli formalnych.
+
+## 18. Stan po poprawkach implementacji (16 listopada 2026 r.)
+
+Wszystkie usterki z sekcji 17 poprawiono. Do każdej dodano test regresyjny odtwarzający przypadek z recenzji (`LEAN/dane/tk/test_tk.py`, klasy `Regresja` i `K4`; łącznie 35 testów). Sprawdzono to, uruchamiając nowe testy na kodzie z commitu `278d38e`: wszystkie 10 nowych testów zawodzi (7 niepowodzeń i 3 błędy z powodu braku nowych funkcji), a 25 dotychczasowych przechodzi. Po poprawkach przechodzą wszystkie 35. `LEAN/sprawdź.sh` przechodzi.
+
+| Usterka | Poprawka |
+| --- | --- |
+| TKI-1 | Klucz pamięci ZO obejmuje status tytułu **i miejsce pomocnicze** każdej osoby, która może mieć tytuł. Test porównuje ocenę świeżą z oceną przy wspólnej pamięci dla obu wariantów z recenzji (`SPEŁNIONY` / `NIEUSTALONY`). |
+| TKI-2 | Brak `glosy` albo `glosujacy` daje wynik większości nieustalony, a nie negatywny. Walidator odrzuca więcej głosów niż głosujących i niepoprawne liczby; `_przydziały` zgłasza błąd zamiast pustego przydziału. |
+| TKI-3 | Nowa metoda `Przedział.zawiera_chwilę` bada przecięcie całych zakresów oraz pewne zawieranie; `_zajęty` i `_koniec_zajęcia` z niej korzystają. Docstring modelu nie twierdzi już, że metoda daje zawsze bezpieczny nadzbiór (F8 otwarte). |
+| TKI-4 | Bez daty E4 pierwsze E5 otwiera możliwą aktywność do udokumentowanego zakończenia albo tEnd. Przed pierwszym E5: nieustalona od dnia wyboru, a dla osób z E3 brak funkcji tylko przy nowym, jawnym i przełączalnym założeniu AD7. |
+| TKI-5 | Dopuszczenia (E4) i zakończenia (E4-, E6a, E10) są przetwarzane chronologicznie, każde ponowne dopuszczenie otwiera nowy przedział. |
+| TKI-6 | Jawne odwzorowanie `spelniony` / `naruszony` / `nieustalony`; walidator odrzuca inne wartości `wynik` i `status`. Zatwierdzona ocena „nieustalony” daje NIEUSTALONY. |
+| TKI-7 | Z13b sprawdza większość i kworum. Bez reguły kworum: NIEUSTALONY (Z11a) albo NIEPOKRYTY (Z11b); utrata większości we wszystkich uzupełnieniach: WADLIWE. |
+| K4 (17.3) | K4 jest obliczane jako koniunkcja „kierownictwo NARUSZONE w roku” i „udział WADLIWYCH ≥ X”. Granice udziału wynikają z nowego typu danych `D6_ROK` (liczba orzeczeń w roku); orzeczenia spoza rejestru traktowane są jak nieustalone. Przy obecnych danych (brak `D6_ROK`) wynik jest NIEUSTALONY, ale zmieni się po uzupełnieniu danych bez zmiany kodu. |
+| Ślad (17.3) | Tabela C raportu podaje wzorce W, źródła D i wszystkie wyznaczone przedziały kierownictwa. |
+
+Nadal otwarte, zgodnie z 17.3: F3 (dowód zgodności Pythona z funkcją `krok` w Lean), F7, F8 i ograniczony zakres F2 w Lean (numer, typ, dzień, osoba - bez źródeł i atrybutów).
+
+Plik `TK/Wynik_testu_ciaglosci.md` powstał przy uruchomieniu `./oblicz_tk.sh` na prośbę użytkownika (wcześniejsze stwierdzenie, że wynik istnieje tylko w scratchpadzie, dotyczyło stanu sprzed napisania skryptu). Został odtworzony po poprawkach; nadal jest oznaczony jako roboczy i nie jest werdyktem.

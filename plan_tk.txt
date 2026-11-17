@@ -795,7 +795,7 @@ Zrealizowane elementy planu:
   przygotowawczy, sekcja 2).
 
 Odstępstwa i dodatki wymagające decyzji recenzenta:
-I1  Założenia danych AD1-AD6 (model.ZałożeniaDanych). Plan ich nie przewiduje.
+I1  Założenia danych AD1-AD7 (model.ZałożeniaDanych). Plan ich nie przewiduje.
     Zastępują brakujące dane (np. ślubowania sędziów wybranych przed 2015 r.,
     kompletność E6), są przełączalne i raportowane. Bez nich wynik byłby
     niemal w całości NIEUSTALONY. Wyłączenie: tk_test.py --bez-ad <nazwa>.
@@ -805,9 +805,10 @@ I2  Konwencja dat (4.5): uchwały Sejmu wyznaczają początek kadencji następcy
     przedziałów półotwartych z planu; rozbieżność jest raportowana (raport
     przygotowawczy, sekcja 5) i wpływa na H1 oraz H5.
 I3  Granice liczników T, F, B, W, Z, U liczone metodą przedziałową
-    z korelacją na miejscu pomocniczym: wynik bezpieczny (nadzbiór), nie
-    zawsze ścisły. Dokładny przegląd uzupełnień (P10) zaimplementowano dla
-    ZO i Z13b. Kontrola F8 dla liczników pozostaje otwarta.
+    z korelacją na miejscu pomocniczym; niepewne chwile badane na całych
+    zakresach (Przedział.zawiera_chwilę). Bezpieczeństwo i ścisłość tej
+    metody nie są dowiedzione - kontrola F8 dla liczników pozostaje otwarta.
+    Dokładny przegląd uzupełnień (P10) zaimplementowano dla ZO i Z13b.
 I4  Wpływ parametrów w tabeli F: dla wyników M1 - test zmiany jednego
     parametru (dokładny); dla M2 i M3 - miara marginalna. Gdy żadna
     pojedyncza zmiana nie zmienia zbioru wyników, raport podaje "łącznie
@@ -825,7 +826,26 @@ I8  Wakaty: 18 wyborów (2007 r. i 2017-2026) ma wakat nieustalony w dokumentach
     ("?"), więc nie są przeglądane alternatywy ich przypisania. Ich S2, S4
     i tytuł są NIEUSTALONE.
 
-Otwarte: F1 (osiągalność w Lean), F3, F5, F7, F8 (pkt 12); dane D3, D5, D6,
-D11; zatwierdzenie parametrów, R-PUB, AD1-AD6 i konwencji dat. Obliczenie
-`tk_test.py oblicz --roboczo` działa (pełny przegląd: ok. 80 s, 7 077 888
-wariantów M3 x A), lecz zgodnie z pkt 10 jego wyniku nie zapisano w TK/.
+Poprawki po recenzji implementacji (TK/Weryfikacja_planu_tk.md, sekcja 17),
+każda z testem regresyjnym w tk/test_tk.py (klasy Regresja i K4):
+TKI-1 klucz pamięci ZO zawiera miejsce pomocnicze każdej osoby,
+TKI-2 brak danych o głosach ZO daje NIEUSTALONY; walidator odrzuca więcej
+      głosów niż głosujących,
+TKI-3 zajęcie miejsca badane na całym zakresie niepewnej chwili,
+TKI-4 E5 bez E4 zachowuje możliwą aktywność do zakończenia lub tEnd; nowe
+      AD7 (E3 bez E4: brak funkcji przed pierwszym E5) - jawne, przełączalne,
+TKI-5 dopuszczenia i zakończenia przetwarzane chronologicznie (wiele przedziałów),
+TKI-6 R-PUB odwzorowuje wynik oceny P11 jawnie (nieustalony zostaje
+      nieustalony); walidator ogranicza wartości wynik i status,
+TKI-7 Z13b sprawdza też kworum (Z11a: NIEUSTALONY, Z11b: NIEPOKRYTY),
+K4    obliczane: kierownictwo NARUSZONE w roku ∧ udział WADLIWYCH ≥ X, z
+      granicami według nowego typu danych D6_ROK (liczba orzeczeń w roku);
+      bez D6_ROK udział jest NIEUSTALONY,
+ślad  tabela C raportu podaje wzorce W, źródła D i przedziały kierownictwa.
+
+Otwarte: F1 (osiągalność w Lean), F3 (zgodność Pythona z `krok` w Lean), F5,
+F7, F8 (pkt 12); dane D3, D5, D6 (w tym D6_ROK), D11; zatwierdzenie parametrów,
+R-PUB, AD1-AD7 i konwencji dat. Skrypt ./oblicz_tk.sh wykonuje walidację,
+testy i pełny przegląd (ok. 2,5 min, 7 077 888 wariantów M3 x A) i zapisuje
+WYNIK ROBOCZY w TK/Wynik_testu_ciaglosci.md - na wyraźne polecenie
+użytkownika, mimo że parametry nie są zatwierdzone (pkt 10).

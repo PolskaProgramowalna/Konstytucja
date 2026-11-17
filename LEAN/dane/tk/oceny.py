@@ -15,6 +15,7 @@ from .rejestr import Rejestr, Wiersz
 
 SPEŁNIONY, NARUSZONY, NIEUSTALONY = "SPEŁNIONY", "NARUSZONY", "NIEUSTALONY"
 NIEPOKRYTY, NIEPRZEWIDZIANE, NIE_DOTYCZY = "NIEPOKRYTY", "NIEPRZEWIDZIANE", "NIE DOTYCZY"
+WYNIKI_OCENY = {"spelniony": "SPEŁNIONY", "naruszony": "NARUSZONY", "nieustalony": "NIEUSTALONY"}
 LIMIT_UZUPEŁNIEŃ = 1 << 16  # powyżej: NIEUSTALONY z adnotacją (bez skrótu, P10)
 KADENCJA_PREZESA_USTAWA = 6  # Z5b: art. 10 ust. 2 ustawy z 30.11.2016 (D11, ELI:DU/2016/2072)
 
@@ -143,8 +144,11 @@ def ocena_zo(rej: Rejestr, stan: Stan, i: Interpretacja, zo: Wiersz,
         return Ocena(f"ZO:{zo.id}", NIEUSTALONY, "W2", f"Z3={i.z3c}{i.z3q}{i.z3m} Z8={i.z8}",
                      zo.źródła, ["lista obecnych nieustalona (D5)"])
     wszyscy = osoby_z_tytułem_możliwym(stan, t)
+    # Klucz pamięci obejmuje status tytułu ORAZ miejsce pomocnicze każdej osoby, która
+    # może mieć tytuł: od miejsc zależą wspólnie dopuszczalne uzupełnienia (TKI-1).
     klucz = (zo.id, kandydat, i.z3c, i.z3q, i.z3m, i.z8, i.z5z, tuple(sorted(
-        (o, stan.wybory[o].ma_tytuł(t).value) for o in set(wszyscy) | set(obecni))),
+        (o, stan.wybory[o].ma_tytuł(t).value, stan.wybory[o].miejsce or "?")
+        for o in set(wszyscy) | set(obecni) if o in stan.wybory)),
         _status_zwołującego(stan, i, zo, kierownictwo))
     if klucz in cache:
         return cache[klucz]
@@ -164,12 +168,13 @@ def ocena_zo(rej: Rejestr, stan: Stan, i: Interpretacja, zo: Wiersz,
         kworum = (len(obecni_t) >= 8) if i.z3q == "a" else (len(obecni_t) * 2 > len(z_tyt))
         # przydział głosów do głosujących nie jest znany: przegląd wszystkich przydziałów
         ok_większość = set()
-        for przydział in _przydziały(głosujący, głosy):
+        if not głosy or not głosujący:
+            # brak danych o głosach nie jest dowodem braku poparcia (TKI-2)
+            ok_większość = {True, False}
+        for przydział in (_przydziały(głosujący, głosy) if głosy and głosujący else []):
             # Z3.M dotyczy poparcia dla osoby następnie powołanej (kandydat E7)
             v = sum(1 for o, g in przydział.items() if g == kandydat and u.get(o))
-            if not głosy:
-                ok = False
-            elif i.z3m == "a":
+            if i.z3m == "a":
                 ok = v >= 8
             elif i.z3m == "b":
                 ok = v * 2 > len(głos_t)
@@ -200,9 +205,8 @@ def ocena_zo(rej: Rejestr, stan: Stan, i: Interpretacja, zo: Wiersz,
 def _przydziały(głosujący: list[str], głosy: dict[str, int]):
     """Wszystkie przydziały głosów (kandydat -> liczba) do konkretnych głosujących."""
     kandydaci = list(głosy)
-    if not kandydaci or sum(głosy.values()) > len(głosujący):
-        yield {}
-        return
+    if sum(głosy.values()) > len(głosujący):
+        raise ValueError("więcej głosów niż głosujących - błąd danych (walidator)")
     pozostali = list(głosujący)
 
     def rek(idx: int, wolni: list[str], acc: dict):
@@ -426,19 +430,20 @@ def krok7(rej: Rejestr, stan: Stan, i: Interpretacja, kier: list[Kierownictwo]
 
 
 def _z13b_jednogłośnie(skład: list[str], stan: Stan, t: Data, i: Interpretacja) -> str:
-    """Z13b przy jednogłośności: po usunięciu osób bez tytułu pozostali głosowali za."""
+    """Z13b przy jednogłośności: po łącznym usunięciu osób bez tytułu sprawdzamy
+    większość (W6d) ORAZ kworum (Z11). Bez wczytanej reguły kworum wynik pozostaje
+    NIEUSTALONY (Z11a) albo NIEPOKRYTY (Z11b) - TKI-7."""
     gen = uzupełnienia(stan, skład, t)
     if gen is None:
         return NIEUSTALONY
-    wyniki = set()
+    większość = set()
     for u in gen:
         pozostali = [o for o in skład if u.get(o)]
-        wyniki.add(len(pozostali) >= 1)  # jednogłośnie: większość wśród pozostałych zachowana
-    if wyniki == {True}:
-        return "BEZ WADY"
-    if wyniki == {False}:
+        większość.add(len(pozostali) >= 1)  # jednogłośnie: pozostali głosowali za
+    if większość == {False}:
         return "WADLIWE"
-    return NIEUSTALONY
+    # większość zachowana (albo niepewna); kworum zależy od reguły Z11, której brak
+    return NIEPOKRYTY if (i.z11 == "b" and większość == {True}) else NIEUSTALONY
 
 
 # --- Krok 8: publikacja (R-PUB) -------------------------------------------------------
@@ -475,8 +480,11 @@ def krok8(rej: Rejestr, n1: tuple[int, ...]) -> list[dict]:
             rek["przedział_naruszenia"] = (od, ogł)
             rek["przyczyna"] = pewne_o2[0].a("organ")
         elif ocena:
-            rek["w6b"] = SPEŁNIONY if ocena[0].a("wynik") == "spelniony" else NARUSZONY
-            rek["przyczyna"] = ocena[0].a("organ", "-")
+            # jawne odwzorowanie; zatwierdzenie oceny nie czyni jej rozstrzygającą (TKI-6)
+            rek["w6b"] = WYNIKI_OCENY[ocena[0].a("wynik")]
+            rek["przyczyna"] = ocena[0].a("organ", "-") if rek["w6b"] == NARUSZONY else (
+                NIEUSTALONY if rek["w6b"] == NIEUSTALONY else "-")
+            rek["ocena"] = f"{ocena[0].id} ({ocena[0].a('autor')})"
         else:
             rek["w6b"] = NIEUSTALONY
             rek["przyczyna"] = NIEUSTALONY

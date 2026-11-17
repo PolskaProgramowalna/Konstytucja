@@ -238,5 +238,125 @@ class Przebieg(unittest.TestCase):
         self.assertIs(st.wybory["kieres"].ma_tytuł(data("2016-01-01")), W3.NIEUST)
 
 
+def _korzenie(n: int, dodatkowe: str = "") -> rejestr.Rejestr:
+    w = [f"E{k},E1,2009-12-01,p{k},,poczatek=2010-01-10;glosowanie=odrebne,ELI:MP/{k},ustalone,"
+         for k in range(n)]
+    return rej_z("\n".join(w) + "\n" + dodatkowe)
+
+
+I_ZO = Interpretacja(z1="a", z2="a", z4="a", z7="c", z12="a", z3c="b", z3q="b", z3m="b",
+                     z5="a", z5z="c", z8="b")
+
+
+class Regresja(unittest.TestCase):
+    """Testy regresyjne usterek z recenzji, sekcja 17 (TKI-1 ... TKI-7)."""
+
+    def _stan_zo(self, wspólne_miejsce: bool, głosy: bool = True):
+        zo = ("Z,E8,2012-01-01,,,obecni=p0+p1+p2+p3+p4;glosujacy=p0+p1+p2+p3+p4"
+              + (";glosy=p0:5" if głosy else "") + ",DOC:x,ustalone,\n")
+        r = _korzenie(10, zo)
+        self.assertEqual(r.błędy, [])
+        st = model.oblicz(r, I_ZO, model.alternatywy(r)[0])
+        for o in ("p8", "p9"):  # dwie nieobecne osoby z tytułem nieustalonym
+            st.wybory[o].tytuł = [(p, W3.NIEUST) for p, _ in st.wybory[o].tytuł]
+        if wspólne_miejsce:
+            st.wybory["p9"].miejsce = st.wybory["p8"].miejsce
+        return r, st
+
+    def test_TKI1_pamięć_zo_uwzględnia_miejsca(self):
+        r1, st1 = self._stan_zo(True)
+        r2, st2 = self._stan_zo(False)
+        zo1, zo2 = r1.po_id("Z"), r2.po_id("Z")
+        świeża1 = oceny.ocena_zo(r1, st1, I_ZO, zo1, [], {}, "p0").wynik
+        świeża2 = oceny.ocena_zo(r2, st2, I_ZO, zo2, [], {}, "p0").wynik
+        self.assertEqual(świeża1, oceny.SPEŁNIONY)
+        self.assertEqual(świeża2, oceny.NIEUSTALONY)
+        wspólna: dict = {}
+        oceny.ocena_zo(r1, st1, I_ZO, zo1, [], wspólna, "p0")
+        self.assertEqual(oceny.ocena_zo(r2, st2, I_ZO, zo2, [], wspólna, "p0").wynik, świeża2)
+
+    def test_TKI2_brak_głosów_nieustalony(self):
+        r, st = self._stan_zo(True, głosy=False)
+        self.assertEqual(oceny.ocena_zo(r, st, I_ZO, r.po_id("Z"), [], {}, "p0").wynik,
+                         oceny.NIEUSTALONY)
+
+    def test_walidator_głosy_ponad_głosujących(self):
+        r = _korzenie(2, "Z,E8,2012-01-01,,,obecni=p0+p1;glosujacy=p0+p1;glosy=p0:3,DOC:x,ustalone,\n")
+        self.assertTrue(any("więcej głosów" in b for b in r.błędy))
+
+    def test_TKI3_zajęcie_przy_niepewnej_dacie(self):
+        p = Przedział(Chwila.dokładnie(data("2016-01-10")), Chwila.dokładnie(data("2016-01-20")))
+        c = Chwila(data("2016-01-01"), data("2016-01-31"))
+        self.assertIs(p.zawiera_chwilę(c), W3.NIEUST)
+        rosz = {"M": [("x", p.od, p.do, W3.TAK)]}
+        self.assertIs(model._zajęty(rosz, "M", c), W3.NIEUST)
+        self.assertIs(p.zawiera_chwilę(Chwila(data("2016-01-11"), data("2016-01-12"))), W3.TAK)
+        self.assertIs(p.zawiera_chwilę(Chwila(data("2016-02-01"), None)), W3.NIE)
+
+    def test_TKI4_E5_bez_E4_zachowuje_możliwą_aktywność(self):
+        r = rej_z("A,E1,2009-12-01,x,,poczatek=2010-01-10;glosowanie=odrebne,ELI:MP/1,ustalone,\n"
+                  "C,E5,2019-01-15,x,,rodzaj=orzeczenie,DOC:x,ustalone,\n")
+        ad = ZałożeniaDanych(ad2_ślubowanie_niespornych=False, ad3_dopuszczenie=False,
+                             ad5_odejście_niespornych=False)
+        st = model.oblicz(r, Interpretacja(z1="a", z2="a", z4="a", z7="c", z12="a"),
+                          model.alternatywy(r)[0], ad)
+        w = st.wybory["x"]
+        self.assertIs(w.w_funkcji(data("2019-01-15")), W3.TAK)
+        self.assertIs(w.w_funkcji(data("2019-01-16")), W3.NIEUST)
+
+    def test_TKI5_ponowne_dopuszczenie(self):
+        r = rej_z("A,E1,2009-12-01,x,,poczatek=2010-01-10;glosowanie=odrebne,ELI:MP/1,ustalone,\n"
+                  "B,E4,2010-01-01,x,,,DOC:x,ustalone,\n"
+                  "C,E4-,2011-01-01,x,,,DOC:x,ustalone,\n"
+                  "D,E4,2012-01-01,x,,,DOC:x,ustalone,\n")
+        st = model.oblicz(r, Interpretacja(z1="a", z2="a", z4="a", z7="c", z12="a"),
+                          model.alternatywy(r)[0])
+        w = st.wybory["x"]
+        self.assertIs(w.w_funkcji(data("2010-06-01")), W3.TAK)
+        self.assertIs(w.w_funkcji(data("2011-06-01")), W3.NIE)
+        self.assertIs(w.w_funkcji(data("2012-01-02")), W3.TAK)
+
+    def test_TKI6_ocena_nieustalona_nie_jest_naruszeniem(self):
+        baza = ("X,E1,2009-12-01,x,,poczatek=2010-01-10,ELI:MP/1,ustalone,\n"
+                "R,ORZ,2016-01-10,,,sprawa=K 1/16;art188=tak;sklad=x;wynik=jednoglosnie,IPO:K 1/16,ustalone,\n")
+        r = rej_z(baza + "O,OCENA,2016-02-01,,,warunek=W6b:K 1/16;wynik=nieustalony;autor=recenzent;"
+                         "status=zatwierdzona;uzasadnienie=dane niewystarczające,DOC:x,ustalone,\n")
+        self.assertEqual(r.błędy, [])
+        self.assertEqual(oceny.krok8(r, (14,))[0]["w6b"], oceny.NIEUSTALONY)
+        r2 = rej_z(baza + "O,OCENA,2016-02-01,,,warunek=W6b:K 1/16;wynik=zle;autor=a;"
+                          "status=zatwierdzona;uzasadnienie=u,DOC:x,ustalone,\n")
+        self.assertTrue(any("wynik oceny" in b for b in r2.błędy))
+
+    def test_TKI7_z13b_sprawdza_kworum(self):
+        r = _korzenie(3)
+        st = model.oblicz(r, Interpretacja(z1="a", z2="a", z4="a", z7="c", z12="a"),
+                          model.alternatywy(r)[0])
+        t = data("2012-01-01")
+        for o in ("p1", "p2"):  # dwie osoby bez tytułu w składzie
+            st.wybory[o].tytuł = []
+        i_a = Interpretacja(z11="a")
+        self.assertEqual(oceny._z13b_jednogłośnie(["p0", "p1", "p2"], st, t, i_a), oceny.NIEUSTALONY)
+        self.assertEqual(oceny._z13b_jednogłośnie(["p0", "p1", "p2"], st, t, Interpretacja(z11="b")),
+                         oceny.NIEPOKRYTY)
+        self.assertEqual(oceny._z13b_jednogłośnie(["p1", "p2"], st, t, i_a), "WADLIWE")
+
+
+class K4(unittest.TestCase):
+    def test_udział(self):
+        self.assertIs(przebieg.udział_wadliwych(1, 0, 1, None, 0.1), W3.NIEUST)
+        self.assertIs(przebieg.udział_wadliwych(3, 0, 4, 4, 0.5), W3.TAK)
+        self.assertIs(przebieg.udział_wadliwych(0, 0, 4, 4, 0.1), W3.NIE)
+        self.assertIs(przebieg.udział_wadliwych(0, 0, 4, 10, 0.5), W3.NIEUST)  # 6 poza rejestrem
+
+    def test_kierownictwo_w_roku(self):
+        K = oceny.Kierownictwo
+        nar = [K("a", "prezes", data("2018-03-01"), data("2019-01-01"), oceny.NARUSZONY, [])]
+        self.assertIs(przebieg.kierownictwo_naruszone_w_roku(nar, 2018), W3.TAK)
+        ok = [K("a", "prezes", data("2010-01-01"), None, oceny.SPEŁNIONY, [])]
+        self.assertIs(przebieg.kierownictwo_naruszone_w_roku(ok, 2018), W3.NIE)
+        luka = [K("a", "prezes", data("2018-03-01"), None, oceny.SPEŁNIONY, [])]
+        self.assertIs(przebieg.kierownictwo_naruszone_w_roku(luka, 2018), W3.NIEUST)
+
+
 if __name__ == "__main__":
     unittest.main()

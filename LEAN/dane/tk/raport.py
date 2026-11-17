@@ -147,9 +147,13 @@ def wynik(rej: Rejestr, W: Wynik) -> str:
     for k, a in sorted(W.agregaty.items()):
         if k.startswith(("E1:", "ocena:", "kierownictwo:")):
             wpływ = sorted(W.wpływ_dokładny.get(k, set())) or a.wpływające()
+            śl = W.ślad.get(k, {})
+            przedz = ", ".join(sorted(śl.get("przedziały", [])))
             rows.append([k, "; ".join(f"{v}: {n}" for v, n in a.liczby.most_common()),
-                         _zależność(a.jednolity(), wpływ)])
-    s.append(_tabela(["wymóg / czynność", "wynik: liczba wariantów", "zależy od"], rows))
+                         _zależność(a.jednolity(), wpływ), śl.get("wzorce", "-"),
+                         śl.get("źródła", "-") or "-", przedz or "-"])
+    s.append(_tabela(["wymóg / czynność", "wynik: liczba wariantów", "zależy od", "wzorce (W)",
+                      "źródła (D)", "przedziały kierownictwa"], rows))
     s.append("\n## Tabela D. Orzeczenia: skutek łączny (krok 7)\n")
     rows = []
     for k, a in sorted(W.agregaty.items()):
@@ -182,5 +186,9 @@ def wynik(rej: Rejestr, W: Wynik) -> str:
         s.append(_tabela(["od dnia", "wartości w zbadanych wariantach"], rows))
         s.append("")
     s.append("### K4\n")
-    s.append(_tabela(["rok", "K4"], [[r, v] for r, v in k4(W, rej).items()]))
+    s.append("K4 = kierownictwo NARUSZONE w roku ∧ udział orzeczeń WADLIWYCH ≥ X (miara roczna, "
+             "nie stan dzienny). Bez liczby orzeczeń roku (D6_ROK) udział jest NIEUSTALONY, więc "
+             "K4 może być NIE tylko przy kierownictwie na pewno nienaruszonym.\n")
+    s.append(_tabela(["rok", "X", "K4: liczba wariantów"],
+                     [[r, f"{x:.0%}", v] for (r, x), v in k4(W, rej).items()]))
     return "\n".join(s) + "\n"

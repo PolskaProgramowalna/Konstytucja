@@ -69,13 +69,19 @@ class Wynik:
     obwiednia: dict[Data, dict[str, tuple[int, int]]] = field(default_factory=dict)
     k_dni: dict[str, dict[Data, set[str]]] = field(default_factory=dict)
     publikacja: list[dict] = field(default_factory=list)
+    k4: dict = field(default_factory=lambda: collections.defaultdict(collections.Counter))
+    ślad: dict[str, dict] = field(default_factory=dict)  # klucz -> wzorce, źródła, przedziały
     liczba_wariantów: dict[str, int] = field(default_factory=dict)
     alternatywy: list = field(default_factory=list)
     założenia: ZałożeniaDanych = field(default_factory=ZałożeniaDanych)
 
 
-def wyniki_m1(rej: Rejestr, st: Stan) -> dict[str, str]:
-    out = {o.klucz: o.wynik for o in oceny.krok5(rej, st)}
+def wyniki_m1(rej: Rejestr, st: Stan, ślad: dict | None = None) -> dict[str, str]:
+    oc = oceny.krok5(rej, st)
+    if ślad is not None:
+        for o in oc:
+            ślad.setdefault(o.klucz, {"wzorce": o.wzorce, "źródła": "; ".join(o.źródła)})
+    out = {o.klucz: o.wynik for o in oc}
     for osoba, w in st.wybory.items():
         if w.wiersz.data >= T_START:
             out[f"S4:{osoba}"] = f"{w.s4_status.value} od {w.s4}" if w.s4 else "BRAK"
@@ -119,10 +125,11 @@ def przebieg(rej: Rejestr, ad: ZałożeniaDanych = ZałożeniaDanych(),
             wszystkie_daty.update(st.daty_zmian())
     daty = sorted(wszystkie_daty)
     tab_m3: dict = {}
+    d6_rok = {int(w.a("rok")): int(w.a("liczba")) for w in rej.typu("D6_ROK")}
     cache_zo: dict = {}
     r1_tab: dict = {}
     for (ai, i1), st in stany.items():
-        r1 = wyniki_m1(rej, st)
+        r1 = wyniki_m1(rej, st, W.ślad)
         r1_tab[(ai, i1)] = r1
         licz["M1"] += 1
         for k, v in r1.items():
@@ -145,9 +152,16 @@ def przebieg(rej: Rejestr, ad: ZałożeniaDanych = ZałożeniaDanych(),
             kier = oceny.krok6(rej, st, i2, cache_zo)
             licz["M2"] += 1
             for k in kier:
-                W.agregaty[f"kierownictwo:{k.osoba}:{k.funkcja}:{k.od}"].dodaj(k.wynik, i2, alt=ai)
+                kk = f"kierownictwo:{k.osoba}:{k.funkcja}:{k.od}"
+                W.agregaty[kk].dodaj(k.wynik, i2, alt=ai)
+                śl = W.ślad.setdefault(kk, {"wzorce": "W2", "źródła": "", "przedziały": set()})
+                śl["przedziały"].add(f"[{k.od}, {k.do or '…'})")
                 for o in k.oceny:
                     W.agregaty[f"ocena:{o.klucz}"].dodaj(o.wynik, i2, alt=ai)
+                    W.ślad.setdefault(f"ocena:{o.klucz}",
+                                      {"wzorce": o.wzorce, "źródła": "; ".join(o.źródła)})
+                    if not śl["źródła"]:
+                        śl["źródła"] = "; ".join(o.źródła)
             if "M3" not in moduły:
                 continue
             # Krok 7 zależy od M2 tylko przez kierującego w dniach orzeczeń (odcisk2);
@@ -157,15 +171,31 @@ def przebieg(rej: Rejestr, ad: ZałożeniaDanych = ZałożeniaDanych(),
             if klucz not in tab_m3:
                 podsum = collections.defaultdict(collections.Counter)
                 marg = collections.defaultdict(lambda: collections.defaultdict(set))
+                udział = collections.defaultdict(collections.Counter)  # (rok, X) -> W3 udziału
                 for wart in itertools.product(*(PARAMETRY[p][0] for p in ROZSZERZENIA_M3)):
                     i3 = replace(i2, **dict(zip(ROZSZERZENIA_M3, wart)))
+                    roczne = collections.defaultdict(lambda: [0, 0, 0])
                     for r, det, łączny in oceny.krok7(rej, st, i3, kier):
                         sprawa = r.a("sprawa")
                         podsum[sprawa][łączny] += 1
                         for p, v in zip(ROZSZERZENIA_M3, wart):
                             marg[sprawa][(p, v)].add(łączny)
-                tab_m3[klucz] = (podsum, marg)
-            podsum, marg = tab_m3[klucz]
+                        if r.a("art188") == "tak":
+                            rr = roczne[r.data.year]
+                            rr[0] += łączny == "WADLIWE"
+                            rr[1] += łączny == "NIEUSTALONE"
+                            rr[2] += 1
+                    for rok in LATA:
+                        n_w, n_n, n_r = roczne.get(rok, [0, 0, 0])
+                        for x in K4_X:
+                            udział[(rok, x)][udział_wadliwych(n_w, n_n, n_r, d6_rok.get(rok), x)] += 1
+                tab_m3[klucz] = (podsum, marg, udział)
+            podsum, marg, udział = tab_m3[klucz]
+            for rok in LATA:
+                kw = kierownictwo_naruszone_w_roku(kier, rok)
+                for x in K4_X:
+                    for wu, n in udział[(rok, x)].items():
+                        W.k4[(rok, x)][(kw & wu).value] += n
             licz["M3"] += sum(next(iter(podsum.values())).values()) if podsum else 0
             for sprawa, cnt in podsum.items():
                 W.agregaty[f"orzeczenie:{sprawa}"].dodaj_zbiorczo(cnt, i2, marg[sprawa], alt=ai)
@@ -183,11 +213,59 @@ def przebieg(rej: Rejestr, ad: ZałożeniaDanych = ZałożeniaDanych(),
     return W
 
 
-def k4(W: Wynik, rej: Rejestr) -> dict[int, str]:
-    """K4 rocznie: przy niekompletnym D6 wynik NIEUSTALONY (pkt 9)."""
+LATA = tuple(range(T_START.year, T_END.year + 1))
+
+
+def udział_wadliwych(n_w: int, n_n: int, n_rej: int, n_całość: int | None, x: float) -> W3:
+    """Czy udział orzeczeń WADLIWYCH w roku jest >= X (granice przy niepewności).
+
+    Bez liczby wszystkich orzeczeń roku (D6_ROK) udział jest NIEUSTALONY. Orzeczenia
+    spoza rejestru traktujemy jak nieustalone (mogą być wadliwe albo nie).
+    """
+    if not n_całość:
+        return W3.NIEUST
+    brak = max(0, n_całość - n_rej)
+    dolna = n_w / n_całość
+    górna = (n_w + n_n + brak) / n_całość
+    if dolna >= x:
+        return W3.TAK
+    if górna < x:
+        return W3.NIE
+    return W3.NIEUST
+
+
+def kierownictwo_naruszone_w_roku(kier: list, rok: int) -> W3:
+    """TAK: w roku jest przedział kierownictwa NARUSZONY; NIE: cały rok (w oknie)
+    pokrywają przedziały SPEŁNIONE; w pozostałych przypadkach NIEUSTALONY."""
+    import datetime as _dt
+    od = max(_dt.date(rok, 1, 1), T_START)
+    do = min(_dt.date(rok + 1, 1, 1), T_END)
+    seg = [k for k in kier if k.funkcja in ("prezes", "po_prezesa", "kierowanie")
+           and k.od < do and (k.do is None or k.do > od)]
+    if any(k.wynik == oceny.NARUSZONY for k in seg):
+        return W3.TAK
+    pokryte = od
+    for k in sorted(seg, key=lambda k: k.od):
+        if k.wynik != oceny.SPEŁNIONY or k.od > pokryte:
+            return W3.NIEUST
+        pokryte = max(pokryte, k.do or do)
+        if pokryte >= do:
+            return W3.NIE
+    return W3.NIEUST
+
+
+def k4(W: Wynik, rej: Rejestr) -> dict[tuple[int, float], str]:
+    """K4 rocznie i dla każdego X: rozkład wartości po zbadanych wariantach (pkt 9)."""
     out = {}
-    lata = range(T_START.year, T_END.year + 1)
-    for rok in lata:
-        out[rok] = ("NIEUSTALONY - rejestr orzeczeń (D6) niekompletny; "
-                    f"X ∈ {[f'{x:.0%}' for x in K4_X]}" + (" (rok niepełny)" if rok == T_END.year else ""))
+    d6 = {int(w.a("rok")) for w in rej.typu("D6_ROK")}
+    for (rok, x), cnt in sorted(W.k4.items()):
+        opis = "; ".join(f"{v}: {n:,}".replace(",", " ") for v, n in cnt.most_common())
+        uwagi = []
+        if rok not in d6:
+            uwagi.append("brak liczby orzeczeń roku (D6_ROK)")
+        if rok == T_END.year:
+            uwagi.append("rok niepełny")
+        if rok == T_START.year:
+            uwagi.append(f"od {T_START}")
+        out[(rok, x)] = opis + (f" ({', '.join(uwagi)})" if uwagi else "")
     return out

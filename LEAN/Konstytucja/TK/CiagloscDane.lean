@@ -49,6 +49,8 @@ inductive Typ where
   | t16
   /-- OCENA: ocena interpretacyjna (P11) -/
   | t17
+  /-- D6_ROK: liczba orzeczeń TK w roku (kompletność D6, K4) -/
+  | t18
   deriving DecidableEq, Repr
 
 structure Zdarzenie where

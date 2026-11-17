@@ -134,6 +134,25 @@ class Przedział:
         przed_końcem = W3.TAK if self.do is None else przed(T, self.do)
         return po_początku & przed_końcem
 
+    def zawiera_chwilę(self, c: Chwila) -> W3:
+        """Czy niepewna chwila c (dowolna data z [c.lo, c.hi]) należy do przedziału.
+
+        TAK - każda dopuszczalna data należy; NIE - żadna; NIEUSTALONY - niektóre.
+        Sprawdzane są całe zakresy, a nie tylko końce (recenzja TKI-3).
+        """
+        # pewne zawieranie: najpóźniejszy możliwy początek <= c.lo i c.hi < najwcześniejszy koniec
+        pewny_start = self.od.hi is not None and self.od.hi <= c.lo
+        if self.do is None:
+            pewny_koniec = True
+        else:
+            pewny_koniec = c.hi is not None and c.hi < self.do.lo
+        if pewny_start and pewny_koniec:
+            return W3.TAK
+        # możliwe zawieranie: przecięcie [c.lo, c.hi] z [od.lo, do.hi) niepuste
+        po_starcie = c.hi is None or self.od.lo <= c.hi
+        przed_końcem = self.do is None or self.do.hi is None or c.lo < self.do.hi
+        return W3.NIEUST if (po_starcie and przed_końcem) else W3.NIE
+
     def granice(self) -> list[Data]:
         """Daty, w których status przynależności może się zmienić."""
         out = [self.od.lo]

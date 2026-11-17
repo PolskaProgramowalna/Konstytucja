@@ -1,0 +1,281 @@
+PLAN TESTU CIĄGŁOŚCI TRYBUNAŁU KONSTYTUCYJNEGO
+Stan na 2026-11-16
+
+
+1. PYTANIE I ZASADA
+
+Pytanie: czy, a jeśli tak, to od kiedy, organ działający jako Trybunał
+Konstytucyjny przestał być Trybunałem Konstytucyjnym w rozumieniu
+Konstytucji RP z 2 kwietnia 1997 r.? Czy i kiedy ciągłość została
+przywrócona?
+
+Zasada: jedynym źródłem norm jest Konstytucja. Ustawy, uchwały Sejmu,
+orzeczenia TK, SN, NSA, ETPCz i TSUE oraz opinie Komisji Weneckiej
+traktujemy wyłącznie jako:
+- DANE O FAKTACH (kto, kiedy i co uchwalił, wybrał, powołał, ogłosił),
+- nigdy jako wzorzec oceny.
+Dla wiarygodności danych ustawy też są faktami: ustawa mówi tylko, jaką
+procedurę przyjęto, a nie czy była ona ważna.
+
+Wynik testu nie ma mocy prawnej. Jak w plan.txt (pkt 1) znaczy on zawsze:
+"przy tych założeniach z Konstytucji wynika, że...". Konstytucja nie
+wskazuje organu, który wiążąco ocenia skład samego TK. Art. 188 nie
+obejmuje uchwał personalnych, a art. 190 ust. 1 dotyczy orzeczeń TK,
+których ważność jest właśnie przedmiotem testu. Test jest więc modelem,
+a nie rozstrzygnięciem.
+
+
+2. WZORCE KONSTYTUCYJNE (zamknięta lista)
+
+W1  art. 194 ust. 1 - 15 sędziów, wybieranych INDYWIDUALNIE przez SEJM,
+    na 9 LAT, spośród osób wyróżniających się wiedzą prawniczą,
+    ponowny wybór niedopuszczalny
+W2  art. 194 ust. 2 i art. 144 ust. 3 pkt 21 - Prezesa i Wiceprezesa
+    powołuje Prezydent spośród kandydatów przedstawionych przez
+    Zgromadzenie Ogólne Sędziów TK (bez kontrasygnaty)
+W3  art. 195 ust. 1 i 3 - niezawisłość, podleganie tylko Konstytucji,
+    zakaz przynależności partyjnej i działalności publicznej nie dającej
+    się pogodzić z niezależnością
+W4  art. 10 i art. 173 - TK należy do władzy sądowniczej i jest władzą
+    odrębną i niezależną od innych władz
+W5  art. 188, 189, 79, 193 - zakres kompetencji (definicja funkcji organu)
+W6  art. 190 ust. 1-3 - orzeczenia ostateczne, o mocy powszechnie
+    obowiązującej, podlegają niezwłocznemu ogłoszeniu i wchodzą w życie
+    z dniem ogłoszenia
+W7  art. 197 - organizację i tryb określa ustawa, ale w granicach art. 8
+    ust. 1 (Konstytucja jest najwyższym prawem)
+W8  art. 7 - organy działają na podstawie i w granicach prawa
+    (dotyczy Sejmu, Prezydenta, rządu i samego TK)
+W9  art. 122 ust. 3-4 i art. 126 ust. 3 - zadania Prezydenta "w zakresie
+    i na zasadach określonych w Konstytucji i ustawach"
+W10 art. 235 - jedyna droga do zniesienia lub przekształcenia TK
+    to zmiana Konstytucji
+W11 art. 45 ust. 1 - prawo do "niezależnego, bezstronnego i niezawisłego
+    sądu" (pomocniczo: czy TK jest "sądem" w tym sensie, to założenie Z6)
+
+Czego Konstytucja NIE zawiera. To są luki, które trzeba jawnie
+sparametryzować:
+L1  ślubowania sędziego TK. Dla porównania Konstytucja reguluje
+    ślubowanie posła (art. 104 ust. 2-3), senatora (art. 108) i
+    Prezydenta (art. 130), łącznie ze skutkiem odmowy,
+L2  początku biegu 9-letniej kadencji (od wyboru? od objęcia? od dnia
+    zwolnienia miejsca?),
+L3  kworum i większości Zgromadzenia Ogólnego oraz składów orzekających,
+L4  kadencji Prezesa,
+L5  organu właściwego do oceny ważności wyboru sędziego TK,
+L6  skutku wyboru na miejsce zajęte i możliwości konwalidacji takiego
+    wyboru.
+
+
+3. POJĘCIA TESTU
+
+3.1  MIEJSCE (m = 1..15). Wynika z W1 ("składa się z 15 sędziów").
+     Każde miejsce ma ŁAŃCUCH KADENCJI: kolejne osoby, każda przez
+     najwyżej 9 lat.
+
+3.2  WYBÓR WAŻNY w(p, m, t). Uchwała Sejmu o wyborze osoby p na miejsce m
+     w dniu t jest ważna wobec W1, jeżeli spełnia wszystkie warunki:
+     a) wybór jest indywidualny (jedna uchwała = jedna osoba),
+     b) w dniu objęcia urzędu miejsce m jest WOLNE: poprzednia kadencja
+        upłynęła albo wygasła, a na to miejsce nie został wcześniej
+        ważnie wybrany ktoś inny,
+     c) p nie był wcześniej sędzią TK (zakaz ponownego wyboru),
+     d) kryterium "wiedzy prawniczej" jest poza testem, bo jest ocenne.
+        Zakładamy, że jest spełnione.
+
+3.3  SĘDZIA PRAWOWITY s(p, t). Osoba p jest w dniu t sędzią w rozumieniu
+     Konstytucji, jeżeli istnieje ważny wybór w(p, m, t0), osoba objęła
+     urząd (zob. Z1) i t mieści się w jej 9-letniej kadencji (zob. Z2).
+
+3.4  OSOBA ORZEKAJĄCA o(p, t). Osoba, która faktycznie zasiada w TK
+     (dane z orzeczeń: składy orzekające).
+
+3.5  PREZES PRAWOWITY. Powołanie przez Prezydenta spośród kandydatów
+     przedstawionych przez Zgromadzenie Ogólne (W2), przy czym ZO
+     składa się z sędziów prawowitych (3.3) i spełnia założenie Z3.
+
+3.6  Rozróżniamy cztery wymiary ciągłości. Wynik podajemy osobno dla
+     każdego, bez sumowania:
+     C1 PERSONALNA  - ilu sędziów prawowitych jest w składzie,
+     C2 KIEROWNICZA - czy Prezes (lub osoba kierująca) jest prawowity,
+     C3 ORZECZNICZA - czy składy orzekające składają się wyłącznie
+                      z sędziów prawowitych,
+     C4 FUNKCJONALNA - czy orzeczenia wywołują skutek z art. 190
+                      (ogłoszenie). Uwaga: ten wymiar zależy od innych
+                      organów. Jego naruszenie oznacza ZAKŁÓCENIE, a nie
+                      utratę tożsamości TK. Liczymy go, żeby nie mylić
+                      tych dwóch zjawisk.
+
+3.7  CIĄGŁOŚĆ PRAWNA vs TOŻSAMOŚĆ ORGANU. Z W10 wynika, że TK jako
+     instytucja istnieje nieprzerwanie od 17.10.1997 do dziś, bo
+     Konstytucja nie została zmieniona. Test NIE pyta więc, czy TK
+     "istnieje", tylko czy organ faktycznie działający jako TK w dniu t
+     spełniał wzorce W1-W4 w stopniu pozwalającym przypisać jego
+     czynności Trybunałowi Konstytucyjnemu.
+
+
+4. ZAŁOŻENIA INTERPRETACYJNE (parametry luk L1-L6)
+
+Każde założenie ma warianty. Test liczymy dla każdej kombinacji
+(analiza wrażliwości), a wynik podajemy jako tabelę wariantów.
+
+Z1  Objęcie urzędu (L1):
+    Z1a wybór przez Sejm wystarcza, bo Konstytucja nie wymaga ślubowania,
+    Z1b potrzebne jest ślubowanie wobec Prezydenta, a jego nieprzyjęcie
+        blokuje objęcie urzędu,
+    Z1c ślubowanie jest potrzebne, ale Prezydent nie może go odmówić
+        (wynika to z art. 7 i art. 126 ust. 3, czyli działania "na
+        podstawie i w granicach prawa"). Odmowa traktowana jest jak
+        przyjęcie po upływie rozsądnego terminu T (parametr, np. 30 dni).
+Z2  Początek kadencji (L2):
+    Z2a od dnia zwolnienia miejsca, na które dokonano wyboru,
+    Z2b od dnia objęcia urzędu.
+Z3  Zgromadzenie Ogólne (L3, L4):
+    Z3a do przedstawienia kandydatów potrzebna jest większość
+        prawowitego składu,
+    Z3b wystarczy większość obecnych, przy kworum ponad połowy z 15.
+Z4  Wybór na miejsce zajęte (L6):
+    Z4a jest nieważny trwale i nie konwaliduje się po zwolnieniu
+        miejsca,
+    Z4b staje się skuteczny z dniem zwolnienia miejsca.
+Z5  Próg utraty ciągłości personalnej C1:
+    Z5a pierwsza osoba nieprawowita w składzie,
+    Z5b osoby nieprawowite stanowią co najmniej 1/3 orzekających,
+    Z5c sędziów prawowitych jest mniej niż 8 (większość z 15).
+Z6  Charakter TK wobec art. 45 i art. 10 ust. 2:
+    Z6a TK jest "trybunałem" władzy sądowniczej (art. 10 ust. 2,
+        art. 173), więc wymogi niezależności z art. 45 stosuje się
+        odpowiednio,
+    Z6b art. 45 nie dotyczy TK. Wtedy C3 ocenia się tylko według W1-W4.
+
+
+5. DANE WEJŚCIOWE (fakty, nie normy)
+
+D1  Rejestr uchwał Sejmu o wyborze sędziów TK od 1997 r.: data, osoba,
+    publikacja. Źródło: Monitor Polski (api.sejm.gov.pl/eli,
+    wyszukiwanie "w sprawie wyboru sędziego Trybunału Konstytucyjnego").
+D2  Uchwały Sejmu o "braku mocy prawnej" i podobne (25.11.2015,
+    6.03.2024, 13.03.2026). To DANE o stanowisku Sejmu, a nie wzorzec.
+D3  Daty ślubowań wobec Prezydenta i odmów ich przyjęcia.
+D4  Postanowienia Prezydenta o powołaniu Prezesa, Wiceprezesa oraz
+    o powierzeniu obowiązków (M.P.).
+D5  Uchwały i protokoły Zgromadzenia Ogólnego (skład, liczba głosów).
+D6  Składy orzekające wszystkich orzeczeń (ipo.trybunal.gov.pl,
+    metryka sprawy).
+D7  Daty ogłoszenia orzeczeń w Dz.U. i M.P. (api.sejm.gov.pl/eli).
+D8  Daty śmierci, zrzeczenia się, przejścia w stan spoczynku i końca
+    kadencji.
+Dane robocze są już zebrane w TK/KryzysKonstytucyjny.md (kroki 1-42).
+Rejestr D1 trzeba jednak uzupełnić o lata 2006-2014, żeby odtworzyć
+łańcuchy wszystkich 15 miejsc.
+
+
+6. PROCEDURA TESTU (kroki)
+
+Krok 1. Zbuduj REJESTR MIEJSC: tabelę 15 miejsc x łańcuch kadencji od
+        1997 r. Każdy wybór z D1 przypisz do miejsca, którego kadencja
+        wygasa najbliżej daty planowanego objęcia urzędu. Wybory
+        "na zapas" i "na miejsce zajęte" oznacz flagą.
+Krok 2. Dla każdego wyboru oblicz w(p, m, t) według 3.2, w wariantach
+        Z2 i Z4.
+Krok 3. Dla każdej osoby oblicz przedział, w którym jest sędzią
+        prawowitym (3.3), w wariantach Z1 i Z2.
+Krok 4. Dla każdego dnia t od 1.10.2015 do dziś oblicz:
+        P(t) = liczba sędziów prawowitych,
+        N(t) = liczba osób orzekających, które nie są prawowite,
+        V(t) = liczba miejsc wolnych lub zablokowanych (np. wybrany,
+               ale bez objęcia urzędu w Z1b).
+Krok 5. Test C1: pierwszy dzień t1, w którym spełniony jest próg Z5
+        (osobno dla Z5a, Z5b i Z5c), oraz ewentualny dzień t1', od
+        którego próg przestaje być spełniony (przywrócenie).
+Krok 6. Test C2: dla każdej osoby kierującej TK (D4) sprawdź W2 i 3.5
+        w wariantach Z3. Wynik to przedziały, w których kierownictwo
+        było lub nie było prawowite. Osobno oceń "pełnienie obowiązków
+        Prezesa" na podstawie postanowienia Prezydenta. Konstytucja zna
+        tylko powołanie spośród kandydatów ZO (W2), więc taka czynność
+        jest NIEPRZEWIDZIANA. Zapisz ją jako osobny wynik, a nie
+        automatycznie jako wadę.
+Krok 7. Test C3: dla każdego orzeczenia (D6) sprawdź, czy wszyscy
+        członkowie składu byli prawowici w dniu orzekania. Jeżeli o
+        składzie decydował Prezes, sprawdź też, czy był prawowity (C2).
+        Wynik to odsetek orzeczeń wadliwych w każdym roku.
+Krok 8. Test C4: dla każdego orzeczenia z art. 188 sprawdź opóźnienie
+        ogłoszenia (D7) względem W6 ("niezwłocznie"). Próg niezwłoczności
+        jest parametrem, np. 14 dni. Zapisz okresy masowego
+        nieogłaszania i organ odpowiedzialny.
+Krok 9. Test zależności (sprawy we własnej sprawie). Wskaż orzeczenia,
+        w których TK oceniał normy o własnym składzie lub o ważności
+        wyboru osób zasiadających w składzie. Sprawdź, czy osoby, których
+        status był przedmiotem sprawy, orzekały w tej sprawie. Wzorcem
+        jest W3: niezawisłość i bezstronność (art. 195 ust. 1).
+Krok 10. Synteza. Dla każdej kombinacji założeń Z1-Z6 podaj:
+        - czy C1, C2 i C3 zostały naruszone (TAK/NIE),
+        - datę pierwszego naruszenia,
+        - datę ewentualnego przywrócenia,
+        - liczbę orzeczeń dotkniętych naruszeniem.
+        Werdykt "utrata ciągłości (tożsamości) organu" wymaga naruszenia
+        C1 albo łącznie C2 i C3. Samo naruszenie C4 to werdykt
+        "zakłócenie funkcjonowania przez inne organy".
+Krok 11. Kontrola spójności. Wariant najbardziej przychylny obecnemu
+        składowi (Z1b, Z2b, Z4b, Z5c) i wariant najbardziej surowy
+        (Z1a lub Z1c, Z2a, Z4a, Z5a) wyznaczają przedział. Jeżeli oba
+        dają ten sam werdykt, wynik nie zależy od interpretacji luk.
+Krok 12. Formalizacja w Lean 4 (zgodnie z plan.txt). Moduł
+        LEAN/Konstytucja/TK/Ciaglosc.lean:
+        - typy: Miejsce (Fin 15), Osoba, Data, Wybor, Kadencja,
+        - predykaty: wyborWazny, sedziaPrawowity, prezesPrawowity,
+        - założenia Z1-Z6 jako parametry struktury `Interpretacja`,
+        - twierdzenia postaci: dla interpretacji I i danych D
+          `utrataC1 I D t1` oraz `forall t < t1, ¬ utrataC1 I D t`,
+        - dane D generowane skryptem z rejestru CSV
+          (LEAN/dane/tk_rejestr.csv).
+
+
+7. PUNKTY KRYTYCZNE DO SPRAWDZENIA W PIERWSZEJ KOLEJNOŚCI
+
+To hipotezy robocze z danych w TK/, a NIE wyniki testu. Test ma je
+potwierdzić albo obalić.
+H1  8.10.2015 - wybór 2 osób "na zapas" (miejsca zwalniane w grudniu
+    2015). Pytanie o 3.2 b): czy miejsce musi być wolne w dniu wyboru,
+    czy dopiero w dniu objęcia urzędu.
+H2  2-3.12.2015 - wybór i ślubowanie 3 osób na miejsca, na które ważnie
+    wybrano już osoby 8.10.2015. To pierwszy kandydat na t1 dla C1
+    przy Z5a.
+H3  20-21.12.2016 - powierzenie obowiązków i powołanie Prezesa przy
+    udziale osób z H2 w ZO. To kandydat na początek naruszenia C2.
+H4  2017-2018 - wybory na miejsca po zmarłych osobach z H2. Rozstrzyga
+    je Z4: czy miejsce "zajęte nieważnie" jest wolne dla następcy, czy
+    nadal należy do łańcucha osoby wybranej w 2015 r.
+H5  7.11.2024 - koniec hipotetycznej kadencji osób wybranych w 2015 r.
+    Kandydat na datę zwolnienia miejsc w łańcuchach z H2 i H4.
+H6  3-9.12.2024 - koniec kadencji Muszyńskiego, Pszczółkowskiego
+    i Przyłębskiej oraz zmiana Prezesa. Kandydat na t1' (przywrócenie)
+    przy Z4b albo na kontynuację naruszenia C2 przy Z3a.
+H7  od 4.03.2024 - brak ogłaszania orzeczeń (C4).
+H8  13.03-14.10.2026 - wybory na miejsca wolne i odmowy przyjęcia
+    ślubowania. Tu wynik C1 zależy wprost od Z1.
+H9  30.10.2026 - zmiana osoby kierującej TK bez czynności z W2.
+    Test C2 dla nowego kierownictwa.
+
+
+8. WYNIK (format pliku wynikowego TK/Wynik_testu_ciaglosci.md)
+
+- Tabela A: rejestr 15 miejsc z łańcuchami i flagami.
+- Tabela B: P(t), N(t) i V(t) w punktach zmiany.
+- Tabela C: werdykty C1-C4 dla każdej kombinacji Z1-Z6 (daty t1, t1').
+- Tabela D: orzeczenia wadliwe według C3, liczone rocznie.
+- Sekcja "Zależność od interpretacji": które założenie zmienia werdykt.
+- Każdy fakt opatrzony źródłem (ELI, IPO), każda ocena tylko
+  numerem wzorca (W1-W11).
+
+
+9. OGRANICZENIA
+
+- Konstytucja milczy w sprawach L1-L6. Werdykt zawsze zależy więc
+  od jawnie przyjętych założeń.
+- Test ocenia zgodność z Konstytucją, a nie skutki prawne w systemie.
+  Nie rozstrzyga, czy orzeczenia obowiązują, ani kto może to wiążąco
+  stwierdzić (luka L5).
+- Kryterium "wiedzy prawniczej" i niezależności osobistej (W3 w części
+  ocennej) wyłączono z automatycznego testu. Można je opisać, ale nie
+  liczyć.
